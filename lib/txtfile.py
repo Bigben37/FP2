@@ -11,10 +11,10 @@ class TxtFile(object):
 
     """Basic writing to encoded text files"""
 
-    PM = unichr(0x00B1)                      # plus/minus
-    CHI = unichr(0x03C7)
-    SQUARE = unichr(0x00B2)
-    CHISQUARE = unichr(0x03C7) + unichr(0x00B2)
+    PM = chr(0x00B1)                      # plus/minus
+    CHI = chr(0x03C7)
+    SQUARE = chr(0x00B2)
+    CHISQUARE = chr(0x03C7) + chr(0x00B2)
 
     def __init__(self, path, mode, enc='utf-8'):
         """Constructor, opens file

@@ -2,12 +2,9 @@
 """some useful functions which dont fit in any class"""
 
 __author__ = "Benjamin Rottler (benjamin@dierottlers.de)"
-
+import numpy as np
 from ROOT import gROOT, gStyle
 import os
-
-import numpy as np
-
 
 def loadCSVToList(path, delimiter='\t'):
     """loads data in CSV-file to a list of lists.
