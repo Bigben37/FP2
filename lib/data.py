@@ -291,19 +291,19 @@ class DataErrors(GeneralData):
 
     def getX(self):
         """returns all x-values in a list"""
-        return list(zip(*self._points)[0])
+        return list(zip(*self._points))[0]
 
     def getY(self):
         """returns all y-values in a list"""
-        return list(zip(*self._points)[1])
+        return list(zip(*self._points))[1]
 
     def getEX(self):
         """returns all x-error-values in a list"""
-        return list(zip(*self._points)[2])
+        return list(zip(*self._points))[2]
 
     def getEY(self):
         """returns all y-error-values in a list"""
-        return list(zip(*self._points)[3])
+        return list(zip(*self._points))[3]
 
     def addPoint(self, x, y, ex, ey):
         """adds the point [x, y, ex, ey] to the list of points
