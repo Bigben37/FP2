@@ -1,0 +1,106 @@
+\documentclass[12pt, a4paper]{scrartcl}
+
+% CONFIG
+\newcommand{\exptitle}{ExpName}       % long name of experiment 
+\newcommand{\exptitleshort}{ShortExp} % short name of experiment
+\newcommand{\expdate}{Date}           % date of experiment
+\newcommand{\exptutor}{Betreuer}
+
+% PACKAGES + MODIFICATIONS
+\usepackage[ngerman]{babel} %standard language stuff
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{textgreek}
+
+\usepackage[fleqn]{amsmath}  % math
+\usepackage{amssymb}
+
+\usepackage{graphicx} %graphics
+\usepackage{float} 
+
+\usepackage[automark,headsepline]{scrlayer-scrpage} %headings
+\pagestyle{scrheadings}
+\ihead{\exptitleshort}
+\ohead{\pagemark}
+\cfoot{}
+
+\usepackage{hyperref}
+\hypersetup{
+    unicode=true,          % non-Latin characters in Acrobat’s bookmarks
+    pdftoolbar=true,       % show Acrobat’s toolbar?
+    pdfmenubar=true,       % show Acrobat’s menu?
+    pdffitwindow=false,    % window fit to page when opened
+    pdfstartview={FitH},   % fits the width of the page to the window
+    pdfnewwindow=true,     % links in new window
+    colorlinks=true,       % false: boxed links; true: colored links
+    linkcolor=blue,       % color of internal links (change box color with linkbordercolor)
+    citecolor=green,       % color of links to bibliography
+    filecolor=magenta,     % color of file links
+    urlcolor=blue          % color of external links
+}
+
+\usepackage[labelfont=bf]{caption} % bold captions
+
+\usepackage{chngcntr} % change behaviour of counters in different environments
+\counterwithin{figure}{section}  % number figures per section
+\numberwithin{equation}{section} % number equations per section
+\numberwithin{table}{section}    % number tables per section
+
+\usepackage{enumerate} % better way to config enumerates
+
+\setcounter{tocdepth}{2} % table of contents depth
+
+\setlength{\parindent}{0pt} % no indent on new paragraph
+
+\usepackage{pdfpages} % include pdf files
+
+% NEW COMMANDS
+
+% DOCUMENT SETTINGS
+
+\title{\exptitle}
+\subtitle{Fortgeschrittenen-Praktikum 1}
+\author{Moritz Bitterling und Benjamin Rottler \\ Universität Freiburg}
+\date{\expdate}
+
+% DOCUMENT
+\begin{document}
+
+\hypersetup{pageanchor=false} %stop page numbering (hyperref) to prevent for double page numers
+\input{titlepage}
+\thispagestyle{empty}
+
+\newpage
+Alle Berechnungen in diesem Protokoll wurden unter Python 2.7 mit Hilfe folgender Programmbibliotheken
+\begin{itemize}
+  \item PyROOT (\url{http://root.cern.ch/drupal/content/pyroot})
+  \item NumPy (\url{http://www.numpy.org/})
+\end{itemize}
+oder mit oder Mathematica 10 durchgeführt.
+Die Graphiken wurden mit Inkscape (\url{http://www.inkscape.org}) gezeichnet.\\[\baselineskip]
+Alle Python-Skripte, \LaTeX-Skripte und SVG-Graphiken können online unter \\
+\url{https://github.com/Bigben37/FP2/tree/master/} abgerufen werden. %TODO GitHub URL
+\thispagestyle{empty}
+
+\newpage
+\tableofcontents
+\thispagestyle{empty}
+
+\newpage
+\hypersetup{pageanchor=true} %start page numbering again
+\setcounter{page}{1} %set to page 1
+
+\input{01_Ziel} 
+\input{02_Grundlagen}
+\input{03_Aufbau}
+\input{04_Durchfuerung}
+\input{05_Auswertung}
+
+%TODO add when finished
+%\appendix
+%\section{Anhang}
+%\subsection{Messprotokoll}
+%\includepdf[pages={-}]{../data/protokoll.pdf}
+
+
+\end{document}
