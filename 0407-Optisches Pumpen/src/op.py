@@ -3,6 +3,7 @@ import os
 from data import DataErrors
 # make sure to add ../../lib to your project path or copy files from there
 # ========================================================================
+from numpy import sqrt
 
 class OPData(DataErrors):
 
@@ -40,3 +41,10 @@ def prepareGraph(g):
     g.SetMarkerSize(0.2)
     g.SetLineColor(15)
     g.SetLineWidth(0)
+    
+inductorIToBVals = {1:(7.99e-4, 0.01e-4), 2:(8.14e-4, 0.01e-4), 4:(4.76e-4, 0.01e-4)}
+def inductorIToB(number, current, error):
+    IToB, sIToB = inductorIToBVals[number]
+    B = IToB * current
+    sB = B * sqrt((sIToB/IToB)**2 + (error/current)**2)
+    return B, sB

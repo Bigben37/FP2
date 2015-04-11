@@ -35,6 +35,5 @@ def main():
             plotData(file)
 
 if __name__ == '__main__':
-    print(os.getcwd())
     setupROOT()
     main()
