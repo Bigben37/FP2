@@ -3,7 +3,7 @@ import os
 from data import DataErrors
 # make sure to add ../../lib to your project path or copy files from there
 # ========================================================================
-from numpy import sqrt
+from numpy import sqrt, mean
 
 class OPData(DataErrors):
 
@@ -35,6 +35,46 @@ class OPData(DataErrors):
                     y = datapoint[self.channel]
                     self.addPoint(x, y, 0, 0)
                 i += 1
+    
+    def rebin(self, binsize):
+        xvals = self.getX()
+        yvals = self.getY()
+        exvals = self.getEX()
+        eyvals = self.getEY()
+        i = 0
+        data = OPData()
+        while i <= self.getLength():
+            currxs = xvals[i:i + binsize]
+            currys = yvals[i:i + binsize]
+            currexs = exvals[i:i + binsize]
+            curreys = eyvals[i:i + binsize]
+            x = mean(currxs)
+            y = mean(currys)
+            ex = mean(currexs)
+            ey = mean(curreys)
+            data.addPoint(x, y, ex, ey)
+            i += binsize
+        return data
+
+    def findExtrema(self, steps, xstart, xend, minimum=True):
+        """finds extrema in data points by comparing nearby values
+        
+        Arguments:
+        steps   -- number of comparisons to right and left side
+        xstart  -- start of x interval in which extrema are analyzed
+        xend    -- end of x interval in which extrema are anayzed
+        minimum -- if true searches for minima, if false searches for maxima (default = True)
+        """
+        m = 1 if minimum else -1  # modifier for maxima/minimia
+        data = OPData()
+        for i in range(steps, self.getLength() - steps):
+            if xstart <= self.points[i][0]  <= xend:
+                passed = True
+                for j in range(-steps, steps):
+                    passed = passed and (m*self.points[i][1] <= m*self.points[i+j][1])
+                if passed:
+                    data.addPoint(*self.points[i])
+        return data
                 
 def prepareGraph(g):
     g.SetMarkerStyle(8)

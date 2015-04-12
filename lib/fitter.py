@@ -3,8 +3,8 @@
 
 __author__ = "Benjamin Rottler (benjamin@dierottlers.de)"
 
+#from scipy.stats import chi2            # for p-value of chi^2
 from ROOT import TF1, TVirtualFitter    # ROOT library
-from scipy.stats import chi2            # for p-value of chi^2
 from txtfile import TxtFile             # basic output to txt files, can be found the /lib directory
 
 
@@ -68,14 +68,14 @@ class Fitter:
         freeparams = dict()  # map cov. matrix index to params index, only not fixed params are in cov. matrix
         freecount = 0
         fixedcount = 0
-        for i, param in self.params.iteritems():
+        for i, param in self.params.items():
             if param['fixed']:
                 fixedcount += 1
             else:
                 freecount += 1
                 freeparams[i - fixedcount] = i
-        self._covMatrix = [[self.virtualFitter.GetCovarianceMatrixElement(col, row) for row in xrange(freecount)] for col in xrange(freecount)]
-        self._corrMatrix = [[self._covMatrix[col][row] / (self.params[freeparams[col]]['error'] * self.params[freeparams[row]]['error']) for row in xrange(freecount)] for col in xrange(freecount)]
+        self._covMatrix = [[self.virtualFitter.GetCovarianceMatrixElement(col, row) for row in range(freecount)] for col in range(freecount)]
+        self._corrMatrix = [[self._covMatrix[col][row] / (self.params[freeparams[col]]['error'] * self.params[freeparams[row]]['error']) for row in range(freecount)] for col in range(freecount)]
 
     def getFunction(self):
         """returns fit function"""
@@ -95,13 +95,13 @@ class Fitter:
         """returns chi^2 over degrees of freedom of fit"""
         return self.getChisquare() / self.getDoF()
 
-    def getPValue(self):
-        """returns p-value of chi^2 test"""
-        p = chi2.cdf(self.getChisquare(), self.getDoF())
-        if p < 0.5:
-            return p, 'l'
-        else:
-            return 1 - p, 'r'
+    # def getPValue(self):
+    #     """returns p-value of chi^2 test"""
+    #     p = chi2.cdf(self.getChisquare(), self.getDoF())
+    #     if p < 0.5:
+    #         return p, 'l'
+    #     else:
+    #         return 1 - p, 'r'
 
     def getCovMatrix(self):
         """returns covariance matrix of fit"""
@@ -143,11 +143,11 @@ class Fitter:
             f.writeline(TxtFile.CHISQUARE + ':\t\t' + str(self.getChisquare()))
             f.writeline('DoF:\t' + str(self.getDoF()))
             f.writeline(TxtFile.CHISQUARE + '/DoF:\t' + str(self.getChisquareOverDoF()))
-            f.writeline('\t', 'p-value:', *map(str, self.getPValue()))
+            #f.writeline('\t', 'p-value:', *map(str, self.getPValue()))
             f.writeline('')
             f.writeline('parameters')
             f.writeline('==========')
-            for i, param in self.params.iteritems():
+            for i, param in self.params.items():
                 f.writeline('\t', str(i), param['name'], str(param['value']), TxtFile.PM, str(param['error']))
             f.writeline('')
             f.writeline('covariance matrix')
