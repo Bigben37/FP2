@@ -1,0 +1,196 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      6766,        187]
+NotebookOptionsPosition[      6306,        167]
+NotebookOutlinePosition[      6642,        182]
+CellTagsIndexPosition[      6599,        179]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"ClearAll", "[", "\"\<Global`*\>\"", "]"}], ";"}]], "Input",
+ CellChangeTimes->{{3.621844855854296*^9, 3.621844872308702*^9}, {
+  3.621844912062986*^9, 3.621844913017854*^9}, {3.637924979348443*^9, 
+  3.637924979946639*^9}, {3.637925013173019*^9, 3.637925021970982*^9}}],
+
+Cell[BoxData[
+ RowBox[{"<<", "HypothesisTesting`"}]], "Input"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"\[Chi]2", "=", "1400"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"DoF", "=", "1374"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Chi]2", "/", "DoF"}], "//", "N"}], "\[IndentingNewLine]", 
+ RowBox[{"Plot", "[", 
+  RowBox[{
+   RowBox[{"PDF", "[", 
+    RowBox[{
+     RowBox[{"ChiSquareDistribution", "[", "DoF", "]"}], ",", "x"}], "]"}], 
+   ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", "0", ",", 
+     RowBox[{"2", "DoF"}]}], "}"}], ",", 
+   RowBox[{"GridLines", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"\[Chi]2", ",", "DoF", ",", 
+        RowBox[{"DoF", "-", "2"}]}], "}"}], ",", 
+      RowBox[{"{", "}"}]}], "}"}]}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"pVall", "=", 
+  RowBox[{
+   RowBox[{"Integrate", "[", 
+    RowBox[{
+     RowBox[{"PDF", "[", 
+      RowBox[{
+       RowBox[{"ChiSquareDistribution", "[", "DoF", "]"}], ",", "x"}], "]"}], 
+     ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", "0", ",", "\[Chi]2"}], "}"}]}], "]"}], "//", 
+   "N"}]}], "\[IndentingNewLine]", 
+ RowBox[{"pValr", "=", 
+  RowBox[{
+   RowBox[{"Integrate", "[", 
+    RowBox[{
+     RowBox[{"PDF", "[", 
+      RowBox[{
+       RowBox[{"ChiSquareDistribution", "[", "DoF", "]"}], ",", "x"}], "]"}], 
+     ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", "\[Chi]2", ",", "\[Infinity]"}], "}"}]}], "]"}], "//",
+    "N"}]}], "\[IndentingNewLine]", 
+ RowBox[{"ChiSquarePValue", "[", 
+  RowBox[{"\[Chi]2", ",", "DoF"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.621662850562732*^9, 3.621662907585441*^9}, {
+   3.621674182474967*^9, 3.621674186505104*^9}, {3.621674254812095*^9, 
+   3.621674262704345*^9}, {3.621674558101384*^9, 3.621674566600337*^9}, 
+   3.621674605529621*^9, {3.62167509643198*^9, 3.621675105127899*^9}, {
+   3.621675202155292*^9, 3.621675202351387*^9}, 3.621675234942244*^9, {
+   3.621675286288778*^9, 3.621675308839148*^9}, {3.621675606483576*^9, 
+   3.621675613095496*^9}, 3.621677641605638*^9, {3.621677679361932*^9, 
+   3.621677684990182*^9}, {3.621677763834474*^9, 3.621677810380654*^9}, {
+   3.62184346310123*^9, 3.62184348138655*^9}, {3.621843595027081*^9, 
+   3.62184364945349*^9}, {3.62184368831473*^9, 3.621843705254079*^9}, {
+   3.621843736198979*^9, 3.621843788012141*^9}, {3.621844084221642*^9, 
+   3.621844107921983*^9}, {3.621844142316782*^9, 3.621844169167076*^9}, {
+   3.62184456776934*^9, 3.621844578988594*^9}, {3.621844610781546*^9, 
+   3.621844714832991*^9}, {3.621844918949601*^9, 3.621844930812921*^9}, {
+   3.621847208191432*^9, 3.621847242479393*^9}, {3.621847312608817*^9, 
+   3.62184731300527*^9}, {3.6230553165506687`*^9, 3.623055329171822*^9}, 
+   3.623056101203623*^9, {3.623056563524213*^9, 3.623056564760982*^9}, {
+   3.623056802563456*^9, 3.6230568059327374`*^9}, {3.637924988213482*^9, 
+   3.637924991044751*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Plot", "[", 
+  RowBox[{
+   RowBox[{"OneSidedPValue", "/.", 
+    RowBox[{"ChiSquarePValue", "[", 
+     RowBox[{"x", ",", "DoF"}], "]"}]}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", "0", ",", 
+     RowBox[{"3", "DoF"}]}], "}"}], ",", 
+   RowBox[{"PlotRange", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"0", ",", "0.6"}], "}"}]}], ",", 
+   RowBox[{"GridLines", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"DoF", "-", "1"}], ",", "DoF", ",", "\[Chi]2"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"pVall", ",", "pValr"}], "}"}]}], "}"}]}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.621674454833513*^9, 3.621674454856943*^9}, {
+  3.621674665779092*^9, 3.621674725703062*^9}, {3.621674776424703*^9, 
+  3.62167479833437*^9}, {3.621675115297924*^9, 3.621675117676105*^9}, {
+  3.621675245244216*^9, 3.621675273513349*^9}, {3.621677861083735*^9, 
+  3.621677875875308*^9}, {3.621843523744157*^9, 3.621843569222088*^9}, {
+  3.621844790099192*^9, 3.621844792581929*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Konfidenzintervalle f\[UDoubleDot]r 5 % und 1 % Signifikanzlevel", \
+"Subsection",
+ CellChangeTimes->{{3.621847138020274*^9, 3.621847185396475*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"NSolve", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Assuming", "[", 
+     RowBox[{
+      RowBox[{"\[Chi]2t", ">", "0"}], ",", 
+      RowBox[{"Integrate", "[", 
+       RowBox[{
+        RowBox[{"PDF", "[", 
+         RowBox[{
+          RowBox[{"ChiSquareDistribution", "[", 
+           RowBox[{"DoF", "+", "0.001"}], "]"}], ",", "x"}], "]"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"x", ",", "\[Chi]2t", ",", "\[Infinity]"}], "}"}]}], "]"}]}],
+      "]"}], "\[Equal]", "0.05"}], ",", "\[Chi]2t"}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"NSolve", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Assuming", "[", 
+     RowBox[{
+      RowBox[{"\[Chi]2t", ">", "0"}], ",", 
+      RowBox[{"Integrate", "[", 
+       RowBox[{
+        RowBox[{"PDF", "[", 
+         RowBox[{
+          RowBox[{"ChiSquareDistribution", "[", 
+           RowBox[{"DoF", "+", "0.0001"}], "]"}], ",", "x"}], "]"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"x", ",", "\[Chi]2t", ",", "\[Infinity]"}], "}"}]}], "]"}]}],
+      "]"}], "\[Equal]", "0.01"}], ",", "\[Chi]2t"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.62184688866401*^9, 3.621846941595846*^9}, {
+  3.621847006234131*^9, 3.621847049136066*^9}, {3.621847097646061*^9, 
+  3.621847119879071*^9}, {3.621847260331197*^9, 3.62184730638686*^9}}]
+}, Open  ]]
+},
+WindowSize->{1366, 714},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"10.0 for Linux x86 (64-bit) (December 4, 2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 304, 5, 32, "Input"],
+Cell[865, 27, 62, 1, 32, "Input"],
+Cell[930, 30, 2839, 65, 165, "Input"],
+Cell[3772, 97, 1041, 25, 32, "Input"],
+Cell[CellGroupData[{
+Cell[4838, 126, 154, 2, 47, "Subsection"],
+Cell[4995, 130, 1295, 34, 55, "Input"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
