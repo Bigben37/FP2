@@ -43,3 +43,13 @@ def setupROOT():
     gROOT.SetStyle('Plain')
     gStyle.SetPadTickY(1)
     gStyle.SetPadTickX(1)
+    
+def compare2Floats(a, b, rel_prec=1e-16):
+    """compares 2 floats with relative precision treshold
+    
+    Arguments:
+    a -- first float
+    b -- second float
+    rel_prec -- relative precision of error (default=1e-16)
+    """
+    return abs(a-b) <= rel_prec * max(abs(a), abs(b))
