@@ -158,7 +158,7 @@ class Data(GeneralData):
         ylist -- list for y values
         """
         if len(xlist) == len(ylist):
-            self._points = zip(xlist, ylist)
+            self._points = list(zip(xlist, ylist))
         else:
             print('Data.setXY(x, ypyth):ERROR - lists have to be the same length')
 
@@ -326,7 +326,7 @@ class DataErrors(GeneralData):
         eylist -- list for y error values
         """
         if len(xlist) == len(ylist) == len(exlist) == len(eylist):
-            self._points = zip(xlist, ylist, exlist, eylist)
+            self._points = list(zip(xlist, ylist, exlist, eylist))
         else:
             print('Data.setXY(x, y, ex, ey):ERROR - lists have to be the same length')
 
