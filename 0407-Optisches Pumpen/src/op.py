@@ -5,14 +5,16 @@ from data import DataErrors
 # ========================================================================
 from numpy import sqrt, mean
 
+
 class OPData(DataErrors):
 
-    CH1 = 1;
-    CH2 = 2;
+    CH1 = 1
+    CH2 = 2
+    OFFSET = 0.000275
 
     def __init__(self):
         super().__init__()
-        self.channel = OPData.CH1;
+        self.channel = OPData.CH1
 
     @classmethod
     def fromPath(cls, path, channel):
@@ -35,8 +37,14 @@ class OPData(DataErrors):
                     y = datapoint[self.channel]
                     self.addPoint(x, y, 0, 0)
                 i += 1
-    
+        self.setYErrorAbs(self.getMinDeltaY())
+
     def rebin(self, binsize):
+        """rebins data
+
+        Arguments:
+        binsize -- number of bins/values to average
+        """
         xvals = self.getX()
         yvals = self.getY()
         exvals = self.getEX()
@@ -58,7 +66,7 @@ class OPData(DataErrors):
 
     def findExtrema(self, steps, xstart, xend, minimum=True):
         """finds extrema in data points by comparing nearby values
-        
+
         Arguments:
         steps   -- number of comparisons to right and left side
         xstart  -- start of x interval in which extrema are analyzed
@@ -67,24 +75,46 @@ class OPData(DataErrors):
         """
         m = 1 if minimum else -1  # modifier for maxima/minimia
         data = OPData()
+        minDeltaY = 3 * self.getMinDeltaY()
         for i in range(steps, self.getLength() - steps):
-            if xstart <= self.points[i][0]  <= xend:
+            if xstart <= self.points[i][0] <= xend:
                 passed = True
-                for j in range(-steps, steps):
-                    passed = passed and (m*self.points[i][1] <= m*self.points[i+j][1])
-                if passed:
+                sumDeltaY = 0
+                for j in range(-steps, steps + 1):
+                    passed = passed and (m * self.points[i][1] <= m * self.points[i + j][1])
+                    sumDeltaY += abs(self.points[i][1] - self.points[i + j][1])
+                if passed and sumDeltaY > minDeltaY:
                     data.addPoint(*self.points[i])
         return data
-                
+
+    def getMinDeltaX(self):
+        """get x bin error"""
+        deltas = set()
+        for i in range(self.getLength() - 1):
+            deltas.add(self.points[i + 1][0] - self.points[i][0])
+        return min(deltas)
+
+    def getMinDeltaY(self):
+        """get y bin error"""
+        deltas = set()
+        for i in range(self.getLength() - 1):
+            deltas.add(abs(self.points[i + 1][1] - self.points[i][1]))
+        deltas.discard(0)
+        return min(deltas)
+
+
 def prepareGraph(g):
-    g.SetMarkerStyle(8)
-    g.SetMarkerSize(0.2)
-    g.SetLineColor(15)
-    g.SetLineWidth(0)
-    
-inductorIToBVals = {1:(7.99e-4, 0.01e-4), 2:(8.14e-4, 0.01e-4), 4:(4.76e-4, 0.01e-4)}
+    g.SetMarkerStyle(8)  # round points
+    g.SetMarkerSize(0.2)  # size of points
+    g.SetLineColor(15)  # grey error bars
+    g.SetLineWidth(0)  # error bar width
+
+
+inductorIToBVals = {1: (7.99e-4, 0.01e-4), 2: (8.14e-4, 0.01e-4), 4: (4.76e-4, 0.01e-4)}
+
+
 def inductorIToB(number, current, error):
     IToB, sIToB = inductorIToBVals[number]
     B = IToB * current
-    sB = B * sqrt((sIToB/IToB)**2 + (error/current)**2)
+    sB = B * sqrt((sIToB / IToB) ** 2 + (error / current) ** 2)
     return B, sB

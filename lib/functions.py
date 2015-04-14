@@ -6,6 +6,7 @@ import numpy as np
 from ROOT import gROOT, gStyle
 import os
 
+
 def loadCSVToList(path, delimiter='\t'):
     """loads data in CSV-file to a list of lists.
 
@@ -20,7 +21,8 @@ def loadCSVToList(path, delimiter='\t'):
         with open(p, 'r') as f:
             for line in f:
                 try:
-                    data.append(list(map(lambda x: float(x) if x else None, line.strip().split(delimiter))))  # remove \n, split by delimiter, convert to float
+                    # remove \n, split by delimiter, convert to float
+                    data.append(list(map(lambda x: float(x) if x else None, line.strip().split(delimiter))))
                 except ValueError:
                     print('Warning: Could not convert %s' % line)
         return data
@@ -37,19 +39,21 @@ def avgerrors(values, errors):
     avg = sum(map(lambda v, e: v / (e ** 2), values, errors)) * var
     return avg, np.sqrt(var)
 
+
 def setupROOT():
     """sets up ROOT """
     gROOT.Reset()
     gROOT.SetStyle('Plain')
     gStyle.SetPadTickY(1)
     gStyle.SetPadTickX(1)
-    
+
+
 def compare2Floats(a, b, rel_prec=1e-16):
     """compares 2 floats with relative precision treshold
-    
+
     Arguments:
     a -- first float
     b -- second float
     rel_prec -- relative precision of error (default=1e-16)
     """
-    return abs(a-b) <= rel_prec * max(abs(a), abs(b))
+    return abs(a - b) <= rel_prec * max(abs(a), abs(b))

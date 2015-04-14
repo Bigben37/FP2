@@ -160,14 +160,14 @@ class Fitter:
             f.writeline()
             f.close()
 
-    def addParamsToLegend(self, legend, format='', chisquare=True, chisquareformat='%.2e', advancedchi=False, units=None, lang='de'):
+    def addParamsToLegend(self, legend, formatStyle='', chisquare=True, chisquareformat='%.2e', advancedchi=False, units=None, lang='de'):
         """adds fit information to legend
 
         Arguments:
         legend          -- TLegend object
-        format          -- format of values and errors, list of two entry tuples, if empty ('%e', '%e') will be used
+        formatStyle     -- formatStyle of values and errors, list of two entry tuples, if empty ('%e', '%e') will be used
         chisquare       -- show chi^2 (Default=True)
-        chisquareformat -- format string for chi^2 value (Default='%e')
+        chisquareformat -- formatStyle string for chi^2 value (Default='%e')
         lang            -- langeuage for parameter heading, 'de' or 'en' (default='de')         
         """
         # chi squared
@@ -183,13 +183,13 @@ class Fitter:
             lang_param = 'parameters:'
         legend.AddEntry(0, lang_param, '')
         # add params
-        for i, param in self.params.iteritems():
+        for i, param in self.params.items():
             if param['fixed']:
                 label = '%s'
                 if units:
                     label = label + ' ' + units[i]
-                if format:
-                    label = '%s: ' + label % format[i]
+                if formatStyle:
+                    label = '%s: ' + label % formatStyle[i]
                 else:
                     label = '%s: ' + label % '%e'
                 legend.AddEntry(0, label % (param['name'], param['value']), '')
@@ -198,8 +198,8 @@ class Fitter:
                 label = '%s #pm %s'
                 if units:
                     label = '(' + label + ') ' + units[i]
-                if format:
-                    label = '%s: ' + label % format[i]
+                if formatStyle:
+                    label = '%s: ' + label % formatStyle[i]
                 else:
                     label = '%s: ' + label % ('%e', '%e')
                 legend.AddEntry(0, label % (param['name'], param['value'], param['error']), '')
