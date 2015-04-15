@@ -3,7 +3,7 @@
 
 __author__ = "Benjamin Rottler (benjamin@dierottlers.de)"
 
-#from scipy.stats import chi2            # for p-value of chi^2
+# from scipy.stats import chi2            # for p-value of chi^2
 from ROOT import TF1, TVirtualFitter    # ROOT library
 from txtfile import TxtFile             # basic output to txt files, can be found the /lib directory
 
@@ -47,6 +47,16 @@ class Fitter:
             self.params[index] = {'name': name, 'startvalue': value, 'value': value, 'error': 0, 'fixed': True}
             self._function.FixParameter(index, value)
         self._function.SetParName(index, name)
+
+    def setParamLimits(self, index, low, high):
+        """sets constraints for parameter
+
+        Arguments:
+        index -- index of parameter
+        low   -- lower limit for parameter
+        high  -- upper limit for parameter
+        """
+        self.function.SetParLimits(index, low, high)
 
     def fit(self, graph, xstart, xend, options=''):
         """computes fit and stores calculated parameters with errors in parameter dict. 
