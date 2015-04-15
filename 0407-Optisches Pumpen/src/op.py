@@ -118,3 +118,18 @@ def inductorIToB(number, current, error):
     B = IToB * current
     sB = B * sqrt((sIToB / IToB) ** 2 + (error / current) ** 2)
     return B, sB
+
+def avgCloseValues(list, epsilon):
+    i = 0
+    avgList = []
+    l = len(list)
+    while i < l:
+        currxs = [list[i]]
+        j = i + 1
+        while j < l and abs(list[j] - list[i]) <= epsilon:
+            currxs.append(list[j])
+            i += 1
+            j += 1
+        avgList.append(mean(currxs))
+        i = j
+    return avgList

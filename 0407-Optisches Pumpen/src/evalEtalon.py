@@ -6,7 +6,7 @@ from docutils.parsers.rst.directives import path
 
 
 def makeGraphs(path, ch1, ch2):
-    g1 = ch1.makeGraph('ch1')
+    g1 = ch1.makeGraph('ch1', 't / s', 'U / V')
     prepareGraph(g1)
     g1.SetMaximum(max(ch2.getY()) * 1.1)
     g1.SetMinimum(min((min(ch2.getY()), min(ch1.getY()))) * 1.2)
@@ -65,7 +65,7 @@ def getFitStartX(xmin, xmax, ch2):
     return avgCloseValues(ch2max, 10 * ch2.getMinDeltaX())  # combine peaks which are closer than epsilon together
 
 
-def fitPeak(g, peakx, sigma, color, part, file):
+def fitEtalonPeak(g, peakx, sigma, color, part, file):
     fit = Fitter('%s-peak%d' % (file, color - 4), '[0]+[1]*x+gaus(2)')
     fit.function.SetLineColor(color)
     fit.setParam(0, 'a', -0.6)
@@ -126,12 +126,12 @@ def evalEtalonData(part, path, xminmax=None):
     sigma = ch1.getMinDeltaX() * sigmamult
     peakfits = []
     for i, peakx in enumerate(peakxs):
-        peakfits.append(fitPeak(g2, peakx, sigma, i % 8 + 4, part, path[:-4]))
+        peakfits.append(fitEtalonPeak(g2, peakx, sigma, i % 8 + 4, part, path[:-4]))
 
     
-    laserVoltageFit = fitLaserVoltage(g1, xmin2, xmax2, part, path[:-4])
+    fitLaserVoltage(g1, xmin2, xmax2, part, path[:-4])
 
     c.Update()
     c.Print('../img/part%d/%s.pdf' % (part, path[:-4]), 'pdf')
     
-    return (laserVoltageFit, peakfits)
+    return peakfits
