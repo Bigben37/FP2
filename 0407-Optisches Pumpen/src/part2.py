@@ -217,10 +217,11 @@ def main():
 
     for etalonfit, HFSfit in zip(*(etalongauge, HFSPeaks)):
         gps, sgps = etalonfit  # GHz per second, error
-        toff, stoff = HFSfit[2]  # time offset, set 3rd peak as reference peak
+        toff, stoff = HFSfit[3]  # time offset, set 3rd peak as reference peak
         freqs = []
         for peak, error in HFSfit:
-            t = peak - toff
+            #t = peak - toff
+            t = toff - peak
             st = 0 if t == 0 else sqrt(stoff ** 2 + error ** 2)
             freq = gps * t
             sfreq = abs(freq) * sqrt((sgps / gps) ** 2 + (stoff / toff) ** 2)
