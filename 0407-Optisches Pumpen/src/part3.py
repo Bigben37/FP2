@@ -83,7 +83,7 @@ def makeGraphs():
     gStyle.SetPadTickY(1)
 
 
-def evalEtalonData():
+def evalNuclearSpin():
     results = []
     data = loadCSVToList('../data/part3/part3.txt')
     for iL, siL, f, sf, i1, si1, i1_, si1_, i4, si4 in data:  # I-Laser, frequency, I1, I1', I4 with respective errors
@@ -124,7 +124,7 @@ def evalEtalonData():
 
 def main():
     makeGraphs()
-    evalEtalonData()
+    evalNuclearSpin()
 
 
 if __name__ == "__main__":
