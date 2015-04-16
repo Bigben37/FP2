@@ -69,6 +69,30 @@ class GeneralData(object):
                 return point
         return None
 
+    def getX(self):
+        """returns all x-values in a list"""
+        return list(zip(*self._points))[0]
+
+    def getY(self):
+        """returns all y-values in a list"""
+        return list(zip(*self._points))[1]
+
+    def getMinX(self):
+        """returns lowest x-value"""
+        return min(self.getX())
+
+    def getMaxX(self):
+        """returns highest x-value"""
+        return max(self.getX())
+
+    def getMinY(self):
+        """returns lowest y-value"""
+        return min(self.getY())
+
+    def getMaxY(self):
+        """returns highest y-value"""
+        return max(self.getY())
+
     @classmethod
     def fromPath(cls, path):
         """Creates a new instance of Data from a given file. Make sure to implement your loadData() function, so that the class knows how to 
@@ -132,14 +156,6 @@ class Data(GeneralData):
         Usually, you dont want to use this, instead use Data.fromPath() or Data.fromLists()
         """
         super(Data, self).__init__()
-
-    def getX(self):
-        """returns all x-values in a list"""
-        return list(zip(*self._points)[0])
-
-    def getY(self):
-        """returns all y-values in a list"""
-        return list(zip(*self._points)[1])
 
     def addPoint(self, x, y):
         """adds the point [x, y] to the list of points
@@ -288,14 +304,6 @@ class DataErrors(GeneralData):
         Usually, you dont want to use this, instead use Data.fromPath() or Data.fromLists()
         """
         super(DataErrors, self).__init__()
-
-    def getX(self):
-        """returns all x-values in a list"""
-        return list(zip(*self._points))[0]
-
-    def getY(self):
-        """returns all y-values in a list"""
-        return list(zip(*self._points))[1]
 
     def getEX(self):
         """returns all x-error-values in a list"""
