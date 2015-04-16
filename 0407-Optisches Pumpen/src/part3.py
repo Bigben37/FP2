@@ -22,7 +22,7 @@ def makeTwoScalesGraph(file):
     pad.cd()
 
     print('frame')
-    frame = pad.DrawFrame(0, -0.25, 0.051, 0.25)
+    frame = pad.DrawFrame(0, min(ch1.getY())*1.1, 0.051, max(ch1.getY())*1.1)
     frame.SetXTitle('t / s')
     frame.GetXaxis().CenterTitle()
     frame.SetYTitle('Spannung Spule 2: U_{2} / V')
@@ -76,6 +76,7 @@ def makeGraphs():
     gStyle.SetPadTickY(0)
     files = os.listdir(os.path.join(os.getcwd(), '../data/part3/'))
     files.sort()
+    files = files[10:]
     for file in files:
         if file.endswith('.tab'):
             makeTwoScalesGraph(file)
