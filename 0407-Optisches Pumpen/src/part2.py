@@ -270,13 +270,13 @@ def makeHFSGraph(name, xmin, xmax):
                 fit.setParamLimits(i * 3 + dpc + 1, params[1] - 2 * params[2], params[1] + 2 * params[2])
                 fit.setParamLimits(i * 3 + dpc + 2, 0, 20 * params[2])
             fit.fit(g2, xstart, xend, '+')
-            fit.saveData('../fit/part2/HFS-%s-%d.txt' % (name, peakNum))
+            fit.saveData('../fit/part2/%s-%d.txt' % (name, peakNum))
             for i in range(len(peakparams)):
                 fitres.append((fit.params[i * 3 + dpc + 1]['value'], fit.params[i * 3 + dpc + 1]['error']))
             peakNum += 1
 
     c.Update()
-    c.Print('../img/part2/HFS-%s.pdf' % name, 'pdf')
+    c.Print('../img/part2/%s_fit.pdf' % name, 'pdf')
     return fitres
 
 def evalHFSPeakData():
