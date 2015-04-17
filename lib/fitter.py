@@ -71,21 +71,22 @@ class Fitter:
         graph.Fit(self._function, 'Q' + options, '', xstart, xend)  # Q = quit mode, no print out on console
         # get fitted params
         self.virtualFitter = TVirtualFitter.GetFitter()
-        for i in self.params:
-            self.params[i]['value'] = self.virtualFitter.GetParameter(i)
-            self.params[i]['error'] = self.virtualFitter.GetParError(i)
-        # get cov. and corr. matrix
-        freeparams = dict()  # map cov. matrix index to params index, only not fixed params are in cov. matrix
-        freecount = 0
-        fixedcount = 0
-        for i, param in self.params.items():
-            if param['fixed']:
-                fixedcount += 1
-            else:
-                freecount += 1
-                freeparams[i - fixedcount] = i
-        self._covMatrix = [[self.virtualFitter.GetCovarianceMatrixElement(col, row) for row in range(freecount)] for col in range(freecount)]
-        self._corrMatrix = [[self._covMatrix[col][row] / (self.params[freeparams[col]]['error'] * self.params[freeparams[row]]['error']) for row in range(freecount)] for col in range(freecount)]
+        if self.virtualFitter:
+            for i in self.params:
+                self.params[i]['value'] = self.virtualFitter.GetParameter(i)
+                self.params[i]['error'] = self.virtualFitter.GetParError(i)
+            # get cov. and corr. matrix
+            freeparams = dict()  # map cov. matrix index to params index, only not fixed params are in cov. matrix
+            freecount = 0
+            fixedcount = 0
+            for i, param in self.params.items():
+                if param['fixed']:
+                    fixedcount += 1
+                else:
+                    freecount += 1
+                    freeparams[i - fixedcount] = i
+            self._covMatrix = [[self.virtualFitter.GetCovarianceMatrixElement(col, row) for row in range(freecount)] for col in range(freecount)]
+            self._corrMatrix = [[self._covMatrix[col][row] / (self.params[freeparams[col]]['error'] * self.params[freeparams[row]]['error']) for row in range(freecount)] for col in range(freecount)]
 
     def getFunction(self):
         """returns fit function"""
@@ -103,7 +104,10 @@ class Fitter:
 
     def getChisquareOverDoF(self):
         """returns chi^2 over degrees of freedom of fit"""
-        return self.getChisquare() / self.getDoF()
+        if not self.getDoF() == 0: 
+            return self.getChisquare() / self.getDoF()
+        else:
+            return -1
 
     # def getPValue(self):
     #     """returns p-value of chi^2 test"""
@@ -162,11 +166,13 @@ class Fitter:
             f.writeline('')
             f.writeline('covariance matrix')
             f.writeline('=================')
-            f.writelines('\t'.join(str(j) for j in i) + '\n' for i in self._covMatrix)
+            if self._covMatrix:
+                f.writelines('\t'.join(str(j) for j in i) + '\n' for i in self._covMatrix)
             f.writeline('')
             f.writeline('correlation matrix')
             f.writeline('==================')
-            f.writelines('\t'.join(str(j) for j in i) + '\n' for i in self._corrMatrix)
+            if self._corrMatrix:
+                f.writelines('\t'.join(str(j) for j in i) + '\n' for i in self._corrMatrix)
             f.writeline()
             f.close()
 
