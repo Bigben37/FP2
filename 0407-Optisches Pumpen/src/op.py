@@ -11,6 +11,10 @@ class OPData(DataErrors):
     CH1 = 1
     CH2 = 2
     OFFSET = 0.000275
+    CH1COLOR = 1
+    CH1ECOLOR = 15
+    CH2COLOR = 2
+    CH2ECOLOR = 50
 
     def __init__(self):
         super().__init__()
@@ -103,11 +107,16 @@ class OPData(DataErrors):
         return min(deltas)
 
 
-def prepareGraph(g):
+def prepareGraph(g, channel=1):
     g.SetMarkerStyle(8)  # round points
     g.SetMarkerSize(0.2)  # size of points
-    g.SetLineColor(15)  # grey error bars
     g.SetLineWidth(0)  # error bar width
+    if channel == 1:
+        g.SetMarkerColor(OPData.CH1COLOR)
+        g.SetLineColor(OPData.CH1ECOLOR)  # color error bars
+    elif channel == 2:
+        g.SetMarkerColor(OPData.CH2COLOR)
+        g.SetLineColor(OPData.CH2ECOLOR)  # color error bars        
 
 
 inductorIToBVals = {1: (7.99e-4, 0.01e-4), 2: (8.14e-4, 0.01e-4), 4: (4.76e-4, 0.01e-4)}

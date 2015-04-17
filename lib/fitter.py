@@ -212,7 +212,7 @@ class Fitter:
 
             else:
                 label = '%s #pm %s'
-                if units:
+                if units and not units[i] == '':
                     label = '(' + label + ') ' + units[i]
                 if formatStyle:
                     label = '%s: ' + label % formatStyle[i]
