@@ -18,6 +18,7 @@ class Fitter:
         Arguments:
         name     -- ROOT internal name of function
         function -- function to fit, use conventions from ROOT
+        own      -- for fitting own function set 'function' parameter to pointer to function and own to (xmin, xmax, # of parameters)
         """
         if not own is None:
             xmin, xmax, npar = own
