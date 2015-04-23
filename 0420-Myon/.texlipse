@@ -1,0 +1,14 @@
+#TeXlipse project settings
+#Wed Apr 22 10:44:25 CEST 2015
+markTmpDer=true
+builderNum=2
+outputDir=bin
+makeIndSty=
+bibrefDir=
+outputFormat=pdf
+tempDir=tmp
+mainTexFile=myon.tex
+outputFile=myon.pdf
+langSpell=en
+markDer=true
+srcDir=src
