@@ -5,7 +5,9 @@ from data import DataErrors
 # make sure to add ../../lib to your project path or copy files from there
 # ========================================================================
 
+
 class MyonData(DataErrors):
+
     def __init__(self):
         super(DataErrors, self).__init__()
         self.time = 0
@@ -24,7 +26,11 @@ class MyonData(DataErrors):
                 else:
                     self.addPoint(lines, float(row), 0, np.sqrt(float(row)))
                 lines += 1
-                
+
+    def convertToCountrate(self):
+        self.multiplyY(1. / self.time)
+
+
 def prepareGraph(g):
     g.SetMarkerStyle(8)
     g.SetMarkerSize(0.3)
