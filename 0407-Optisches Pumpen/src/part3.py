@@ -51,6 +51,8 @@ def makeTwoScalesGraph(file):
     xmax = pad.GetUxmax()
     ymin = 1.1 * g2ymin
     ymax = abs(ymin)
+    if file == '07.tab':  # same scale like 06.tab
+        ymin, ymax = -0.07128, 0.07128
     oframe = overlay.DrawFrame(xmin, ymin, xmax, ymax)
     oframe.GetXaxis().SetLabelOffset(99)
     oframe.GetYaxis().SetLabelOffset(99)
@@ -76,7 +78,7 @@ def makeGraphs():
     gStyle.SetPadTickY(0)
     files = os.listdir(os.path.join(os.getcwd(), '../data/part3/'))
     files.sort()
-    files = files[10:]
+    files = files[5:]
     for file in files:
         if file.endswith('.tab'):
             makeTwoScalesGraph(file)
