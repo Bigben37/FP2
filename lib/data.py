@@ -353,6 +353,20 @@ class DataErrors(GeneralData):
         else:
             print('DataErrors.fromLists():ERROR - lists have to be the same length')
             return None
+    
+    @classmethod
+    def fromHistogram(cls, hist):
+        """Creates a new instance of DataErros from TH1
+        
+        Arguments:
+        hist -- histogram
+        """
+        data = cls()
+        for i in range(1, hist.GetNbinsX() + 1):  # bins from 1 to n
+            x = hist.GetXaxis().GetBinCenter(i)
+            y = hist.GetBinContent(i)
+            data.addPoint(x, y, 0, 0)
+        return data
 
     def makeGraph(self, name='', xtitle='', ytitle=''):
         """This function returns an instance of ROOTs TGraphErrors, made with the points in from this class.
