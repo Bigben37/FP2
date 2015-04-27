@@ -1,5 +1,5 @@
 #TeXlipse project settings
-#Tue Apr 07 21:07:40 CEST 2015
+#Mon Apr 27 17:00:28 CEST 2015
 markTmpDer=true
 builderNum=2
 outputDir=bin/
@@ -9,6 +9,6 @@ outputFormat=pdf
 tempDir=tmp
 mainTexFile=optischespumpen.tex
 outputFile=optischespumpen.pdf
-langSpell=
+langSpell=de
 markDer=true
 srcDir=src/
