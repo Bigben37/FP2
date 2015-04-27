@@ -7,7 +7,7 @@ from txtfile import TxtFile
 DEBUG = False
 
 
-def plotDistribution(datas, datatype, binsize, xmin, xmax, prefix="dist_"):
+def plotDistribution(datas, datatype, binsize, xmin, xmax, prefix="dist_", normalize=True):
     if not DEBUG:
         c = TCanvas("c_%s" % datatype, "", 1280, 720)
         hists = []
@@ -16,14 +16,17 @@ def plotDistribution(datas, datatype, binsize, xmin, xmax, prefix="dist_"):
             hists.append(data.makeHistogramm('hist_%s_%d' % (datatype, i), datatype, binsize, xmin, xmax))
             hists[i].SetLineColor(i + 1)
             n = hists[i].GetEntries()
-            if n > 0:
+            if normalize and n > 0:
                 hists[i].Scale(1 / n)
             maxs.append(hists[i].GetMaximum())
 
         hists[0].SetMaximum(max(maxs) * 1.1)
         hists[0].GetXaxis().SetTitle(datatype)
         hists[0].GetXaxis().CenterTitle()
-        hists[0].GetYaxis().SetTitle('rel. Counts')
+        if normalize:
+            hists[0].GetYaxis().SetTitle('rel. Anzahl der Ereignisse')
+        else:
+            hists[0].GetYaxis().SetTitle('Anzahl der Ereignisse')
         hists[0].GetYaxis().CenterTitle()
 
         for i, hist in enumerate(hists):
@@ -42,11 +45,11 @@ def plotDistribution(datas, datatype, binsize, xmin, xmax, prefix="dist_"):
         c.Print("../img/%s%s.pdf" % (prefix, datatype), "pdf")
 
 
-def plotDistributions(datas, prefix="dist_"):
+def plotDistributions(datas, prefix="dist_", normalize=True):
     types = ["Ncharged", "Pcharged", "E_ecal", "E_hcal", "cos_thru", "cos_thet"]
     rangeparams = [(40, 0, 40), (120, 0, 120), (120, 0, 120), (45, 0, 45), (200, -1, 1), (200, -1, 1)]
     for datatype, rangepars in zip(*[types, rangeparams]):
-        plotDistribution(datas, datatype, rangepars[0], rangepars[1], rangepars[2], prefix)
+        plotDistribution(datas, datatype, rangepars[0], rangepars[1], rangepars[2], prefix, normalize)
 
 
 def calcEfficencyVector(cutdatas, datas):
@@ -66,7 +69,7 @@ def makeCut(datas, cut, prefix=""):  # TODO prefix for different cuts
     cutdatas = []
     for data in datas:
         cutdatas.append(data.cut(cut))
-    plotDistributions(cutdatas, "cut_%s" % prefix)
+    plotDistributions(cutdatas, "cut_%s_" % prefix, False)
     return calcEfficencyVector(cutdatas, datas)
 
 
@@ -91,7 +94,7 @@ def makeCuts(datas):
         f.write2DArrayToFile(sefficencies, ['%.6f'] * 4)
 
 if __name__ == '__main__':
-    setupROOT
+    setupROOT()
     gStyle.SetOptStat(0)
     # load data
     filenames = ['ee', 'mm', 'tt', 'qq']
