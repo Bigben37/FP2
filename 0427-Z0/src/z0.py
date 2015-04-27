@@ -46,8 +46,8 @@ class Z0Data():
     def getLength(self):
         return len(self.events)
 
-    def makeHistogramm(self, name, datatype, binsize, xmin, xmax):
-        hist = TH1F(name, '', binsize, xmin, xmax)
+    def makeHistogramm(self, name, datatype, bincount, xmin, xmax):
+        hist = TH1F(name, '', bincount, xmin, xmax)
         for event in self.events:
             hist.Fill(event[datatype])
         return hist
