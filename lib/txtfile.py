@@ -58,7 +58,7 @@ class TxtFile(object):
         self._file.write(text)
 
     def writeline(self, text='', *args):
-        """writes text and finishes line with a linebreak. 
+        """writes text and finishes line with a linebreak.
         If more than one argument is given, joins 2nd to last argument with first one and finishes line with a linebreak
 
         Arguments:
@@ -77,10 +77,24 @@ class TxtFile(object):
         lines -- a list of lines to write
         """
         self._file.writelines(lines)
-        
+
+    def write2DArrayToFile(self, data, format, head=[], ntabs=1):
+        """writes an 2d-array (list of lists) to an formatted txt file
+
+        Arguments:
+        data    -- 2darray, list of rows, each row is a list of data
+        format  -- list of formatting rules, how to convert numbers into strings
+        head    -- list of descriptions for columns, is used as first row (default=[])
+        ntabs   -- number of tabulator indentations (default=1)
+        """
+        if head:
+            self.writeline('\t' * ntabs, *head)
+        for row in data:
+            self.writeline(('\t' * ntabs).join(format) % tuple(row))
+
     def write2DArrayToLatexTable(self, data, thead, format, caption, label):
         """writes an 2d-array (list of lists) to an formatted latex table
-        
+
         Arguments:
         data    -- 2darray, list of rows, each row is a list of data
         thead    -- list of descriptions for columns, is used as first row
