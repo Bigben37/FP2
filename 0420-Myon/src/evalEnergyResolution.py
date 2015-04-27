@@ -11,7 +11,7 @@ def makeGraph(channel):
     data.convertToCountrate()
     
     c = TCanvas('c_%s' % channel, ', 1280, 720')
-    g = data.makeGraph('g%s' % channel, 'channel c', '')
+    g = data.makeGraph('g%s' % channel, 'channel c', 'countrate n / (1/s)')
     prepareGraph(g)
     g.GetXaxis().SetRangeUser(0, 700)
     g.Draw('APX')
@@ -19,8 +19,10 @@ def makeGraph(channel):
     ch = int(channel)
     if ch < 100:
         xmin, xmax = ch - 25, ch + 25
+    elif ch < 120:
+        xmin, xmax = ch - 50, ch + 40
     elif ch < 200:
-        xmin, xmax = ch - 70, ch + 70
+        xmin, xmax = ch - 50, ch + 50
     elif ch < 600:
         xmin, xmax = 0, 700
     else:
@@ -48,7 +50,7 @@ def evalSigmaChannelDatas(datas):
     data = DataErrors.fromLists(x, y, sx, sy)
     
     c = TCanvas('c_sc', '', 1280, 720)
-    g = data.makeGraph('g_sc', 'channel c', '#sigma')
+    g = data.makeGraph('g_sc', 'channel c', '#sigma (channels)')
     g.Draw('APX')
     
     fit = Fitter('fit_sc', '[0] * sqrt(x-[1]) + [2]')

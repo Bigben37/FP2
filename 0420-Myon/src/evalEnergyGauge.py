@@ -60,7 +60,7 @@ def evalFlythroughSpectrum(name, xmin, xmax):
     data.convertToCountrate()
 
     c = TCanvas('c_%s' % name, '', 1280, 720)
-    g = data.makeGraph('g_%s' % name, 'channel c', 'countrate N / (1/s)')
+    g = data.makeGraph('g_%s' % name, 'channel c', 'countrate n / (1/s)')
     prepareGraph(g)
     g.GetXaxis().SetRangeUser(0, 700)
     g.Draw('APX')  # don't draw error bars => fit function in front
@@ -93,7 +93,7 @@ def evalPedestal():
     data = MyonData.fromPath('../data/%s.TKA' % name)
     data.convertToCountrate()
     c = TCanvas('c_ped', '', 1280, 720)
-    g = data.makeGraph('g_ped', 'channel c', 'countrate N / (1/s)')
+    g = data.makeGraph('g_ped', 'channel c', 'countrate n / (1/s)')
     g.SetLineColor(1)
     g.SetLineWidth(1)
     g.GetXaxis().SetRangeUser(0, 20)
@@ -127,6 +127,7 @@ def evalEnergyGauge(peaks, percents):
     schannels = list(list(zip(*peaks))[1])
     energies = list(map(lambda x:x/100*maxenergy, percents))
     senergies = list(map(lambda x:x/100*smaxenergy, percents))
+    #senergies[0] = 2
     
     data = DataErrors.fromLists(channels, energies, schannels, senergies)
     c = TCanvas('c_energygauge', '', 1280, 720)
@@ -144,7 +145,7 @@ def evalEnergyGauge(peaks, percents):
     l.SetTextSize(0.03)
     l.AddEntry(g, 'Peaks of fly-trough-spectra / pedestal', 'p')
     l.AddEntry(fit.function, 'fit with E(c) = a + b * c', 'l')
-    fit.addParamsToLegend(l, (('%.2f', '%.2f'), ('%.3f', '%.3f')), chisquareformat='%.2f', units=('MeV', 'MeV / channal'), lang='en')
+    fit.addParamsToLegend(l, (('%.2f', '%.2f'), ('%.3f', '%.3f')), chisquareformat='%.2f', units=('MeV', 'MeV / channel'), lang='en')
     l.Draw()
     
     c.Update()
@@ -156,10 +157,10 @@ def evalFittedSigmas(sigmas, percents):
 def main():
     peak100, sigma100 = evalFlythroughSpectrum('energieeichung_100', 275, 600)
     peak050, sigma050 = evalFlythroughSpectrum('energieeichung_50', 120, 400)
+    peak035, sigma035 = evalFlythroughSpectrum('energieeichung_35', 75, 240)
     peak000 = evalPedestal()
-    evalEnergyGauge([peak000, peak050, peak100], [0, 50, 100])
-    evalFittedSigmas([sigma050, sigma100], [50, 100])
-    #evalEnergyGauge([(6.064, 0.010), (201.3, 0.2), (404.8, 0.5)], [0, 50, 100])
+    evalEnergyGauge([peak000, peak035, peak050, peak100], [0, 35, 50, 100])
+    evalFittedSigmas([sigma035, sigma050, sigma100], [35, 50, 100])
 
 if __name__ == "__main__":
     setupROOT()

@@ -1,9 +1,38 @@
 \section{Measurement Results and Evaluation}
+
+\subsection{Errors and countrate}
+The number $N$ of measurement events of a channel of the MCAs is Poisson distributed. Hence the error $s_N$  of $N$ events is:
+\begin{equation}
+  s_N = \sqrt{N}
+\end{equation}
+
+Not all meassurements were done in the same amount of time, so we decided to normalize all measured data with the elapsed time $t$ to a 
+countrate $n$. Consequently the error changes, too:
+\begin{equation}
+    n = \frac{N}{t}, \qquad s_n = \frac{s_N}{t}
+\end{equation}
+
 \subsection{Energy resolution}
 
 \subsection{Energy gauge}
+\begin{figure}[H]
+\begin{center}
+  \includegraphics[width=\textwidth]{../img/energyGauge.pdf}
+  \caption{Energy Gauge.}
+  \label{img:energygauge}
+\end{center}
+\end{figure}
 
 \subsection{Time gauge}
+\begin{figure}[H]
+\begin{center}
+  \includegraphics[width=\textwidth]{../img/timeGauge.pdf}
+  \caption{Time Gauge.}
+  \label{img:timegauge}
+\end{center}
+\end{figure}
+
+\subsection{Underground}
 
 \subsection{$\beta$-spectrum}
 
