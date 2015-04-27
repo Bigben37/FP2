@@ -3,7 +3,7 @@
 
 __author__ = "Benjamin Rottler (benjamin@dierottlers.de)"
 import numpy as np
-from ROOT import gROOT, gStyle
+from ROOT import gROOT, gStyle  #@UnresolvedImport
 import os
 
 

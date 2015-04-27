@@ -7,7 +7,7 @@ from the given path is loaded.
 __author__ = "Benjamin Rottler (benjamin@dierottlers.de)"
 
 import numpy as np  # Numpy
-from ROOT import TGraph, TGraphErrors  # ROOT library
+from ROOT import TGraph, TGraphErrors  # ROOT library  #@UnresolvedImport
 import array  # C-like arrays (for ROOT library)
 from txtfile import TxtFile  # basic output to txt files, can be found the /lib directory
 

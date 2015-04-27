@@ -4,7 +4,7 @@
 __author__ = "Benjamin Rottler (benjamin@dierottlers.de)"
 
 # from scipy.stats import chi2            # for p-value of chi^2
-from ROOT import TF1, TVirtualFitter    # ROOT library
+from ROOT import TF1, TVirtualFitter    # ROOT library  #@UnresolvedImport
 from txtfile import TxtFile             # basic output to txt files, can be found the /lib directory
 
 
