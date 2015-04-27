@@ -1,0 +1,10 @@
+# z boson cross section: 41.578 ± 0.069
+# branching ratios:
+# neutrinos: 20.00   ± 0.06%
+# leptons:    3.3658 ± 0.0023%
+# hadrons:   69.91   ± 0.06%
+# sample Xsection uncertainty  process
+ee       1.3994     0.013      ee->Z->ee
+mm       1.3994     0.013      ee->Z->mm
+tt       1.3994     0.013      ee->Z->tt
+qq      29.0672     0.058      ee->Z->qq
