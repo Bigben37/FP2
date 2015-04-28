@@ -11,7 +11,7 @@ def stFit(data, energie, xmin, xmax):
     datacut = data.cut(CUTS[0][1])  # ee-cut
 
     c = TCanvas('c', '', 1280, 720)
-    hist = datacut.makeHistogramm('hist', 'cos_thet', 200, -1, 1)  # TODO params for hist title (defualt = '')
+    hist = datacut.makeHistogramm('hist', 'cos_thet', 100, -1, 1)  # TODO params for hist title (defualt = '')
     hist.Draw()
 
     fit = Fitter('f', '[0] * (1 + x^2) + [1] * (1 - x)^(-2)')

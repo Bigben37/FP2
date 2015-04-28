@@ -4,7 +4,7 @@ from z0 import Z0Data
 from ROOT import gStyle, TCanvas, TLegend  # @UnresolvedImport
 from txtfile import TxtFile
 
-DEBUG = False  # TODO set False
+DEBUG = True  # TODO set False
 
 CUTS = [("ee", lambda e: e["Ncharged"] <= 5 and e["E_ecal"] >= 70 and -0.9 <= e["cos_thet"] <= 0.9),
         ("mm", lambda e: e["Ncharged"] == 2 and e["E_ecal"] <= 50 and e["Pcharged"] >= 75),
