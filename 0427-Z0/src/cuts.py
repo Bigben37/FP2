@@ -14,7 +14,7 @@ CUTS = [("ee", lambda e: e["Ncharged"] <= 5 and e["E_ecal"] >= 70),
 
 def plotDistribution(datas, datatype, binsize, xmin, xmax, prefix="dist_", normalize=True):
     if not DEBUG:
-        c = TCanvas("c_%s" % datatype, "", 1280, 720)
+        c = TCanvas("c_%s" % (prefix+datatype), "", 1280, 720)
         hists = []
         maxs = []
         for i, data in enumerate(datas):

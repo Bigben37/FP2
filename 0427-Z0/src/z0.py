@@ -1,6 +1,7 @@
 import time
 from ROOT import TFile, TH1F  # @UnresolvedImport
 
+LEP_ENERGIES = [88.47, 89.46, 90.22, 91.22, 91.97, 92.96, 93.71]
 
 class Z0Data():
 
@@ -63,3 +64,14 @@ class Z0Data():
             if cutFunc(event):
                 cutdata.addEvent(event)
         return cutdata
+
+    def splitEnergies(self):
+        energies = [0] + LEP_ENERGIES + [1000]
+        cutenergies = []
+        for i in range(1, len(energies) - 1):
+            cutenergies.append((energies[i], ((energies[i - 1] + energies[i]) / 2, (energies[i] + energies[i + 1]) / 2)))
+        datas = dict()
+        for (energie, (elow, ehigh)) in cutenergies:
+            datas[energie] = self.cut(lambda e:elow <= e["E_lep"]*2 <= ehigh)
+        return datas
+        
