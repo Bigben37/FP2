@@ -4,7 +4,12 @@ from z0 import Z0Data
 from ROOT import gStyle, TCanvas, TLegend  # @UnresolvedImport
 from txtfile import TxtFile
 
-DEBUG = False
+DEBUG = True  # TODO set False
+
+CUTS = [("ee", lambda e: e["Ncharged"] <= 5 and e["E_ecal"] >= 70),
+        ("mm", lambda e: e["Ncharged"] == 2 and e["E_ecal"] <= 50 and e["Pcharged"] >= 75),
+        ("tt", lambda e: e["Ncharged"] <= 4 and 4 <= e["E_ecal"] <= 70 and e["Pcharged"] <= 70),
+        ("qq", lambda e: e["Ncharged"] >= 10)]
 
 
 def plotDistribution(datas, datatype, binsize, xmin, xmax, prefix="dist_", normalize=True):
@@ -52,7 +57,7 @@ def plotDistributions(datas, prefix="dist_", normalize=True):
         plotDistribution(datas, datatype, rangepars[0], rangepars[1], rangepars[2], prefix, normalize)
 
 
-def calcEfficencyVector(cutdatas, datas):
+def calcEfficencyMatrix(cutdatas, datas):
     effs = []
     seffs = []
     for cutdata, data in zip(*[cutdatas, datas]):
@@ -65,33 +70,41 @@ def calcEfficencyVector(cutdatas, datas):
     return effs, seffs
 
 
-def makeCut(datas, cut, prefix=""):  # TODO prefix for different cuts
+def calcPurity(cutdatas, datas, cutnum):
+    brs = [0.03363, 0.03366, 0.03370, 0.6991]  # branching rations Z -> (ee, mm, tt, qq)
+    #sbrs = [0.00004, 0.00007, 0.00008, 0.0006]  # errors
+    
+    total = sum(map(lambda x: x[0].getLength() * x[1], zip(*[datas, brs]))) 
+    eta = 1
+    for i, cutdata in enumerate(cutdatas):
+        if not i == cutnum:
+            eta -= cutdata.getLength() * brs[i] / total
+    return eta
+
+def makeCut(datas, cut, cutnum, prefix=""):
     cutdatas = []
     for data in datas:
         cutdatas.append(data.cut(cut))
     plotDistributions(cutdatas, "cut_%s_" % prefix, False)
-    return calcEfficencyVector(cutdatas, datas)
+    return (calcEfficencyMatrix(cutdatas, datas), calcPurity(cutdatas, datas, cutnum))
 
 
 def makeCuts(datas):
-    cuts = [("ee", lambda e: e["Ncharged"] <= 5 and e["E_ecal"] >= 70),
-            ("mm", lambda e: e["Ncharged"] == 2 and e["E_ecal"] <= 50 and e["Pcharged"] >= 75),
-            ("tt", lambda e: e["Ncharged"] <= 4 and 4 <= e["E_ecal"] <= 70 and e["Pcharged"] <= 70),
-            ("qq", lambda e: e["Ncharged"] >= 10)]
     efficencies = []
     sefficencies = []
-    for name, cut in cuts:
-        effs, seffs = makeCut(datas, cut, name)
+    purities = []
+    for cutnum, cutinfo in enumerate(CUTS):
+        name, cut = cutinfo
+        (effs, seffs), purity = makeCut(datas, cut, cutnum, name)
         efficencies.append(effs)
         sefficencies.append(seffs)
-    m = matrix(efficencies)
-    sm = matrix(sefficencies)
-    print(m)
-    print(sm)
+        purities.append(purity)
     with TxtFile('../calc/efficencies.txt', 'w') as f:
         f.write2DArrayToFile(efficencies, ['%.6f'] * 4)
     with TxtFile('../calc/efficencies_error.txt', 'w') as f:
         f.write2DArrayToFile(sefficencies, ['%.6f'] * 4)
+    with TxtFile('../calc/purities.txt', 'w') as f:
+        f.write2DArrayToFile(list(zip(*[purities])), ['%.6f'])
 
 if __name__ == '__main__':
     setupROOT()
