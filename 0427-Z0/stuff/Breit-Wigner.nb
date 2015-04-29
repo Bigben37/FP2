@@ -1,0 +1,164 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      6132,        155]
+NotebookOptionsPosition[      5824,        139]
+NotebookOutlinePosition[      6160,        154]
+CellTagsIndexPosition[      6117,        151]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{
+      FractionBox[
+       RowBox[{"12", " ", "\[Pi]"}], 
+       SuperscriptBox["MZ", "2"]], " ", 
+      FractionBox[
+       RowBox[{"s", " ", "\[CapitalGamma]i", " ", "\[CapitalGamma]f"}], 
+       RowBox[{
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{"s", "-", "MZ"}], ")"}], "2"], " ", "+", " ", 
+        RowBox[{
+         SuperscriptBox["s", "2"], " ", 
+         RowBox[{
+          SuperscriptBox["\[CapitalGamma]Z", "2"], "/", " ", 
+          SuperscriptBox["MZ", "2"]}]}]}]]}], ",", " ", 
+     RowBox[{"{", 
+      RowBox[{"s", ",", " ", "80", ",", " ", "100"}], "}"}], ",", " ", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", " ", "0.0005"}], "}"}]}]}], "]"}], ",", " ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"MZ", ",", " ", "91.187"}], "}"}], ",", " ", "80", ",", " ", 
+     "100"}], "}"}], ",", " ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\[CapitalGamma]i", ",", " ", "0.084"}], "}"}], ",", " ", 
+     "0.08", ",", " ", "0.09", ",", " ", "0.001"}], "}"}], ",", " ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\[CapitalGamma]f", ",", " ", "0.084"}], "}"}], ",", " ", 
+     "0.08", ",", " ", "1.8", ",", " ", "0.001"}], "}"}], ",", " ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\[CapitalGamma]Z", ",", " ", "2.5"}], "}"}], ",", " ", "2", 
+     ",", " ", "3", ",", " ", "0.1"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.639290040948249*^9, 3.639290054524081*^9}, {
+  3.639290120828473*^9, 3.639290122922841*^9}, {3.639290203735014*^9, 
+  3.639290241723287*^9}, {3.6392902718973*^9, 3.639290323613633*^9}, {
+  3.6392903862635393`*^9, 3.639290490766902*^9}, {3.6392905476673603`*^9, 
+  3.63929061604882*^9}, {3.639290654402066*^9, 3.6392906990377817`*^9}, {
+  3.639290733545659*^9, 3.639290738360832*^9}, {3.639296170438592*^9, 
+  3.639296184930667*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`MZ$$ = 
+    91.187, $CellContext`\[CapitalGamma]f$$ = 
+    0.084, $CellContext`\[CapitalGamma]i$$ = 
+    0.084, $CellContext`\[CapitalGamma]Z$$ = 2.5, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`MZ$$], 91.187}, 80, 100}, {{
+       Hold[$CellContext`\[CapitalGamma]i$$], 0.084}, 0.08, 0.09, 0.001}, {{
+       Hold[$CellContext`\[CapitalGamma]f$$], 0.084}, 0.08, 1.8, 0.001}, {{
+       Hold[$CellContext`\[CapitalGamma]Z$$], 2.5}, 2, 3, 0.1}}, 
+    Typeset`size$$ = {360., {109., 114.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`MZ$18263$$ = 0, $CellContext`\[CapitalGamma]i$18264$$ =
+     0, $CellContext`\[CapitalGamma]f$18265$$ = 
+    0, $CellContext`\[CapitalGamma]Z$18266$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`MZ$$ = 
+        91.187, $CellContext`\[CapitalGamma]f$$ = 
+        0.084, $CellContext`\[CapitalGamma]i$$ = 
+        0.084, $CellContext`\[CapitalGamma]Z$$ = 2.5}, "ControllerVariables" :> {
+        Hold[$CellContext`MZ$$, $CellContext`MZ$18263$$, 0], 
+        Hold[$CellContext`\[CapitalGamma]i$$, \
+$CellContext`\[CapitalGamma]i$18264$$, 0], 
+        Hold[$CellContext`\[CapitalGamma]f$$, \
+$CellContext`\[CapitalGamma]f$18265$$, 0], 
+        Hold[$CellContext`\[CapitalGamma]Z$$, \
+$CellContext`\[CapitalGamma]Z$18266$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Plot[(12 Pi/$CellContext`MZ$$^2) ($CellContext`s $CellContext`\
+\[CapitalGamma]i$$ $CellContext`\[CapitalGamma]f$$/(($CellContext`s - \
+$CellContext`MZ$$)^2 + $CellContext`s^2 \
+($CellContext`\[CapitalGamma]Z$$^2/$CellContext`MZ$$^2))), {$CellContext`s, 
+         80, 100}, PlotRange -> {0, 0.0005}], 
+      "Specifications" :> {{{$CellContext`MZ$$, 91.187}, 80, 
+         100}, {{$CellContext`\[CapitalGamma]i$$, 0.084}, 0.08, 0.09, 
+         0.001}, {{$CellContext`\[CapitalGamma]f$$, 0.084}, 0.08, 1.8, 
+         0.001}, {{$CellContext`\[CapitalGamma]Z$$, 2.5}, 2, 3, 0.1}}, 
+      "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{407., {188., 195.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.63929048170431*^9, 3.639290491316863*^9}, 
+   3.639290551212957*^9, 3.639290593035692*^9, 3.6392906409811277`*^9, {
+   3.639290673188879*^9, 3.639290745499136*^9}, 3.639290834485119*^9, 
+   3.639296194045351*^9}]
+}, Open  ]]
+},
+WindowSize->{1366, 714},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"10.0 for Linux x86 (64-bit) (December 4, 2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 2023, 51, 105, "Input"],
+Cell[2606, 75, 3202, 61, 433, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
