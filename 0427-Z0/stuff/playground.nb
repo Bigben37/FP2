@@ -1,19 +1,12 @@
-(* Content-type: application/vnd.wolfram.mathematica *)
-
-(*** Wolfram Notebook File ***)
-(* http://www.wolfram.com/nb *)
-
-(* CreatedBy='Mathematica 10.0' *)
-
 (*CacheID: 234*)
 (* Internal cache information:
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
-NotebookDataPosition[       158,          7]
+NotebookDataPosition[         0,          0]
 NotebookDataLength[    420102,       7073]
-NotebookOptionsPosition[    419321,       7043]
-NotebookOutlinePosition[    419660,       7058]
-CellTagsIndexPosition[    419617,       7055]
+NotebookOptionsPosition[    419163,       7036]
+NotebookOutlinePosition[    419502,       7051]
+CellTagsIndexPosition[    419459,       7048]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -7057,26 +7050,25 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 279, 7, 32, "Input"],
-Cell[840, 29, 898, 25, 99, "Input"],
+Cell[400, 13, 279, 7, 32, "Input"],
+Cell[682, 22, 898, 25, 99, "Input"],
 Cell[CellGroupData[{
-Cell[1763, 58, 591, 12, 77, "Input"],
-Cell[2357, 72, 119, 3, 32, "Output"],
-Cell[2479, 77, 300, 7, 32, "Output"],
-Cell[2782, 86, 369, 8, 32, "Output"]
+Cell[1605, 51, 591, 12, 77, "Input"],
+Cell[2199, 65, 119, 3, 32, "Output"],
+Cell[2321, 70, 300, 7, 32, "Output"],
+Cell[2624, 79, 369, 8, 32, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[3188, 99, 1397, 33, 143, "Input"],
-Cell[4588, 134, 5996, 108, 333, "Output"],
-Cell[10587, 244, 6220, 111, 331, "Output"]
+Cell[3030, 92, 1397, 33, 143, "Input"],
+Cell[4430, 127, 5996, 108, 333, "Output"],
+Cell[10429, 237, 6220, 111, 331, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[16844, 360, 1296, 31, 77, "Input"],
-Cell[18143, 393, 401162, 6647, 489, 375336, 6223, "CachedBoxData", "BoxData", \
+Cell[16686, 353, 1296, 31, 77, "Input"],
+Cell[17985, 386, 401162, 6647, 489, 375336, 6223, "CachedBoxData", "BoxData", \
 "Output"]
 }, Open  ]]
 }
 ]
 *)
 
-(* End of internal cache information *)
