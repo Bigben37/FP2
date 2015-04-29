@@ -1,4 +1,5 @@
 from numpy import sqrt
+from numpy.linalg import inv  # inverse matrix
 from functions import setupROOT
 from z0 import Z0Data
 from ROOT import gStyle, TCanvas, TLegend  # @UnresolvedImport
@@ -103,6 +104,8 @@ def makeCuts(datas):
         f.write2DArrayToFile(efficencies, ['%.6f'] * 4)
     with TxtFile('../calc/efficencies_error.txt', 'w') as f:
         f.write2DArrayToFile(sefficencies, ['%.6f'] * 4)
+    with TxtFile('../calc/invEfficencies.txt', 'w') as f:
+        f.write2DArrayToFile(inv(efficencies), ['%.6f'] * 4)
     with TxtFile('../calc/purities.txt', 'w') as f:
         f.write2DArrayToFile(list(zip(*[purities])), ['%.6f'])
 
