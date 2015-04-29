@@ -66,7 +66,7 @@ def main():
         sr = r * sqrt((sIs / Is) ** 2 + (sIs ** 2 + sIt ** 2) / ((Is + It) ** 2))
         integrals.append((energie, Is, sIs, It, sIt, r, sr))
     with TxtFile('../calc/s-t-integrals.txt', 'w') as f:
-        f.write2DArrayToFile(integrals, ['%.2f'] + ['%.3f'] * 6)
+        f.write2DArrayToFile(integrals, ['%.5f'] + ['%.3f'] * 6)
 
 if __name__ == '__main__':
     setupROOT()

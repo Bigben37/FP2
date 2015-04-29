@@ -1,7 +1,7 @@
 import time
 from ROOT import TFile, TH1F  # @UnresolvedImport
 
-LEP_ENERGIES = [88.47, 89.46, 90.22, 91.22, 91.97, 92.96, 93.71]
+LEP_ENERGIES = [88.48021, 89.47158, 90.22720, 91.23223, 91.97109, 92.97091, 93.71841]
 
 class Z0Data():
 
