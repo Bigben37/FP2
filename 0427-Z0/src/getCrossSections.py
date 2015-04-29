@@ -1,18 +1,17 @@
-from numpy import dot, matrix, average
-from numpy.linalg import inv  # inverse matrix
+from numpy import dot, sqrt
 from cuts import CUTS
 from functions import setupROOT, loadCSVToList
 from z0 import Z0Data
-from ROOT import gStyle, TCanvas, TLegend  # @UnresolvedImport
+from ROOT import gStyle, TCanvas # @UnresolvedImport
 from txtfile import TxtFile
 
 DEBUG = True
 
 
 def loadInvEffMatrix():
-    m = loadCSVToList('../calc/efficencies.txt')
-    print(matrix(inv(m)))
-    return inv(m)
+    m = loadCSVToList('../calc/invEfficencies.txt')
+    sm = loadCSVToList('../calc/invEfficencies_error.txt')
+    return m, sm
 
 
 def loadSTRatios():
@@ -20,7 +19,6 @@ def loadSTRatios():
     d = dict()
     for data in datas:
         d[data[0]] = data[-2:]  # last to elems, value and error
-    print(d)
     return d
 
 
@@ -74,9 +72,10 @@ def calcCrossSection(ctype, NData, lums, corrs):
     else:
         corrtype = 'qq'
     sigmas = []
-    for energy, N in NData:
+    for energy, N, sN in NData:
         sigma = N / lums[energy][0] + corrs[energy][corrtype]   # sigma = N / L + corr
-        sigmas.append((energy, sigma, 0))  # TODO error for sigma
+        ssimga = N / lums[energy][0] * sqrt((sN / N)**2 + (lums[energy][1] / lums[energy][0])**2)
+        sigmas.append((energy, sigma, ssimga))  # TODO error for sigma
     return sigmas
 
 
@@ -84,13 +83,14 @@ def main():
     # load data
     data = Z0Data.fromROOTFile('../data/daten/daten_1.root', 'h33')
     energiedatas = data.splitEnergies()
-    inveffmatrix = loadInvEffMatrix()
+    inveffmatrix, sinveffmatrix = loadInvEffMatrix()
     stRatios = loadSTRatios()
     lums = loadLums()
     corrs = loadCorrections()
 
     plotDataDistributions(data)
     trueVectors = dict()
+    sTrueVectors = dict()
     for energie, data in energiedatas.items():
         # print("E_lep: ", energie)
         # energies = []
@@ -104,17 +104,21 @@ def main():
 
         # print("TrueVector:")
         trueVector = list(dot(inveffmatrix, MeasVector))
-        trueVector[0] = trueVector[0] * stRatios[energie][0]
+        sTrueVector = [sqrt(sum((sinveffmatrix[i][j] * trueVector[j])**2 for j in range(4))) for i in range(4)]
+        old = trueVector[0]
+        trueVector[0] = old * stRatios[energie][0]
+        sTrueVector[0] = trueVector[0] * sqrt((sTrueVector[0] / old)**2 + (stRatios[energie][1] / stRatios[energie][0])**2)
         # print(trueVector)
         # print("")
 
         trueVectors[energie] = trueVector
+        sTrueVectors[energie] = sTrueVector
 
-    NDatas = [[]] * 4
+    NDatas = [[] for i in range(4)]
     names = ['ee', 'mm', 'tt', 'qq']
     for energie in trueVectors.keys():
         for i in range(4):
-            NDatas[i] = NDatas[i] + [(energie, trueVectors[energie][i])]
+            NDatas[i].append((energie, trueVectors[energie][i], sTrueVectors[energie][i]))
 
     crosssections = dict()
     for ctype, NData in zip(*[names, NDatas]):

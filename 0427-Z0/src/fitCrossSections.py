@@ -18,9 +18,9 @@ def makeCSGraphUnderground(ctype, startGammaEE=None):
     g.Draw('AP')
     
     if not startGammaEE:
-        fit = Fitter('fit_%s' % ctype, '[0] + [1] * x + 12*pi / [2]^2 * x * [3]^2 / ((x-[2])^2 + x^2 * [4]^2 / [2]^2)')
+        fit = Fitter('fit_%s' % ctype, '[0] + [1] * x + 12*pi / [2]^2 * x^2 * [3]^2 / ((x^2-[2]^2)^2 + x^4 * [4]^2 / [2]^2) * 0.3894e6')
     else:
-        fit = Fitter('fit_%s' % ctype, '[0] + [1] * x + 12*pi / [2]^2 * x * [3] * [5] / ((x-[2])^2 + x^2 * [4]^2 / [2]^2)')
+        fit = Fitter('fit_%s' % ctype, '[0] + [1] * x + 12*pi / [2]^2 * x^2 * [3] * [5] / ((x^2-[2]^2)^2 + x^4 * [4]^2 / [2]^2) * 0.3894e6')
     fit.setParam(0, 'a', 0)
     fit.setParam(1, 'b', 0)
     fit.setParam(2, 'M_{Z}', 91.2)
@@ -51,21 +51,24 @@ def makeCSGraphUnderground(ctype, startGammaEE=None):
 def makeCSGraph(ctype, startGammaEE=None):
     data = loadCrossSection(ctype)
     c = TCanvas('c_%s' % ctype, '', 1280, 720)
-    g = data.makeGraph('g_%s' % ctype, 's / GeV', '#sigma / nb')
+    g = data.makeGraph('g_%s' % ctype, '#sqrt{s} / GeV', '#sigma / nb')
     g.Draw('AP')
     
     if not startGammaEE:
-        fit = Fitter('fit_%s' % ctype, '(12*pi / [0]^2) * (x * [1]^2) / ((x-[0])^2 + x^2 * [2]^2 / [0]^2) * 0.3894e-6')  #  GeV^-2 = 0.3894 mb 
+        fit = Fitter('fit_%s' % ctype, '(12*pi / [0]^2) * (x^2 * [1]^2) / ((x^2-[0]^2)^2 + x^4 * [2]^2 / [0]^2) * 0.3894*10^6')  #  GeV^-2 = 0.3894 mb 
     else:
-        fit = Fitter('fit_%s' % ctype, '(12*pi / [0]^2) * (x * [1] * [3]) / ((x-[0])^2 + x^2 * [2]^2 / [0]^2) * 0.3894e-6')
+        fit = Fitter('fit_%s' % ctype, '(12*pi / [0]^2) * (x^2 * [1] * [3]) / ((x^2-[0]^2)^2 + x^4 * [2]^2 / [0]^2) * 0.3894*10^6')
     fit.setParam(0, 'M_{Z}', 91.2)
+    fit.setParamLimits(0, 0, 1000)
     fit.setParam(2, '#Gamma_{Z}', 2.5)
+    fit.setParamLimits(2, 0, 1000)
     if not startGammaEE:
         fit.setParam(1, '#Gamma_{%s}' % ctype[0], 0.08)
+        fit.setParamLimits(1, 0, 1000)
     else:
         fit.setParam(1, '#Gamma_{e}', startGammaEE, True)
         fit.setParam(3, '#Gamma_{%s}' % ctype[0], 2)
-    fit.fit(g, 88, 94, 'M')
+    fit.fit(g, 88, 94, '')
     fit.saveData('../fit/crosssections_%s.txt' % ctype)
     
     l = TLegend(0.625, 0.6, 0.95, 0.975)
@@ -73,7 +76,7 @@ def makeCSGraph(ctype, startGammaEE=None):
     l.AddEntry(g, "%s Wirkungsquerschnitte" % ctype, 'p')
     l.AddEntry(fit.function, "fit", 'l')
     if not startGammaEE:
-        fit.addParamsToLegend(l, [('%.3f', '%.3f'), ('%.3f', '%.3f'), ('%.3f', '%.3f')], chisquareformat='%f', units=['GeV / c^{2}', 'GeV', 'GeV'])
+        fit.addParamsToLegend(l, [('%.3f', '%.3f'), ('%.4f', '%.4f'), ('%.3f', '%.3f')], chisquareformat='%f', units=['GeV / c^{2}', 'GeV', 'GeV'])
     else:
         fit.addParamsToLegend(l, [('%.3f', '%.3f'), '%.3f', ('%.3f', '%.3f'), ('%.3f', '%.3f')], chisquareformat='%f', units=['GeV/c^{2}', 'GeV', 'GeV', 'GeV'])
     l.Draw()
@@ -84,15 +87,11 @@ def makeCSGraph(ctype, startGammaEE=None):
     return fit.params[1]['value']
     
 def main():
-    ctypes = ['ee', 'mm', 'tt', 'qq']
     startGammaEE = 0.084
-    for ctype in ctypes:
-        if not ctype == 'qq':
-            gamma = makeCSGraph(ctype)
-        else:
-            gamma = makeCSGraph(ctype, startGammaEE)
-        #if ctype == 'ee':
-        #    startGammaEE = gamma
+    makeCSGraph('ee')
+    makeCSGraph('mm')
+    makeCSGraph('tt')
+    makeCSGraph('qq', startGammaEE)
 
 if __name__ == '__main__':
     setupROOT()

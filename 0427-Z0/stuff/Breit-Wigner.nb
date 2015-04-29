@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[      6132,        155]
-NotebookOptionsPosition[      5824,        139]
-NotebookOutlinePosition[      6160,        154]
-CellTagsIndexPosition[      6117,        151]
+NotebookDataLength[      7076,        174]
+NotebookOptionsPosition[      6731,        157]
+NotebookOutlinePosition[      7067,        172]
+CellTagsIndexPosition[      7024,        169]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -21,57 +21,70 @@ Notebook[{
 
 Cell[CellGroupData[{
 Cell[BoxData[
- RowBox[{"Manipulate", "[", 
-  RowBox[{
-   RowBox[{"Plot", "[", 
-    RowBox[{
+ RowBox[{
+  RowBox[{"Manipulate", "[", 
+   RowBox[{
+    RowBox[{"Plot", "[", 
      RowBox[{
-      FractionBox[
-       RowBox[{"12", " ", "\[Pi]"}], 
-       SuperscriptBox["MZ", "2"]], " ", 
-      FractionBox[
-       RowBox[{"s", " ", "\[CapitalGamma]i", " ", "\[CapitalGamma]f"}], 
-       RowBox[{
-        SuperscriptBox[
-         RowBox[{"(", 
-          RowBox[{"s", "-", "MZ"}], ")"}], "2"], " ", "+", " ", 
+      RowBox[{
+       FractionBox[
+        RowBox[{"12", " ", "\[Pi]"}], 
+        SuperscriptBox["MZ", "2"]], " ", 
+       FractionBox[
         RowBox[{
-         SuperscriptBox["s", "2"], " ", 
+         SuperscriptBox["x", "2"], " ", "\[CapitalGamma]i", " ", 
+         "\[CapitalGamma]f"}], 
+        RowBox[{
+         SuperscriptBox[
+          RowBox[{"(", 
+           RowBox[{
+            SuperscriptBox["x", "2"], "-", 
+            SuperscriptBox["MZ", "2"]}], ")"}], "2"], " ", "+", " ", 
          RowBox[{
-          SuperscriptBox["\[CapitalGamma]Z", "2"], "/", " ", 
-          SuperscriptBox["MZ", "2"]}]}]}]]}], ",", " ", 
-     RowBox[{"{", 
-      RowBox[{"s", ",", " ", "80", ",", " ", "100"}], "}"}], ",", " ", 
-     RowBox[{"PlotRange", "\[Rule]", 
+          SuperscriptBox["x", "4"], " ", 
+          RowBox[{
+           SuperscriptBox["\[CapitalGamma]Z", "2"], "/", " ", 
+           SuperscriptBox["MZ", "2"]}]}]}]], "*", "0.3894", " ", 
+       SuperscriptBox["10", "6"]}], ",", " ", 
       RowBox[{"{", 
-       RowBox[{"0", ",", " ", "0.0005"}], "}"}]}]}], "]"}], ",", " ", 
-   RowBox[{"{", 
-    RowBox[{
-     RowBox[{"{", 
-      RowBox[{"MZ", ",", " ", "91.187"}], "}"}], ",", " ", "80", ",", " ", 
-     "100"}], "}"}], ",", " ", 
-   RowBox[{"{", 
-    RowBox[{
-     RowBox[{"{", 
-      RowBox[{"\[CapitalGamma]i", ",", " ", "0.084"}], "}"}], ",", " ", 
-     "0.08", ",", " ", "0.09", ",", " ", "0.001"}], "}"}], ",", " ", 
-   RowBox[{"{", 
-    RowBox[{
-     RowBox[{"{", 
-      RowBox[{"\[CapitalGamma]f", ",", " ", "0.084"}], "}"}], ",", " ", 
-     "0.08", ",", " ", "1.8", ",", " ", "0.001"}], "}"}], ",", " ", 
-   RowBox[{"{", 
-    RowBox[{
-     RowBox[{"{", 
-      RowBox[{"\[CapitalGamma]Z", ",", " ", "2.5"}], "}"}], ",", " ", "2", 
-     ",", " ", "3", ",", " ", "0.1"}], "}"}]}], "]"}]], "Input",
+       RowBox[{"x", ",", "80", ",", " ", "100"}], "}"}], ",", " ", 
+      RowBox[{"PlotRange", "\[Rule]", "All"}]}], "]"}], ",", " ", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"MZ", ",", " ", "91.187"}], "}"}], ",", " ", "80", ",", " ", 
+      "100"}], "}"}], ",", " ", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"\[CapitalGamma]i", ",", " ", "0.084"}], "}"}], ",", " ", 
+      "0.08", ",", " ", "0.09", ",", " ", "0.001"}], "}"}], ",", " ", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"\[CapitalGamma]f", ",", " ", "0.084"}], "}"}], ",", " ", 
+      "0.08", ",", " ", "1.8", ",", " ", "0.001"}], "}"}], ",", " ", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"\[CapitalGamma]Z", ",", " ", "2.5"}], "}"}], ",", " ", "2", 
+      ",", " ", "3", ",", " ", "0.1"}], "}"}]}], "]"}], " ", 
+  RowBox[{"(*", "  ", 
+   RowBox[{"x", " ", "=", " ", 
+    SqrtBox["s"]}], "  ", "*)"}], "\[IndentingNewLine]"}]], "Input",
  CellChangeTimes->{{3.639290040948249*^9, 3.639290054524081*^9}, {
   3.639290120828473*^9, 3.639290122922841*^9}, {3.639290203735014*^9, 
   3.639290241723287*^9}, {3.6392902718973*^9, 3.639290323613633*^9}, {
   3.6392903862635393`*^9, 3.639290490766902*^9}, {3.6392905476673603`*^9, 
   3.63929061604882*^9}, {3.639290654402066*^9, 3.6392906990377817`*^9}, {
   3.639290733545659*^9, 3.639290738360832*^9}, {3.639296170438592*^9, 
-  3.639296184930667*^9}}],
+  3.639296184930667*^9}, {3.639296254744635*^9, 3.6392962917841053`*^9}, {
+  3.639296333781143*^9, 3.639296364118161*^9}, {3.639296402061901*^9, 
+  3.6392964038191967`*^9}, {3.639296482856842*^9, 3.639296510665845*^9}, {
+  3.639296776048196*^9, 3.639296808456807*^9}, {3.63929686543258*^9, 
+  3.63929686592902*^9}, {3.639296897971006*^9, 3.639296902954092*^9}, {
+  3.639297597253337*^9, 3.639297607754849*^9}, {3.639297644859605*^9, 
+  3.6392976741438627`*^9}}],
 
 Cell[BoxData[
  TagBox[
@@ -87,40 +100,40 @@ Cell[BoxData[
        Hold[$CellContext`\[CapitalGamma]i$$], 0.084}, 0.08, 0.09, 0.001}, {{
        Hold[$CellContext`\[CapitalGamma]f$$], 0.084}, 0.08, 1.8, 0.001}, {{
        Hold[$CellContext`\[CapitalGamma]Z$$], 2.5}, 2, 3, 0.1}}, 
-    Typeset`size$$ = {360., {109., 114.}}, Typeset`update$$ = 0, 
+    Typeset`size$$ = {360., {107., 112.}}, Typeset`update$$ = 0, 
     Typeset`initDone$$, Typeset`skipInitDone$$ = 
-    True, $CellContext`MZ$18263$$ = 0, $CellContext`\[CapitalGamma]i$18264$$ =
-     0, $CellContext`\[CapitalGamma]f$18265$$ = 
-    0, $CellContext`\[CapitalGamma]Z$18266$$ = 0}, 
+    True, $CellContext`MZ$11429$$ = 0, $CellContext`\[CapitalGamma]i$11430$$ =
+     0, $CellContext`\[CapitalGamma]f$11431$$ = 
+    0, $CellContext`\[CapitalGamma]Z$11432$$ = 0}, 
     DynamicBox[Manipulate`ManipulateBoxes[
      1, StandardForm, 
       "Variables" :> {$CellContext`MZ$$ = 
         91.187, $CellContext`\[CapitalGamma]f$$ = 
         0.084, $CellContext`\[CapitalGamma]i$$ = 
         0.084, $CellContext`\[CapitalGamma]Z$$ = 2.5}, "ControllerVariables" :> {
-        Hold[$CellContext`MZ$$, $CellContext`MZ$18263$$, 0], 
+        Hold[$CellContext`MZ$$, $CellContext`MZ$11429$$, 0], 
         Hold[$CellContext`\[CapitalGamma]i$$, \
-$CellContext`\[CapitalGamma]i$18264$$, 0], 
+$CellContext`\[CapitalGamma]i$11430$$, 0], 
         Hold[$CellContext`\[CapitalGamma]f$$, \
-$CellContext`\[CapitalGamma]f$18265$$, 0], 
+$CellContext`\[CapitalGamma]f$11431$$, 0], 
         Hold[$CellContext`\[CapitalGamma]Z$$, \
-$CellContext`\[CapitalGamma]Z$18266$$, 0]}, 
+$CellContext`\[CapitalGamma]Z$11432$$, 0]}, 
       "OtherVariables" :> {
        Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
         Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
         Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
          Typeset`skipInitDone$$}, "Body" :> 
-      Plot[(12 Pi/$CellContext`MZ$$^2) ($CellContext`s $CellContext`\
-\[CapitalGamma]i$$ $CellContext`\[CapitalGamma]f$$/(($CellContext`s - \
-$CellContext`MZ$$)^2 + $CellContext`s^2 \
-($CellContext`\[CapitalGamma]Z$$^2/$CellContext`MZ$$^2))), {$CellContext`s, 
-         80, 100}, PlotRange -> {0, 0.0005}], 
+      Plot[(12 Pi/$CellContext`MZ$$^2) ($CellContext`x^2 $CellContext`\
+\[CapitalGamma]i$$ $CellContext`\[CapitalGamma]f$$/(($CellContext`x^2 - \
+$CellContext`MZ$$^2)^2 + $CellContext`x^4 \
+($CellContext`\[CapitalGamma]Z$$^2/$CellContext`MZ$$^2))) 0.3894 
+        10^6, {$CellContext`x, 80, 100}, PlotRange -> All], 
       "Specifications" :> {{{$CellContext`MZ$$, 91.187}, 80, 
          100}, {{$CellContext`\[CapitalGamma]i$$, 0.084}, 0.08, 0.09, 
          0.001}, {{$CellContext`\[CapitalGamma]f$$, 0.084}, 0.08, 1.8, 
          0.001}, {{$CellContext`\[CapitalGamma]Z$$, 2.5}, 2, 3, 0.1}}, 
       "Options" :> {}, "DefaultOptions" :> {}],
-     ImageSizeCache->{407., {188., 195.}},
+     ImageSizeCache->{407., {186., 193.}},
      SingleEvaluation->True],
     Deinitialization:>None,
     DynamicModuleValues:>{},
@@ -131,11 +144,16 @@ $CellContext`MZ$$)^2 + $CellContext`s^2 \
    Deployed->True,
    StripOnInput->False],
   Manipulate`InterpretManipulate[1]]], "Output",
- CellChangeTimes->{{3.63929048170431*^9, 3.639290491316863*^9}, 
-   3.639290551212957*^9, 3.639290593035692*^9, 3.6392906409811277`*^9, {
-   3.639290673188879*^9, 3.639290745499136*^9}, 3.639290834485119*^9, 
-   3.639296194045351*^9}]
-}, Open  ]]
+ CellChangeTimes->{
+  3.639296404315865*^9, 3.639296443788002*^9, {3.639296483705187*^9, 
+   3.639296511090228*^9}, {3.6392967851580687`*^9, 3.6392968091877127`*^9}, {
+   3.639296873127598*^9, 3.639296903599146*^9}, 3.639297071351837*^9, {
+   3.639297598210286*^9, 3.639297608230256*^9}, {3.639297653153314*^9, 
+   3.6392976751315603`*^9}}]
+}, Open  ]],
+
+Cell[BoxData["\[AliasDelimiter]"], "Input",
+ CellChangeTimes->{3.639297113533433*^9}]
 },
 WindowSize->{1366, 714},
 WindowMargins->{{0, Automatic}, {Automatic, 0}},
@@ -154,9 +172,10 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[580, 22, 2023, 51, 105, "Input"],
-Cell[2606, 75, 3202, 61, 433, "Output"]
-}, Open  ]]
+Cell[580, 22, 2727, 64, 133, "Input"],
+Cell[3310, 88, 3317, 63, 396, "Output"]
+}, Open  ]],
+Cell[6642, 154, 85, 1, 32, "Input"]
 }
 ]
 *)
