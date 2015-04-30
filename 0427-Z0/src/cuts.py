@@ -7,7 +7,7 @@ from txtfile import TxtFile
 
 DEBUG = False  # TODO set False
 
-CUTS = [("ee", lambda e: e["Ncharged"] <= 5 and e["E_ecal"] >= 70 and -0.9 <= e["cos_thet"] <= 0.9),
+CUTS = [("ee", lambda e: e["Ncharged"] <= 5 and e["E_ecal"] >= 75 and (-0.9 <= e["cos_thet"] <= 0.9 or e["cos_thet"] > 1)),
         ("mm", lambda e: e["Ncharged"] == 2 and e["E_ecal"] <= 50 and e["Pcharged"] >= 75),
         ("tt", lambda e: e["Ncharged"] <= 6 and 4 <= e["E_ecal"] <= 70 and 5 <= e["Pcharged"] <= 50),
         ("qq", lambda e: e["Ncharged"] >= 10)]

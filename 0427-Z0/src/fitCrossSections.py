@@ -101,7 +101,6 @@ def main():
     makeCSGraph('ee')
     makeCSGraph('mm')
     makeCSGraph('tt')
-    #makeCSGraphUnderground('tt')
     makeCSGraph('qq', startGammaEE)
 
 if __name__ == '__main__':

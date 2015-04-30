@@ -11,7 +11,7 @@ def stFit(data, energie, xmin, xmax):
     datacut = data.cut(CUTS[0][1])  # ee-cut
 
     c = TCanvas('c', '', 1280, 720)
-    hist = datacut.makeHistogramm('hist', 'cos_thet', 100, -1, 1)  # TODO params for hist title (defualt = '')
+    hist = datacut.makeHistogramm('hist', 'cos_thet', 80, -1, 1)  # TODO params for hist title (defualt = '')
     hist.Draw()
 
     fit = Fitter('f', '[0] * (1 + x^2) + [1] * (1 - x)^(-2)')
@@ -34,7 +34,7 @@ def stFit(data, energie, xmin, xmax):
 
     l = TLegend(0.15, 0.6, 0.45, 0.85)
     l.SetTextSize(0.03)
-    l.AddEntry(hist, "daten_1 (mit cut)", 'l')
+    l.AddEntry(hist, "daten_1 (mit ee-cut)", 'l')
     l.AddEntry(fit.function, 'Fit mit N = s (1 + x^{2}) + t (1 - x)^{-2}', 'l')
     fit.addParamsToLegend(l, [('%.2f', '%.2f'), ('%.2f', '%.2f')], chisquareformat='%.2f')
     l.AddEntry(sfunc, 's (1 + x^{2})', 'l')
