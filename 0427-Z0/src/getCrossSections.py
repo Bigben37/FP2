@@ -104,7 +104,8 @@ def main():
 
         # print("TrueVector:")
         trueVector = list(dot(inveffmatrix, MeasVector))
-        sTrueVector = [sqrt(sum((sinveffmatrix[i][j] * trueVector[j])**2 for j in range(4))) for i in range(4)]
+        # sTrueVector = [sqrt(sum((sinveffmatrix[i][j] * trueVector[j])**2 for j in range(4))) for i in range(4)]
+        sTrueVector = [sqrt(sum((inveffmatrix[i][j]*MeasVector[j])**2 * ((sinveffmatrix[i][j] / inveffmatrix[i][j])**2 + (sqrt(MeasVector[j]) / MeasVector[j])**2) for j in range(4))) for i in range(4)]
         old = trueVector[0]
         trueVector[0] = old * stRatios[energie][0]
         sTrueVector[0] = trueVector[0] * sqrt((sTrueVector[0] / old)**2 + (stRatios[energie][1] / stRatios[energie][0])**2)

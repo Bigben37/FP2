@@ -5,11 +5,11 @@ from z0 import Z0Data
 from ROOT import gStyle, TCanvas, TLegend  # @UnresolvedImport
 from txtfile import TxtFile
 
-DEBUG = True  # TODO set False
+DEBUG = False  # TODO set False
 
 CUTS = [("ee", lambda e: e["Ncharged"] <= 5 and e["E_ecal"] >= 70 and -0.9 <= e["cos_thet"] <= 0.9),
         ("mm", lambda e: e["Ncharged"] == 2 and e["E_ecal"] <= 50 and e["Pcharged"] >= 75),
-        ("tt", lambda e: e["Ncharged"] <= 6 and 4 <= e["E_ecal"] <= 70 and e["Pcharged"] <= 70),
+        ("tt", lambda e: e["Ncharged"] <= 6 and 4 <= e["E_ecal"] <= 70 and 5 <= e["Pcharged"] <= 50),
         ("qq", lambda e: e["Ncharged"] >= 10)]
 
 
@@ -101,11 +101,11 @@ def makeCuts(datas):
         sefficencies.append(seffs)
         purities.append(purity)
     with TxtFile('../calc/efficencies.txt', 'w') as f:
-        f.write2DArrayToFile(efficencies, ['%.6f'] * 4)
+        f.write2DArrayToFile(efficencies, ['%.8f'] * 4)
     with TxtFile('../calc/efficencies_error.txt', 'w') as f:
-        f.write2DArrayToFile(sefficencies, ['%.6f'] * 4)
+        f.write2DArrayToFile(sefficencies, ['%.8f'] * 4)
     with TxtFile('../calc/invEfficencies.txt', 'w') as f:
-        f.write2DArrayToFile(inv(efficencies), ['%.6f'] * 4)
+        f.write2DArrayToFile(inv(efficencies), ['%.8f'] * 4)
     with TxtFile('../calc/purities.txt', 'w') as f:
         f.write2DArrayToFile(list(zip(*[purities])), ['%.6f'])
 
