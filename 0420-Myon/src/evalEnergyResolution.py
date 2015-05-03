@@ -2,7 +2,7 @@
 import os
 from functions import setupROOT
 from myon import MyonData, prepareGraph
-from ROOT import TCanvas, TLegend
+from ROOT import TCanvas, TLegend # @UnresolvedImport
 from fitter import Fitter
 from data import DataErrors
 

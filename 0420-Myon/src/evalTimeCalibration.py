@@ -1,7 +1,7 @@
 #!/usr/bin/python
 from functions import setupROOT
 from data import DataErrors
-from ROOT import TCanvas, TLegend
+from ROOT import TCanvas, TLegend  # @UnresolvedImport
 from fitter import Fitter
 
 def main():
@@ -19,7 +19,7 @@ def main():
     fit.setParam(0, 'a', 0)
     fit.setParam(1, 'b', 50)
     fit.fit(g, 100, 450)
-    fit.saveData('../fit/timeGauge.txt')
+    fit.saveData('../fit/timeCalibration.txt')
     
     l = TLegend(0.15, 0.6, 0.5, 0.85)
     l.SetTextSize(0.03)
@@ -30,7 +30,7 @@ def main():
     
     g.Draw('P')
     c.Update()
-    c.Print('../img/timeGauge.pdf', 'pdf')
+    c.Print('../img/timeCalibration.pdf', 'pdf')
 
 if __name__ == "__main__":
     setupROOT()

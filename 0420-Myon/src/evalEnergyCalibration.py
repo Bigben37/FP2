@@ -3,7 +3,7 @@ import datetime
 from numpy import pi, sqrt
 from functions import setupROOT
 from myon import MyonData, prepareGraph
-from ROOT import TCanvas, TLegend, TMath, TF1
+from ROOT import TCanvas, TLegend, TMath # @UnresolvedImport
 from fitter import Fitter
 from data import DataErrors
 
@@ -120,7 +120,7 @@ def evalPedestal():
     
     return (fit.params[1]['value'], fit.params[1]['error'])
 
-def evalEnergyGauge(peaks, percents):
+def evalEnergyCalibration(peaks, percents):
     maxenergy = 1.95 * 0.87 * 84
     smaxenergy = maxenergy * sqrt((0.05/195) ** 2 + (0.01/0.87) ** 2 + (5/85) ** 2 )
     channels = list(list(zip(*peaks))[0])
@@ -130,16 +130,16 @@ def evalEnergyGauge(peaks, percents):
     #senergies[0] = 2
     
     data = DataErrors.fromLists(channels, energies, schannels, senergies)
-    c = TCanvas('c_energygauge', '', 1280, 720)
-    g = data.makeGraph('g_energygauge', 'channel c', 'energy E / MeV')
+    c = TCanvas('c_energycalibration', '', 1280, 720)
+    g = data.makeGraph('g_energycalibration', 'channel c', 'energy E / MeV')
     g.Draw('AP')
     
-    fit = Fitter('fit_energygauge', 'pol1(0)')
+    fit = Fitter('fit_energycalibration', 'pol1(0)')
     fit.function.SetNpx(1000)
     fit.setParam(0, 'a', 0)
     fit.setParam(1, 'b', 1/3)
     fit.fit(g, 0, max(channels) + 5)
-    fit.saveData('../fit/energyGauge.txt')
+    fit.saveData('../fit/energyCalibration.txt')
     
     l = TLegend(0.15, 0.6, 0.52, 0.85)
     l.SetTextSize(0.03)
@@ -149,17 +149,17 @@ def evalEnergyGauge(peaks, percents):
     l.Draw()
     
     c.Update()
-    c.Print('../img/energyGauge.pdf', 'pdf')
+    c.Print('../img/energyCalibration.pdf', 'pdf')
     
 def evalFittedSigmas(sigmas, percents):
     pass  # TBI
 
 def main():
-    peak100, sigma100 = evalFlythroughSpectrum('energieeichung_100', 275, 600)
-    peak050, sigma050 = evalFlythroughSpectrum('energieeichung_50', 120, 400)
-    peak035, sigma035 = evalFlythroughSpectrum('energieeichung_35', 75, 240)
+    peak100, sigma100 = evalFlythroughSpectrum('energiekalibration_100', 275, 600)
+    peak050, sigma050 = evalFlythroughSpectrum('energiekalibration_50', 120, 400)
+    peak035, sigma035 = evalFlythroughSpectrum('energiekalibration_35', 75, 240)
     peak000 = evalPedestal()
-    evalEnergyGauge([peak000, peak035, peak050, peak100], [0, 35, 50, 100])
+    evalEnergyCalibration([peak000, peak035, peak050, peak100], [0, 35, 50, 100])
     evalFittedSigmas([sigma035, sigma050, sigma100], [35, 50, 100])
 
 if __name__ == "__main__":
