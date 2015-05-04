@@ -1,0 +1,131 @@
+%% Creator: Inkscape inkscape 0.91, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'aufbau.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{1296.838334bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,1.15333678)%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{aufbau.pdf}}%
+    \put(0.60537361,0.76586169){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.11578455\unitlength}\centering lin. amp.\end{minipage}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{aufbau.pdf}}%
+    \put(0.72033529,0.76586169){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.13261606\unitlength}\centering lin. amp.\end{minipage}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{aufbau.pdf}}%
+    \put(0.62158853,0.65482243){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.08212154\unitlength}\centering disc.\end{minipage}}}%
+    \put(0.68552729,0.56503315){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.08212154\unitlength}\centering AND I\end{minipage}}}%
+    \put(0.77748868,0.56503315){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.08212154\unitlength}\centering Z I\end{minipage}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{aufbau.pdf}}%
+    \put(0.00532048,0.56641027){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.08212154\unitlength}\centering del.\end{minipage}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{aufbau.pdf}}%
+    \put(0.12869748,0.56641027){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.08212154\unitlength}\centering del.\end{minipage}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{aufbau.pdf}}%
+    \put(0.00532047,0.65482241){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.08212154\unitlength}\centering disc.\end{minipage}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=7]{aufbau.pdf}}%
+    \put(0.12869748,0.65482241){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.08212154\unitlength}\centering disc.\end{minipage}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=8]{aufbau.pdf}}%
+    \put(0.16696864,0.32202511){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.08212154\unitlength}\centering TAC\end{minipage}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=9]{aufbau.pdf}}%
+    \put(0.33808403,0.32136228){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.09342813\unitlength}\centering gate/del.\end{minipage}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=10]{aufbau.pdf}}%
+    \put(0.33808402,0.23295015){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.09342813\unitlength}\centering TU I\end{minipage}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=11]{aufbau.pdf}}%
+    \put(0.00527013,0.32218777){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.10526486\unitlength}\centering MCA II\end{minipage}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=12]{aufbau.pdf}}%
+    \put(0.65718666,0.29325313){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.09342813\unitlength}\centering TU II\end{minipage}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=13]{aufbau.pdf}}%
+    \put(0.74558239,0.65482242){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.08212154\unitlength}\centering disc.\end{minipage}}}%
+    \put(0.74558239,0.65482242){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.08212154\unitlength}\centering disc.\end{minipage}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=14]{aufbau.pdf}}%
+    \put(0.89363477,0.65482241){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.08212154\unitlength}\centering add.\end{minipage}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=15]{aufbau.pdf}}%
+    \put(0.89363477,0.56641025){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.08212154\unitlength}\centering del.\end{minipage}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=16]{aufbau.pdf}}%
+    \put(0.86745605,0.37105534){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.13345763\unitlength}\centering lin. gate\end{minipage}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=17]{aufbau.pdf}}%
+    \put(0.87002027,0.17570046){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.13009134\unitlength}\centering sh. amp.\end{minipage}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=18]{aufbau.pdf}}%
+    \put(0.89399625,0.08549462){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.08212154\unitlength}\centering MCA I\end{minipage}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=19]{aufbau.pdf}}%
+    \put(0.18146047,0.44163737){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.10610644\unitlength}\centering AND II\end{minipage}}}%
+    \put(0.28541437,0.4416374){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.08212154\unitlength}\centering Z II\end{minipage}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=20]{aufbau.pdf}}%
+    \put(0.42142793,0.11342305){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.10473472\unitlength}\centering AND III\end{minipage}}}%
+    \put(0.53979074,0.11342303){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.08212154\unitlength}\centering Z III\end{minipage}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=21]{aufbau.pdf}}%
+    \put(0.86745605,0.26411259){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.13345763\unitlength}\centering att.\end{minipage}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=22]{aufbau.pdf}}%
+    \put(0.66740863,0.60515186){\color[rgb]{0.78823529,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.02906944\unitlength}\centering A\end{minipage}}}%
+    \put(0.73156466,0.60515186){\color[rgb]{0.78823529,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.02906944\unitlength}\centering B\end{minipage}}}%
+    \put(0.18130332,0.48177488){\color[rgb]{0.78823529,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.02906944\unitlength}\centering A\end{minipage}}}%
+    \put(0.20968002,0.48177488){\color[rgb]{0.78823529,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.02906944\unitlength}\centering B\end{minipage}}}%
+    \put(0.23435542,0.48177488){\color[rgb]{0.78823529,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.02906944\unitlength}\centering C\end{minipage}}}%
+    \put(0.41715257,0.15505845){\color[rgb]{0.78823529,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.02906944\unitlength}\centering A\end{minipage}}}%
+    \put(0.44552927,0.15505845){\color[rgb]{0.78823529,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.02906944\unitlength}\centering B\end{minipage}}}%
+    \put(0.47513975,0.15505845){\color[rgb]{0.78823529,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.02906944\unitlength}\centering C\end{minipage}}}%
+    \put(0.81767466,0.41426322){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.20501628\unitlength}\centering \footnotesize{in}\end{minipage}}}%
+    \put(0.81273959,0.31926294){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.20501628\unitlength}\centering \footnotesize{out}\end{minipage}}}%
+    \put(0.7200424,0.38342005){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.22551784\unitlength}\centering \footnotesize{gate in}\end{minipage}}}%
+    \put(0.07628984,0.36819806){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.20501628\unitlength}\centering \footnotesize{start}\end{minipage}}}%
+    \put(0.0738223,0.27566532){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.20501628\unitlength}\centering \footnotesize{stop}\end{minipage}}}%
+    \put(0.03664478,0.33365358){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.22551784\unitlength}\centering \footnotesize{out}\end{minipage}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=23]{aufbau.pdf}}%
+    \put(0.5885372,1.03704405){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.19866322\unitlength}\centering PM\end{minipage}}}%
+    \put(-0.02271473,0.88796716){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.19866322\unitlength}\centering PM\end{minipage}}}%
+    \put(0.1167464,1.1418376){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.19866322\unitlength}\centering PM\end{minipage}}}%
+    \put(0.12733928,0.76664059){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.19866322\unitlength}\centering PM\end{minipage}}}%
+    \put(0.63060787,1.15139024){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.19866322\unitlength}\centering scintillating tank\end{minipage}}}%
+    \put(0.27371974,1.08635633){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.19866322\unitlength}\centering scintillator\end{minipage}}}%
+    \put(0.2589145,0.80618367){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.19866322\unitlength}\centering scintillator\end{minipage}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=24]{aufbau.pdf}}%
+    \put(0.28047239,1.14752109){\color[rgb]{1,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.19866322\unitlength}\raggedright \large{\textmu}\end{minipage}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=25]{aufbau.pdf}}%
+    \put(0.43983445,0.92158715){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.11028424\unitlength}\centering \large{e}\end{minipage}}}%
+    \put(0.50562588,1.14522252){\color[rgb]{1,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.19866322\unitlength}\raggedright \large{\textmu}\end{minipage}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=26]{aufbau.pdf}}%
+    \put(0.18892376,0.99557935){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.19866322\unitlength}\centering \textgamma\end{minipage}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=27]{aufbau.pdf}}%
+  \end{picture}%
+\endgroup%
