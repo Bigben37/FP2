@@ -32,8 +32,18 @@ countrate $n$. Consequently the error changes, too:
 \end{center}
 \end{figure}
 
+\begin{equation}
+\label{eq:tcalibration}
+    t = a + b \cdot c, \qquad s_t = \sqrt{s_a^2 + \left(x \cdot s_b \right)^2 + 2 \cdot x \cdot \cov(a,b)}
+\end{equation}
+
 \subsection{Underground}
 
 \subsection{$\beta$-spectrum}
 
 \subsection{Decay time}
+To calculate the decay time $\tau$ of $\mu$ the channels are converted to a time with \autoref{eq:tcalibration}. 
+The so obtained datapoints get fitted with an exponential function:
+\begin{equation}
+    
+\end{equation}
