@@ -1,0 +1,216 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      7501,        207]
+NotebookOptionsPosition[      7152,        190]
+NotebookOutlinePosition[      7489,        205]
+CellTagsIndexPosition[      7446,        202]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{"ClearAll", "[", "\"\<Global`*\>\"", "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"func", "[", "VarsW_", "]"}], ":=", 
+   RowBox[{"a", "*", "b"}]}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+
+ RowBox[{
+  RowBox[{"params", ":=", 
+   RowBox[{"{", 
+    RowBox[{"a", ",", "b"}], "}"}]}], "  ", 
+  RowBox[{"(*", "VarsW", "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"values", ":=", 
+   RowBox[{"{", 
+    RowBox[{"val1", ",", " ", "val2"}], "}"}]}], " ", 
+  RowBox[{"(*", "Werte", "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"cov", ":=", 
+   RowBox[{"(", GridBox[{
+      {"cov11", "cov12"},
+      {"cov21", "cov22"}
+     }], ")"}]}], "  ", 
+  RowBox[{"(*", "Fehler", "*)"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"n", ":=", 
+   RowBox[{"Length", "[", "params", "]"}]}], "  ", 
+  RowBox[{"(*", 
+   RowBox[{"number", " ", "of", " ", "params"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"covVars", ":=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"ToExpression", "[", 
+      RowBox[{"\"\<cov\>\"", "<>", 
+       RowBox[{"ToString", "[", 
+        RowBox[{"params", "[", 
+         RowBox[{"[", "i", "]"}], "]"}], "]"}], "<>", 
+       RowBox[{"ToString", "[", 
+        RowBox[{"params", "[", 
+         RowBox[{"[", "j", "]"}], "]"}], "]"}]}], " ", "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", "1", ",", "n"}], "}"}], ",", " ", 
+     RowBox[{"{", 
+      RowBox[{"j", ",", " ", "1", ",", " ", "n"}], "}"}]}], "]"}]}], 
+  RowBox[{"(*", 
+   RowBox[{"variables", " ", "for", " ", "cov", " ", "entries"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"RepList", ":=", 
+   RowBox[{"Join", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"params", "[", 
+         RowBox[{"[", "i", "]"}], "]"}], "\[Rule]", 
+        RowBox[{"values", "[", 
+         RowBox[{"[", "i", "]"}], "]"}]}], ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", "1", ",", "n"}], "}"}]}], "]"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Flatten", "[", 
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"covVars", "[", 
+          RowBox[{"[", 
+           RowBox[{"i", ",", " ", "j"}], "]"}], "]"}], "\[Rule]", 
+         RowBox[{"cov", "[", 
+          RowBox[{"[", 
+           RowBox[{"i", ",", " ", "j"}], "]"}], "]"}]}], ",", 
+        RowBox[{"{", 
+         RowBox[{"i", ",", "1", ",", "n"}], "}"}], ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"j", ",", " ", "1", ",", " ", "n"}], "}"}]}], "]"}], "]"}]}],
+     "]"}]}], "  ", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+    "replacement", " ", "list", " ", "for", " ", "params", " ", "and", " ", 
+     "cov"}], "-", "entries"}], "*)"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"res", "=", 
+   RowBox[{
+    RowBox[{"func", "[", "params", "]"}], "/.", "RepList"}]}], " ", 
+  RowBox[{"(*", " ", "result", " ", "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"error", "=", 
+   RowBox[{
+    RowBox[{
+     SqrtBox[
+      RowBox[{"Sum", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{"D", "[", 
+           RowBox[{
+            RowBox[{"func", "[", "params", "]"}], ",", 
+            RowBox[{"{", "params", "}"}]}], "]"}], "[", 
+          RowBox[{"[", "i", "]"}], "]"}], "*", 
+         RowBox[{
+          RowBox[{"D", "[", 
+           RowBox[{
+            RowBox[{"func", "[", "params", "]"}], ",", 
+            RowBox[{"{", "params", "}"}]}], "]"}], "[", 
+          RowBox[{"[", "j", "]"}], "]"}], "*", 
+         RowBox[{"covVars", "[", 
+          RowBox[{"[", 
+           RowBox[{"i", ",", " ", "j"}], "]"}], "]"}]}], ",", 
+        RowBox[{"{", 
+         RowBox[{"i", ",", "1", ",", "n"}], "}"}], ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"j", ",", " ", "1", ",", " ", "n"}], "}"}]}], "]"}]], "/.", 
+     "RepList"}], "  ", "//", "FullSimplify"}]}], 
+  RowBox[{"(*", " ", "error", " ", "*)"}]}], "\[IndentingNewLine]"}], "Input",\
+
+ CellChangeTimes->{{3.6036980436875*^9, 3.6036983238125*^9}, {
+   3.6036983551875*^9, 3.603698632390625*^9}, {3.60369867203125*^9, 
+   3.60369867215625*^9}, {3.603698748671875*^9, 3.603698900390625*^9}, {
+   3.603699034859375*^9, 3.60369941546875*^9}, {3.603702386296875*^9, 
+   3.603702455671875*^9}, {3.6037026083125*^9, 3.603702613859375*^9}, {
+   3.603703481328125*^9, 3.603703566828125*^9}, {3.60370360184375*^9, 
+   3.60370367375*^9}, {3.60370373075*^9, 3.60370375440625*^9}, {
+   3.60370389959375*^9, 3.603703958640625*^9}, {3.60468938290625*^9, 
+   3.604689395046875*^9}, {3.60468959165625*^9, 3.604689710609375*^9}, {
+   3.604689782*^9, 3.604689852046875*^9}, 3.60468994396875*^9, {
+   3.60528525478125*^9, 3.605285348953125*^9}, {3.605285385046875*^9, 
+   3.605285396*^9}, {3.605285428234375*^9, 3.605285439625*^9}, {
+   3.605285578578125*^9, 3.6052857286875*^9}, {3.605285790234375*^9, 
+   3.605285803140625*^9}, {3.605285851890625*^9, 3.60528585746875*^9}, {
+   3.60528600078125*^9, 3.6052860223125*^9}, {3.605286245796875*^9, 
+   3.60528638290625*^9}, 3.6052864865*^9, {3.605286531640625*^9, 
+   3.605286575109375*^9}, {3.605286614296875*^9, 3.6052866146875*^9}, {
+   3.605286697109375*^9, 3.605286702140625*^9}, {3.62023560525*^9, 
+   3.620235678171875*^9}, {3.6231505223681593`*^9, 3.623150530563528*^9}, {
+   3.623150568394504*^9, 3.623150582561946*^9}, {3.6231506221789103`*^9, 
+   3.6231506240695667`*^9}, {3.623150855117189*^9, 3.6231508835239553`*^9}, {
+   3.6231509192015657`*^9, 3.623150953433085*^9}, {3.6231509978278017`*^9, 
+   3.6231510306507883`*^9}, {3.623151081171257*^9, 3.62315109884306*^9}, {
+   3.6231511466598577`*^9, 3.6231511965620537`*^9}, {3.62315154638465*^9, 
+   3.623151818788548*^9}, {3.623152048527631*^9, 3.623152065093124*^9}, {
+   3.623152121930258*^9, 3.6231522185881557`*^9}, {3.623152263926364*^9, 
+   3.6231524184270563`*^9}, {3.623152467838812*^9, 3.623152526367045*^9}, {
+   3.623152603718649*^9, 3.6231526578832073`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"val1", " ", "val2"}]], "Output",
+ CellChangeTimes->{3.623152527094589*^9, 3.623152658808237*^9}],
+
+Cell[BoxData[
+ SqrtBox[
+  RowBox[{
+   RowBox[{"cov22", " ", 
+    SuperscriptBox["val1", "2"]}], "+", 
+   RowBox[{"val2", " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"cov12", "+", "cov21"}], ")"}], " ", "val1"}], "+", 
+      RowBox[{"cov11", " ", "val2"}]}], ")"}]}]}]]], "Output",
+ CellChangeTimes->{3.623152527094589*^9, 3.623152659036429*^9}]
+}, Open  ]]
+},
+WindowSize->{1366, 719},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"10.0 for Linux x86 (64-bit) (September 9, 2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 6041, 147, 407, "Input"],
+Cell[6623, 171, 120, 2, 32, "Output"],
+Cell[6746, 175, 390, 12, 45, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
