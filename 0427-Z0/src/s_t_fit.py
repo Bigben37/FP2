@@ -7,11 +7,11 @@ from ROOT import gStyle, TCanvas, TLegend, TF1  # @UnresolvedImport
 from txtfile import TxtFile
 
 
-def stFit(data, energie, xmin, xmax):
+def stFit(data, energie, xmin, xmax, binsize):
     datacut = data.cut(CUTS[0][1])  # ee-cut
 
     c = TCanvas('c', '', 1280, 720)
-    hist = datacut.makeHistogramm('hist', 'cos_thet', 80, -1, 1)  # TODO params for hist title (defualt = '')
+    hist = datacut.makeHistogramm('hist_%f' % energie, 'cos_thet', binsize, -1, 1)
     hist.Draw()
 
     fit = Fitter('f', '[0] * (1 + x^2) + [1] * (1 - x)^(-2)')
@@ -51,11 +51,12 @@ def main():
     data = Z0Data.fromROOTFile('../data/daten/daten_1.root', 'h33')
     energiedatas = data.splitEnergies()
     xmin, xmax = -0.9, 0.9
+    binsizes = {88.48021:80, 89.47158:80, 90.22720:80, 91.23223:50, 91.97109:25, 92.97091:59, 93.71841:80}
     integrals = []
     eds = list(energiedatas.items())  # energy datas sorted after energy
     eds.sort(key=lambda x: x[0])
     for energie, data in eds:
-        (s, ss), (t, st) = stFit(data, energie, xmin, xmax)
+        (s, ss), (t, st) = stFit(data, energie, xmin, xmax, binsizes[energie])
         # s intergral:
         Is = s * (xmax - xmin + (xmax ** 3 - xmin ** 3) / 3)
         sIs = Is * ss / s
