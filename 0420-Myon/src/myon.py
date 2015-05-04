@@ -13,6 +13,14 @@ class MyonData(DataErrors):
         super(DataErrors, self).__init__()
         self.time = 0
         self.timed = 0
+        
+    @classmethod
+    def fromDataErrors(cls, data, time, timed):
+        d = cls()
+        d.points = data.points
+        d.time = time
+        d.timed = timed
+        return d
 
     def loadData(self):
         d = os.path.dirname(os.path.abspath(__file__))
@@ -33,6 +41,15 @@ class MyonData(DataErrors):
 
     def convertChannelToTime(self):
         calibration = loadCSVToList('../calc/timeCalibration.txt')
+        ((a, sa), (b, sb), (cov,)) = calibration
+        for i in range(self.getLength()):
+            x = self.points[i][0]
+            t = a + x * b
+            st = np.sqrt(sa ** 2 + (x * sb) ** 2 + 2 * x * cov)
+            self.points[i] = (t, self.points[i][1], st, self.points[i][3])
+            
+    def convertChannelToEnergy(self):
+        calibration = loadCSVToList('../calc/energyCalibration.txt')
         ((a, sa), (b, sb), (cov,)) = calibration
         for i in range(self.getLength()):
             x = self.points[i][0]

@@ -5,6 +5,7 @@ from functions import setupROOT
 from myon import MyonData, prepareGraph
 from ROOT import TCanvas, TLegend, TMath # @UnresolvedImport
 from fitter import Fitter
+from txtfile import TxtFile
 from data import DataErrors
 
 
@@ -150,6 +151,11 @@ def evalEnergyCalibration(peaks, percents):
     
     c.Update()
     c.Print('../img/energyCalibration.pdf', 'pdf')
+    
+    with TxtFile('../calc/energyCalibration.txt', 'w') as f:
+        f.writeline('\t', str(fit.params[0]['value']), str(fit.params[0]['error']))
+        f.writeline('\t', str(fit.params[1]['value']), str(fit.params[1]['error']))
+        f.writeline('\t', str(fit.getCovMatrixElem(0, 1)))
     
 def evalFittedSigmas(sigmas, percents):
     pass  # TBI
