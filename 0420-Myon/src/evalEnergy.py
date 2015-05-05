@@ -11,15 +11,17 @@ def evalUnderground():
     data2 = MyonData.fromPath('../data/untergrund_2.TKA')
     data = MyonData.fromDataErrors(data1 + data2, data1.time + data2.time, data1.timed + data2.timed)
     data.convertToCountrate()
-    data = data.rebin(20)
+    datarebin = data.rebin(20)
     
-    c = TCanvas('cu', '', 1280, 720)
-    g = data.makeGraph('gu', 'channel c', 'countrate n / (1/s)')
-    prepareGraph(g)
-    g.GetXaxis().SetRangeUser(0, 700)
-    g.Draw('AP')
-    c.Update()
-    c.Print('../img/underground.pdf', 'pdf')
+    for d, suffix in [(data, ""), (datarebin, "_rebin")]:
+        c = TCanvas('cu%s' % suffix, '', 1280, 720)
+        g = data.makeGraph('gu%s' % suffix, 'channel c', 'countrate n / (1/s)')
+        prepareGraph(g)
+        g.GetXaxis().SetRangeUser(0, 700)
+        g.Draw('APX')
+        g.Draw('P')
+        c.Update()
+        c.Print('../img/underground%s.pdf' % suffix, 'pdf')
 
 def makeEnergyPlot():
     data = MyonData.fromPath('../data/betaspektrum.TKA')

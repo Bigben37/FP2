@@ -64,6 +64,7 @@ def evalFlythroughSpectrum(name, xmin, xmax):
     g = data.makeGraph('g_%s' % name, 'channel c', 'countrate n / (1/s)')
     prepareGraph(g)
     g.GetXaxis().SetRangeUser(0, 700)
+    g.GetYaxis().SetTitleOffset(1.2)
     g.Draw('APX')  # don't draw error bars => fit function in front
 
     maxY = data.getByY(data.getMaxY())[0]
@@ -72,15 +73,26 @@ def evalFlythroughSpectrum(name, xmin, xmax):
     print('start fitting %s' % name)
     t1 = datetime.datetime.now()
     fit = Fitter('fit_%s' % name, langaufun, (xmin, xmax, 4))
-    fit.setParam(0, 'scale', 1)
-    fit.setParam(1, 'mpv', maxY)
+    fit.setParam(0, 's', 1)
+    fit.setParam(1, 'm', maxY)
     fit.setParam(2, 'A', area)
-    fit.setParam(3, 'sigma', 30)
+    fit.setParam(3, '#sigma', 30)
     fit.fit(g, xmin, xmax, 'RBO')
     t2 = datetime.datetime.now()
     delta = t2 - t1
     print('fitted in %d s' % int(delta.total_seconds()))
     fit.saveData('../fit/%s.txt' % name)
+    
+    if not name == "energiekalibration_100":
+        l = TLegend(0.5, 0.55, 0.85, 0.85)
+    else:
+        l = TLegend(0.15, 0.55, 0.5, 0.85)
+    l.SetTextSize(0.03)
+    l.AddEntry(g, 'flight through with %s%% energy' % name.split('_')[1], 'p')
+    l.AddEntry(fit.function, 'fit with n(c) =', 'l')
+    l.AddEntry(None, '(landau(c; m, s) * gaus(c; 0, #sigma))(t)', '')
+    fit.addParamsToLegend(l, (('%.2f', '%.2f'), ('%.2f', '%.2f'), ('%.3f', '%.3f'), ('%.2f', '%.2f')), chisquareformat='%.2f', lang='en')
+    l.Draw()
 
     g.Draw('P')  # redraw points with error bars
     c.Update()
@@ -103,15 +115,15 @@ def evalPedestal():
     fit = Fitter('fit_%s' % name, 'gaus(0)')
     fit.setParam(0, 'A', 30)
     fit.setParam(1, 'x', 6)
-    fit.setParam(2, 's', 3)
+    fit.setParam(2, '#sigma', 3)
     fit.setParamLimits(2, 0, 100)
     fit.fit(g, 3.5, 10.5)
     fit.saveData('../fit/%s.txt' % name)
     
-    l = TLegend(0.6, 0.6, 0.85, 0.85)
+    l = TLegend(0.55, 0.6, 0.85, 0.85)
     l.SetTextSize(0.03)
     l.AddEntry(g, 'pedestal', 'p')
-    l.AddEntry(fit.function, 'fit with gaus', 'l')
+    l.AddEntry(fit.function, 'fit with n(c) = A gaus(c; x, #sigma)', 'l')
     fit.addParamsToLegend(l, (('%.2f', '%.2f'), ('%.3f', '%.3f'), ('%.3f', '%.3f')), chisquareformat='%.2f', units=('1/s', '', ''), lang='en')
     l.Draw()
 
@@ -128,7 +140,12 @@ def evalEnergyCalibration(peaks, percents):
     schannels = list(list(zip(*peaks))[1])
     energies = list(map(lambda x:x/100*maxenergy, percents))
     senergies = list(map(lambda x:x/100*smaxenergy, percents))
-    #senergies[0] = 2
+    
+    with TxtFile('../src/energycalibration.tex', 'w') as f:
+        f.write2DArrayToLatexTable(list(zip(*[percents, channels, schannels, energies, senergies])),
+                                   ['\% energy', '$c$', '$s_c$', '$E$ / MeV', '$s_E$ / MeV'], 
+                                   ['%d', '%.3f', '%.3f', '%.1f', '%.1f'], 
+                                   "Channels of fitted peaks and their theoretical energy for the energy calibration.", "tab:ecal")
     
     data = DataErrors.fromLists(channels, energies, schannels, senergies)
     c = TCanvas('c_energycalibration', '', 1280, 720)
@@ -144,7 +161,7 @@ def evalEnergyCalibration(peaks, percents):
     
     l = TLegend(0.15, 0.6, 0.52, 0.85)
     l.SetTextSize(0.03)
-    l.AddEntry(g, 'Peaks of fly-trough-spectra / pedestal', 'p')
+    l.AddEntry(g, 'Peaks of flight through spectra / pedestal', 'p')
     l.AddEntry(fit.function, 'fit with E(c) = a + b * c', 'l')
     fit.addParamsToLegend(l, (('%.2f', '%.2f'), ('%.3f', '%.3f')), chisquareformat='%.2f', units=('MeV', 'MeV / channel'), lang='en')
     l.Draw()

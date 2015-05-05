@@ -30,7 +30,7 @@ def main():
     l.SetTextSize(0.03)
     l.AddEntry(g, 'measurement', 'p')
     l.AddEntry(fit.function, 'fit with n(t) = 10^{-3} A e^{- #frac{t}{#tau}}', 'l')
-    fit.addParamsToLegend(l, (('%.3f', '%.3f'), ('%.2f', '%.2f')), chisquareformat='%.2f', units=['s', '#mus'], lang='de')
+    fit.addParamsToLegend(l, (('%.3f', '%.3f'), ('%.2f', '%.2f')), chisquareformat='%.2f', units=['1/ms', '#mus'], lang='de')
     l.Draw()
 
     g.Draw('P')

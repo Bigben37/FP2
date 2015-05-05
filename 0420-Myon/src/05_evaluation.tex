@@ -1,6 +1,7 @@
 \section{Measurement Results and Evaluation}
 
-\subsection{Errors and countrate}
+\subsection{General remarks}
+\subsubsection{Errors and countrate}
 The number $N$ of measurement events of a channel of the MCAs is Poisson distributed. Hence the error $s_N$  of $N$ events is:
 \begin{equation}
   s_N = \sqrt{N}
@@ -11,10 +12,87 @@ countrate $n$. Consequently the error changes, too:
 \begin{equation}
     n = \frac{N}{t}, \qquad s_n = \frac{s_N}{t}
 \end{equation}
+\subsubsection{Gaussian distribution}
+For some fits we use the Gaussian distribution. The following convention will is used:
+\begin{equation}
+	\label{eq:gaus}
+    \gaus(c;x,\sigma) = e^{-\frac{1}{2} \left( \frac{c-x}{\sigma} \right)^2}
+\end{equation}
+in which $\gaus(c;x,\sigma)$ is a function of $c$ with parameters $x$ (expectation value) and $\sigma$ (standard deviation).
 
 \subsection{Energy resolution}
 
 \subsection{Energy calibration}
+\subsubsection{Pedestal}
+The pedestal meassurement produced a Gaussian distributed spectrum (\autoref{img:pedestal})
+\begin{figure}[H]
+\begin{center}
+  \includegraphics[width=\textwidth]{../img/pedestal.pdf}
+  \caption{Pedestal.}
+  \label{img:pedestal}
+\end{center}
+\end{figure}
+The peak is fittad with the Gaussian distrubtion multiplied by an amplitude $A$:
+\begin{equation}
+    n(c) = A \cdot \gaus(c;x,\sigma)
+\end{equation}
+The expectation value of the fitted Gaussian distribution is:
+\begin{equation}
+    x = (6.064 \pm 0.010)
+\end{equation}
+
+\subsubsection{Flight through spectrum}
+\paragraph{Landau distribution}
+The Landau distribution describes the fluctuations of energy loss caused by impact ionizatin. \\
+Image Landau \\
+Convolution with gaus
+\begin{figure}[H]
+\begin{center}
+  \includegraphics[width=\textwidth]{../img/energiekalibration_100.pdf}
+  \caption{Flight through spectrum at 100$\%$ energy.}
+  \label{img:label}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+  \includegraphics[width=\textwidth]{../img/energiekalibration_50.pdf}
+  \caption{Flight through spectrum at 50$\%$ energy.}
+  \label{img:label}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+  \includegraphics[width=\textwidth]{../img/energiekalibration_35.pdf}
+  \caption{Flight through spectrum at 35$\%$ energy.}
+  \label{img:label}
+\end{center}
+\end{figure}
+
+\subsubsection{Calibration}
+For the calibration it must be known, how much energy a muon deposits in the tank. Following data was given:
+\begin{equation}
+    \begin{split}
+        & \frac{\partial E}{\partial \rho x} = (1.95 \pm 0.05)\,\frac{\text{MeV}\cdot\text{cm}^2}{\text{g}} \qquad \text{(minimal ionizing muon)}  \\
+        & \rho = (0.87 \pm 0.01) \, \frac{\text{g}}{\text{cm}^3}  \qquad \qquad \qquad \text{(density of solvent)} \\
+        & s = (84 \pm 5) \, \text{cm} \qquad \qquad \qquad \qquad \quad  \text{(mean free path in tank)}
+    \end{split}
+\end{equation}
+Hence the total energy loss calculates to:
+\begin{equation}
+    \begin{split}
+        & \Delta E = \frac{\partial E}{\partial \rho x} \cdot \rho \cdot s = 142.506\,\text{MeV} \\
+        & s_{\Delta E} = 
+    \end{split}
+\end{equation}
+
+\include{energycalibration}
+Now the maximum positions are plotted against their respective energies (\autoref{img:energycalibration}). Since the scintillators should produce a signal amplitude linear to the 
+meassured energy, a linear fit is implemented:
+\begin{equation}
+    E(c) = a + b \cdot c
+\end{equation}
 \begin{figure}[H]
 \begin{center}
   \includegraphics[width=\textwidth]{../img/energyCalibration.pdf}
@@ -22,6 +100,19 @@ countrate $n$. Consequently the error changes, too:
   \label{img:energycalibration}
 \end{center}
 \end{figure}
+The parameters and the covariance of these of the linear fit are:
+\begin{equation}
+    \begin{split}
+        & a = (-2.14 \pm 0.07) \, \text{MeV} \\
+        & b = (0.353 \pm 0.012) \, \frac{\text{MeV}}{\text{channel}} \\
+        & \cov(a, b) = -0.0009
+    \end{split}
+\end{equation}
+Now the energy $E$ of a channel $c$ and its error $s_E$ can be calculated with:
+\begin{equation}
+\label{eq:ecalibration}
+    E = a + b \cdot c, \qquad s_E = \sqrt{s_a^2 + \left(c \cdot s_b \right)^2 + 2 \cdot c \cdot \cov(a,b)}
+\end{equation}
 
 \subsection{Time calibration}
 \begin{figure}[H]
@@ -38,12 +129,48 @@ countrate $n$. Consequently the error changes, too:
 \end{equation}
 
 \subsection{Underground}
+\begin{figure}[H]
+\begin{center}
+  \includegraphics[width=\textwidth]{../img/underground.pdf}
+  \caption{Underground.}
+  \label{img:underground}
+\end{center}
+\end{figure}
 
-\subsection{$\beta$-spectrum}
+no time underground
 
-\subsection{Decay time}
-To calculate the decay time $\tau$ of $\mu$ the channels are converted to a time with \autoref{eq:tcalibration}. 
-The so obtained datapoints get fitted with an exponential function:
+\subsection{\textbeta-spectrum}
+
+\subsection{Mean lifetime}
+To calculate the mean lifetime $\tau$ of $\mu$ the channels are converted to a time with \autoref{eq:tcalibration}. 
+Furthermore we rebin the spectrum to get a nicer curve. Three successive channels are averaged:
 \begin{equation}
-    
+    \bar{t}_i = \frac{1}{3} \sum_{j=0}^{2} t_{3i+j}, \qquad \bar{n}_i = \frac{1}{3} \sum_{j=0}^{2} n_{3i+j}, \qquad i \in \left[1, \frac{\#(t_i)}{3} \right]
 \end{equation}
+where $(t_i, n_i)$ are the old values and $(\bar{t}_i, \bar{n}_i)$ are the new ones. $\#(t_i)$ is the number of old values.
+The errors are calculated with error propagation:
+\begin{equation}
+    s_{\bar{t}_i} = \frac{1}{3} \sqrt{\sum_{j=0}^{2} t_{3i+j}^2}, \qquad s_{\bar{n}_i} = \frac{1}{3} \sqrt{\sum_{j=0}^{2} n_{3i+j}^2}
+\end{equation}
+\begin{figure}[H]
+\begin{center}
+  \includegraphics[width=\textwidth]{../img/decayTime.pdf}
+  \caption{decay time, t-errors not visible.}
+  \label{img:decaytime}
+\end{center}
+\end{figure}
+
+The so obtained datapoints (\autoref{img:decaytime}) get fitted with an exponential function, since they obey the law of decay (\ref{sub:decay}):
+\begin{equation}
+    n = A \cdot e^{-\frac{t}{\tau}}
+\end{equation}
+The fit yields for the mean lifetime:
+\begin{equation}
+    \tau = \left( 2.24 \pm 0.05 \right)\,\text{\textmu s}
+\end{equation}
+This matches with the literature value within 1-\textsigma-interval. %TODO ref lit value
+\begin{equation}
+    \tau^{\text{lit.}} = \left( 2.1969811 \pm 0.0000022 \right)\,\text{\textmu s}
+\end{equation}
+
+\subsection{Weak coupling constant}
