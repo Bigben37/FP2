@@ -79,20 +79,20 @@ For the calibration it must be known, how much energy a muon deposits in the tan
         & s = (84 \pm 5) \, \text{cm} \qquad \qquad \qquad \qquad \quad  \text{(mean free path in tank)}
     \end{split}
 \end{equation}
-Hence the total energy loss calculates to:
+Hence the total loss of energy calculates to:
 \begin{equation}
     \begin{split}
-        & \Delta E = \frac{\partial E}{\partial \rho x} \cdot \rho \cdot s = 142.506\,\text{MeV} \\
-        & s_{\Delta E} = 
+        & E = \frac{\partial E}{\partial \rho x} \cdot \rho \cdot s = 142.5\,\text{MeV} \\
+        & s_{E} = E \cdot \sqrt{ \left( \frac{s_{\frac{\partial E}{\partial \rho x}}}{\frac{\partial E}{\partial \rho x}} \right)^2 + \left( \frac{s_\rho}{\rho} \right)^2 + \left( \frac{s_s}{s} \right)^2  }
+        = 9.4
     \end{split}
 \end{equation}
-
-\include{energycalibration}
-Now the maximum positions are plotted against their respective energies (\autoref{img:energycalibration}). Since the scintillators should produce a signal amplitude linear to the 
-meassured energy, a linear fit is implemented:
+The percentage loss of energy can now be determined:
 \begin{equation}
-    E(c) = a + b \cdot c
+    E_p = p \cdot E, \qquad s_{E_p} = p \cdot s_E, \qquad 0 \leq p \leq 1  %TODO Fehler auf p wegen Dämpfer?
 \end{equation}
+The fitted peaks of the energy calibration and their respective energies are listed in \autoref{tab:ecal} and visualized in \autoref{img:energycalibration}.
+\input{tab_energycalibration}
 \begin{figure}[H]
 \begin{center}
   \includegraphics[width=\textwidth]{../img/energyCalibration.pdf}
@@ -100,12 +100,16 @@ meassured energy, a linear fit is implemented:
   \label{img:energycalibration}
 \end{center}
 \end{figure}
-The parameters and the covariance of these of the linear fit are:
+Since the scintillators should produce a signal amplitude linear to the meassured energy, a linear fit is implemented:
+\begin{equation}
+    E(c) = a + b \cdot c
+\end{equation}
+The fit yields:
 \begin{equation}
     \begin{split}
         & a = (-2.14 \pm 0.07) \, \text{MeV} \\
         & b = (0.353 \pm 0.012) \, \frac{\text{MeV}}{\text{channel}} \\
-        & \cov(a, b) = -0.0009
+        & \cov(a, b) = -0.0009 \, \frac{\text{MeV}^2}{\text{channel}} 
     \end{split}
 \end{equation}
 Now the energy $E$ of a channel $c$ and its error $s_E$ can be calculated with:
@@ -115,6 +119,12 @@ Now the energy $E$ of a channel $c$ and its error $s_E$ can be calculated with:
 \end{equation}
 
 \subsection{Time calibration}
+In \autoref{tab:tcal} the data for the time calibration is listed.
+\input{tab_timecalibration}
+A linear fit is done (\autoref{img:timecalibration}):
+\begin{equation}
+    t = a + b \cdot c
+\end{equation}
 \begin{figure}[H]
 \begin{center}
   \includegraphics[width=\textwidth]{../img/timeCalibration.pdf}
@@ -122,7 +132,15 @@ Now the energy $E$ of a channel $c$ and its error $s_E$ can be calculated with:
   \label{img:timecalibration}
 \end{center}
 \end{figure}
-
+The parameters and their covariance for this fit are:
+\begin{equation}
+    \begin{split}
+        & a = (0.28 \pm 0.03) \, \text{\textmu s} \\
+        & b = (0.01890 \pm 0.00009) \, \frac{\text{\textmu s}}{\text{channel}} \\
+        & \cov(a, b) = -2.299 \, \frac{\text{\textmu s}^2}{\text{channel}} 
+    \end{split}
+\end{equation}
+Now the time $t$ of a channel $c$ and its error $s_t$ can be calculated with:
 \begin{equation}
 \label{eq:tcalibration}
     t = a + b \cdot c, \qquad s_t = \sqrt{s_a^2 + \left(x \cdot s_b \right)^2 + 2 \cdot x \cdot \cov(a,b)}
@@ -140,6 +158,43 @@ Now the energy $E$ of a channel $c$ and its error $s_E$ can be calculated with:
 no time underground
 
 \subsection{\textbeta-spectrum}
+The measured \textbeta-spectrum is shown in \autoref{img:beta:spectrum}.
+\begin{figure}[H]
+\begin{center}
+  \includegraphics[width=\textwidth]{../img/betaspectrum.pdf}
+  \caption{\textbeta-spectrum.}
+  \label{img:beta:spectrum}
+\end{center}
+\end{figure}
+The problem is to extract the maximal energy while taking the Gaussion blur caused by the energy resolution into account. One method is the 
+\emph{Fermi-Kurie-plot} (TODO Ref).  %TODO Ref
+First the channal information is converted into an energy with \autoref{eq:ecalibration}. Then $\sqrt{n(E)/E^2}$ is plotted against 
+the energy $E$ (\autoref{img:beta:fermikuriefit}). Ideally a linear relationships should be identifiable. The intersection of this line with 
+the $x$-axis is the maximal energy. \\
+TODO warum nur teilweise linear? \\ %TODO text
+The linear part gets fitted wtih
+\begin{equation}
+    \sqrt{n(E)/E^2} = a(E-b),
+\end{equation}
+so that the intersection with the $x$-axis can be read directly.
+\begin{figure}[H]
+\begin{center}
+  \includegraphics[width=\textwidth]{../img/betaspectrum_FermiKurie_fit.pdf}
+  \caption{Fermi-Kurie plot.}
+  \label{img:beta:fermikuriefit}
+\end{center}
+\end{figure}
+With the fit one gets for $b$:
+\begin{equation}
+    b = (53.86 \pm 0.65)\,\text{MeV}
+\end{equation}
+Since this energy is half of the rest energy of the muon it has to be multiplied with 2:
+\begin{equation}
+\begin{split}
+    & E_\mu = 2 \cdot b, \qquad s_{E_\mu} = 2 \cdot s_b \\
+    & \Rightarrow E_\mu = (107.7 \pm 1.3)\,\text{MeV}
+    \end{split}
+\end{equation}
 
 \subsection{Mean lifetime}
 To calculate the mean lifetime $\tau$ of $\mu$ the channels are converted to a time with \autoref{eq:tcalibration}. 

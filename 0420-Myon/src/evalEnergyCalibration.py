@@ -141,7 +141,7 @@ def evalEnergyCalibration(peaks, percents):
     energies = list(map(lambda x:x/100*maxenergy, percents))
     senergies = list(map(lambda x:x/100*smaxenergy, percents))
     
-    with TxtFile('../src/energycalibration.tex', 'w') as f:
+    with TxtFile('../src/tab_energycalibration.tex', 'w') as f:
         f.write2DArrayToLatexTable(list(zip(*[percents, channels, schannels, energies, senergies])),
                                    ['\% energy', '$c$', '$s_c$', '$E$ / MeV', '$s_E$ / MeV'], 
                                    ['%d', '%.3f', '%.3f', '%.1f', '%.1f'], 

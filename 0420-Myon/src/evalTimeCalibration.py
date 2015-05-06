@@ -11,6 +11,12 @@ def main():
     times_error = [0.02] * len(times)
     channels = [113, 223, 315.5, 441]
     channels_error = [0.5] * len(times)
+    
+    with TxtFile('../src/tab_timecalibration.tex', 'w') as f:
+        f.write2DArrayToLatexTable(list(zip(*[times, times_error, channels, channels_error])),
+                                   ["$t$ / \\textmu s", "$s_t$ / \\textmu s", "$c$", "$s_c$"], 
+                                   ["%.2f", "%.2f", "%.1f", "%.1f"], 
+                                   "Measured times and channels with errors for the time calibration.", "tab:tcal")
 
     data = DataErrors.fromLists(channels, times, channels_error, times_error)
     c = TCanvas('c', '', 1280, 720)
@@ -25,7 +31,7 @@ def main():
 
     l = TLegend(0.15, 0.6, 0.5, 0.85)
     l.SetTextSize(0.03)
-    l.AddEntry(g, 'TODO Beschriftung', 'p')
+    l.AddEntry(g, 'measurement', 'p')
     l.AddEntry(fit.function, 'fit with t(c) = a + b * c', 'l')
     fit.addParamsToLegend(l, (('%.2f', '%.2f'), ('%.5f', '%.5f')), chisquareformat='%.2f', units=('#mus', '#mus/channel'), lang='en')
     l.Draw()

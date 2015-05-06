@@ -32,6 +32,7 @@ def makeEnergyPlot():
     prepareGraph(g)
     g.GetXaxis().SetRangeUser(0, 250)
     g.GetYaxis().SetTitleOffset(1.2)
+    g.Draw('APX')
     g.Draw('AP')
     c.Update()
     c.Print('../img/betaspectrum.pdf', 'pdf')
