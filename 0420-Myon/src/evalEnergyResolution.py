@@ -30,12 +30,25 @@ def makeGraph(channel):
     
     fit = Fitter('fit_%s' % channel, '[0] + gaus(1)')
     fit.function.SetNpx(1000)
-    fit.setParam(0, 'a', 0)  # offset
+    fit.setParam(0, 'b', 0)  # offset
     fit.setParam(1, 'A', data.getMaxY())  # amplitude
-    fit.setParam(2, 'c', ch)  # channel
-    fit.setParam(3, 's', 50)  # sigma
+    fit.setParam(2, 'x', ch)  # channel
+    fit.setParam(3, '#sigma', 50)  # sigma
+    #fit.setParamLimits(0, 0, 1000)
     fit.fit(g, xmin, xmax)
-    fit.saveData('../fit/energieaufloesung_%s.txt' % channel)    
+    fit.saveData('../fit/energieaufloesung_%s.txt' % channel)  
+    
+    if ch > 350:
+        l = TLegend(0.15, 0.5, 0.45, 0.85)
+    else:
+        l = TLegend(0.55, 0.5, 0.85, 0.85)
+    l.SetTextSize(0.03)
+    l.AddEntry(g, "measurement", 'p')
+    l.AddEntry(fit.function, "fit with n(c) =", 'l')
+    l.AddEntry(None, "b + A gaus(c; x, #sigma)", '')
+    fit.addParamsToLegend(l, (('%.4f', '%.4f'), ('%.2f', '%.2f'), ('%.2f', '%.2f'), ('%.2f', '%.2f'),), 
+                          chisquareformat='%.2f', units=['1/s', '1/s', '', ''], lang='en')
+    l.Draw()  
     
     g.Draw('P')
     c.Update()

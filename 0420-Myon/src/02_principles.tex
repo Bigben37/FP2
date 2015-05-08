@@ -1,22 +1,30 @@
 \section{Physical Principles}
-\subsection{Cosmic radiation}
-Primary/Secendary radiation
-\subsection{Energy loss by ionization and excitation}
-Bethe-Bloch
+\subsection{Standard Model}
+The Standard Model of Particle Physics describes all known elementary particles and the different interactions between them. 
+(TODO It is one of the most/best tested (current) theories). Elementary particle are the smallest particles currently known, until now 
+there can be no substructure found. This doesn't mean that they are stable (\textmu, \texttau, \ldots) or free observable (quarks). They divide into fermions that make up matter and 
+gauge bosons, which carry the fundamental interactions.\\
+lepton-universality\\
+TODO: Bild Standardmodell (\url{http://de.wikipedia.org/wiki/Datei:Standard_Model_of_Elementary_Particles-de.svg} übernehmen oder selber malen)
 \subsection{Muon}
-lepton, mass,
+Muons are charged leptons of the second family. They have a mass of $E_\mu = (105.6583715 \pm 0.0000035)\,\text{MeV}$ and a mean lifetime of 
+$\tau_\mu = \left( 2.1969811 \pm 0.0000022 \right)\,\text{\textmu s}$, since they are not stable.\footnote{TODO Ref Litvals} %TODO Ref Litvals
 \subsubsection{Muon decay}
 \label{sub:decay}
+The decay of muons can be described with the normal exponential decay law:
 \begin{equation}
-	\frac{\difd N}{\difd t} = - \lambda N
+	\frac{\difd N}{\difd t} = - \lambda N \qquad \Rightarrow \qquad N(t) \propto e^{-\lambda t}
 \end{equation}
-\begin{equation}
-    \Rightarrow N(t) = N_0 e^{-\lambda t}
-\end{equation}
+where $N$ is the number of particles and $\lambda$ the exponential decay constant. The mean lifetime calculates to:
 \begin{equation}
     \tau := \frac{\left<t\right>}{\int_0^\infty N(t) \difd t} = 
     \frac{\int_0^\infty t e^{-\lambda t} \difd t}{\int_0^\infty e^{-\lambda t} \difd t} = 
     \frac{\frac{1}{\lambda^2}}{\frac{1}{\lambda}} = \frac{1}{\lambda}
 \end{equation}
+\subsubsection{Origin of muons}
+Primary/Secendary radiation
+\subsubsection{Relativistic muons}
+\subsection{Energy loss by ionization and excitation}
+Bethe-Bloch
 \subsection{V-A-Theory}
 weak coupling constant

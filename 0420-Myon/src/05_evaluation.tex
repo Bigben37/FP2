@@ -21,6 +21,37 @@ For some fits we use the Gaussian distribution. The following convention will is
 in which $\gaus(c;x,\sigma)$ is a function of $c$ with parameters $x$ (expectation value) and $\sigma$ (standard deviation).
 
 \subsection{Energy resolution}
+\begin{figure}[H]
+\begin{center}
+  \includegraphics[width=\textwidth]{../img/energieaufloesung_059.pdf}
+  \caption{Energy resolution low channal.}
+  \label{img:eres:059}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+  \includegraphics[width=\textwidth]{../img/energieaufloesung_400.pdf}
+  \caption{Energy resolution middle channel.}
+  \label{img:eres:400}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+  \includegraphics[width=\textwidth]{../img/energieaufloesung_604.pdf}
+  \caption{Energy resolution high channel.}
+  \label{img:eres:604}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+  \includegraphics[width=\textwidth]{../img/energieaufloesung_channels.pdf}
+  \caption{Energy resolution as a function of channels.}
+  \label{img:eres:channels}
+\end{center}
+\end{figure}
 
 \subsection{Energy calibration}
 \subsubsection{Pedestal}
@@ -147,6 +178,7 @@ Now the time $t$ of a channel $c$ and its error $s_t$ can be calculated with:
 \end{equation}
 
 \subsection{Underground}
+The underground measurement is visualized in \autoref{img:underground}.
 \begin{figure}[H]
 \begin{center}
   \includegraphics[width=\textwidth]{../img/underground.pdf}
@@ -195,6 +227,10 @@ Since this energy is half of the rest energy of the muon it has to be multiplied
     & \Rightarrow E_\mu = (107.7 \pm 1.3)\,\text{MeV}
     \end{split}
 \end{equation}
+The so calculated rest energy matches the literature value within a 2-\textsigma-interval.
+\begin{equation}
+    E_\mu^{\text{lit.}} = (105.6583715 \pm 0.0000035)\,\text{MeV}
+\end{equation}
 
 \subsection{Mean lifetime}
 To calculate the mean lifetime $\tau$ of $\mu$ the channels are converted to a time with \autoref{eq:tcalibration}. 
@@ -229,3 +265,12 @@ This matches with the literature value within 1-\textsigma-interval. %TODO ref l
 \end{equation}
 
 \subsection{Weak coupling constant}
+\begin{equation}
+    \begin{split}
+        G &= \sqrt{\frac{192 \pi^2}{\tau m_\mu^5}} \\
+        s_G &= \frac{1}{2} \sqrt{\frac{192 \pi^3 \left( m_\mu^2 s_\tau^2 + 25 \tau^2 s_{m_\mu}^2 \right)}{m_\mu^7 \tau^3}}
+    \end{split}
+\end{equation}
+\begin{equation}
+    G = (1.10 \pm 0.04) \cdot 10^{-5} \frac{1}{\text{GeV}^2}
+\end{equation}
