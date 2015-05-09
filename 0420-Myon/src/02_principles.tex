@@ -7,12 +7,22 @@ gauge bosons, which carry the fundamental interactions.\\
 lepton-universality\\
 TODO: Bild Standardmodell (\url{http://de.wikipedia.org/wiki/Datei:Standard_Model_of_Elementary_Particles-de.svg} übernehmen oder selber malen)
 \subsection{Muon}
-Muons are charged leptons of the second family. They have a mass of $E_\mu = (105.6583715 \pm 0.0000035)\,\text{MeV}$ and a mean lifetime of 
-$\tau_\mu = \left( 2.1969811 \pm 0.0000022 \right)\,\text{\textmu s}$, since they are not stable.\footnote{TODO Ref Litvals} %TODO Ref Litvals
+Muons are charged leptons of the second family. They have a mass of 
+$E_\mu = (105.6583715 \pm 0.0000035)\,\text{MeV}$\footnote{nist} 
+and a mean lifetime of 
+$\tau_\mu = \left( 2.1969811 \pm 0.0000022 \right)\,\text{\textmu s}$\footnote{J. Beringer \emph{et al.} (Particle Data Group), PR \textbf{D86}, 010001 (2012) and 2013 partial update for the 2014 edition}, 
+since they are not stable.
 \subsubsection{Muon decay}
 \label{sub:decay}
-The decay of muons can be described with the normal exponential decay law:
+Muons decay into electrons /positrons (\autoref{img:feynman_mu-to-e})
 \begin{equation}
+	\mu^- \rightarrow e^- + \nu_\mu + \bar{\nu}_e \qquad \qquad \mu^+ \rightarrow e^+ + \bar{\nu}_\mu + \nu_e
+\end{equation}
+TODO Feynman \\%TODO Feynman mu -> e + nu_e + nu_mu
+This is a \textbeta-decay, a three-body-decay. The energy spectrum corresponds to normal \textbeta-decay spectrum. \\
+The time dependency of a decaying sample of muons can be described with the normal exponential decay law:
+\begin{equation}
+	\label{eq:expdecay}
 	\frac{\difd N}{\difd t} = - \lambda N \qquad \Rightarrow \qquad N(t) \propto e^{-\lambda t}
 \end{equation}
 where $N$ is the number of particles and $\lambda$ the exponential decay constant. The mean lifetime calculates to:
@@ -21,10 +31,56 @@ where $N$ is the number of particles and $\lambda$ the exponential decay constan
     \frac{\int_0^\infty t e^{-\lambda t} \difd t}{\int_0^\infty e^{-\lambda t} \difd t} = 
     \frac{\frac{1}{\lambda^2}}{\frac{1}{\lambda}} = \frac{1}{\lambda}
 \end{equation}
+After this time only $\frac{1}{e} \approx 37\%$ of a inital count of muons exist. the mean lifetime applies to the rest frame of the muon.
 \subsubsection{Origin of muons}
-Primary/Secendary radiation
+The information in this section is based on \cite{kosmische-strahlung} and \cite{staatsex}.\\
+Muons are caused by cosmic rays in the earth's atmosphere. There are two different radiations, the primary radiation and the secondary radiation.
+\paragraph{Primary radiation}
+The origin of primary radiation is not clear, but there are assumptions that the particles originate from supernovae and pulsars.
+Protons make the highest proportion of primary radiation with 92\%. Furthermore it consists of helium cores (\textalpha-particles) with a percentage 
+of 7\% and electrons with 1\%. Heavy cores are rarely measured. The energy spectrum ranges from $10^7$\,eV to $10^{20}$\,eV, whereas particles with 
+less energy are more probable.
+\paragraph{Secondary radiation}
+While entering the atmosphere primary particles collide with the atoms of the atmosphere. A variety of generation and annihilation processes occur. 
+This happens usually in a height of 15-20\,km.
+Important for this experiment is the generation of pions and kaons:
+\begin{equation}
+    p + \text{core} \rightarrow \pi^{0, \pm}, K^{0, \pm}, n, p
+\end{equation}
+The charged pions and kaons decay after a short time, some into muons:
+\begin{equation}
+    \begin{split}
+        & \pi^+ \rightarrow \mu^+ + \nu_\mu \\
+        & \pi^- \rightarrow \mu-+ + \bar{\nu}_\mu \\
+        & K^+ \rightarrow \mu^+ + \nu_\mu \\
+        & K^- \rightarrow \mu^- + \bar{\nu}_\mu
+    \end{split}
+\end{equation}
+There are more positive muons than negative ones, this is caused by two reasons: It is far more probable that a proton, which of course has 
+a positive charge, generates also a positive particle by interaction with the atoms of the atmosphere. Also TODO 2nd reason. %TODO 2. Grund
 \subsubsection{Relativistic muons}
+With classical physics one would not expect the muons to reach the ground. With a mean lifetime of around $\tau=2.2$\,\textmu s they would 
+travel with light speed only a distance of  $\tau c = 660$\,m. The reason why muons can be detected anyhow is special relativity. Muons generated 
+by cosmic rays have such a high energy that their mean lifetime observed from earth increases by a factor of 
+$\gamma$\footnote{The Lorentz factor. Here $\gamma$ can be calculated with $\gamma = \frac{E}{E_0}$, where $E$ is the energy and $E_0$ the rest energy of the muon.} 
+because of time dilation. For example: A muon with $E=10.5$\,GeV has a observed mean lifetime of $\tau'=\gamma \tau=218.6$\,\textmu s and travels 65.6\,km. \\
+Now one can also calculate the percentage $\frac{N}{N_0}$ of muons ($E=10.5$\,GeV) which reach the ground with \autoref{eq:expdecay}:
+\begin{equation}
+    \frac{N}{N_0} = e^{-\frac{t}{\tau'}} = e^{-\frac{s}{v\tau'}}
+\end{equation}
+With $s=15$\,km and $v \approx c$ the calculation yields $\frac{N}{N_0} = 79.6\%$.
 \subsection{Energy loss by ionization and excitation}
-Bethe-Bloch
+When particles interact with matter they can lose energy caused by elastic collisions or by excitation or ionization of the electrons in the 
+atomic shell. This effect is used to detect particles, it is utilized by the scintillators in this experiment. The average energy loss per path length 
+$\frac{\difd E}{\difd x}$ can be calculated using the \emph{Bethe formula}. The following formula applies to relativistic particles (\cite{dem4}, p.87-89, formula slightly remodeled):
+\begin{equation}
+    \frac{\difd E}{\difd x} = - \frac{4 \pi}{m_e c^2} \cdot \frac{n_e z^2}{\beta^2} \cdot \left( \frac{e^2}{4 \pi \epsilon_0} \right)^2 \cdot \left[ \ln \left( \frac{2 m_e c^2 \beta^2}{E_b \left( 1-\beta^2 \right)  } \right) - \beta^2 \right]
+\end{equation}
+Nomenclature: 
+\begin{itemize}
+  \item detector: electron density $n_e$, mean binding energy of electrons $E_b$
+  \item particle: charge number $z$, ratio of velocity to the speed of light $\beta = \frac{v}{c}$
+  \item constants: mass of electron $m_e$, vacuum permittivity $\epsilon_0$, speed of light $c$
+\end{itemize}
 \subsection{V-A-Theory}
 weak coupling constant

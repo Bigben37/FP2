@@ -13,7 +13,7 @@ countrate $n$. Consequently the error changes, too:
     n = \frac{N}{t}, \qquad s_n = \frac{s_N}{t}
 \end{equation}
 \subsubsection{Gaussian distribution}
-For some fits we use the Gaussian distribution. The following convention is used:
+For some fits we use the Gaussian distribution. The following convention will be used:
 \begin{equation}
 	\label{eq:gaus}
     \gaus(c;x,\sigma) = e^{-\frac{1}{2} \left( \frac{c-x}{\sigma} \right)^2}
@@ -199,7 +199,7 @@ The measured \textbeta-spectrum is shown in \autoref{img:beta:spectrum}.
 \end{center}
 \end{figure}
 The problem is to extract the maximal energy while taking the Gaussion blur caused by the energy resolution into account. One method is the 
-\emph{Fermi-Kurie-plot} (TODO Ref).  %TODO Ref
+\emph{Fermi-Kurie-plot} (\cite{dem4}, p.52-53).
 First the channal information is converted into an energy with \autoref{eq:ecalibration}. Then $\sqrt{n(E)/E^2}$ is plotted against 
 the energy $E$ (\autoref{img:beta:fermikuriefit}). Ideally a linear relationships should be identifiable. The intersection of this line with 
 the $x$-axis is the maximal energy. \\
