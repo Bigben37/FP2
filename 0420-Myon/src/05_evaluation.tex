@@ -2,6 +2,7 @@
 
 \subsection{General remarks}
 \subsubsection{Errors and countrate}
+\label{subsub:errorcountrate}
 The number $N$ of measurement events of a channel of the MCAs is Poisson distributed. Hence the error $s_N$  of $N$ events is:
 \begin{equation}
   s_N = \sqrt{N}
@@ -72,7 +73,7 @@ The expectation value of the fitted Gaussian distribution is:
     x = (6.064 \pm 0.010)
 \end{equation}
 
-\subsubsection{Flight through spectrum}
+\subsubsection{Flight through spectra}
 \paragraph{Landau distribution}
 The Landau distribution describes the fluctuations of energy loss caused by impact ionizatin. \\
 Image Landau \\
@@ -151,6 +152,8 @@ Now the energy $E$ of a channel $c$ and its error $s_E$ can be calculated with:
 
 \subsection{Time calibration}
 In \autoref{tab:tcal} the data for the time calibration is listed.
+In each of the four measurements, there were only one or two channels of MCA\,II responding,
+so there is no need to fit the data.
 \input{tab_timecalibration}
 A linear fit is done (\autoref{img:timecalibration}):
 \begin{equation}
