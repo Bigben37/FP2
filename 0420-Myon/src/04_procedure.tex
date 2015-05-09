@@ -3,10 +3,10 @@
 
 \subsection{Energy resolution: Photoelectronstatistics}
 For the determination of the energy resolution of the setup, the LED in the tank is used.
-\autoref{tab:conderes} shows the input conditions of the coincidence units during the measurements.
+\autoref{tab:conderes} shows the inputs of the coincidence units that are switched on during the measurements.
 A pulse generator produces a periodic signal with a frequency of 5\,kHz.
 The signal is delivered to a LED driving unit, where the intensity of the LED can be adjusted.
-12~measurements with different intensities are conducted, in order to cover the whole energy range of the MCA.
+Twelve measurements with different intensities are conducted, in order to cover the whole energy range of the MCA\,I.
 The duration of each measurement is 1\,min.
 For the three lowest intensities, the measuring time is increased to 6\,min, 3\,min and 2\,min to reduce the error
 on the count rate.
@@ -17,7 +17,7 @@ Each measurement produces an energy spectrum on MCA\,I which is saved.
 \begin{center}
 \begin{tabular}{|c|c|}
   \hline
-  coincidence unit	& active inputs	\\ \hline
+  coincidence unit	& active inputs	\\ \hline\hline
   AND I				& A B			\\ \hline
   AND II			& -				\\ \hline
   AND III			& C				\\ \hline
@@ -42,7 +42,7 @@ After minimizing the pedestal with the offset screws on the delay generators, th
 \begin{center}
 \begin{tabular}{|c|c|}
   \hline
-  coincidence unit	& active inputs	\\ \hline
+  coincidence unit	& active inputs	\\ \hline\hline
   AND I				& -				\\ \hline
   AND II			& A				\\ \hline
   AND III			& B				\\ \hline
@@ -51,22 +51,101 @@ After minimizing the pedestal with the offset screws on the delay generators, th
 \label{tab:condped}
 \end{table}
 
-\subsubsection{Flight through spectrum}
+\subsubsection{Recording of the flight through spectra}
+\autoref{tab:condft} shows the settings of the coincidence units during the measurement of the flight through spectra
+for the energy calibration.
+In order to assign energy values to the channels of MCA\,I,
+three measurements with different attenuation are conducted.
+Attenuation and the duration of the measurements are given in \autoref{tab:encal}.
+The measurement at 35\% signal strength is done to increase the acuracy of the energy calibration near
+the expected energy of the peak of the \textbeta-spectrum.
+
+\begin{table}[H]
+\caption{Active inputs of the coincidence units during measurement of the flight through spectra.}
+\begin{center}
+\begin{tabular}{|c|c|}
+  \hline
+  coincidence unit	& active inputs	\\ \hline\hline
+  AND I				& A B			\\ \hline
+  AND II			& A	B C			\\ \hline
+  AND III			& B	C			\\ \hline
+ \end{tabular}
+\end{center}
+\label{tab:condft}
+\end{table}
+\begin{table}[H]
+\caption{Attenuation and duration for the measurements of the flight through spectra.}
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+  \hline
+  measurement	& signal strength	& attenuation	& duration	\\ \hline\hline
+  1				& 100\%				& -12\,dB		& 16\,h		\\ \hline
+  2				& 50\%				& -18\,dB		& 16.5\,h	\\ \hline
+  3				& 35\%				& -21\,dB		& 3.5\,h	\\ \hline
+ \end{tabular}
+\end{center}
+\label{tab:encal}
+\end{table}
 
 
 \subsection{Time calibration}
+The time calibration of the TAC and the MCA\,II is performed
+with a signal generator,
+which supplies two pulses with adjustable time difference on its two outputs.
+The outputs are connected to the input and the output of the TAC and the signal
+of the MCA is recorded.
+On the oscilloscope, the time difference between input and output signal is measured.
+Four measurements with time differences between 2\,\textmu s and 8\,\textmu s are done.
+The duration of one measurement is 10\,min.
 
 
 \subsection{Underground measurement}
+\autoref{tab:condub} shows the settings of the coincidence units for the measurement of the underground
+signal that occurs during the measurement of the \textbeta-spectrum and the determination of the muon lifetime.
+To ensure that only statistical events are recorded, the delay of the gate/delay generator is increased by 
+a factor of 100 to 50\,\textmu s. The underground is measured for 5.5\,h.
 
-\subsection{\textbeta-spectrum and mean lifetime}
+
+\begin{table}[H]
+\caption{Active inputs of the coincidence units during measurement of the underground signal,
+the \textbeta-spectrum and the muon lifetime.}
+\begin{center}
+\begin{tabular}{|c|c|}
+  \hline
+  coincidence unit	& active inputs	\\ \hline\hline
+  AND I				& A B			\\ \hline
+  AND II			& A	C			\\ \hline
+  AND III			& A C			\\ \hline
+ \end{tabular}
+\end{center}
+\label{tab:condub}
+\end{table}
+
+\subsection{The \textbeta-spectrum and the mean lifetime}
+
+For the main measurement, the configuration of the coincidence units is shown in \autoref{tab:condub}.
+The \textbeta-spectrum is collected in the MCA\,I, the decay time of the muon in MCA\,II.
+The measurement runs for 65\,h.
 
 
-energycal
-pedestal,flight through
+\subsection{Schedule of the experiment}
+The above description of the various parts of the experiment is arranged in a logical order.
+The actual execution followed a different order which is given in \autoref{tab:exporder}.
 
-timecal
+\begin{table}[H]
+\caption{Schedule of the experiment.}
+\begin{center}
+\begin{tabular}{|c|p{12cm}|}
+  \hline
+  day				&  \multicolumn{1}{|c|}{activity} 		\\ \hline\hline
+  Monday			& connection of devices, examination of signals with oscilloscope			\\ \hline
+  Tuesday			& testing of setup, solving a problem with a defective contact of the linear amplifier, taking pictures with oscilloscope						\\ \hline
+  Wednesday			& final testing, measuring of count rates, time calibration (1\,h), flight through spectrum 100\% (over night)				\\ \hline
+  Thursday			& pedestal (5\,min), underground (5.5\,h), energy resolution (1\,h), flight through spectrum 50\% (over night)		\\ \hline
+  Friday			& test experiment \textbeta-spectrum and mean lifetime (1\,h), flight through spectrum 35\% (3.5\,h), \textbeta-spectrum and mean lifetime (65\,h)			\\ \hline
+ \end{tabular}
+\end{center}
+\label{tab:exporder}
+\end{table}
 
-underground
 
-betaspectrum+lifetime
