@@ -67,7 +67,7 @@ After the delay generator, the signal goes over a \emph{capacitor} (to block the
 and into a \emph{linear gate}.
 The control signal for the gate comes from a different part of the setup and it is being triggered
 if the approach a muon has been detected over and in the scintillating tank.
-\autoref{img:delcapgate} shows a signal before the capacitor (yellow), after (blue),
+\autoref{img:delcapgate} shows a signal before the capacitor (yellow), after it (blue),
 the control signal for the linear gate (pink) and the output signal of the gate (green).
 On the figure it can be seen clearly that a signal can only pass the gate if it is open:
 The first peak of the blue signal can not pass, but the second runs through the gate,
@@ -95,6 +95,7 @@ which shows nonlinear behaviour above an input signal of about 100\,mV.
 the signal from the shaping amplifier (pink).
 The shaping amplifier integrates and differentiates its input signal and yields an output signal
 whose maximum amplitude is proportional to the charge of the input signal.
+
 After the shaping amplifier a \emph{multi channel analyzer} ranks the pulses by their amplitude
 and sends the data to a computer.
 
@@ -132,7 +133,7 @@ The signal from the photomultiplier under the tank is processed the same way and
 the signals from the two delay generators go into another coincidence unit (AND~II),
 together with the output of AND~I. The inputs of AND~II can be switched off and on,
 thus it can be defined which input conditions are necessary to trigger an output signal of AND~II.
-Assignment of the inputs A, B and C can be seen on \autoref{img:setup}.
+The assignment of the inputs A, B and C can be seen on \autoref{img:setup}.
 The counter Z~II counts the events after AND~II.
 \autoref{img:discdiscandII} shows input (yellow and blue) and output signal (pink) of AND~II.
 
@@ -216,9 +217,9 @@ the count rates of the four photomultipliers and the coincident events were moni
 \begin{table}[H]
 \caption{Count rates at various configurations of the setup.}
 \begin{center}
-\begin{tabular}{|c|c|c|c|c|c|c|}
-  \hline
-  					& counter	& AND I	& AND II	& AND III	& counts				& count rate\footnotemark  / s$^{-1}$		\\ \hline
+\begin{tabular}{|c||c|c|c|c|c|c|}
+  \hline 
+  					& counter	& AND I	& AND II	& AND III	& counts				& count rate\footnotemark/ s$^{-1}$			\\ \hline \hline
   PMr				& Z I		& A		& -			& -			& 141443/100\,s			& \textbf{1414\,$\pm$\,4}					\\ \hline
   PMl				& Z I		& B		& -			& -			& 78865/100\,s			& \textbf{789\,$\pm$\,3}					\\ \hline
   PMt				& Z II		& -		& A			& -			& 16640/100\,s			& \textbf{166.4\,$\pm$\,1.3}				\\ \hline
@@ -228,13 +229,16 @@ the count rates of the four photomultipliers and the coincident events were moni
   t \& r \& l		& Z III		& A B	& A	C		& B C		& 20990/1000\,s			& \textbf{20.99\,$\pm$\,0.14}				\\ \hline
   t \& b \& r \& l  & Z III		& A B	& A	B C		& B C		& 973/1000\,s			& \textbf{0.97\,$\pm$\,0.03}				\\ \hline
   decays			& Z III		& A B	& A	C		& A C		& 213/1000\,s			& \textbf{0.213\,$\pm$\,0.014}				\\ \hline
-  underground		& Z III		& A B	& A	C		& A C		& 16/1000\,s			& \textbf{0.016\,$\pm$\,0.004}				\\ \hline
+  underground\footnotemark		& Z III		& A B	& A	C		& A C		& 16/1000\,s			& \textbf{0.016\,$\pm$\,0.004}				\\ \hline
 \end{tabular}
 \end{center}
 \label{tab:countrates}
 \end{table}
 
+\addtocounter{footnote}{-1}
 \footnotetext{The errors were calculated with Gaussian uncertainty propagation,
-assuming a Poisson distribution of the error on the number of counts.}	
+assuming a Poisson distribution of the error on the number of counts (see section \ref{subsub:errorcountrate}).}
+\addtocounter{footnote}{1}
+\footnotetext{For the measurement of the underground, the gate/delay time was increased by a factor of 100.}	
 
 photomult description from szint-prot? oder in principles?
