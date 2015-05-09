@@ -1,18 +1,15 @@
 \section{Experimental setup}
-
 \begin{figure}[H]
-	\centering
-    \def\svgwidth{0.995\textwidth}
-    \input{../img/aufbau.pdf_tex}
-    \caption{Experimental setup for the measurement of energy and decay time of cosmic muons.
-    Muons are detected in a tank (filled with a scintillating fluid), causing flashes of light while flying through.
-    The amount of light emitted is determined with photomultipliers,
-    their signal then sent to a system of evaluating
-    devices and recorded by multi channel analyzers.}
-    \label{img:setup}
+        \centering
+        \def\svgwidth{\textwidth}
+       \input{../img/aufbau.pdf_tex}
+        \caption{Experimental setup for the measurement of energy and decay time of cosmic muons.
+        Muons are detected in a tank (filled with a scintillating fluid), causing flashes of light while flying through.
+        The amount of light emitted is determined with photomultipliers,
+        their signal then sent to a system of evaluating
+        devices and recorded by multi channel analyzers.}
+        \label{img:setup}
 \end{figure}
- 	
- 	
 \autoref{img:setup} shows the setup that was used in the experiment.
 Its main part is a big metal tank filled with 470\,l of a liquid scintillator.
 The flashes of light which are caused by the muons when they travel through the scintillator
@@ -26,7 +23,6 @@ in order to cut off underground noise but also to let through enough desired muo
 The output signal of the discriminators is a rectangular pulse of about 50\,ns length and -1.0\,V amplitude.
 \autoref{img:pmladisc} shows a pulse from PMr (yellow), the amplified signal (blue)
 and the output of the discriminator (pink).
-
 \begin{figure}[H]
 \begin{center}
   \includegraphics[width=0.5\textwidth]{../img/S0011.PNG}
@@ -36,7 +32,6 @@ and the output of the discriminator (pink).
   \label{img:pmladisc}
 \end{center}
 \end{figure} 
-
 The signals of the two discriminators are collected in a \emph{coincidence unit} (AND I).
 The output signal of the coincidence unit is also a digital pulse like the one of the discriminators
 and it is triggered only if two signals from the discriminators reach its inputs simultaneously.
@@ -46,7 +41,6 @@ A counter (Z I) after the coincidence unit permits the determination of the numb
 over a specific period.
 \autoref{img:discdiscandI} shows a sample of those signals
 (the signal from the discriminators in yellow and blue and the output of the coincidence unit in pink).
-
 \begin{figure}[H]
 \begin{center}
   \includegraphics[width=0.5\textwidth]{../img/S0012.PNG}
@@ -55,14 +49,12 @@ over a specific period.
   \label{img:discdiscandI}
 \end{center}
 \end{figure}
-
 In order to determine the energy of the muon, the analog signals of the linear amplifiers
 also take a second way in the circuit:
 The signals are \emph{added} and then delayed by 170\,ns in a \emph{delay generator}
 (to await analysis of the signals in a different part of the setup, this will become clear later).
 \autoref{img:lalaadddel} shows the described signals, from the amplifiers in yellow and blue,
 the sum signal in pink and the delayed signal in green.
-
 \begin{figure}[H]
 \begin{center}
   \includegraphics[width=0.5\textwidth]{../img/S0013.PNG}
@@ -71,7 +63,6 @@ the sum signal in pink and the delayed signal in green.
   \label{img:lalaadddel}
 \end{center}
 \end{figure}
-
 After the delay generator, the signal goes over a \emph{capacitor} (to block the constant component of the signal)
 and into a \emph{linear gate}.
 The control signal for the gate comes from a different part of the setup and it is being triggered
@@ -85,7 +76,6 @@ The additional two small peaks of the green signal occur due to the opening and 
 and constitute the main cause of the \emph{pedestal} which is measured in the course of the experiment.
 \emph{Pedestal} refers to the nonzero amplitude coming from the linear gate after opening
 even if there is no incoming signal.
-
 \begin{figure}[H]
 \begin{center}
   \includegraphics[width=0.5\textwidth]{../img/S0014.PNG}
@@ -97,7 +87,6 @@ even if there is no incoming signal.
   \label{img:delcapgate}
 \end{center}
 \end{figure}
-
 An \emph{attenuator} after the linear gate damps the signal.
 The attenuation for the main measurement is -12\,dB in order not to overload the following \emph{shaping amplifier}
 which shows nonlinear behaviour above an input signal of about 100\,mV.
@@ -130,7 +119,6 @@ of the setup.
 the photomultiplier over the tank (yellow), the signal after the discriminator (blue) and
 the delayed signal.
 
-
 \begin{figure}[H]
 \begin{center}
   \includegraphics[width=0.5\textwidth]{../img/S0006.PNG}
@@ -147,7 +135,6 @@ thus it can be defined which input conditions are necessary to trigger an output
 Assignment of the inputs A, B and C can be seen on \autoref{img:setup}.
 The counter Z~II counts the events after AND~II.
 \autoref{img:discdiscandII} shows input (yellow and blue) and output signal (pink) of AND~II.
-
 
 \begin{figure}[H]
 \begin{center}
@@ -183,7 +170,7 @@ of the coincidence unit AND~I. This signal also goes into AND~III
 After AND~III (pink),
 another timing unit with a window of 400\,ns provides the opening signal for the linear gate (green).
 
-For the flight through measurement is is possible to shortcut the gate/delay generator and the timing unit
+For the flight through measurement it is possible to shortcut the gate/delay generator and the timing unit
 and to pass the signal of AND~II directly into AND~III (input B).
 
 Events of AND~III are counted with the counter Z~III.
@@ -205,8 +192,13 @@ It provides a signal whose amplitude is proportional to the time difference betw
 The start signal is delivered by the coincidence unit AND~II when a muon enters the tank.
 The stop signal comes from AND~III when a decay is recorded.
 The output of the TAC goes into a multi channel analyzer which is connected to a computer.
-The signals for and from the TAC are shown on \autoref{img:tac}.
+The signals for and from the TAC are shown on \autoref{img:tac}.\\
 
+To perform the time calibration of the TAC, a special device is provided to generate start and stop
+pulses with adjustable time difference.\\
+
+For the determination of the energy resolution of the setup a LED is integrated in the tank.
+The LED is controlled with a pulse generator and a LED driver.
 
 
 \begin{figure}[H]
@@ -217,12 +209,32 @@ The signals for and from the TAC are shown on \autoref{img:tac}.
 \end{center}
 \end{figure}
 
+To verify the correct operation of the system after setting it up and during the days of the measurements,
+the count rates of the four photomultipliers and the coincident events were monitored regularly.
+\autoref{tab:countrates} shows the values that were determined after the successful completion of the setup.
 
-devices for energycal, timecal..
+\begin{table}[H]
+\caption{Count rates at various configurations of the setup.}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+  \hline
+  					& counter	& AND I	& AND II	& AND III	& counts				& count rate\footnotemark  / s$^{-1}$		\\ \hline
+  PMr				& Z I		& A		& -			& -			& 141443/100\,s			& \textbf{1414\,$\pm$\,4}					\\ \hline
+  PMl				& Z I		& B		& -			& -			& 78865/100\,s			& \textbf{789\,$\pm$\,3}					\\ \hline
+  PMt				& Z II		& -		& A			& -			& 16640/100\,s			& \textbf{166.4\,$\pm$\,1.3}				\\ \hline
+  PMb				& Z II		& -		& B			& -			& 17181/100\,s			& \textbf{171.8\,$\pm$\,1.3}				\\ \hline
+  PMr \& PMl		& Z I		& A B	& -			& -			& 106649/1000\,s		& \textbf{106.7\,$\pm$\,0.3}				\\ \hline
+  PMt \& PMb		& Z II		& -		& A B		& -			& 108/100\,s			& \textbf{1.08\,$\pm$\,0.10}				\\ \hline
+  t \& r \& l		& Z III		& A B	& A	C		& B C		& 20990/1000\,s			& \textbf{20.99\,$\pm$\,0.14}				\\ \hline
+  t \& b \& r \& l  & Z III		& A B	& A	B C		& B C		& 973/1000\,s			& \textbf{0.97\,$\pm$\,0.03}				\\ \hline
+  decays			& Z III		& A B	& A	C		& A C		& 213/1000\,s			& \textbf{0.213\,$\pm$\,0.014}				\\ \hline
+  underground		& Z III		& A B	& A	C		& A C		& 16/1000\,s			& \textbf{0.016\,$\pm$\,0.004}				\\ \hline
+\end{tabular}
+\end{center}
+\label{tab:countrates}
+\end{table}
 
+\footnotetext{The errors were calculated with Gaussian uncertainty propagation,
+assuming a Poisson distribution of the error on the number of counts.}	
 
- 	
- 	
- 	photomult description from szint-prot? oder in principles?
- 	
- 	table countrates
+photomult description from szint-prot? oder in principles?
