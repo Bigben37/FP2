@@ -317,9 +317,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1"
-     inkscape:cx="733.08825"
-     inkscape:cy="724.58312"
+     inkscape:zoom="0.70710678"
+     inkscape:cx="661.11244"
+     inkscape:cy="687.84384"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -331,7 +331,7 @@
      showborder="false"
      showguides="false"
      inkscape:guide-bbox="true"
-     inkscape:snap-global="false"
+     inkscape:snap-global="true"
      inkscape:snap-bbox="true"
      inkscape:bbox-paths="true"
      inkscape:bbox-nodes="true"
@@ -882,30 +882,26 @@
            x="436.02588"
            y="479.72778"
            style="font-size:30px;text-align:center;text-anchor:middle" /></flowRegion><flowPara
-         id="flowPara5337">sh. amp.</flowPara></flowRoot>    <g
-       id="g5701"
-       transform="translate(1.1400234,-2.8166159)">
-      <rect
-         y="1401.3712"
-         x="803.5202"
-         height="95.198616"
-         width="153.61191"
-         id="rect5109-6"
-         style="opacity:1;fill:#0018ff;fill-opacity:0.58823529;fill-rule:nonzero;stroke:#000000;stroke-width:0.99999988;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
-      <flowRoot
-         transform="translate(378.5376,950.52358)"
-         style="font-style:normal;font-weight:normal;font-size:30px;line-height:125%;font-family:Sans;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         id="flowRoot5111-9"
-         xml:space="preserve"><flowRegion
-           id="flowRegion5113-9"><rect
-             style="font-size:30px;text-align:center;text-anchor:middle"
-             y="479.72778"
-             x="436.02588"
-             height="52.091587"
-             width="133.12296"
-             id="rect5115-4" /></flowRegion><flowPara
-           id="flowPara5117-7">MCA I</flowPara></flowRoot>    </g>
-    <rect
+         id="flowPara5337">sh. amp.</flowPara></flowRoot>    <rect
+       style="opacity:1;fill:#0018ff;fill-opacity:0.58823529;fill-rule:nonzero;stroke:#000000;stroke-width:0.99999988;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect5109-6"
+       width="153.61191"
+       height="95.198616"
+       x="804.66022"
+       y="1398.5546" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot5111-9"
+       style="font-style:normal;font-weight:normal;font-size:30px;line-height:125%;font-family:Sans;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       transform="translate(356.37926,947.44329)"><flowRegion
+         id="flowRegion5113-9"><rect
+           id="rect5115-4"
+           width="178.12296"
+           height="52.091587"
+           x="436.02588"
+           y="479.72778"
+           style="font-size:30px;text-align:center;text-anchor:middle" /></flowRegion><flowPara
+         id="flowPara5117-7">MCA I</flowPara></flowRoot>    <rect
        y="821.47913"
        x="-336.20139"
        height="95.198616"

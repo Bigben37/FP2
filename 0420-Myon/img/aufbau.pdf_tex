@@ -87,7 +87,7 @@
     \put(0,0){\includegraphics[width=\unitlength,page=17]{aufbau.pdf}}%
     \put(0.87002027,0.17570046){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.13009134\unitlength}\centering sh. amp.\end{minipage}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=18]{aufbau.pdf}}%
-    \put(0.89399625,0.08549462){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.08212154\unitlength}\centering MCA I\end{minipage}}}%
+    \put(0.87962384,0.08565728){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.10988136\unitlength}\centering MCA I\end{minipage}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=19]{aufbau.pdf}}%
     \put(0.18146047,0.44163737){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.10610644\unitlength}\centering AND II\end{minipage}}}%
     \put(0.28541437,0.4416374){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.08212154\unitlength}\centering Z II\end{minipage}}}%
