@@ -317,9 +317,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.35355339"
-     inkscape:cx="859.0462"
-     inkscape:cy="-150.75964"
+     inkscape:zoom="1"
+     inkscape:cx="733.08825"
+     inkscape:cy="724.58312"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -1478,7 +1478,7 @@
        xml:space="preserve"
        id="flowRoot4812-0-1-2"
        style="font-style:normal;font-weight:normal;font-size:30px;line-height:125%;font-family:Sans;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       transform="translate(-526.87396,-591.88883)"><flowRegion
+       transform="translate(-534.87396,-591.88883)"><flowRegion
          id="flowRegion4814-2-3-01"><rect
            id="rect4816-3-9-5"
            width="322.0426"
@@ -1486,7 +1486,7 @@
            x="436.02588"
            y="479.72778"
            style="font-size:30px;text-align:start;text-anchor:start;fill:#ff0000" /></flowRegion><flowPara
-         id="flowPara4818-0-7-2">\large{\textmu}</flowPara></flowRoot>    <g
+         id="flowPara4818-0-7-2">\textmu</flowPara></flowRoot>    <g
        id="g8223"
        transform="translate(-20,0)">
       <g
@@ -1618,7 +1618,7 @@
        xml:space="preserve"
        id="flowRoot4812-0-1-2-7"
        style="font-style:normal;font-weight:normal;font-size:30px;line-height:125%;font-family:Sans;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       transform="translate(-275.88937,-596.16274)"><flowRegion
+       transform="translate(-267.88937,-596.16274)"><flowRegion
          id="flowRegion4814-2-3-01-3"><rect
            id="rect4816-3-9-5-5"
            width="322.0426"
@@ -1626,7 +1626,7 @@
            x="436.02588"
            y="479.72778"
            style="font-size:30px;text-align:start;text-anchor:start;fill:#ff0000" /></flowRegion><flowPara
-         id="flowPara4818-0-7-2-6">\large{\textmu}</flowPara></flowRoot>    <g
+         id="flowPara4818-0-7-2-6">\textmu</flowPara></flowRoot>    <g
        transform="matrix(0.41970389,-0.90766108,0.90766108,0.41970389,32.09198,-51.270585)"
        id="g8223-3">
       <g

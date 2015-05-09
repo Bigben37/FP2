@@ -120,10 +120,10 @@
     \put(0.27371974,1.08635633){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.19866322\unitlength}\centering scintillator\end{minipage}}}%
     \put(0.2589145,0.80618367){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.19866322\unitlength}\centering scintillator\end{minipage}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=24]{aufbau.pdf}}%
-    \put(0.33475826,1.03524804){\color[rgb]{1,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.19866322\unitlength}\raggedright \large{\textmu}\end{minipage}}}%
+    \put(0.32982318,1.03524804){\color[rgb]{1,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.19866322\unitlength}\raggedright \textmu\end{minipage}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=25]{aufbau.pdf}}%
     \put(0.43983445,0.92158715){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.11028424\unitlength}\centering \large{e}\end{minipage}}}%
-    \put(0.48958687,1.03788455){\color[rgb]{1,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.19866322\unitlength}\raggedright \large{\textmu}\end{minipage}}}%
+    \put(0.49452195,1.03788455){\color[rgb]{1,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.19866322\unitlength}\raggedright \textmu\end{minipage}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=26]{aufbau.pdf}}%
     \put(0.18892376,0.99557935){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.19866322\unitlength}\centering \textgamma\end{minipage}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=27]{aufbau.pdf}}%
