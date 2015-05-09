@@ -112,10 +112,10 @@
     \put(0.0738223,0.27566532){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.20501628\unitlength}\centering \footnotesize{stop}\end{minipage}}}%
     \put(0.03664478,0.33365358){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.22551784\unitlength}\centering \footnotesize{out}\end{minipage}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=23]{aufbau.pdf}}%
-    \put(0.5885372,1.03704405){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.19866322\unitlength}\centering PM\end{minipage}}}%
-    \put(-0.02271473,0.88796716){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.19866322\unitlength}\centering PM\end{minipage}}}%
-    \put(0.1167464,1.1418376){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.19866322\unitlength}\centering PM\end{minipage}}}%
-    \put(0.12733928,0.76664059){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.19866322\unitlength}\centering PM\end{minipage}}}%
+    \put(0.59593982,1.03704405){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.19866322\unitlength}\centering PMr\end{minipage}}}%
+    \put(-0.02024719,0.88796716){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.19866322\unitlength}\centering PMl\end{minipage}}}%
+    \put(0.1167464,1.1418376){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.19866322\unitlength}\centering PMt\end{minipage}}}%
+    \put(0.12733928,0.76664059){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.19866322\unitlength}\centering PMb\end{minipage}}}%
     \put(0.63060787,1.15139024){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.19866322\unitlength}\centering scintillating tank\end{minipage}}}%
     \put(0.27371974,1.08635633){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.19866322\unitlength}\centering scintillator\end{minipage}}}%
     \put(0.2589145,0.80618367){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.19866322\unitlength}\centering scintillator\end{minipage}}}%
