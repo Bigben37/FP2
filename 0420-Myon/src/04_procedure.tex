@@ -1,7 +1,65 @@
 \section{Experimental Procedure}
 
 
-energyres
+\subsection{Energy resolution: Photoelectronstatistics}
+For the determination of the energy resolution of the setup, the LED in the tank is used.
+\autoref{tab:conderes} shows the input conditions of the coincidence units during the measurements.
+A pulse generator produces a periodic signal with a frequency of 5\,kHz.
+The signal is delivered to a LED driving unit, where the intensity of the LED can be adjusted.
+12~measurements with different intensities are conducted, in order to cover the whole energy range of the MCA.
+The duration of each measurement is 1\,min.
+For the three lowest intensities, the measuring time is increased to 6\,min, 3\,min and 2\,min to reduce the error
+on the count rate.
+Each measurement produces an energy spectrum on MCA\,I which is saved.
+
+\begin{table}[H]
+\caption{Active inputs of the coincidence units during measurement of the energy resolution of the setup.}
+\begin{center}
+\begin{tabular}{|c|c|}
+  \hline
+  coincidence unit	& active inputs	\\ \hline
+  AND I				& A B			\\ \hline
+  AND II			& -				\\ \hline
+  AND III			& C				\\ \hline
+ \end{tabular}
+\end{center}
+\label{tab:conderes}
+\end{table}
+
+\subsection{Energy calibration}
+
+\subsubsection{Pedestal measurement}
+\autoref{tab:condped} shows the state of the setup for the measurement of the pedestal.
+Due to this wiring, the linear gate is opened each time a signal from PMt is delivered.
+As only about every 8th event from PMt coincides with an event of PMr and PMl (\autoref{tab:countrates}),
+in this configuration most likely no signal will pass the gate when it is opened.
+Such events give rise to the pedestal, a large peak at the low end of the spectrum measured with MCA\,I.
+After minimizing the pedestal with the offset screws on the delay generators, the pedestal is measured for
+5\,min.
+
+\begin{table}[H]
+\caption{Active inputs of the coincidence units during measurement of the pedestal.}
+\begin{center}
+\begin{tabular}{|c|c|}
+  \hline
+  coincidence unit	& active inputs	\\ \hline
+  AND I				& -				\\ \hline
+  AND II			& A				\\ \hline
+  AND III			& B				\\ \hline
+ \end{tabular}
+\end{center}
+\label{tab:condped}
+\end{table}
+
+\subsubsection{Flight through spectrum}
+
+
+\subsection{Time calibration}
+
+
+\subsection{Underground measurement}
+
+\subsection{\textbeta-spectrum and mean lifetime}
 
 
 energycal
