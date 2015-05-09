@@ -15,7 +15,7 @@ def evalUnderground():
     
     for d, suffix in [(data, ""), (datarebin, "_rebin")]:
         c = TCanvas('cu%s' % suffix, '', 1280, 720)
-        g = data.makeGraph('gu%s' % suffix, 'channel c', 'countrate n / (1/s)')
+        g = d.makeGraph('gu%s' % suffix, 'channel c', 'countrate n / (1/s)')
         prepareGraph(g)
         g.GetXaxis().SetRangeUser(0, 700)
         g.Draw('APX')

@@ -21,15 +21,25 @@ For some fits we use the Gaussian distribution. The following convention will be
 \end{equation}
 in which $\gaus(c;x,\sigma)$ is a function of $c$ with parameters $x$ (expectation value) and $\sigma$ (standard deviation).
 
-\subsection{Energy resolution}
-\begin{figure}[H]
-\begin{center}
-  \includegraphics[width=\textwidth]{../img/energieaufloesung_059.pdf}
-  \caption{Energy resolution low channal.}
-  \label{img:eres:059}
-\end{center}
-\end{figure}
+\subsubsection{Rebinning}
+\label{subsub:rebinning}
+Sometimes there is too much noise in the spectrum to recognize a trend. In those cases $n$ successive $(x, y)$ tuples are averaged:
+\begin{equation}
+    \bar{x}_i = \frac{1}{n} \sum_{j=0}^{n-1} x_{ni+j}, \qquad \bar{y}_i = \frac{1}{n} \sum_{j=0}^{n-1} y_{ni+j}, \qquad i = 1, 2, \ldots, \frac{\#(x_i)}{n}
+\end{equation}
+where $(x_i, y_i)$ are the old values and $(\bar{x}_i, \bar{y}_i)$ are the new ones. $\#(x_i)$ is the number of old values.
+The errors are calculated with error propagation:
+\begin{equation}
+    s_{\bar{x}_i} = \frac{1}{n} \sqrt{\sum_{j=0}^{n-1} s_{x_{ni+j}^2}}, \qquad s_{\bar{y}_i} = \frac{1}{n} \sqrt{\sum_{j=0}^{n-1} s_{y_{ni+j}^2}}
+\end{equation}
 
+
+\subsection{Energy resolution}
+The spectra for the energy resolution measurement get fitted with a Gaussian distribution and a constant offset:
+\begin{equation}
+    n(c) = b + A \gaus(c;x,\sigma)
+\end{equation}
+An example fit is shown in \autoref{img:eres:400}.
 \begin{figure}[H]
 \begin{center}
   \includegraphics[width=\textwidth]{../img/energieaufloesung_400.pdf}
@@ -40,23 +50,26 @@ in which $\gaus(c;x,\sigma)$ is a function of $c$ with parameters $x$ (expectati
 
 \begin{figure}[H]
 \begin{center}
-  \includegraphics[width=\textwidth]{../img/energieaufloesung_604.pdf}
-  \caption{Energy resolution high channel.}
-  \label{img:eres:604}
+  \includegraphics[width=\textwidth]{../img/energieaufloesung_multi.pdf}
+  \caption{Multi energy resolution.}
+  \label{img:eres:multi}
 \end{center}
 \end{figure}
 
+
 \begin{figure}[H]
 \begin{center}
-  \includegraphics[width=\textwidth]{../img/energieaufloesung_channels.pdf}
+  \includegraphics[width=\textwidth]{../img/energieaufloesung_channels+ecal.pdf}
   \caption{Energy resolution as a function of channels.}
   \label{img:eres:channels}
 \end{center}
 \end{figure}
 
 \subsection{Energy calibration}
+For the energy calibration the pedestal measurement and flight through spectra are evaluated. Then the theoretical energies are calculated 
+and those two datasets are plotted against each other.
 \subsubsection{Pedestal}
-The pedestal measurement produced a Gaussian distributed spectrum (\autoref{img:pedestal})
+The pedestal measurement produced a Gaussian distributed spectrum (\autoref{img:pedestal}).
 \begin{figure}[H]
 \begin{center}
   \includegraphics[width=\textwidth]{../img/pedestal.pdf}
@@ -75,14 +88,21 @@ The expectation value of the fitted Gaussian distribution is:
 
 \subsubsection{Flight through spectra}
 \paragraph{Landau distribution}
-The Landau distribution describes the fluctuations of energy loss caused by impact ionizatin. \\
-Image Landau \\
-Convolution with gaus
+The Landau distribution describes the fluctuations of energy loss caused by impact 
+ionization\footnote{The distribution follows from the \emph{Bethe formula}.}.
+But the measured data is not described by just a Landau distribution, the spectrum is blurred by the energy resolution of the scintillator. 
+To get a function for fitting a convolution of the Landau distribution with a Gaussian distribution is needed:
+\begin{equation}
+    \label{eq:landaugausconv}
+    (\landau(\mu, s) *  \gaus(0, \sigma))(c) = \int_{-\infty}^{\infty} \landau(x;\mu, s) \gaus(c-x;0;\sigma)\difd x
+\end{equation}
+Since there is no analytical closed form for the Landau distribution the convolution can not be solved analytical. The spectra are fitted with a
+numerical convolution\footnote{The code is based on \url{https://root.cern.ch/root/html/tutorials/fit/langaus.C.html}, translated to Python by us.}.
 \begin{figure}[H]
 \begin{center}
   \includegraphics[width=\textwidth]{../img/energiekalibration_100.pdf}
   \caption{Flight through spectrum at 100$\%$ energy.}
-  \label{img:label}
+  \label{img:ecal:100}
 \end{center}
 \end{figure}
 
@@ -90,7 +110,7 @@ Convolution with gaus
 \begin{center}
   \includegraphics[width=\textwidth]{../img/energiekalibration_50.pdf}
   \caption{Flight through spectrum at 50$\%$ energy.}
-  \label{img:label}
+  \label{img:ecal:50}
 \end{center}
 \end{figure}
 
@@ -98,7 +118,7 @@ Convolution with gaus
 \begin{center}
   \includegraphics[width=\textwidth]{../img/energiekalibration_35.pdf}
   \caption{Flight through spectrum at 35$\%$ energy.}
-  \label{img:label}
+  \label{img:ecal:35}
 \end{center}
 \end{figure}
 
@@ -132,7 +152,7 @@ The fitted peaks of the energy calibration and their respective energies are lis
   \label{img:energycalibration}
 \end{center}
 \end{figure}
-Since the scintillators should produce a signal amplitude linear to the meassured energy, a linear fit is implemented:
+Since the scintillators should produce a signal amplitude linear to the measured energy, a linear fit is implemented:
 \begin{equation}
     E(c) = a + b \cdot c
 \end{equation}
@@ -177,7 +197,7 @@ The parameters and their covariance for this fit are:
 Now the time $t$ of a channel $c$ and its error $s_t$ can be calculated with:
 \begin{equation}
 \label{eq:tcalibration}
-    t = a + b \cdot c, \qquad s_t = \sqrt{s_a^2 + \left(x \cdot s_b \right)^2 + 2 \cdot x \cdot \cov(a,b)}
+    t = a + b \cdot c, \qquad s_t = \sqrt{s_a^2 + \left(t \cdot s_b \right)^2 + 2 \cdot t \cdot \cov(a,b)}
 \end{equation}
 
 \subsection{Underground}
@@ -190,7 +210,13 @@ The underground measurement is visualized in \autoref{img:underground}.
 \end{center}
 \end{figure}
 
-no time underground
+\begin{figure}[H]
+\begin{center}
+  \includegraphics[width=\textwidth]{../img/underground_rebin.pdf}
+  \caption{Rebinned unerground.}
+  \label{img:underground:rebin}
+\end{center}
+\end{figure}
 
 \subsection{\textbeta-spectrum}
 The measured \textbeta-spectrum is shown in \autoref{img:beta:spectrum}.
@@ -226,26 +252,19 @@ With the fit one gets for $b$:
 Since this energy is half of the rest energy of the muon it has to be multiplied with 2:
 \begin{equation}
 \begin{split}
+	\label{eq:result:mass}
     & E_\mu = 2 \cdot b, \qquad s_{E_\mu} = 2 \cdot s_b \\
     & \Rightarrow E_\mu = (107.7 \pm 1.3)\,\text{MeV}
     \end{split}
 \end{equation}
-The so calculated rest energy matches the literature value within a 2-\textsigma-interval.
+The so calculated rest energy matches the literature value (\autoref{eq:litval:mass}) within a 2-\textsigma-interval.
 \begin{equation}
     E_\mu^{\text{lit.}} = (105.6583715 \pm 0.0000035)\,\text{MeV}
 \end{equation}
 
 \subsection{Mean lifetime}
 To calculate the mean lifetime $\tau$ of $\mu$ the channels are converted to a time with \autoref{eq:tcalibration}. 
-Furthermore we rebin the spectrum to get a nicer curve. Three successive channels are averaged:
-\begin{equation}
-    \bar{t}_i = \frac{1}{3} \sum_{j=0}^{2} t_{3i+j}, \qquad \bar{n}_i = \frac{1}{3} \sum_{j=0}^{2} n_{3i+j}, \qquad i \in \left[1, \frac{\#(t_i)}{3} \right]
-\end{equation}
-where $(t_i, n_i)$ are the old values and $(\bar{t}_i, \bar{n}_i)$ are the new ones. $\#(t_i)$ is the number of old values.
-The errors are calculated with error propagation:
-\begin{equation}
-    s_{\bar{t}_i} = \frac{1}{3} \sqrt{\sum_{j=0}^{2} t_{3i+j}^2}, \qquad s_{\bar{n}_i} = \frac{1}{3} \sqrt{\sum_{j=0}^{2} n_{3i+j}^2}
-\end{equation}
+Furthermore we rebin as described in \ref{subsub:rebinning} the spectrum to get a nicer curve. Three consecutive channels were averaged.
 \begin{figure}[H]
 \begin{center}
   \includegraphics[width=\textwidth]{../img/decayTime.pdf}
@@ -260,20 +279,33 @@ The so obtained datapoints (\autoref{img:decaytime}) get fitted with an exponent
 \end{equation}
 The fit yields for the mean lifetime:
 \begin{equation}
+	\label{eq:result:meanlifetime}
     \tau = \left( 2.24 \pm 0.05 \right)\,\text{\textmu s}
 \end{equation}
-This matches with the literature value within 1-\textsigma-interval. %TODO ref lit value
+This matches with the literature value (\autoref{eq:litval:meanlifetime}) within 1-\textsigma-interval.
 \begin{equation}
     \tau^{\text{lit.}} = \left( 2.1969811 \pm 0.0000022 \right)\,\text{\textmu s}
 \end{equation}
 
 \subsection{Weak coupling constant}
+Now the weak coupling constant $G_\mu$ can be calculated with the muon's mass and mean lifetime. \autoref{eq:weakcouplingconstant} is used. The 
+calculation is performed in natural units:
 \begin{equation}
     \begin{split}
-        G &= \sqrt{\frac{192 \pi^2}{\tau m_\mu^5}} \\
-        s_G &= \frac{1}{2} \sqrt{\frac{192 \pi^3 \left( m_\mu^2 s_\tau^2 + 25 \tau^2 s_{m_\mu}^2 \right)}{m_\mu^7 \tau^3}}
+        G_\mu &= \sqrt{\frac{192 \pi^2}{\tau_\mu m_\mu^5}} \\
+        s_{G_\mu} &= \frac{1}{2} \sqrt{\frac{192 \pi^3 \left( m_\mu^2 s_{\tau_\mu}^2 + 25 \tau_\mu^2 s_{m_\mu}^2 \right)}{m_\mu^7 \tau_\mu^3}}
     \end{split}
 \end{equation}
+With the relation
 \begin{equation}
-    G = (1.10 \pm 0.04) \cdot 10^{-5} \frac{1}{\text{GeV}^2}
+    t_\text{natural} = \frac{1}{\hbar} t_\text{S.I.}
+\end{equation}
+the mean lifetime can be converted to natural units. $\hbar$ has to be in eVs. \\
+The weak coupling constant calculates to:
+\begin{equation}
+    G = (1.10 \pm 0.04) \cdot 10^{-5}\,\frac{1}{\text{GeV}^2}
+\end{equation}
+This result agrees with the literature value (\autoref{eq:litval:weakcouplingconstant}) within 1-\textsigma-interval.
+\begin{equation}
+    G_\mu^{\text{lit.}} = \left( 1.166364 \pm 0.000005 \right) \cdot 10^{-5}\,\frac{1}{\text{GeV}^2}
 \end{equation}

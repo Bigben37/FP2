@@ -7,6 +7,7 @@ from ROOT import TCanvas, TLegend, TMath # @UnresolvedImport
 from fitter import Fitter
 from txtfile import TxtFile
 from data import DataErrors
+from asyncore import write
 
 
 def langaufun(x, par):
@@ -90,7 +91,7 @@ def evalFlythroughSpectrum(name, xmin, xmax):
     l.SetTextSize(0.03)
     l.AddEntry(g, 'flight through with %s%% energy' % name.split('_')[1], 'p')
     l.AddEntry(fit.function, 'fit with n(c) =', 'l')
-    l.AddEntry(None, '(landau(c; m, s) * gaus(c; 0, #sigma))(t)', '')
+    l.AddEntry(None, '(landau(m, s) * gaus(0, #sigma))(c)', '')
     fit.addParamsToLegend(l, (('%.2f', '%.2f'), ('%.2f', '%.2f'), ('%.3f', '%.3f'), ('%.2f', '%.2f')), chisquareformat='%.2f', lang='en')
     l.Draw()
 
@@ -98,7 +99,7 @@ def evalFlythroughSpectrum(name, xmin, xmax):
     c.Update()
     c.Print('../img/%s.pdf' % name, 'pdf')
 
-    return ((fit.params[1]['value'], fit.params[1]['error']), (fit.params[3]['value'], fit.params[3]['value']))
+    return ((fit.params[1]['value'], fit.params[1]['error']), (fit.params[3]['value'], fit.params[3]['error']))
 
 
 def evalPedestal():
@@ -159,7 +160,7 @@ def evalEnergyCalibration(peaks, percents):
     fit.fit(g, 0, max(channels) + 5)
     fit.saveData('../fit/energyCalibration.txt')
     
-    l = TLegend(0.15, 0.6, 0.52, 0.85)
+    l = TLegend(0.15, 0.6, 0.575, 0.85)
     l.SetTextSize(0.03)
     l.AddEntry(g, 'Peaks of flight through spectra / pedestal', 'p')
     l.AddEntry(fit.function, 'fit with E(c) = a + b * c', 'l')
@@ -173,9 +174,6 @@ def evalEnergyCalibration(peaks, percents):
         f.writeline('\t', str(fit.params[0]['value']), str(fit.params[0]['error']))
         f.writeline('\t', str(fit.params[1]['value']), str(fit.params[1]['error']))
         f.writeline('\t', str(fit.getCovMatrixElem(0, 1)))
-    
-def evalFittedSigmas(sigmas, percents):
-    pass  # TBI
 
 def main():
     peak100, sigma100 = evalFlythroughSpectrum('energiekalibration_100', 275, 600)
@@ -183,7 +181,9 @@ def main():
     peak035, sigma035 = evalFlythroughSpectrum('energiekalibration_35', 75, 240)
     peak000 = evalPedestal()
     evalEnergyCalibration([peak000, peak035, peak050, peak100], [0, 35, 50, 100])
-    evalFittedSigmas([sigma035, sigma050, sigma100], [35, 50, 100])
+    with TxtFile('../calc/ecal_sigmas.txt', 'w') as f:
+        for d in [[peak035, sigma035], [peak050, sigma050], [peak100, sigma100]]:
+            f.writeline('\t', *map(str,  [item for sublist in d for item in sublist]))
 
 if __name__ == "__main__":
     setupROOT()
