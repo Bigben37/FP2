@@ -4,9 +4,9 @@ The \emph{Standard Model of Particle Physics} describes all known elementary par
 interactions between them.
 \begin{figure}[H]
         \centering
-        \def\svgwidth{0.5\textwidth}
+        \def\svgwidth{0.55\textwidth}
        \input{../img/standardmodel.pdf_tex}
-        \caption{.}
+        \caption{The known 17 particles of the standard model.}
         \label{img:standardmodel}
 \end{figure}
 The four known interactions are gravitation, electromagnetism, strong and weak interaction. Not all elementary particles obey all interactions.\\
@@ -54,7 +54,7 @@ Muons decay into electrons /positrons (\autoref{img:feynman_mu-to-e})
         \centering
         \def\svgwidth{0.35\textwidth}
        \input{../img/feynman.pdf_tex}
-        \caption{.}
+        \caption{.}%TODO capt
         \label{img:feynman_mu-to-e}
 \end{figure}
 This is a three body decay, the energy spectrum corresponds to normal \textbeta-decay spectrum. \\
@@ -124,7 +124,13 @@ Two notable dependencies of $-\frac{\difd E}{\difd x}$ are the quadratic one of 
 quadratic one of the relative velocity, $-\frac{\difd E}{\difd x} \sim \frac{1}{\beta^2}$. There is no dependency of the mass of the incidental 
 particle.\\
 The qualitative graph of the \emph{Bethe formula} is shown in \autoref{img:bethe}. 
-%TODO Bild Bethe.
+\begin{figure}[H]
+        \centering
+        \def\svgwidth{0.55\textwidth}
+       \input{../img/bethebloch.pdf_tex}
+        \caption{.}%TODO capt
+        \label{img:bethe}
+\end{figure}
 For small values of $\beta$ the graph behaves like $\sim \frac{1}{\beta^2}$, for large values like 
 $\sim \ln \left( \frac{\beta^2}{1-\beta^2} \right)$. In between there is a minimum, those particles with the minimal energy loss per length are called 
 \emph{minimal ionizing particles}.
@@ -148,22 +154,48 @@ The literature value\footnote{\url{http://physics.nist.gov/cgi-bin/cuu/Value?gf}
 
 
 \subsection{Scintillators}
+Muons can be detected using scintillating materials.
+Here a short introduction to the mechanism of scintillation will be given
+(the information is according to \cite{dem4} and \cite{staatsex}).
+
+In scintillators the interaction of high-energy particles and matter is used to determine
+the energy of the particle:
+As it passes through the scintillating material, it excites electrons.
+The excitation energy amounts to several electronvolts and the number of excited electrons is (in the ideal case
+of complete absorption) proportional to the energy of the particle.
+To be able to measure the ultraviolet light that is emitted when the electrons fall back into their ground state,
+the scintillator has to be transparent for light of this wavelength.
+This is archived using a wavelength shifter.
+It is a substance that exhibits a large \emph{stokes shift}:
+If an electron in the ground state is excited, it enters a higher energy level.
+Additionally, vibrational states of the molecule are excited.
+A small amount of energy is emitted promptly through vibrational relaxation,
+so the energy of the photon that is produced when the electron falls back in the ground state
+is smaller than the absorbed photon (stokes shift).
+For the emitted photon, the scintillator is transparent,
+thus it can exit and be detected by a photomultiplier.
+
+
+
 
 
 \subsection{Photomultipliers}
 
 \begin{figure}[H]
         \centering
-        \def\svgwidth{0.7\textwidth}
+        \def\svgwidth{0.6\textwidth}
        \input{../img/photomultiplier.pdf_tex}
         \caption{Composition of a photomultiplier for the transduction of weak light signals into current pulses.}
         \label{img:pm}
 \end{figure}
 
+The light signal delivered by a scintillating material is very faint, thus it needs intensification.
+Photomultipliers are used for this task.
+
 In a photomultiplier, photons hit a photocathode and create free electrons by reason of the photoeffect.
-Those electrons are accelerated in an electric field to the first dynode of the photomultiplier (\autoref{img:pm}).
+The electrons are accelerated in an electric field to the first dynode of the photomultiplier (\autoref{img:pm}).
 The following dynodes are connected to a voltage divider in a way that the next dynode has a more positive potential.
-Thereby the avalanche of electrons that is provoked by a photon is amplified:
+Thereby the avalanche of electrons that is provoked by a few photons is amplified:
 An electron that hits a dynode generates several free electrons.
 This effect produces an output signal at the end of the photomultiplier whose intensity is proportional
 to the number of incoming photons.
