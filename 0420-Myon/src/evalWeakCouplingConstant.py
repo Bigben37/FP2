@@ -3,7 +3,7 @@ from physconsts import hbar_eVs
 from txtfile import TxtFile
 
 def main():
-    E, sE = 107.71, 1.30
+    E, sE = 107.7, 1.42
     t, st = 2.237, 0.052
     tToeV = 1 / hbar_eVs * 1e-6
     nt, snt = tToeV * t, tToeV * st 

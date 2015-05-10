@@ -136,11 +136,13 @@ def evalPedestal():
 
 def evalEnergyCalibration(peaks, percents):
     maxenergy = 1.95 * 0.87 * 84
-    smaxenergy = maxenergy * sqrt((0.05/195) ** 2 + (0.01/0.87) ** 2 + (5/85) ** 2 )
+    smaxenergy = maxenergy * sqrt((0.05/1.95) ** 2 + (0.01/0.87) ** 2 + (5/84) ** 2 )
     channels = list(list(zip(*peaks))[0])
     schannels = list(list(zip(*peaks))[1])
     energies = list(map(lambda x:x/100*maxenergy, percents))
     senergies = list(map(lambda x:x/100*smaxenergy, percents))
+    print(energies)
+    print(senergies)
     
     with TxtFile('../src/tab_energycalibration.tex', 'w') as f:
         f.write2DArrayToLatexTable(list(zip(*[percents, channels, schannels, energies, senergies])),

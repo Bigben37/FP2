@@ -26,7 +26,7 @@ def main():
     l.SetTextSize(0.03)
     l.AddEntry(g, 'measured att. vs. nominal value', 'p')
     l.AddEntry(fit.function, 'fit with n = a + b m', 'l')
-    fit.addParamsToLegend(l, (('%.2f', '%.2f'), ('%.2f', '%.2f')), chisquareformat='%.2f', units=['dB', ''], lang='en')
+    fit.addParamsToLegend(l, (('%.2f', '%.2f'), ('%.2f', '%.2f')), chisquareformat='%.4f', units=['dB', ''], lang='en')
     l.Draw()
     
     c.Update()

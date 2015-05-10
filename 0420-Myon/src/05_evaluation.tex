@@ -97,8 +97,14 @@ The expectation value of the fitted Gaussian distribution is:
 \label{subsub:flightthroughspectra}
 \paragraph{Landau distribution}
 The Landau distribution describes the fluctuations of energy loss caused by impact 
-ionization\footnote{The distribution follows from the \emph{Bethe formula}.}.
-But the measured data is not described by just a Landau distribution, since the spectrum is blurred by the energy resolution of the scintillator. 
+ionization\footnote{The distribution follows from the \emph{Bethe formula}.}. It has two parameters: The location parameter $\mu$ which shifts the 
+distribution in x-direction and the scale parameter $s$ which controls the width of the distribution. The maximum of the distribution 
+(most probable value, $m$) is not equivalent with the location parameter but it can be calculated:
+\begin{equation}
+    m = \mu + (-0.22278298) \cdot s
+\end{equation}
+The value $-0.22278298$ is the location of the most probable value if $\mu = 0$. \\
+The measured data cannot described by just a Landau distribution, since the spectrum is blurred by the energy resolution of the scintillator. 
 To get a function for fitting a convolution of the Landau distribution with a Gaussian distribution is needed:
 \begin{equation}
     \label{eq:landaugausconv}
@@ -106,7 +112,8 @@ To get a function for fitting a convolution of the Landau distribution with a Ga
 \end{equation}
 Since there is no analytical closed form for the Landau distribution the convolution can not be solved analytical. The spectra are fitted with a
 numerical convolution\footnote{The code is based on \url{https://root.cern.ch/root/html/tutorials/fit/langaus.C.html}, translated to Python by us.}. 
-The spectra with their fits are shown in \autoref{img:ecal:100}, \autoref{img:ecal:50} and \autoref{img:ecal:35}. The fitted parameters are listed in 
+The spectra with their fits are shown in \autoref{img:ecal:100}, \autoref{img:ecal:50} and \autoref{img:ecal:35}. Parameter $A$ of the fit 
+is the area under the curve and was needed for fitting, but is not relevant for the further evaluation. The fitted parameters are listed in 
 \autoref{tab:ecal}.
 \begin{figure}[H]
 \begin{center}
@@ -189,14 +196,15 @@ Hence the total loss of energy calculates to:
 \end{equation}
 The percentage loss of energy can now be determined:
 \begin{equation}
-    E_p = p \cdot E, \qquad s_{E_p} = p \cdot s_E, \qquad 0 \leq p \leq 1  %TODO Fehler auf p wegen Dämpfer?
+    E_p = p \cdot E, \qquad s_{E_p} = p \cdot s_E, \qquad 0 \leq p \leq 1
 \end{equation}
 The fitted peaks of the energy calibration and their respective energies are listed in \autoref{tab:ecal} and visualized in \autoref{img:energycalibration}.
 \input{tab_energycalibration}
 \begin{figure}[H]
 \begin{center}
   \includegraphics[width=\textwidth]{../img/energyCalibration.pdf}
-  \caption{Energy calibration.}
+  \caption{Amount of energy deposited in the tank during the 35\%, 50\% and 100\% flight through measurement and the pedestal as a function of the 
+  spectrum's maximum position.}
   \label{img:energycalibration}
 \end{center}
 \end{figure}
@@ -207,9 +215,9 @@ Since the scintillators should produce a signal amplitude linear to the measured
 The fit yields:
 \begin{equation}
     \begin{split}
-        & a = (-2.14 \pm 0.07) \, \text{MeV} \\
-        & b = (0.353 \pm 0.012) \, \frac{\text{MeV}}{\text{channel}} \\
-        & \cov(a, b) = -0.0009 \, \frac{\text{MeV}^2}{\text{channel}} 
+        & a = (-2.14 \pm 0.08) \, \text{MeV} \\
+        & b = (0.353 \pm 0.013) \, \frac{\text{MeV}}{\text{channel}} \\
+        & \cov(a, b) = -0.0011 \, \frac{\text{MeV}^2}{\text{channel}} 
     \end{split}
 \end{equation}
 Now the energy $E$ of a channel $c$ and its error $s_E$ can be calculated with:
@@ -230,7 +238,7 @@ A linear fit is done (\autoref{img:timecalibration}):
 \begin{figure}[H]
 \begin{center}
   \includegraphics[width=\textwidth]{../img/timeCalibration.pdf}
-  \caption{Time Calibration.}
+  \caption{Time difference between the start and stop signal for the TAC as a function of the responding channel of MCA\,II.}
   \label{img:timecalibration}
 \end{center}
 \end{figure}
@@ -249,39 +257,42 @@ Now the time $t$ of a channel $c$ and its error $s_t$ can be calculated with:
 \end{equation}
 
 \subsection{Underground}
-The underground measurement is visualized in \autoref{img:underground}.
+The underground measurement is visualized in \autoref{img:underground}. Because many channels contain no event a rebinning is done with a 
+bin size of 20 channels (\autoref{img:underground:rebin}).
 \begin{figure}[H]
 \begin{center}
-  \includegraphics[width=\textwidth]{../img/underground.pdf}
-  \caption{Underground.}
+  \includegraphics[width=0.95\textwidth]{../img/underground.pdf}
+  \caption{Underground signal during the measurement of the \textbeta-spectrum.}
   \label{img:underground}
 \end{center}
 \end{figure}
 
 \begin{figure}[H]
 \begin{center}
-  \includegraphics[width=\textwidth]{../img/underground_rebin.pdf}
-  \caption{Rebinned unerground.}
+  \includegraphics[width=0.95\textwidth]{../img/underground_rebin.pdf}
+  \caption{Underground signal during the measurement of the \textbeta-spectrum after a rebinning with bin size 20 channels.}
   \label{img:underground:rebin}
 \end{center}
 \end{figure}
 
 \subsection{\textbeta-spectrum}
-The measured \textbeta-spectrum is shown in \autoref{img:beta:spectrum}.
+The measured \textbeta-spectrum is shown in \autoref{img:beta:spectrum}. By comparing the count rate of the underground ($1.8\cdot10^{-5}\,\text{s}^{-1}$) 
+with the \textbeta-spectrum ($2.1\cdot10^{-3}\,\text{s}^{-1}$)
+at channel 90 (maximum of \textbeta-spectrum) one can see that the signal to noise ratio is about 116. The minimal relative error for the 
+\textbeta-spectrum is $\frac{1}{\sqrt{545}} \approx 4.3\%$ (545 counts were measured at the maximum). Therefore the underground is not the main 
+source of uncertainty and can be neglected.
 \begin{figure}[H]
 \begin{center}
   \includegraphics[width=\textwidth]{../img/betaspectrum.pdf}
-  \caption{\textbeta-spectrum.}
+  \caption{Main measurement of the experiment: The \textbeta-spectrum of the muon decay.}
   \label{img:beta:spectrum}
 \end{center}
 \end{figure}
-The problem is to extract the maximal energy while taking the Gaussion blur caused by the energy resolution into account. One method is the 
+The problem is to extract the maximal energy of the \textbeta-spectrum while taking the Gaussian blur caused by the energy resolution into account. One method is the 
 \emph{Fermi-Kurie-plot} (\cite{dem4}, p.52-53).
-First the channal information is converted into an energy with \autoref{eq:ecalibration}. Then $\sqrt{n(E)/E^2}$ is plotted against 
+First the channel information is converted into an energy with \autoref{eq:ecalibration}. Then $\sqrt{n(E)/E^2}$ is plotted against 
 the energy $E$ (\autoref{img:beta:fermikuriefit}). Ideally a linear relationships should be identifiable. The intersection of this line with 
-the $x$-axis is the maximal energy. \\
-TODO warum nur teilweise linear? \\ %TODO text
-The linear part gets fitted wtih
+the $x$-axis is the maximal energy. Because of the Gaussian blur only a part of the plot is linear. This part gets fitted with
 \begin{equation}
     \sqrt{n(E)/E^2} = a(E-b),
 \end{equation}
@@ -289,20 +300,20 @@ so that the intersection with the $x$-axis can be read directly.
 \begin{figure}[H]
 \begin{center}
   \includegraphics[width=\textwidth]{../img/betaspectrum_FermiKurie_fit.pdf}
-  \caption{Fermi-Kurie plot.}
+  \caption{Fermi-Kurie plot of the \textbeta-spectrum.}
   \label{img:beta:fermikuriefit}
 \end{center}
 \end{figure}
 With the fit one gets for $b$:
 \begin{equation}
-    b = (53.86 \pm 0.65)\,\text{MeV}
+    b = (53.85 \pm 0.71)\,\text{MeV}
 \end{equation}
-Since this energy is half of the rest energy of the muon it has to be multiplied with 2:
+Since this energy is half of the rest energy of the muon (neglecting the mass of the electron) it has to be multiplied with 2:
 \begin{equation}
 \begin{split}
 	\label{eq:result:mass}
     & E_\mu = 2 \cdot b, \qquad s_{E_\mu} = 2 \cdot s_b \\
-    & \Rightarrow E_\mu = (107.7 \pm 1.3)\,\text{MeV}
+    & \Rightarrow E_\mu = (107.7 \pm 1.4)\,\text{MeV}
     \end{split}
 \end{equation}
 The so calculated rest energy matches the literature value (\autoref{eq:litval:mass}) within a 2-\textsigma-interval.
@@ -310,13 +321,15 @@ The so calculated rest energy matches the literature value (\autoref{eq:litval:m
     E_\mu^{\text{lit.}} = (105.6583715 \pm 0.0000035)\,\text{MeV}
 \end{equation}
 
+\newpage
+
 \subsection{Mean lifetime}
-To calculate the mean lifetime $\tau$ of $\mu$ the channels are converted to a time with \autoref{eq:tcalibration}. 
-Furthermore we rebin as described in \ref{subsub:rebinning} the spectrum to get a nicer curve. Three consecutive channels were averaged.
+To calculate the mean lifetime $\tau_\mu$ of the muon the channels are converted to a time with \autoref{eq:tcalibration}. 
+Furthermore we rebin with a bin size of three the spectrum as described in \ref{subsub:rebinning} to get a nicer curve.
 \begin{figure}[H]
 \begin{center}
   \includegraphics[width=\textwidth]{../img/decayTime.pdf}
-  \caption{decay time, t-errors not visible.}
+  \caption{Count rate $n$ of muon decays as a function of lifetime $t$.}
   \label{img:decaytime}
 \end{center}
 \end{figure}
@@ -328,11 +341,11 @@ The so obtained datapoints (\autoref{img:decaytime}) get fitted with an exponent
 The fit yields for the mean lifetime:
 \begin{equation}
 	\label{eq:result:meanlifetime}
-    \tau = \left( 2.24 \pm 0.05 \right)\,\text{\textmu s}
+    \tau_\mu = \left( 2.24 \pm 0.05 \right)\,\text{\textmu s}
 \end{equation}
 This matches with the literature value (\autoref{eq:litval:meanlifetime}) within 1-\textsigma-interval.
 \begin{equation}
-    \tau^{\text{lit.}} = \left( 2.1969811 \pm 0.0000022 \right)\,\text{\textmu s}
+    \tau_\mu^{\text{lit.}} = \left( 2.1969811 \pm 0.0000022 \right)\,\text{\textmu s}
 \end{equation}
 
 \subsection{Weak coupling constant}
@@ -353,7 +366,7 @@ The weak coupling constant calculates to:
 \begin{equation}
     G = (1.10 \pm 0.04) \cdot 10^{-5}\,\frac{1}{\text{GeV}^2}
 \end{equation}
-This result agrees with the literature value (\autoref{eq:litval:weakcouplingconstant}) within 1-\textsigma-interval.
+This result agrees with the literature value (\autoref{eq:litval:weakcouplingconstant}) within 2-\textsigma-interval.
 \begin{equation}
     G_\mu^{\text{lit.}} = \left( 1.166364 \pm 0.000005 \right) \cdot 10^{-5}\,\frac{1}{\text{GeV}^2}
 \end{equation}
