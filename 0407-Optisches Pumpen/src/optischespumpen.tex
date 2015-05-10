@@ -4,7 +4,7 @@
 \newcommand{\exptitle}{Optisches Pumpen}       % long name of experiment 
 \newcommand{\exptitleshort}{Optisches Pumpen} % short name of experiment
 \newcommand{\expdate}{7. bis 17. April 2015}           % date of experiment
-\newcommand{\exptutor}{Betreuer}
+\newcommand{\exptutor}{Jonathan \textsc{Brox}, Philip \textsc{Kiefer}}
 
 % PACKAGES + MODIFICATIONS
 \usepackage[ngerman]{babel} %standard language stuff
@@ -56,6 +56,14 @@
 \usepackage{pdfpages} % include pdf files
 
 \usepackage{pdflscape} % landscape mode
+
+% call Abschnitt and Unterabschnitt Kapitel with \autoref-command
+\addto\extrasngerman{
+ \renewcommand{\sectionautorefname}{Kapitel}
+ \renewcommand{\subsectionautorefname}{Kapitel}
+ \renewcommand{\subsubsectionautorefname}{Kapitel}
+}
+
 
 % NEW COMMANDS
 
