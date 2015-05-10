@@ -22,9 +22,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.7"
-     inkscape:cx="339.30566"
-     inkscape:cy="207.9787"
+     inkscape:zoom="2.8"
+     inkscape:cx="409.56917"
+     inkscape:cy="82.97245"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -672,26 +672,26 @@
        sodipodi:nodetypes="cc" />
     <text
        xml:space="preserve"
-       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="310.61392"
-       y="979.71899"
+       style="font-style:normal;font-weight:normal;font-size:15px;line-height:125%;font-family:Sans;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
+       x="313.97916"
+       y="975.71899"
        id="text5286"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan5288"
-         x="310.61392"
-         y="979.71899">-</tspan></text>
+         x="313.97916"
+         y="975.71899">$-$</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:28px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="341.10016"
-       y="978.92139"
+       style="font-style:normal;font-weight:normal;font-size:15px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       x="339.10016"
+       y="974.92139"
        id="text5290"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan5292"
-         x="341.10016"
-         y="978.92139">+</tspan></text>
+         x="339.10016"
+         y="974.92139">$+$</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"

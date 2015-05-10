@@ -50,8 +50,8 @@
   \makeatother%
   \begin{picture}(1,0.69211534)%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{photomultiplier.pdf}}%
-    \put(0.44545783,0.07582094){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{-}}}%
-    \put(0.49278415,0.07705913){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{+}}}%
+    \put(0.45068196,0.08203047){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{$-$}}}%
+    \put(0.48967938,0.08326866){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$+$}}}%
     \put(0.01344668,0.6685264){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{photocathode}}}%
     \put(0.07004527,0.46963947){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textgamma}}}%
     \put(0.20364086,0.52644985){\color[rgb]{0,0,0}\rotatebox{17.71083011}{\makebox(0,0)[lb]{\smash{e$^-$}}}}%
