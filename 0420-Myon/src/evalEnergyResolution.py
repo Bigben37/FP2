@@ -11,7 +11,7 @@ def makeGraph(channel):
     data = MyonData.fromPath('../data/energieaufloesung_%s.TKA' % channel)
     data.convertToCountrate()
 
-    c = TCanvas('c_%s' % channel, ', 1280, 720')
+    c = TCanvas('c_%s' % channel, '', 1280, 720)
     g = data.makeGraph('g%s' % channel, 'channel c', 'countrate n / (1/s)')
     prepareGraph(g)
     g.GetXaxis().SetRangeUser(0, 700)

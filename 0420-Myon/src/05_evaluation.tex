@@ -1,15 +1,15 @@
-\section{Measurement Results and Evaluation}
+\section{Measurement results and evaluation}
 
 \subsection{General remarks}
-\subsubsection{Errors and countrate}
+\subsubsection{Errors and count rate}
 \label{subsub:errorcountrate}
 The number $N$ of measurement events of a channel of the MCAs is Poisson distributed. Hence the error $s_N$  of $N$ events is:
 \begin{equation}
   s_N = \sqrt{N}
 \end{equation}
 
-Not all meassurements were done in the same amount of time, so we decided to normalize all measured data with the elapsed time $t$ to a 
-countrate $n$. Consequently the error changes, too:
+Not all measurements were done in the same amount of time, so we decided to normalize all measured data with the elapsed time $t$ to a 
+count rate $n$. Consequently the error changes, too:
 \begin{equation}
     n = \frac{N}{t}, \qquad s_n = \frac{s_N}{t}
 \end{equation}
@@ -35,15 +35,18 @@ The errors are calculated with error propagation:
 
 
 \subsection{Energy resolution}
-The spectra for the energy resolution measurement get fitted with a Gaussian distribution and a constant offset:
+The spectra for the energy resolution measurement are fitted with a Gaussian distribution and a constant offset:
 \begin{equation}
     n(c) = b + A \gaus(c;x,\sigma)
 \end{equation}
-An example fit is shown in \autoref{img:eres:400}.
+An example fit is shown in \autoref{img:eres:400}. Ideally a line is expected, but because of the energy resolution it is blurred into a Gaussian 
+distribution. The standard deviation $\sigma$ of the Gaussian distribution is a measure for the energy resolution. 
+From \autoref{img:eres:multi} can be seen that with increasing channel number the energy resolution decreases. All fitted standard deviations are 
+plotted against the expectation value of their respective Gaussian distributions (\autoref{img:eres:channels}).
 \begin{figure}[H]
 \begin{center}
   \includegraphics[width=\textwidth]{../img/energieaufloesung_400.pdf}
-  \caption{Energy resolution middle channel.}
+  \caption{Recorded spectrum of the LED flashing in the tank with medium intensity for one minute.}
   \label{img:eres:400}
 \end{center}
 \end{figure}
@@ -51,7 +54,8 @@ An example fit is shown in \autoref{img:eres:400}.
 \begin{figure}[H]
 \begin{center}
   \includegraphics[width=\textwidth]{../img/energieaufloesung_multi.pdf}
-  \caption{Multi energy resolution.}
+  \caption{Raising the intensity of the LED increases the expectation value, the standard deviation (energy uncertainty) and the amplitude of the
+measured energy spectra. }
   \label{img:eres:multi}
 \end{center}
 \end{figure}
@@ -60,7 +64,8 @@ An example fit is shown in \autoref{img:eres:400}.
 \begin{figure}[H]
 \begin{center}
   \includegraphics[width=\textwidth]{../img/energieaufloesung_channels+ecal.pdf}
-  \caption{Energy resolution as a function of channels.}
+  \caption{Fitted standard deviations plotted against the expectation value of their respective Gaussian distributions as seen in 
+  \autoref{img:eres:multi}. The red points are the blurs of the flight through spectra (evaluated in section \ref{subsub:flightthroughspectra}).}
   \label{img:eres:channels}
 \end{center}
 \end{figure}
@@ -73,7 +78,8 @@ The pedestal measurement produced a Gaussian distributed spectrum (\autoref{img:
 \begin{figure}[H]
 \begin{center}
   \includegraphics[width=\textwidth]{../img/pedestal.pdf}
-  \caption{Pedestal.}
+  \caption{Pedestal: Peak at the low end of the energy spectrum caused by opening the linear gate without the occurrence of a passing signal. 
+  The reason for the pedestal is shown in \autoref{img:delcapgate}.}
   \label{img:pedestal}
 \end{center}
 \end{figure}
@@ -87,21 +93,24 @@ The expectation value of the fitted Gaussian distribution is:
 \end{equation}
 
 \subsubsection{Flight through spectra}
+\label{subsub:flightthroughspectra}
 \paragraph{Landau distribution}
 The Landau distribution describes the fluctuations of energy loss caused by impact 
 ionization\footnote{The distribution follows from the \emph{Bethe formula}.}.
-But the measured data is not described by just a Landau distribution, the spectrum is blurred by the energy resolution of the scintillator. 
+But the measured data is not described by just a Landau distribution, since the spectrum is blurred by the energy resolution of the scintillator. 
 To get a function for fitting a convolution of the Landau distribution with a Gaussian distribution is needed:
 \begin{equation}
     \label{eq:landaugausconv}
-    (\landau(\mu, s) *  \gaus(0, \sigma))(c) = \int_{-\infty}^{\infty} \landau(x;\mu, s) \gaus(c-x;0;\sigma)\difd x
+    (\landau(\mu, s) *  \gaus(0, \sigma))(c) = \int_{-\infty}^{\infty} \landau(x;\mu, s) \gaus(c-x;0,\sigma)\difd x
 \end{equation}
 Since there is no analytical closed form for the Landau distribution the convolution can not be solved analytical. The spectra are fitted with a
-numerical convolution\footnote{The code is based on \url{https://root.cern.ch/root/html/tutorials/fit/langaus.C.html}, translated to Python by us.}.
+numerical convolution\footnote{The code is based on \url{https://root.cern.ch/root/html/tutorials/fit/langaus.C.html}, translated to Python by us.}. 
+The spectra with their fits are shown in \autoref{img:ecal:100}, \autoref{img:ecal:50} and \autoref{img:ecal:35}. The fitted parameters are listed in 
+\autoref{tab:ecal}.
 \begin{figure}[H]
 \begin{center}
   \includegraphics[width=\textwidth]{../img/energiekalibration_100.pdf}
-  \caption{Flight through spectrum at 100$\%$ energy.}
+  \caption{Flight through spectrum of muons with 12\,dB ($\overset{\wedge}{=}$ 100\% energy) attenuation with a blurred Landau fit.}
   \label{img:ecal:100}
 \end{center}
 \end{figure}
@@ -109,7 +118,7 @@ numerical convolution\footnote{The code is based on \url{https://root.cern.ch/ro
 \begin{figure}[H]
 \begin{center}
   \includegraphics[width=\textwidth]{../img/energiekalibration_50.pdf}
-  \caption{Flight through spectrum at 50$\%$ energy.}
+  \caption{Flight through spectrum of muons with 18\,dB ($\overset{\wedge}{=}$ 50\% energy) attenuation with a blurred Landau fit.}
   \label{img:ecal:50}
 \end{center}
 \end{figure}
@@ -117,15 +126,15 @@ numerical convolution\footnote{The code is based on \url{https://root.cern.ch/ro
 \begin{figure}[H]
 \begin{center}
   \includegraphics[width=\textwidth]{../img/energiekalibration_35.pdf}
-  \caption{Flight through spectrum at 35$\%$ energy.}
+  \caption{Flight through spectrum of muons with 21\,dB ($\overset{\wedge}{=}$ 35\% energy) attenuation with a blurred Landau fit.}
   \label{img:ecal:35}
 \end{center}
 \end{figure}
 
 \subsubsection{Verification of the attenuator}
-The measurement result is shown in \autoref{tab:attenuator}.
-\begin{table}
-\caption{Measured amplitude $A$ of the signal after the attenuation with nominal values $n$.}
+The amplitudes $A$ of the attenuated signals are shown in \autoref{tab:attenuator}.
+\begin{table}[H]
+\caption{Measured amplitude $A$ of a periodic rectangular signal after the attenuation with nominal value $n$.}
 \begin{center}
 \begin{tabular}{|c|c|c|}
     \hline
@@ -147,7 +156,7 @@ Those attenuations can be plotted against the nominal values (\autoref{img:atten
 \begin{figure}[H]
 \begin{center}
   \includegraphics[width=\textwidth]{../img/attenuator.pdf}
-  \caption{Measured attenuations $m$ plotted against the nominal attenuations and fit with linear polynomial.}
+  \caption{Nominal attenuations $n$ plotted against the measured attenuations $m$ and fit with a line.}
   \label{img:attenuator}
 \end{center}
 \end{figure}
@@ -161,7 +170,7 @@ If the attenuator works correctly, the linear fit should yield a line with inter
 Therefore we conclude that the attenuator works correctly and no correction is needed.
 
 \subsubsection{Calibration}
-For the calibration it must be known, how much energy a muon deposits in the tank. Following data was given:
+For the calibration it must be known how much energy a muon deposits in the tank. Following data was given:
 \begin{equation}
     \begin{split}
         & \frac{\partial E}{\partial \rho x} = (1.95 \pm 0.05)\,\frac{\text{MeV}\cdot\text{cm}^2}{\text{g}} \qquad \text{(minimal ionizing muon)}  \\

@@ -1,12 +1,12 @@
-\section{Physical Principles}
+\section{Physical principles}
 \subsection{Standard Model}
-The \emph{Standard Model of Particle Physics} describes all known elementary particles (\autoref{img:standardmodel}) and the different 
+The \emph{Standard Model of particle physics} describes all known elementary particles (\autoref{img:standardmodel}) and the different 
 interactions between them.
 \begin{figure}[H]
         \centering
         \def\svgwidth{0.55\textwidth}
        \input{../img/standardmodel.pdf_tex}
-        \caption{The known 17 particles of the standard model.}
+        \caption{The known particles of the Standard Model.}
         \label{img:standardmodel}
 \end{figure}
 The four known interactions are gravitation, electromagnetism, strong and weak interaction. Not all elementary particles obey all interactions.\\
@@ -28,13 +28,13 @@ gauge bosons (spin 1), listed in \autoref{tab:gaugebosons}, which carry the fund
 \label{tab:gaugebosons}
 \end{table}
 Furthermore there is the Higgs boson, which is not a direct result of a gauge theory and 
-therefore doesn't carry a fundamental force. But it is needed to combine the electromagnetic and weak interaction and to give the Z- and W-bosons
-a mass. \\
+therefore doesn't carry a fundamental force. But it is needed to combine the electromagnetic and weak interactions and to give the Z- and W-bosons
+their mass. \\
 Fermions can be divided into six quarks, which interact via the strong interaction, and six leptons, which don't. Both quarks and fermions are 
-divided into three generations of respectively two particles. Equivalent particles of those generations have almost the same properties except for 
+divided into three generations, each with two particles. Equivalent particles of those generations have almost the same properties except for 
 their mass.
-\subsection{Muon}
-Muons are charged ($z=\pm1$) leptons of the second generation. They have a mass\footnote{\url{http://physics.nist.gov/cgi-bin/cuu/Value?mmuc2mev|search_for=muon} (visited May 9. 2015)} of 
+\subsection{The muon}
+Muons are charged ($z=\pm1$) leptons of the second generation. They have a mass\footnote{\url{http://physics.nist.gov/cgi-bin/cuu/Value?mmuc2mev|search_for=muon} (visited May 9, 2015)} of 
 \begin{equation}
 	\label{eq:litval:mass}
     E_\mu = (105.6583715 \pm 0.0000035)\,\text{MeV}
@@ -42,11 +42,11 @@ Muons are charged ($z=\pm1$) leptons of the second generation. They have a mass\
 and a mean lifetime\footnote{J. Beringer \emph{et al.} (Particle Data Group), PR \textbf{D86}, 010001 (2012) and 2013 partial update for the 2014 edition} of 
 \begin{equation}
 	\label{eq:litval:meanlifetime}
-    \tau_\mu = \left( 2.1969811 \pm 0.0000022 \right)\,\text{\textmu s}
+    \tau_\mu = \left( 2.1969811 \pm 0.0000022 \right)\,\text{\textmu s}\ \, .
 \end{equation}
 \subsubsection{Muon decay}
 \label{sub:decay}
-Muons decay into electrons /positrons (\autoref{img:feynman_mu-to-e})
+Muons decay into electrons or positrons (\autoref{img:feynman_mu-to-e}):
 \begin{equation}
 	\mu^- \rightarrow e^- + \nu_\mu + \bar{\nu}_e \qquad \qquad \mu^+ \rightarrow e^+ + \bar{\nu}_\mu + \nu_e
 \end{equation}
@@ -54,7 +54,7 @@ Muons decay into electrons /positrons (\autoref{img:feynman_mu-to-e})
         \centering
         \def\svgwidth{0.35\textwidth}
        \input{../img/feynman.pdf_tex}
-        \caption{.}%TODO capt
+        \caption{$\mu^-$ decay into $e^-$, $\nu_\mu$ and $\bar{\nu}_e$.}
         \label{img:feynman_mu-to-e}
 \end{figure}
 This is a three body decay, the energy spectrum corresponds to normal \textbeta-decay spectrum. \\
@@ -69,48 +69,50 @@ where $N$ is the number of particles and $\lambda$ the exponential decay constan
     \frac{\int_0^\infty t e^{-\lambda t} \difd t}{\int_0^\infty e^{-\lambda t} \difd t} = 
     \frac{\frac{1}{\lambda^2}}{\frac{1}{\lambda}} = \frac{1}{\lambda}
 \end{equation}
-After this time only $\frac{1}{e} \approx 37\%$ of a inital count of muons exist. The mean lifetime applies to the rest frame of the muon.
+After this time only $\frac{1}{e} \approx 37\%$ of an inital amount of muons exist. The mean lifetime applies to the rest frame of the muon.
 \subsubsection{Origin of muons}
 The information in this section is based on \cite{kosmische-strahlung} and \cite{staatsex}.\\
-Muons are caused by cosmic rays in the earth's atmosphere. There are two different radiations, the primary radiation and the secondary radiation.
+Muons are produced by cosmic rays in the earth's atmosphere. There are two different kinds of radiations, the primary radiation and the secondary radiation.
 \paragraph{Primary radiation}
 The origin of primary radiation is not clear, but there are assumptions that the particles originate from supernovae and pulsars.
-Protons make the highest proportion of primary radiation with 92\%. Furthermore it consists of helium cores (\textalpha-particles) with a percentage 
+Protons make the largest component of primary radiation with 92\%. Furthermore it consists of helium cores (\textalpha-particles) with a percentage 
 of 7\% and electrons with 1\%. Heavy cores are rarely measured. The energy spectrum ranges from $10^7$\,eV to $10^{20}$\,eV, whereas particles with 
-less energy are more probable.
+less energy are more common.
 \paragraph{Secondary radiation}
 While entering the atmosphere primary particles collide with the atoms of the atmosphere. A variety of generation and annihilation processes occur. 
 This happens usually in a height of 15-20\,km.
 Important for this experiment is the generation of pions and kaons:
 \begin{equation}
-    p + \text{core} \rightarrow \pi^{0, \pm}, K^{0, \pm}, n, p
+    \text{p} + \text{nucleus} \rightarrow \pi^{0, \pm}, K^{0, \pm}, \text{n}, \text{p}
 \end{equation}
 The charged pions and kaons decay after a short time, some into muons:
 \begin{equation}
     \begin{split}
         & \pi^+ \rightarrow \mu^+ + \nu_\mu \\
-        & \pi^- \rightarrow \mu-+ + \bar{\nu}_\mu \\
+        & \pi^- \rightarrow \mu^- + \bar{\nu}_\mu \\
         & K^+ \rightarrow \mu^+ + \nu_\mu \\
         & K^- \rightarrow \mu^- + \bar{\nu}_\mu
     \end{split}
 \end{equation}
-There are more positive muons than negative ones, this is caused by two reasons: It is far more probable that a proton, which of course has 
-a positive charge, generates also a positive particle by interaction with the atoms of the atmosphere. Also TODO 2nd reason. %TODO 2. Grund
+There are more positive muons than negative ones, this is caused by two reasons: It is far more probable that a proton, which has 
+a positive charge, generates also a positive particle by interaction with the atoms of the atmosphere. Furthermore, like electron capture, negative muons can be 
+caught by a nucleus.
 \subsubsection{Relativistic muons}
-With classical physics one would not expect the muons to reach the ground. With a mean lifetime of around $\tau=2.2$\,\textmu s they would 
+With classical physics one would not expect the muons to reach the ground. With a mean lifetime of approximately $\tau=2.2$\,\textmu s they would 
 travel with a velocity close to light speed only a distance of  $\tau c = 660$\,m. The reason why muons can be detected anyhow is special relativity. Muons generated 
-by cosmic rays have such a high energy that their mean lifetime observed from earth increases by a factor of 
-$\gamma$\footnote{The Lorentz factor. Here $\gamma$ can be calculated with $\gamma = \frac{E}{E_0}$, where $E$ is the energy and $E_0$ the rest energy of the muon.} 
-because of time dilation. For example: A muon with $E=10.5$\,GeV has a observed mean lifetime of $\tau'=\gamma \tau=218.6$\,\textmu s and travels 65.6\,km. \\
+by cosmic rays have such a high energy that their mean lifetime observed from earth increases by a 
+factor\footnote{The Lorentz factor. Here $\gamma$ can be calculated with $\gamma = \frac{E}{E_0}$, where $E$ is the energy and $E_0$ the rest energy of the muon.}  
+of $\gamma$
+because of time dilation. For example: A muon with $E=10.5$\,GeV has a observed mean lifetime of $\tau'=\gamma \tau=218.6$\,\textmu s and travels 65.6\,km on average. \\
 Now one can also calculate the percentage $\frac{N}{N_0}$ of muons ($E=10.5$\,GeV) which reach the ground with \autoref{eq:expdecay}:
 \begin{equation}
     \frac{N}{N_0} = e^{-\frac{t}{\tau'}} = e^{-\frac{s}{v\tau'}}
 \end{equation}
 With $s=15$\,km and $v \approx c$ the calculation yields $\frac{N}{N_0} = 79.6\%$.
-\subsection{Energy loss by ionization and excitation}
-When particles interact with matter they can lose energy caused by elastic collisions or by excitation or ionization of the electrons in the 
+\subsection{Energy loss via ionization and excitation}
+When particles interact with matter they can lose energy via elastic collisions or through excitation or ionization of the electrons in the 
 atomic shell. This effect is used to detect particles, for example it is utilized by the scintillators in this experiment. The average energy loss per path length 
-$-\frac{\difd E}{\difd x}$ can be calculated using the \emph{Bethe formula}. The following formula applies to relativistic particles (\cite{dem4}, p.87-89, formula slightly remodeled):
+$-\frac{\difd E}{\difd x}$ can be calculated using the \emph{Bethe formula}. The following formula applies to relativistic particles (\cite{dem4}, p. 87-89, formula slightly remodeled):
 \begin{equation}
     - \frac{\difd E}{\difd x} = \frac{4 \pi}{m_e c^2} \cdot \frac{n_e z^2}{\beta^2} \cdot \left( \frac{e^2}{4 \pi \epsilon_0} \right)^2 \cdot \left[ \ln \left( \frac{2 m_e c^2 \beta^2}{E_b \left( 1-\beta^2 \right)  } \right) - \beta^2 \right]
 \end{equation}
@@ -120,33 +122,33 @@ Nomenclature:
   \item particle: charge number $z$, ratio of velocity to the speed of light $\beta = \frac{v}{c}$
   \item constants: mass of electron $m_e$, vacuum permittivity $\epsilon_0$, speed of light $c$
 \end{itemize}
-Two notable dependencies of $-\frac{\difd E}{\difd x}$ are the quadratic one of the charge, $-\frac{\difd E}{\difd x} \sim z^2$ and the inverse 
-quadratic one of the relative velocity, $-\frac{\difd E}{\difd x} \sim \frac{1}{\beta^2}$. There is no dependency of the mass of the incidental 
+Two notable dependencies of $-\frac{\difd E}{\difd x}$ are the quadratic one on the charge, $-\frac{\difd E}{\difd x} \sim z^2$ and the inverse 
+quadratic one on the relative velocity, $-\frac{\difd E}{\difd x} \sim \frac{1}{\beta^2}$. There is no dependency on the mass of the incidental 
 particle.\\
 The qualitative graph of the \emph{Bethe formula} is shown in \autoref{img:bethe}. 
 \begin{figure}[H]
         \centering
         \def\svgwidth{0.55\textwidth}
        \input{../img/bethebloch.pdf_tex}
-        \caption{.}%TODO capt
+        \caption{Bethe formula: Average energy loss per path length $-\frac{\difd E}{\difd x}$ of a particle with relative velocity $\beta$.}
         \label{img:bethe}
 \end{figure}
 For small values of $\beta$ the graph behaves like $\sim \frac{1}{\beta^2}$, for large values like 
 $\sim \ln \left( \frac{\beta^2}{1-\beta^2} \right)$. In between there is a minimum, those particles with the minimal energy loss per length are called 
 \emph{minimal ionizing particles}.
-\subsection{(V-A)-Theory}
-The (V-A)-theory\footnote{Vector-axialvector} is a model for the weak interaction based on Fermi's theory of weak interaction. Today it is 
+\subsection{(V-A)-theory}
+The (V-A)-theory\footnote{vector-axialvector} is a model for the weak interaction based on Fermi's theory of weak interaction. Today it is 
 used as a low energy approximation for the latest theory. Since the theory is quite complicated and is not in the curriculum of a bachelor's 
 degree a reference for the calculation of the muon decay is made to \cite{staatsex} (p. 19-23). The formula for the mean lifetime $\tau_\mu$ of a muon is
 \begin{equation}
-    \tau_\mu = \frac{192 \pi^3 \hbar^7}{G_\mu^2 m_\mu^5 c^4}
+    \tau_\mu = \frac{192 \pi^3 \hbar^7}{G_\mu^2 m_\mu^5 c^4}\ \, .
 \end{equation}
 If the mass $m_\mu$ and the mean lifetime $\tau_\mu$ of the muon is known, the weak coupling constant $G_\mu$ can be calculated:
 \begin{equation}
     \label{eq:weakcouplingconstant}
     G_\mu = \sqrt{\frac{192 \pi^3 \hbar^7}{\tau_\mu m_\mu^5 c^4}}
 \end{equation}
-The literature value\footnote{\url{http://physics.nist.gov/cgi-bin/cuu/Value?gf} (visited May 9. 2015)} is:
+The literature value\footnote{\url{http://physics.nist.gov/cgi-bin/cuu/Value?gf} (visited May 9, 2015)} is:
 \begin{equation}
     \label{eq:litval:weakcouplingconstant}
     G_\mu = \left( 1.166364 \pm 0.000005 \right) \cdot 10^{-5}\,\frac{1}{\text{GeV}^2}
@@ -165,8 +167,7 @@ The excitation energy amounts to several electronvolts and the number of excited
 of complete absorption) proportional to the energy of the particle.
 To be able to measure the ultraviolet light that is emitted when the electrons fall back into their ground state,
 the scintillator has to be transparent for light of this wavelength.
-This is archived using a wavelength shifter.
-It is a substance that exhibits a large \emph{stokes shift}:
+This is achieved using a wavelength shifter, a substance that exhibits a large \emph{stokes shift}:
 If an electron in the ground state is excited, it enters a higher energy level.
 Additionally, vibrational states of the molecule are excited.
 A small amount of energy is emitted promptly through vibrational relaxation,
