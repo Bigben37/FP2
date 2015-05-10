@@ -1,0 +1,96 @@
+%% Creator: Inkscape inkscape 0.91, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'standardmodel.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{814.28460163bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.99247152)%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{standardmodel.pdf}}%
+    \put(0.06844438,0.75296952){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.13473702\unitlength}\centering \tiny{up}\end{minipage}}}%
+    \put(0.26493587,0.75296952){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.13473702\unitlength}\centering \tiny{charm}\end{minipage}}}%
+    \put(0.46142737,0.75296952){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.13473702\unitlength}\centering \tiny{top}\end{minipage}}}%
+    \put(0.54993867,0.83733584){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.3522812\unitlength}\centering \textgamma\end{minipage}}}%
+    \put(0.65791887,0.75296952){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.13473702\unitlength}\centering \tiny{photon}\end{minipage}}}%
+    \put(0.85143702,0.8422347){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.13894756\unitlength}\centering H\end{minipage}}}%
+    \put(0.81473379,0.7668689){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.20631607\unitlength}\centering \tiny{higgs \\ boson}\end{minipage}}}%
+    \put(0.06844438,0.53682887){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.13473702\unitlength}\centering \tiny{down}\end{minipage}}}%
+    \put(0.26493587,0.53682887){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.13473702\unitlength}\centering \tiny{strange}\end{minipage}}}%
+    \put(0.46142737,0.53682887){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.13473702\unitlength}\centering \tiny{bottom}\end{minipage}}}%
+    \put(0.65494553,0.62216422){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.13894756\unitlength}\centering g\end{minipage}}}%
+    \put(0.65791887,0.53682887){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.13473702\unitlength}\centering \tiny{gluon}\end{minipage}}}%
+    \put(0.65556916,0.42682977){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.13894756\unitlength}\centering Z$^0$\end{minipage}}}%
+    \put(0.65019929,0.34047178){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.15017563\unitlength}\centering \tiny{Z \\ boson}\end{minipage}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{standardmodel.pdf}}%
+    \put(0.06547104,0.19381276){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.13894756\unitlength}\centering $e$\end{minipage}}}%
+    \put(0.06844438,0.10454758){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.13473702\unitlength}\centering \tiny{elektron}\end{minipage}}}%
+    \put(0.26196253,0.19381276){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.13894756\unitlength}\centering $\mu$\end{minipage}}}%
+    \put(0.26493587,0.10454758){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.13473702\unitlength}\centering \tiny{myon}\end{minipage}}}%
+    \put(0.45845403,0.19381276){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.13894756\unitlength}\centering $\tau$\end{minipage}}}%
+    \put(0.46142737,0.10454758){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.13473702\unitlength}\centering \tiny{tau}\end{minipage}}}%
+    \put(0.59334334,0.21188841){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.26386002\unitlength}\centering W$^\pm$\end{minipage}}}%
+    \put(0.65370793,0.12629605){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.14315808\unitlength}\centering \tiny{W \\ boson}\end{minipage}}}%
+    \put(0.18698875,1.00178425){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.28979722\unitlength}\centering generation\end{minipage}}}%
+    \put(0.06533673,0.93542424){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.13894756\unitlength}\centering I\end{minipage}}}%
+    \put(0.26182822,0.93542424){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.13894756\unitlength}\centering II\end{minipage}}}%
+    \put(0.45831972,0.93542424){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.13894756\unitlength}\centering III\end{minipage}}}%
+    \put(-0.00931274,0.60762213){\color[rgb]{0,0,0}\rotatebox{90}{\makebox(0,0)[lt]{\begin{minipage}{0.06280032\unitlength}\centering quarks\end{minipage}}}}%
+    \put(-0.00931274,0.16403012){\color[rgb]{0,0,0}\rotatebox{90}{\makebox(0,0)[lt]{\begin{minipage}{0.052876\unitlength}\centering leptons\end{minipage}}}}%
+    \put(0.06547104,0.8329167){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.13894756\unitlength}\centering u\end{minipage}}}%
+    \put(0.26196254,0.8329167){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.13894756\unitlength}\centering c\end{minipage}}}%
+    \put(0.45845403,0.84470619){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.13894756\unitlength}\centering t\end{minipage}}}%
+    \put(0.06603711,0.62660636){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.13894756\unitlength}\centering d\end{minipage}}}%
+    \put(0.26173228,0.61677602){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.13894756\unitlength}\centering s\end{minipage}}}%
+    \put(0.45760974,0.62660636){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.13894756\unitlength}\centering b\end{minipage}}}%
+    \put(0.01825354,0.34453606){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.23398022\unitlength}\centering \tiny{elektron- \\ neutrino}\end{minipage}}}%
+    \put(0.06547104,0.40995341){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.13894756\unitlength}\centering $\nu_e$\end{minipage}}}%
+    \put(0.25215895,0.40776274){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.15829998\unitlength}\centering $\nu_\mu$\end{minipage}}}%
+    \put(0.44468032,0.41169257){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.16623943\unitlength}\centering $\nu_\tau$\end{minipage}}}%
+    \put(0.21474504,0.34453606){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.23398022\unitlength}\centering \tiny{myon- \\ neutrino}\end{minipage}}}%
+    \put(0.41123653,0.34453606){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.23398022\unitlength}\centering \tiny{tau- \\ neutrino}\end{minipage}}}%
+    \put(0.85690349,0.2494942){\color[rgb]{0,0,0}\rotatebox{90}{\makebox(0,0)[lb]{\smash{gauge bosons}}}}%
+  \end{picture}%
+\endgroup%
