@@ -122,6 +122,44 @@ numerical convolution\footnote{The code is based on \url{https://root.cern.ch/ro
 \end{center}
 \end{figure}
 
+\subsubsection{Verification of the attenuator}
+The measurement result is shown in \autoref{tab:attenuator}.
+\begin{table}
+\caption{Measured amplitude $A$ of the signal after the attenuation with nominal values $n$.}
+\begin{center}
+\begin{tabular}{|c|c|c|}
+    \hline
+    $n$ / dB 	& $A$ / mV 	& $s_A$ / mV	\\ \hline \hline
+    0 			& 840		& 40			\\ \hline
+    12			& 210		& 10			\\ \hline
+    18			& 106		& 4				\\ \hline
+    21			& 75		& 4				\\ \hline
+\end{tabular}
+\end{center}
+\label{tab:attenuator}
+\end{table}
+The measured attenuation $m$ can be calculated with
+\begin{equation}
+    m = - 20 \log_{10} \left( \frac{A}{A_0} \right), \qquad s_m = \frac{20}{\ln 10} \sqrt{ \left( \frac{s_A}{A} \right)^2 + \left( \frac{s_{A_0}}{A_0} \right)^2}
+\end{equation}
+where $A_0$ is the the amplitude at $n=0$\,dB.
+Those attenuations can be plotted against the nominal values (\autoref{img:attenuator}).
+\begin{figure}[H]
+\begin{center}
+  \includegraphics[width=\textwidth]{../img/attenuator.pdf}
+  \caption{Measured attenuations $m$ plotted against the nominal attenuations and fit with linear polynomial.}
+  \label{img:attenuator}
+\end{center}
+\end{figure}
+If the attenuator works correctly, the linear fit should yield a line with intercept $a=0$\,dB and slope $b=1$. The fit results are:
+\begin{equation}
+    \begin{split}
+        & a = (-0.1 \pm 1.6)\,\text{dB} \\
+        & b = 1.01  \pm 0.09 
+    \end{split}
+\end{equation}
+Therefore we conclude that the attenuator works correctly and no correction is needed.
+
 \subsubsection{Calibration}
 For the calibration it must be known, how much energy a muon deposits in the tank. Following data was given:
 \begin{equation}
