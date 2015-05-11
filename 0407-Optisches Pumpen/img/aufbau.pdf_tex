@@ -56,7 +56,7 @@
     \put(0.12907369,0.35656678){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.14298588\unitlength}\centering Linse 1\end{minipage}}}%
     \put(0.19599196,0.37693321){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.14298588\unitlength}\centering Chopper\end{minipage}}}%
     \put(0.2809464,0.35032443){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.14298588\unitlength}\centering Etalon\end{minipage}}}%
-    \put(0.2572418,0.40053661){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.23318007\unitlength}\centering $\lambda$/4-Plättchen\end{minipage}}}%
+    \put(0.2572418,0.40053661){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.23318007\unitlength}\centering \textlambda/4-Plättchen\end{minipage}}}%
     \put(0.37275616,0.3704423){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.19099247\unitlength}\centering Linearpolarisator\end{minipage}}}%
     \put(0.7587835,0.33982533){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.14298588\unitlength}\centering Linse 2\end{minipage}}}%
     \put(0.8376439,0.34360566){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.18808297\unitlength}\centering Photodiode mit Vorverstärker\end{minipage}}}%

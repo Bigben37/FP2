@@ -249,8 +249,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.49497475"
-     inkscape:cx="676.87501"
-     inkscape:cy="237.88508"
+     inkscape:cx="155.22603"
+     inkscape:cy="626.12452"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -522,7 +522,7 @@
            width="323.83331"
            id="rect4846-5" /></flowRegion><flowPara
          style="font-size:25px;text-align:center;text-anchor:middle"
-         id="flowPara4848-60">$\lambda$/4-Plättchen</flowPara></flowRoot>    <flowRoot
+         id="flowPara4848-60">\textlambda/4-Plättchen</flowPara></flowRoot>    <flowRoot
        transform="translate(576.98728,553.19077)"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:Sans;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        id="flowRoot4842-0"
