@@ -5,7 +5,55 @@ sodass das Rubidiumensemble im Dunklen depolarisieren kann.
 Die periodische Unterbrechung erfolgt mit einer Chopper-Scheibe,
 die sich im Strahlengang direkt hinter dem Laser befindet.
 Im Strahlengang befinden sich außerdem die beiden Linsen und das \textlambda/4-Plättchen.
-Es werden Messungen bei 13 unterschiedlichen Umdrehungsgeschwindigkeiten der Scheibe durchgeführt.
+Mit Spule~4 wird das vertikale Erdmagnetfeld kompensiert ($I_4$\,=\,89\,mA) und mit Spule~1 die
+Horizontalkomponente in Strahlrichtung ($I_1$\,=\,17\,mA).
+Der Laserstrom beträgt 65.1\,mA bei einer Temperatur von 33.9$^\circ$C.
+
+Es werden Messungen bei 13 unterschiedlichen Umdrehungsgeschwindigkeiten der Scheibe durchgeführt;
+für jede Umdrehungsgeschwindigkeit wird das Transmissionssignal der Photodiode mit dem Oszilloskop registriert.
 
 
 \subsection{Auswertung}
+
+\autoref{img:fra:exampletrans} zeigt eine der 13 Transmissionsmessungen.
+Deutlich erkennbar ist der schnelle Anstieg der Intensität, wenn der Chopper den Strahlengang frei gibt.
+Das Plateau der Transmission wird allerdings nicht sofort erreicht:
+Die Größe der "'Delle"' am Anfang des Plateaus ist abhängig von der Dauer der Dunkelheit,
+die vor Beginn der Beleuchtung herrschte.
+Der Fit der Messwerte erfolgt mit einer Überlagerung von zwei Funktionen:
+
+Das An- und Abschalten des Laserlichts wird mit einer Fermi-Verteilung $U_{\text{F}}(t)$ beschrieben,
+die vier freie Parameter besitzt:
+Die Amplitude $A$, den Wendepunkt $\mu$, die Verschmierung $\sigma$ und einen konstanten Untergrund $u$:
+\begin{equation}
+  U_{\text{F}}(t)=\frac{A}{1+e^{\frac{\mu - t}{\sigma}}} + u
+\end{equation}
+Der Anstieg der Transmission auf das Plateau wird mit einer stückweise definierten Exponentialfunktion $U_{\text{E}}(t)$
+beschrieben, die am Punkt $\mu$ einsetzt:
+\begin{equation}
+  U_{\text{E}}(t)= \left\{
+  \begin{array}{lr}
+    0 & : t < \mu\\
+    B \cdot (1-e^{-\lambda(t-\mu)}) & : t \geq \mu
+  \end{array}
+\right.
+\end{equation}
+Die Transmissionsmessungen werden mit
+\begin{equation}
+   U(t)= U_{\text{F}}(t)+ U_{\text{E}}(t)
+\end{equation}
+gefittet.
+
+ABBILDUNG
+%TODO Bild Transmissionsmessung label:img:fra:exampletrans
+%caption: Transmission der Rubidiumzelle nach Einschalten des Laserlichts. Die Höhe der Delle am Anfang des Plateaus ist abhängig von der Dunkelzeit vor dem Einschalten des Lichts und enthält die Information über die Relaxationszeit. 
+
+Beschreiben wie Dunkelzeit $t_\text{d}$ bestimmt wird.
+($\mu$ auf der einen Seite, Ablesen auf der anderen Seite, Fehler?)
+
+ABBILDUNG sigmas
+
+Berechnung Einsatzpunkt: $\Delta$ = $A$ - $u$ - $B$ !!!
+
+ABBILDUNG einsatzpunkt($t_\text{d}$) + fit
+
