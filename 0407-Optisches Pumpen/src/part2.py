@@ -20,15 +20,17 @@ def makeSingleGraph(file, save=True):
     ch2 = OPData.fromPath(DIR + file, 2)
 
     c = TCanvas('c' + file, '', 1280, 720)
-    g1 = ch1.makeGraph('g1' + file, 't / s', 'U / V')
+    g1 = ch1.makeGraph('g1' + file[:-4], 't / s', 'U / V')
     prepareGraph(g1)
     g1.GetXaxis().SetRangeUser(ch1.getMinX(), ch1.getMaxX())
     g1.SetMinimum(min(ch1.getMinY(), ch2.getMinY()) * 1.1)
     g1.SetMaximum(max(ch1.getMaxY(), ch2.getMaxY()) * 1.1)
-    g2 = ch2.makeGraph('g2' + file)
+    g2 = ch2.makeGraph('g2' + file[:-4])
     prepareGraph(g2, 2)
 
-    g1.Draw('AP')
+    g1.Draw('APX')
+    g1.Draw('P')
+    g2.Draw('PX')
     g2.Draw('P')
     c.Update()
     if save:
@@ -49,6 +51,7 @@ def getApproxEtalonMaxima(ch, xmin, xmax):
 
 
 def fitEtalonPeak(g, peakx, deltaX, i, name, isUp=True):
+    print('fit etalon peak %s: %.4f +- %.5f' % (name, peakx, deltaX))
     fit = Fitter('%s-peak%d' % (name, i), '[0]+[1]*x+[2]*TMath::CauchyDist(x, [3], [4])')
     fit.function.SetLineColor(i % 8 + 4)
     fit.setParam(0, 'a', 0)
@@ -67,17 +70,17 @@ def fitEtalonPeak(g, peakx, deltaX, i, name, isUp=True):
     fit.setParamLimits(4, 0, 5e-3)
     fit.fit(g, peakx - deltaX, peakx + deltaX, '+')
     fit.saveData('../fit/part2/%s-peak%d.txt' % (name, i))
-    return fit.params[3]['value'], fit.params[3]['error']
+    return (fit.params[3]['value'], fit.params[3]['error']), fit.function
 
 
 def fitLaserVoltage(g, xmin, xmax, file):
-    fit = Fitter('%s-laser' % file, 'pol1(0)')
+    fit = Fitter('%s-laser' % file[:-4], 'pol1(0)')
     fit.function.SetLineColor(3)
     fit.setParam(0, 'a', 0)
     fit.setParam(1, 'b', 100)
     fit.fit(g, xmin, xmax, '+')
     fit.saveData('../fit/part2/%s-laser.txt' % file)
-    return (fit.params[1]['value'], fit.params[1]['error'])
+    return (fit.params[1]['value'], fit.params[1]['error'], fit.function)
 
 
 def makePeakFreqGraph(peaks, name):
@@ -100,7 +103,7 @@ def makePeakFreqGraph(peaks, name):
     xmin, xmax = etalonData.getMinX(), etalonData.getMaxX()
     deltax = (xmax - xmin) / 10
     fit.fit(g, xmin - deltax, xmax + deltax)
-    fit.saveData('../fit/part2/%s-etalon_gauge.txt' % name)
+    fit.saveData('../fit/part2/%s-etalon_calibration.txt' % name)
 
     if fit.params[1]['value'] < 0:
         l = TLegend(0.575, 0.6, 0.85, 0.85)
@@ -113,7 +116,7 @@ def makePeakFreqGraph(peaks, name):
     l.Draw()
 
     c.Update()
-    c.Print('../img/part2/%s-etalon_gauge.pdf' % name, 'pdf')
+    c.Print('../img/part2/%s-etalon_calibration.pdf' % name, 'pdf')
 
     return (fit.params[1]['value'], fit.params[1]['error'])
 
@@ -125,16 +128,31 @@ def fitSingleEtalonFile(file):
 
     etalonPeaksStartX = getApproxEtalonMaxima(ch2, xmin, xmax)
     if file[:2] == "up":
-        etalonPeaksStartX = etalonPeaksStartX[1:-1]
+        etalonPeaksStartX = etalonPeaksStartX[2:-1]
     elif file[:4] == "down":
         etalonPeaksStartX = etalonPeaksStartX[:-1]
     peakfits = []
+    fitfuncs = []
     deltaX = ch2.getMinDeltaX() * 30
     name = file[:-4]
     for i, peak in enumerate(etalonPeaksStartX):
-        peakfits.append(fitEtalonPeak(g2, peak, deltaX, i, name, isUp))
+        peakfit, fitfunc = fitEtalonPeak(g2, peak, deltaX, i, name, isUp)
+        peakfits.append(peakfit)
+        fitfuncs.append(fitfunc)
 
-    laserslope, slaserslope = fitLaserVoltage(g1, xmin, xmax, file)
+    laserslope, slaserslope, laserfunc = fitLaserVoltage(g1, xmin, xmax, file)
+    
+    if isUp:
+        l = TLegend(0.65, 0.13, 0.99, 0.47)
+    else:
+        l = TLegend(0.125, 0.13, 0.475, 0.45)
+    l.SetTextSize(0.03)
+    l.AddEntry(g1, 'Spannung der Lasermodulation', 'l')
+    l.AddEntry(g2, 'Etalonspektrum', 'l')
+    for i, func in enumerate(fitfuncs):
+        l.AddEntry(func, 'Fit des %d. Peaks mit Gauss + lin. Ug.' % (i+1), 'l')
+    l.AddEntry(laserfunc, 'Fit mit Gerade.', 'l')
+    l.Draw()
 
     c.Update()
     c.Print('../img/part2/%s_fit.pdf' % name, 'pdf')
@@ -144,11 +162,12 @@ def fitSingleEtalonFile(file):
 
 def evalEtalonData():
     files = os.listdir(os.path.join(os.getcwd(), DIR))
-    freqGauge = dict()
+    freqCalibration = dict()
     for file in filter(lambda s: 'etalon_zoom' in s, files):
+        print('eval ' + file)
         peaks, laser = fitSingleEtalonFile(file)
-        freqGauge[file.split('-')[0]] = makePeakFreqGraph(peaks, file[:-4])  # GHz / ms
-    return freqGauge
+        freqCalibration[file.split('-')[0]] = makePeakFreqGraph(peaks, file[:-4])  # GHz / ms
+    return freqCalibration
 
 
 def makeHFSGraph(name, xmin, xmax):
@@ -205,6 +224,8 @@ def makeHFSGraph(name, xmin, xmax):
                 fitres.append((fit.params[i * 3 + dpc + 1]['value'], fit.params[i * 3 + dpc + 1]['error']))
             peakNum += 1
 
+    g1.Draw('P')
+    g2.Draw('P')
     c.Update()
     c.Print('../img/part2/%s_fit.pdf' % name, 'pdf')
     return fitres
@@ -232,13 +253,14 @@ def makeHFSGraph(name, xmin, xmax):
     g1.GetXaxis().SetRangeUser(xmin, xmax)
     g1.Draw('APX')
     g2 = ch2.makeGraph('g2-%s' % name)
-    prepareGraph(g2)
+    prepareGraph(g2, 2)
     g2.SetMarkerColor(2)
     g2.Draw('PX')
 
     fitStartParams = getHFSFitStartParams(name)
     fitres = []
     if fitStartParams:
+        print('got start params, starting to building fit functions')
         peakNum = 0
         offset = ch2.getY()[0]  # approx offset of underground
         slope = (ch2.getY()[-1] - ch2.getY()[0]) / (xmax - xmin)  # approx slope of underground
@@ -246,11 +268,12 @@ def makeHFSGraph(name, xmin, xmax):
         for peakparams, xstartend in fitStartParams:
             xstart, xend = xstartend
             peakcount = len(peakparams)
+            print('peakNum: ', peakNum)
             fitfunc = 'pol1(0)+gaus(2)'
             dpc = 2  # delta param count
             for i in range(1, peakcount):
                 fitfunc += '+gaus(%d)' % (i * 3 + dpc)
-            fit = Fitter('fitHFS%s' % name, fitfunc)
+            fit = Fitter('fitHFS%s_%d' % (name, peakNum), fitfunc)
             fit.function.SetLineColor(peakNum + 3)
             fit.setParam(0, 'a', offset)
             fit.setParamLimits(0, 0, offset * 2)
@@ -269,12 +292,14 @@ def makeHFSGraph(name, xmin, xmax):
                     fit.setParamLimits(i * 3 + dpc, 0, 2 * params[0])
                 fit.setParamLimits(i * 3 + dpc + 1, params[1] - 2 * params[2], params[1] + 2 * params[2])
                 fit.setParamLimits(i * 3 + dpc + 2, 0, 20 * params[2])
-            fit.fit(g2, xstart, xend, '+')
+            fit.fit(g2, xstart, xend, 'M+')
             fit.saveData('../fit/part2/%s-%d.txt' % (name, peakNum))
             for i in range(len(peakparams)):
                 fitres.append((fit.params[i * 3 + dpc + 1]['value'], fit.params[i * 3 + dpc + 1]['error']))
             peakNum += 1
 
+    g1.Draw('P')
+    g2.Draw('P')
     c.Update()
     c.Print('../img/part2/%s_fit.pdf' % name, 'pdf')
     return fitres
@@ -283,6 +308,7 @@ def evalHFSPeakData():
     files = os.listdir(os.path.join(os.getcwd(), DIR))
     fitres = dict()
     for file in filter(lambda s: 'hfs_zoom' in s, files):
+        print('eval ' + file)
         fitres[file.split('-')[0]] = makeHFSGraph(file[:-4], 0.00025, 0.0017)
     return fitres
 
@@ -314,11 +340,17 @@ def compareSpectrum(prefix, spectrum):
     c.Print('../img/part2/%s-spectrum.pdf' % prefix, 'pdf')
 
 def main():
+    print('make graphs')
+    print('===========')
     makeGraphs()
-    freqGauges = evalEtalonData()
+    print('eval etalon data')
+    print('================')
+    freqCalibrations = evalEtalonData()
+    print('eval hfs peak data')
+    print('==================')
     hfspeaks = evalHFSPeakData()
-    for key in freqGauges.keys():
-        gps, sgps = freqGauges[key]
+    for key in freqCalibrations.keys():
+        gps, sgps = freqCalibrations[key]
         isUp = key[:2] == "up"
         spectrum = []
         if isUp:
