@@ -18,7 +18,10 @@ def calibrateNDFilters():
     filters = dict()
     for d in data:
         int = (d[2] + offset) / ref
-        sint = int * 2 * errorp
+        if int == 1:
+            sint = 0
+        else:
+            sint = int * 2 * errorp
         newdata.append(d + [int, sint])
         filters[d[0]] = (int, sint)
         
@@ -35,7 +38,7 @@ def fitTransmissionSignal(name):
     prepareGraph(g, 2)
     g.Draw('APX')
     
-    xmin, xmax = 0.0054, 0.013
+    xmin, xmax = 0.0054, 0.015
     
     fit = Fitter('fit_%s' % name[-2:], '[0] - [1] * exp(-x/[2])')
     fit.setParam(0, 'a', 0.01)
