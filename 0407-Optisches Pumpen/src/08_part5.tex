@@ -46,38 +46,32 @@ Ein weiterer Messpunkt wird mit ausgeschaltetem Laser aufgenommen.
 
 \autoref{tab:deh:dnfilter} zeigt die Ergebnisse der Kalibrierung der Neutraldichtefilter:
 Die Messwerte weichen stark von den nominellen Werten ab.
-Zur Berechnung der transmittierten Intensität $I_\text{t}$ wird
+Zur Berechnung der transmittierten Intensität $I_\text{mess}$ wird
 die an der Photodiode gemessene Spannung $U_{\text{ph}}$
 durch die Spannung bei 100\% Intensität $U_{100}$ geteilt.
-Beide Spannungen werden um die Offsetspannung $U_{0}$ (Messung bei ausgeschaltetem Laser) korrigiert:
+Beide Spannungen werden um die Offsetspannung $U_{0}=\text{-}70\,$mV (Messung bei ausgeschaltetem Laser) korrigiert:
 \begin{equation}
-  I_\text{t}=\frac{U_{\text{ph}}+U_{0}}{U_{100}+U_{0}}
+  I_\text{mess}=\frac{U_{\text{ph}}-U_{0}}{U_{100}-U_{0}}
 \end{equation}
-Die Berechnung des Fehlers erfolgt mit Gaußscher Fehlerfortpflanzung.
+Die Berechnung des Fehlers auf $I_\text{mess}$ erfolgt mit Gaußscher Fehlerfortpflanzung.
 
 Für die Bestimmung der Relaxationszeit werden nur die ersten sieben Filter verwendet,
-da bei den Übrigen die Intensität der Transmission nicht für eine Messung ausreicht.
+da bei den Übrigen die Intensität der Transmission nicht für eine Messung ausreicht.\\
 
+%TODO Tabelle ND Filter einfügen ohne input und erste ohne Filter schreiben und letzte zeile  mit ausgeschaltetem laser
+%Caption:
 
-%TODO Tabelle ND Filter
+Kalibrierung der Neutraldichtefilter: Nominelle Transmission $I_{\text{nominell}}$,
+gemessene Spannung an der Photodiode $U_{\text{ph}}$ und daraus berechnete Transmission $I_{\text{mess}}$. 
 \input{tab_part5_NDFilters}
-
-TABELLE ND Filter
-
-
-STÄRKE		NOM. INTENS 	gem. Spannung		Gem. intens 	error gem. intens
-
-ohne 
-
-0.3	 			50\%			300\,mV				30\%
-
 
 \subsubsection*{Fit der Transmissionssignale}
 
 \begin{figure}[H]
 \begin{center}
   \includegraphics[width=\textwidth]{../img/part5/65-5mA-10.pdf}
-  \caption{caption.}
+  \caption{Spannung der Photodiode (entspricht der Transmission durch die Rubidiumzelle)
+  nach Umkehr des Magnetfelds. Die Anstiegszeit $\tau$ wird durch Polarisations- und Relaxationsprozesse bestimmt.}
   \label{img:img:deh:trans3}
 \end{center}
 \end{figure}
