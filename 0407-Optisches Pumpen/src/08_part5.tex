@@ -8,25 +8,22 @@ die Lichttransmission durch das Ensemble beeinflussen:
 Zum einen findet eine Polarisation durch den Pumpprozess statt,
 zu anderen eine Depolarisation (Relaxation) durch Stöße der Gasatome mit dem Glaskolben.
 Eine Variation der Stärke des Pumpprozesses durch Veränderung der Intensität des Laserlichts
-erlaubt einen Rückschluss auf den konstantbleibenden Anteil der Relaxation.
+erlaubt einen Rückschluss auf den konstantbleibenden Anteil der Relaxationsrate.
 
-Im Strahlengang befinden sich die beiden Linsen und das \textlambda/4-Plättchen.
+Während der Messung befinden sich die beiden Linsen und das \textlambda/4-Plättchen im Strahlengang,
+sowie optional ein Neutraldichtefilter.
 Das vertikale Erdmagnetfeld wird mit einem Strom von 93\,mA durch Spule~4 kompensiert.
 Spule~3 erzeugt ein magnetisches Wechselfeld in Richtung des Laserstrahls,
 das zweimal pro Periode eine Neuorientierung des Ensembles verursacht.
 Verwendet wird dazu der \emph{Instec function~generator},
-die Frequenz des Rechtecksignals beträgt 50\,Hz und die Amplitude (pp) 0.1\,V.
+die Frequenz des Rechtecksignals beträgt 50\,Hz und die Amplitude (Spitze-Spitze) 0.1\,V.
 
 Das Absorptionssignal der Zelle wird am Oszilloskop erst mit 100\% Beleuchtungsintensität gemessen
 und anschließend mit sieben verschiedenen Intensitäten (zwischen 2\% und 40\%),
-die durch unterschiedliche Abschwächungen mit ND-Filtern im Strhalengang erreicht werden.
+die durch unterschiedliche Abschwächungen mit ND-Filtern im Strahlengang erreicht werden.
 
 Die Temperatur des Lasers beträgt bei der Messung 34.0$^\circ$C, der Laserstrom 65.5\,mA
-
-
-\rb{85}
-
-Laserstrom, Temp
+(so dass auf den beiden kurzwelligen Hyperfeinlinien von \rb{85} gepumpt wird).
 
 
 
@@ -44,3 +41,73 @@ Ein weiterer Messpunkt wird mit ausgeschaltetem Laser aufgenommen.
 
 
 \subsection{Auswertung}
+
+\subsubsection*{Kalibrierung der Neutraldichtefilter}
+
+\autoref{tab:deh:dnfilter} zeigt die Ergebnisse der Kalibrierung der Neutraldichtefilter:
+Die Messwerte weichen stark von den nominellen Werten ab.
+Zur Berechnung der transmittierten Intensität wird die an der Photodiode gemessene Spannung
+durch die Spannung bei 100\% Intensität geteilt.
+Die Berechnung des Fehlers erfolgt mit Gaußscher Fehlerfortpflanzung.
+
+Für die Bestimmung der Relaxationszeit werden nur die ersten sieben Filter verwendet,
+da bei den Übrigen die Intensität der Transmission nicht für eine Messung ausreicht.
+
+
+%TODO Tabelle ND Filter
+TABELLE ND Filter
+
+
+STÄRKE		NOM. INTENS 	gem. Spannung		Gem. intens 	error gem. intens
+
+ohne 
+
+0.3	 			50\%			300\,mV				30\%
+
+
+\subsubsection*{Fit der Transmissionssignale}
+\autoref{img:deh:trans3} zeigt die Spannung der Photodiode $U$, die am Oszilloskop gemessen wurde.
+Sie ist proportional zur transmittierten Lichtintensität.
+Der Fit erfolgt mit einer e-Funktion:
+\begin{equation}
+  U(t)=a - b \cdot e^{-\frac{t}{\tau}}
+\end{equation}
+Der Parameter $a$ beschreibt die Transmission im Gleichgewicht, $b$ die Amplitude der
+Transmissionsänderung direkt nach Umkehrung des Magnetfelds und $\tau$ die gesuchte Orientierungzeit des Ensembles.
+
+
+Abb Beispiel von Transmissionssignal
+ %TODO Abb von dritter Dehlemt-Transmission
+ 
+
+In \autoref{tab:deh:fitres} sind die Ergebnisse aller acht Fits an die Transmissionssignale aufgeführt.
+
+%TODO Tab Fitres dehmelt
+Tab:
+Intens		intens-error	$\tau$		$\tau$-error
+ 
+
+\subsubsection*{Bestimmung der Relaxationszeit}
+Um die Relaxationszeit zu bestimmen, ihren Anteil aus den gemessenen Orientierungszeiten zu bestimmen,
+wird \autoref{eq:orientierungszeit} benutzt sowie der Zusammenhang,
+dass die Pumpzeit $T_\text{P}$ umgekehrt proportional zur Intensität $I$ ist:
+\begin{equation}
+  T_\text{P} = \frac{1}{aI} 
+\end{equation}
+Man erhält damit
+\begin{equation}
+  \frac{1}{\tau(I)}=aI + \frac{1}{T_\text{R}} \ \,.
+\end{equation}
+Dieser Zusammenhang wird benutzt, um eine Kurvenanpassung an die Daten aus \autoref{tab:deh:fitres}
+durchzuführen und die Relaxationszeit $T_\text{R}$ zu bestimmen.
+\autoref{img:deh:relaxtime} zeigt diesen Fit an die inversen Orientierungszeiten.
+
+%TODO fit orientierungszeiten
+
+Abb. Fit Orientierungszeiten
+
+
+
+
+Fitergebnis für Relaxationszeit, vgl Litval
+
