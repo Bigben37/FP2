@@ -36,6 +36,7 @@ def fitTransmissionSignal(name):
     c = TCanvas('c', '', 1280, 720)
     g = data.makeGraph('g_%s' % name, 't / s', 'U / V')
     prepareGraph(g, 2)
+    g.GetXaxis().SetRangeUser(0.004, 0.019)
     g.Draw('APX')
     
     xmin, xmax = 0.0054, 0.015
@@ -49,7 +50,7 @@ def fitTransmissionSignal(name):
     
     g.Draw('P')
     
-    l = TLegend(0.7, 0.15, 0.975, 0.45)
+    l = TLegend(0.35, 0.2, 0.65, 0.525)
     l.SetTextSize(0.03)
     l.AddEntry(g, 'Dehmelt Spektrum', 'p')
     l.AddEntry(fit.function, 'Fit mit a - b e^{-t/#tau}', 'l')
