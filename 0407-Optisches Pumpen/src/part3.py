@@ -88,6 +88,18 @@ def makeGraphs():
 def evalNuclearSpin():
     results = []
     data = loadCSVToList('../data/part3/part3.txt')
+    
+    tabledata = []
+    for d in data[-4:]:
+        tabledata.append([d[0], d[2]] + d[4:-2])
+    
+    with TxtFile('../src/tab_part3_data.tex', 'w') as f:
+        f.write2DArrayToLatexTable(tabledata, 
+                                   [r"$I_\text{L}$ / mA", r"$\nu$ / kHz", 
+                                    "$I_1$ / mA", "$s_{I_1}$ / mA", "$I_1'$ / mA", "$s_{I_1'}$ / mA"],
+                                   ['%.1f', '%.2f', '%d', '%d', '%d', '%d'], 
+                                   'Messdaten des Doppelresonanzexperiments.', 'tab:part3:data')
+    
     for iL, siL, f, sf, i1, si1, i1_, si1_, i4, si4 in data:  # I-Laser, frequency, I1, I1', I4 with respective errors
         # from mA to A
         i1 *= 1e-3
@@ -105,7 +117,7 @@ def evalNuclearSpin():
         # calc B for nuclear spin
         B, sB = (B1 + B1_) / 2, sqrt(sB1 ** 2 + sB1_ ** 2) / 2
         # calc horizontal B-Field
-        Bhor, sBhor = abs(B1 - B1_), sqrt(sB1 ** 2 + sB1_ ** 2)
+        Bhor, sBhor = abs(B1 - B1_) / 2, sqrt(sB1 ** 2 + sB1_ ** 2) / 2
         # calc vertical B-Field
         Bvert, sBvert = inductorIToB(4, i4, si4)
         # calc nuclear spin
@@ -117,15 +129,32 @@ def evalNuclearSpin():
                         ["Bver/µT", (Bvert * 1e6, sBvert * 1e6)],
                         ["I\t", (I, sI)]])
     # print out results
-    with TxtFile.fromRelPath('../calc/part3.txt', 'w') as f:
+    with TxtFile('../calc/part3.txt', 'w') as f:
         for result in results:
             for description, values in result:
                 f.writeline('\t', *([description] + list(map(lambda x: '%.2f' % x, values))))
             f.writeline('')
+            
+    tableresults = []
+    for result in results:
+        flattend = [item for sublist in result for item in sublist[1]]
+        flattend.pop(7)
+        flattend.pop(6)
+        flattend.pop(3)
+        flattend.pop(1)
+        tableresults.append(flattend)
+            
+    with TxtFile('../src/tab_part3_results.tex', 'w') as f:
+        f.write2DArrayToLatexTable(tableresults[-4:], 
+                                   [r"$I_\text{L}$ / mA", r"$\nu$ / kHz", r"$B_\text{hor}$ / \textmu T", r"$s_{B_\text{hor}}$ / \textmu T", 
+                                    "$I$", "$s_I$"], 
+                                   ['%.1f', '%.2f', '%.1f', '%.1f', '%.2f', '%.2f'], 
+                                   r"Berechnete horizontale Komponenten des Erdmagnetfeldes und Kernspin von Rubidium für das Doppelresonanzexperiment bei verschiedenen Lasterströmen $I_\text{L}$ und RF-Sender Frequenzen $\nu$.", 
+                                   "tab:part3:results")
 
 
 def main():
-    makeGraphs()
+    #makeGraphs()
     evalNuclearSpin()
 
 
