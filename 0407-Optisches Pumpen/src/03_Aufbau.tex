@@ -27,6 +27,20 @@ zusätzlich mit einer kleinen Spule (\emph{Spule 5}) direkt auf der Glaskugel.
 Ein vertikales Magnetfeld wird mit \emph{Spule 4} erzeugt.
 Ein senkrecht zum Strahl verlaufendes horizontales Magnetfeld bleibt unkompensiert.
 Alle Spulen werden von Frequenzgeneratoren und Konstantstromquellen versorgt.
+Um die Stärke des Magnetfeldes bei einem bestimmten Strom zu berechnen, können die Werte in \autoref{tab:inductorItoB} benutzt werden.
+\begin{table}[H]
+\caption{Faktoren für die Umrechnung von durchlaufendem Strom in Stärke des erzeugten Magnetfeldes der verschiedenen Spulen, 
+		 entnommen aus \cite{manual}.}
+\begin{center}
+\begin{tabular}{|c|c|c|}
+    \hline
+    Spule	& $\frac{B}{I}$ / $\frac{\text{T}}{\text{A}}$	& $s_{\frac{B}{I}}$ / $\frac{\text{T}}{\text{A}}$	\\ \hline
+    1		& $7.99 \cdot 10^{-4}$							& $0.01 \cdot 10^{-4}$							\\ \hline
+    4		& $4.76 \cdot 10^{-4}$							& $0.01 \cdot 10^{-4}$							\\ \hline
+\end{tabular}
+\end{center}
+\label{tab:inductorItoB}
+\end{table}
 
 An der Zelle befindet sich ein \emph{RF-Sender}, mit dem ein Signal im Radiofrequenzbereich eingestrahlt werden kann.
 
