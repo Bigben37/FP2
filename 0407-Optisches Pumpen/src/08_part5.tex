@@ -46,8 +46,13 @@ Ein weiterer Messpunkt wird mit ausgeschaltetem Laser aufgenommen.
 
 \autoref{tab:deh:dnfilter} zeigt die Ergebnisse der Kalibrierung der Neutraldichtefilter:
 Die Messwerte weichen stark von den nominellen Werten ab.
-Zur Berechnung der transmittierten Intensität wird die an der Photodiode gemessene Spannung
-durch die Spannung bei 100\% Intensität geteilt.
+Zur Berechnung der transmittierten Intensität $I_\text{t}$ wird
+die an der Photodiode gemessene Spannung $U_{\text{ph}}$
+durch die Spannung bei 100\% Intensität $U_{100}$ geteilt.
+Beide Spannungen werden um die Offsetspannung $U_{0}$ (Messung bei ausgeschaltetem Laser) korrigiert:
+\begin{equation}
+  I_\text{t}=\frac{U_{\text{ph}}+U_{0}}{U_{100}+U_{0}}
+\end{equation}
 Die Berechnung des Fehlers erfolgt mit Gaußscher Fehlerfortpflanzung.
 
 Für die Bestimmung der Relaxationszeit werden nur die ersten sieben Filter verwendet,
@@ -88,9 +93,9 @@ Intens		intens-error	$\tau$		$\tau$-error
  
 
 \subsubsection*{Bestimmung der Relaxationszeit}
-Um die Relaxationszeit zu bestimmen, ihren Anteil aus den gemessenen Orientierungszeiten zu bestimmen,
+Um die Relaxationszeit zu bestimmen, also ihren Anteil aus den gemessenen Orientierungszeiten zu extrahieren,
 wird \autoref{eq:orientierungszeit} benutzt sowie der Zusammenhang,
-dass die Pumpzeit $T_\text{P}$ umgekehrt proportional zur Intensität $I$ ist:
+dass die charakteristische Pumpzeit $T_\text{P}$ umgekehrt proportional zur Intensität $I$ des Laserlichts ist:
 \begin{equation}
   T_\text{P} = \frac{1}{aI} 
 \end{equation}
