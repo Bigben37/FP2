@@ -1,5 +1,4 @@
 \section{Physikalische Grundlagen}
-Einführung der wesentlichen physikalischen Begriffe und Herleitung der verwendeten Formeln.
 
 3-4 Seiten, nur was für Auswertung relevant
 
@@ -11,4 +10,40 @@ Zeeman, Hyperfein
 
 Etalon
 
-Differenzialgleichungen Relaxation (Sex p.31-34)
+\subsection{Orientierungsprozesse im Rubidiumensemble}
+In diesem Abschnitt wird ein kurzer Überblick über die mathematische Beschreibung der Orientierungsprozesse
+(Polarisation und Relaxation) im Rubidiumgas gegeben und es werden die Zusammenhänge aufgeführt, die für die
+Auswertung der Messungen zur Relaxationszeit notwendig sind.
+Die ausführliche Herleitung der Formeln ist in \cite{staatsex} gezeigt.
+
+Bei einem Ensemble von Rubidiumatomen, das im Magnetfeld durch zirkular polarisiertes Licht gepumpt wird,
+wird die zeitliche Änderung der Differenz der Besetzungszahlen~$\left(\frac{\difd n}{\difd t}\right)_{\text{Pump}}$
+durch die folgende Differenzialgleichung beschrieben:
+\begin{equation}
+  \left(\frac{\difd n}{\difd t}\right)_{\text{Pump}}=\frac{N-n}{T_\text{P}}
+\end{equation}
+$N$ ist die Anzahl der Atome im Ensemble, $n$ die Differenz der Besetzungszahlen in dem Zweiniveausystem
+und $T_\text{P}$ die charakteristische Zeit für den Pumpvorgang, die \emph{Pumpzeit}.
+
+Der Relaxationsvorgang wird durch folgende Differenzialgleichung beschrieben:
+\begin{equation}
+  \left(\frac{\difd n}{\difd t}\right)_{\text{Relax}}=-\frac{n}{T_\text{R}}
+\end{equation}
+$T_\text{R}$ ist die \emph{Relaxationszeit}.
+
+Die Summe von Polarisation und Relaxation beschreibt den Orientierungsprozess im Rubidiumgas mit
+der Orientierungszeit $\tau$:
+\begin{equation}
+\label{eq:orientierungszeit}
+  \left(\frac{\difd n}{\difd t}\right)_{\text{Orient}}
+  =\left(\frac{\difd n}{\difd t}\right)_{\text{Pump}} + \left(\frac{\difd n}{\difd t}\right)_{\text{Relax}}
+  =\frac{N}{T_\text{P}}-n \left( \frac{1}{T_\text{P}} + \frac{1}{T_\text{R}}\right)
+  =:\frac{N}{T_\text{P}}- \frac{n}{\tau}
+\end{equation}
+
+Die Lösung dieser Differenzialgleichung für $n(t)$ ist eine exponentielle Änderung mit der Zeitkonstante $\tau$:
+\begin{equation}
+   n(t) \sim e^{-\frac{t}{\tau}}
+\end{equation}
+
+
