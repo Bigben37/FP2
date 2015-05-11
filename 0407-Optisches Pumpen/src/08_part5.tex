@@ -55,58 +55,59 @@ Beide Spannungen werden um die Offsetspannung $U_{0}=\text{-}70\,$mV (Messung be
 \end{equation}
 Die Berechnung des Fehlers auf $I_\text{mess}$ erfolgt mit Gaußscher Fehlerfortpflanzung.
 
+
 Für die Bestimmung der Relaxationszeit werden nur die ersten sieben Filter verwendet,
 da bei den Übrigen die Intensität der Transmission nicht für eine Messung ausreicht.\\
 
 %TODO Tabelle ND Filter einfügen ohne input und erste ohne Filter schreiben und letzte zeile  mit ausgeschaltetem laser
-%Caption:
-
-
+%TODO BEN: vorletzte und letzte Spalte *100
 \input{tab_part5_NDFilters}
 
-\subsubsection*{Fit der Transmissionssignale}
+\subsubsection*{Transmissionssignale der Zelle und Fit}
+\autoref{img:deh:trans3} zeigt beispielhaft für eine der acht Messungen
+die Spannung der Photodiode $U_{\text{ph}}$,
+die bei periodischer Modulation des Magnetfelds am Oszilloskop gemessen wurde.
+Sie ist proportional zur transmittierten Lichtintensität.
+Der Fit erfolgt gemäß \autoref{eq:expabhorient} mit einer Exponentialfunktion:
+\begin{equation}
+  U_{\text{ph}}(t)=a - b \cdot e^{-\frac{t}{\tau}}
+\end{equation}
+Der Parameter $a$ beschreibt die Transmission im Gleichgewicht, $b$ die Amplitude der
+Transmissionsänderung und $\tau$ die gesuchte Orientierungzeit des Ensembles.
 
 \begin{figure}[H]
 \begin{center}
   \includegraphics[width=\textwidth]{../img/part5/65-5mA-10.pdf}
   \caption{Spannung der Photodiode (entspricht der Transmission durch die Rubidiumzelle)
-  nach Umkehr des Magnetfelds. Die Anstiegszeit $\tau$ wird durch Polarisations- und Relaxationsprozesse bestimmt.}
-  \label{img:img:deh:trans3}
+  nach Umkehr des Magnetfelds.
+  Die Anstiegszeit $\tau$ des Fits wird durch Polarisations- und Relaxationsprozesse bestimmt.}
+  \label{img:deh:trans3}
 \end{center}
 \end{figure}
-
-\autoref{img:deh:trans3} zeigt die Spannung der Photodiode $U$, die am Oszilloskop gemessen wurde.
-Sie ist proportional zur transmittierten Lichtintensität.
-Der Fit erfolgt mit einer e-Funktion:
-\begin{equation}
-  U(t)=a - b \cdot e^{-\frac{t}{\tau}}
-\end{equation}
-Der Parameter $a$ beschreibt die Transmission im Gleichgewicht, $b$ die Amplitude der
-Transmissionsänderung direkt nach Umkehrung des Magnetfelds und $\tau$ die gesuchte Orientierungzeit des Ensembles.
-
-
-Abb Beispiel von Transmissionssignal
- %TODO Abb von dritter Dehlemt-Transmission
+%TODO y_Achse: Spannung der Photodiode Uph, Datenbeschriftung Spannung der Photodiode, Fit mit Uph(t)=.., x-Achse Zeit t /s
  
+
+In \autoref{tab:deh:fitres} sind die Ergebnisse für die Anstiegszeiten $\tau$
+der Fits an die acht Transmissionssignale aufgeführt.
+
+%TODO Tabelle copy paste und geltende ziffern schön machen
+%TODO erste zwei spalten * 100
+%TODO I sI / %
+%TODO I_mess
+%TODO Caption
+Orientierungszeiten $\tau$ des Rubidiumensembles bei verschiedenen Pumpintensitäten $I_{\text{mess}}$.
 \input{tab_part5_taus}
 
-In \autoref{tab:deh:fitres} sind die Ergebnisse aller acht Fits an die Transmissionssignale aufgeführt.
-
-%TODO Tab Fitres dehmelt
-Tab:
-Intens		intens-error	$\tau$		$\tau$-error
- 
-
 \subsubsection*{Bestimmung der Relaxationszeit}
-Um die Relaxationszeit zu bestimmen, also ihren Anteil aus den gemessenen Orientierungszeiten zu extrahieren,
-wird \autoref{eq:orientierungszeit} benutzt sowie der Zusammenhang,
+Um die Relaxationszeit $T_\text{R}$ zu bestimmen, also ihren Anteil aus den gemessenen Orientierungszeiten zu extrahieren,
+wird \autoref{eq:orientierungszeit} benutzt sowie der Umstand,
 dass die charakteristische Pumpzeit $T_\text{P}$ umgekehrt proportional zur Intensität $I$ des Laserlichts ist:
 \begin{equation}
-  T_\text{P} = \frac{1}{aI} 
+  T_\text{P} = \frac{1}{\alpha I} 
 \end{equation}
 Man erhält damit
 \begin{equation}
-  \frac{1}{\tau(I)}=aI + \frac{1}{T_\text{R}} \ \,.
+  \frac{1}{\tau(I)}=\alpha I + \frac{1}{T_\text{R}} \ \,.
 \end{equation}
 Dieser Zusammenhang wird benutzt, um eine Kurvenanpassung an die Daten aus \autoref{tab:deh:fitres}
 durchzuführen und die Relaxationszeit $T_\text{R}$ zu bestimmen.
@@ -115,13 +116,21 @@ durchzuführen und die Relaxationszeit $T_\text{R}$ zu bestimmen.
 \begin{figure}[H]
 \begin{center}
   \includegraphics[width=\textwidth]{../img/part5/taufit.pdf}
-  \caption{caption.}
+  \caption{Lineare Kurvenanpassung an die Daten aus \autoref{tab:deh:fitres} zur Extraktion
+  der Relaxationszeit $T_\text{R}$ aus den Messdaten für die Orientierungszeit $\tau$.}
   \label{img:deh:relaxtime}
 \end{center}
 \end{figure}
 
+%TODO x-Achse relative Intensität I_mess, yAchse inverse Orientierungszeit mit ^-1; legende inverse orientierungszeit; fit:alpha und T_R;
 
 
+Das Ergebnis für die Relaxationszeit beträgt
+\begin{equation}
+  T_\text{R} = 3.67 \pm 0.02\,\text{ms}
+\end{equation}
+und stimmt..
+%TODO vgl litval
 
-Fitergebnis für Relaxationszeit, vgl Litval
+
 
