@@ -22,13 +22,13 @@ def calibrateNDFilters():
             sint = 0
         else:
             sint = int * 2 * errorp
-        newdata.append(d + [int, sint])
+        newdata.append(d + [int*100, sint*100])
         filters[d[0]] = (int, sint)
         
     with TxtFile('../src/tab_part5_NDFilters.tex', 'w') as f:
         f.write2DArrayToLatexTable(newdata, 
                                    ["Stärke des Filters", r"$I_\text{nominell}$ / \%", r"$U_\text{ph}$ / mV", r"$I_\text{mess}$ / \%", r"$s_{I_\text{mess}}$ / \%"], 
-                                   ['%.1f', '%.3f', '%d', '%.5f', '%.5f'], 
+                                   ['%.1f', '%.3f', '%d', '%.3f', '%.3f'], 
                                    r'Kalibrierung der Neutraldichtefilter: Nominelle Transmission $I_{\text{nominell}}$, gemessene Spannung an der Photodiode $U_{\text{ph}}$ und daraus berechnete Transmission $I_{\text{mess}}$. ', 
                                    'tab:deh:dnfilter')
     
@@ -37,7 +37,7 @@ def calibrateNDFilters():
 def fitTransmissionSignal(name):
     data = OPData.fromPath(DIR + name + '.tab', 2)
     c = TCanvas('c', '', 1280, 720)
-    g = data.makeGraph('g_%s' % name, 't / s', 'U / V')
+    g = data.makeGraph('g_%s' % name, 'Zeit t / s', 'Spannung der Photodiode U_{ph} / V')
     prepareGraph(g, 2)
     g.GetXaxis().SetRangeUser(0.004, 0.019)
     g.Draw('APX')
@@ -55,8 +55,8 @@ def fitTransmissionSignal(name):
     
     l = TLegend(0.35, 0.2, 0.65, 0.525)
     l.SetTextSize(0.03)
-    l.AddEntry(g, 'Dehmelt Spektrum', 'p')
-    l.AddEntry(fit.function, 'Fit mit a - b e^{-t/#tau}', 'l')
+    l.AddEntry(g, 'Spannung der Photodiode', 'p')
+    l.AddEntry(fit.function, 'Fit mit U_{ph}(t) = a - b e^{-t/#tau}', 'l')
     fit.addParamsToLegend(l, [('%.6f', '%.6f'), ('%.2f', '%.2f'), ('%.6f', '%.6f')], chisquareformat='%.2f', units=['V', 'V', 's'])
     l.Draw()
     
@@ -85,30 +85,32 @@ def evalTaus(taus, filters):
         sinvtau = stau / (tau ** 2)
         int, sint = filters[key]
         data.addPoint(int, invtau, sint, sinvtau)
-        table.append([int, sint, tau*1000, stau*1000])
+        table.append([int*100, sint*100, tau*1000, stau*1000])
     
     table.sort(key=lambda x:x[0], reverse=True)
     # make table
     with TxtFile('../src/tab_part5_taus.tex', 'w') as f:
-        f.write2DArrayToLatexTable(table, ['$I$', '$s_I$', r'$\tau$ / ms', r'$s_\tau$ / ms'], 
-                                   ['%.4f', '%.4f', '%.3f', '%.3f'], 'xxx', 'tab:deh:fitres')
+        f.write2DArrayToLatexTable(table, [r'$I_\text{mess}$ / \%', r'$s_{I_\text{mess}}$ / \%', r'$\tau$ / ms', r'$s_\tau$ / ms'], 
+                                   ['%.2f', '%.2f', '%.3f', '%.3f'], 
+                                   r'Orientierungszeiten $\tau$ des Rubidiumensembles bei verschiedenen Pumpintensitäten $I_{\text{mess}}$.', 
+                                   'tab:deh:fitres')
     
     # make fit
     c = TCanvas('c_taus', '', 1280, 720)
-    g = data.makeGraph('g_taus', r'Intensitaet in %', '#frac{1}{#tau} / #frac{1}{s} ')
+    g = data.makeGraph('g_taus', r'relative Intensitaet I_{mess}', 'inverse Orientierungszeit #tau^{ -1} / s^{-1}')
     g.Draw('APX')
     
     fit = Fitter('fit_taus', '[0]*x + 1/[1]')
-    fit.setParam(0, 'a', 1)
-    fit.setParam(1, 'T', 1)
+    fit.setParam(0, '#alpha', 1)
+    fit.setParam(1, 'T_{R}', 1)
     fit.fit(g, 0, 1.1)
     fit.saveData('../fit/part5/taufit.txt')
     
     l = TLegend(0.55, 0.15, 0.85, 0.5)
     l.SetTextSize(0.03)
-    l.AddEntry(g, '#frac{1}{#tau} gegen Intensitaet', 'p')
-    l.AddEntry(fit.function, 'Fit mit #frac{1}{#tau} = a*I + #frac{1}{T}', 'l')
-    fit.addParamsToLegend(l, [('%.0f', '%.0f'), ('%.5f', '%.5f')], chisquareformat='%.2f', units=['1/s', 's'])
+    l.AddEntry(g, 'Inverse Orientierungszeit #tau^{ -1}', 'p')
+    l.AddEntry(fit.function, 'Fit mit #tau^{ -1} (I) = #alpha I + #frac{1}{T_{R}}', 'l')
+    fit.addParamsToLegend(l, [('%.0f', '%.0f'), ('%.5f', '%.5f')], chisquareformat='%.2f', units=['s^{-1}', 's'])
     l.Draw()
     
     g.Draw('P')
