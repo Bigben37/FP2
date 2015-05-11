@@ -26,8 +26,11 @@ def calibrateNDFilters():
         filters[d[0]] = (int, sint)
         
     with TxtFile('../src/tab_part5_NDFilters.tex', 'w') as f:
-        f.write2DArrayToLatexTable(newdata, ["Stärke", r"$I_\text{nominell}$", r"$U$ / V", r"$I_\text{mess}$", r"$s_{I_\text{mess}}$"], 
-                                   ['%.1f', '%.3f', '%d', '%.5f', '%.5f'], 'xxx', 'tab:deh:dnfilter')
+        f.write2DArrayToLatexTable(newdata, 
+                                   ["Stärke des Filters", r"$I_\text{nominell}$ / \%", r"$U_\text{ph}$ / mV", r"$I_\text{mess}$ / \%", r"$s_{I_\text{mess}}$ / \%"], 
+                                   ['%.1f', '%.3f', '%d', '%.5f', '%.5f'], 
+                                   r'Kalibrierung der Neutraldichtefilter: Nominelle Transmission $I_{\text{nominell}}$, gemessene Spannung an der Photodiode $U_{\text{ph}}$ und daraus berechnete Transmission $I_{\text{mess}}$. ', 
+                                   'tab:deh:dnfilter')
     
     return filters
 
