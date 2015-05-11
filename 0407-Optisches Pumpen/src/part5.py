@@ -13,7 +13,8 @@ def calibrateNDFilters():
     errorp = 0.01  # percentage error
     offset = 70
     data = loadCSVToList('../data/part5/04.10/filters.txt')
-    ref = data[0][2] + offset  # error = sqrt(2) * errorp
+    ref = data[0][2] + offset
+    sref = sqrt((data[0][2] * errorp) ** 2 + (offset * errorp) ** 2)
     newdata = []
     filters = dict()
     for d in data:
@@ -21,14 +22,14 @@ def calibrateNDFilters():
         if int == 1:
             sint = 0
         else:
-            sint = int * 2 * errorp
+            sint = int * sqrt((sqrt((d[2] * errorp) ** 2 + (offset * errorp) ** 2) / (d[2] + offset))**2 + (sref/ref)**2)
         newdata.append(d + [int*100, sint*100])
         filters[d[0]] = (int, sint)
         
     with TxtFile('../src/tab_part5_NDFilters.tex', 'w') as f:
         f.write2DArrayToLatexTable(newdata, 
                                    ["Stärke des Filters", r"$I_\text{nominell}$ / \%", r"$U_\text{ph}$ / mV", r"$I_\text{mess}$ / \%", r"$s_{I_\text{mess}}$ / \%"], 
-                                   ['%.1f', '%.3f', '%d', '%.3f', '%.3f'], 
+                                   ['%.1f', '%.3f', '%d', '%.2f', '%.2f'], 
                                    r'Kalibrierung der Neutraldichtefilter: Nominelle Transmission $I_{\text{nominell}}$, gemessene Spannung an der Photodiode $U_{\text{ph}}$ und daraus berechnete Transmission $I_{\text{mess}}$. ', 
                                    'tab:deh:dnfilter')
     
