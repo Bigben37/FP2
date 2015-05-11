@@ -112,11 +112,11 @@ def prepareGraph(g, channel=1):
     g.SetMarkerSize(0.2)  # size of points
     g.SetLineWidth(0)  # error bar width
     if channel == 1:
+        g.SetMarkerColor(OPData.CH2COLOR)
+        g.SetLineColor(OPData.CH2ECOLOR)  # color error bars      
+    elif channel == 2:  
         g.SetMarkerColor(OPData.CH1COLOR)
         g.SetLineColor(OPData.CH1ECOLOR)  # color error bars
-    elif channel == 2:
-        g.SetMarkerColor(OPData.CH2COLOR)
-        g.SetLineColor(OPData.CH2ECOLOR)  # color error bars        
 
 
 inductorIToBVals = {1: (7.99e-4, 0.01e-4), 2: (8.14e-4, 0.01e-4), 4: (4.76e-4, 0.01e-4)}
