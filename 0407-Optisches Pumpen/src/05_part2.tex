@@ -11,14 +11,11 @@ während der Messung wird die Zelle mit dem Föhn geheizt.
 
 
 \subsection{Auswertung}
-Da in dieses Teil der Auswertung häufiger Kurvenanpassungen mit einer Gauß-Funktion durchgeführt werden, wird folgende Konvention eingeführt:
-\begin{equation}
-    \label{eq:convention:gauss}
-    \gaus(x; A, \mu, \sigma) := A \cdot e^{-\frac{1}{2} \left( \frac{x-\mu}{\sigma} \right)^2}
-\end{equation}
-\subsubsection*{Frequenzkalibrierung}
-Das Etalonspektrum und die Spannung der Lasermodulation sind in \autoref{img:etalon:fit} abgebildet. 
-Die Peaks des Etalonspektrums werden mit Cauchy-Kurven und einem linearen Untergrund gefittet. 
+TODO: Fallende/Steigende Flanke, Auswertung beispielshaft für steigende flanke, fallende genau so. Spektrum für beide
+\subsubsection*{Frequenzkalibrierung}  %TODO change to Berechnung der Scanrate des Lasers ?
+\label{sub:scanrate}
+Das Etalonspektrum und die Spannung der Lasermodulation sind in \autoref{img:etalon:fit} dargestellt.
+Die Peaks des Etalonspektrums werden mit Cauchy-Kurven und einem linearen Untergrund gefittet.
 \begin{equation}
     U_\text{ph}(t) = a_\text{ph} + b_\text{ph} \cdot t + \frac{A}{\pi} \frac{s}{s^2 + (t-x)^2}
 \end{equation}
@@ -29,83 +26,110 @@ Des Weiteren wird die Spannung für die Lasermodulation mit einer Geraden gefitt
 \end{equation}
 \begin{figure}[H]
 \begin{center}
-  \includegraphics[width=\textwidth]{../img/part2/up-etalon_zoom_fit.pdf}
-  \caption{caption.}
-  \label{img:etalon:fit}
+    \includegraphics[width=\textwidth]{../img/part2/up-etalon_zoom_fit.pdf}
+    \caption{caption.}
+    \label{img:etalon:fit}
 \end{center}
 \end{figure}
-Der Fit von $U_\text{L}$ kontrolliert, ob die Spannung für die Lasermodulation auch gerade ansteigt. Man erkennt, dass die angepasste Gerade 
+Der Fit von $U_\text{L}$ kontrolliert, ob die Spannung für die Lasermodulation auch gerade ansteigt. Man erkennt, dass die angepasste Gerade
 gut der gemessenen Spannung folgt.\\
-Aus dem freien Spektralbereich des Etalons $\Delta \nu_\text{FSR} = 9924 \pm 30\,\text{MHz}$ lässt sich nun die Differenz der Laserfrequenz von den verschiedenen 
-Peaks bestimmen. Der erste Peak wird als Referenzpeak festgelegt. Der Frequenzabstand $\nu_i$ zwischen erstem und $i$-ten Peak lässt sich nun 
-folgendermaßen berechnen\footnote{Gedankenspiel zur Fehlerrechnung: Interpretiert man $2 \cdot a$ als $a + a$, so ist der Fehler im ersten Fall $2 \cdot s_a$, im zweiten 
-allerdings $\sqrt{2} \cdot s_a$, wenn man die Selbstkorrelation von $a$ nicht berücksichtigt. Mit $\cor(a, a) = 1$ 
-erhält man $\sqrt{s_a^2 + s_a^2 + 2 \cdot s_a \cdot s_a \cdot \cor(a, a)} = 2 \cdot s_a$.}: 
+Aus dem freien Spektralbereich des Etalons $\Delta \nu_\text{FSR} = 9924 \pm 30\,\text{MHz}$ lässt sich nun die Differenz der Laserfrequenz von den verschiedenen
+Peaks bestimmen. Der erste Peak wird als Referenzpeak festgelegt. Der Frequenzabstand $\nu_i$ zwischen erstem und $i$-ten Peak lässt sich nun
+folgendermaßen berechnen\footnote{Gedankenspiel zur Fehlerrechnung: Interpretiert man $2 \cdot a$ als $a + a$, so ist der Fehler im ersten Fall $2 \cdot s_a$, im zweiten
+allerdings $\sqrt{2} \cdot s_a$, wenn man die Selbstkorrelation von $a$ nicht berücksichtigt. Mit $\cor(a, a) = 1$
+erhält man $\sqrt{s_a^2 + s_a^2 + 2 \cdot s_a \cdot s_a \cdot \cor(a, a)} = 2 \cdot s_a$.}:
 \begin{equation}
-    \Delta \nu_i = i \cdot \Delta \nu_\text{FSR}, \qquad s_{\Delta \nu_i} = i \cdot s_{\Delta \nu_\text{FSR}} 
+    \Delta \nu_i = i \cdot \Delta \nu_\text{FSR}, \qquad s_{\Delta \nu_i} = i \cdot s_{\Delta \nu_\text{FSR}}
 \end{equation}
-Die Frequenzabstände $\Delta \nu_i$ werden nun gegen die Zentren $x_i$  der 
-Etalonpeaks aufgetragen (\autoref{img:etalon:calibration}). Da der Fehler der Zentren der Cauchy-Funktionen viel zu gering ist, wird der Fehler 
-auf $\frac{1}{5}$ der Breiteparamter $s_i$ geschätzt. Die so berechneten Werte sind in \autoref{tab:etalon:calib:up} aufgelistet.
+Die Frequenzabstände $\Delta \nu_i$ werden nun gegen die Zentren $x_i$  der
+Etalonpeaks aufgetragen (\autoref{img:etalon:calibration}). Da der Fehler der Zentren der Cauchy-Funktionen viel zu gering ist, wird der Fehler
+auf $\frac{1}{5}$ der Breiteparameter $s_i$ geschätzt. Die so berechneten Werte sind in \autoref{tab:etalon:calib:up} aufgelistet.
 \input{tab_part2_etalonfreqs_up}
-
 \begin{figure}[H]
 \begin{center}
-  \includegraphics[width=\textwidth]{../img/part2/up-etalon_zoom-etalon_calibration.pdf}
-  \caption{caption.}
-  \label{img:etalon:calibration}
+    \includegraphics[width=\textwidth]{../img/part2/up-etalon_zoom-etalon_calibration.pdf}
+    \caption{caption.}
+    \label{img:etalon:calibration}
 \end{center}
 \end{figure}
-Aus dem Fit mit einer Geraden 
+Aus dem Fit mit einer Geraden
 \begin{equation}
     \Delta \nu(t) = a + r \cdot t  %TODO Parameter in Plot ändern
 \end{equation}
-lässt sich nun die Scanrate $r$ bestimmen. Man erhält %TODO Bessere Variable für Scanrate
+lässt sich nun die Scanrate $r$ bestimmen, mit welcher die Frequenz des Lasers pro Zeit geändert wird. Man erhält
 \begin{equation}
     r = (9.40 \pm 0.02)\,\frac{\text{GHz}}{ms}\ \, .
 \end{equation}
 
 \subsubsection*{Hyperfeinstruktur-Übergänge}
-Auf dem aufgenommenen Spektrum (\autoref{img:hfs:fit:up}) der Hyperfeinstruktur von Rubidium sind nur sechs der acht erwarteten %TODO Ref Grundlagen?
-Übergänge zu erkennen. Dies liegt daran, dass je zwei Übergänge so dicht beieinander liegen, dass man sie in diesem Versuchsaufbau nicht mehr 
-einzeln auflösen kann. Da teilweise mehrere Übergänge dicht nebeneinander liegen, überlagern sie sich. Für die gut abtrennbaren Gruppen von 
-mehreren Peaks (Anzahl $N$) der Übergänge werden überlagerte Gauß-Funktionen mit einem linearen Untergrund zur Kurvenanpassung verwendet:
+Auf dem aufgenommenen Spektrum (\autoref{img:hfs:fit:up}) der Hyperfeinstruktur von Rubidium sind nur sechs der acht erwarteten
+Übergänge zu erkennen (vgl. \autoref{sub:hfsspectrum}). Dies liegt daran, dass je zwei Übergänge so dicht beieinander liegen,  %TODO Ref Grundlagen
+dass man sie in diesem Versuchsaufbau nicht mehr
+einzeln auflösen kann. Da teilweise mehrere Übergänge dicht nebeneinander liegen, überlagern sie sich. Für die gut abtrennbaren Gruppen von
+mehreren Peaks der Übergänge werden überlagerte Gauß-Funktionen mit einem linearen Untergrund zur Kurvenanpassung verwendet:
 \begin{equation}
-    U_\text{ph}(t) = a + b \cdot t + \sum_{i=1}^N \gaus(t; A_i, \mu_i, \sigma_i)
+    \begin{split}
+        & \gaus(x; A, \mu, \sigma) := A \cdot e^{-\frac{1}{2} \left( \frac{x-\mu}{\sigma} \right)^2} \\
+        & U_\text{ph}(t) = a + b \cdot t + \sum_{i=1}^N \gaus(t; A_i, \mu_i, \sigma_i)
+    \end{split}
 \end{equation}
-
-tabelle mit peak-positionen \\
-
+$N$ gibt an, wie viele Peaks sich überlagern.
 \begin{figure}[H]
 \begin{center}
-  \includegraphics[width=\textwidth]{../img/part2/up-hfs_zoom_fit.pdf}  %TODO Better start params
-  \caption{caption.}
-  \label{img:hfs:fit:up}
+    \includegraphics[width=\textwidth]{../img/part2/up-hfs_zoom_fit.pdf}  %TODO Better start params
+    \caption{caption.}
+    \label{img:hfs:fit:up}
 \end{center}
 \end{figure}
+In \autoref{tab:hfs:peaks:up} sind die Erwartungswerte und Standardabweichungen der gefitteten Gauß-Funktionen aufgelistet. Da auch hier der 
+Fehler auf die Erwartungswerte zu klein ist, wird der Fehler auf $\frac{1}{5}$ der Standardabweichung geschätzt.
+\input{tab_part2_hfspeaks_up}
 
 \subsubsection*{Berechnung des Spektrums}
-Um aus den erhaltenen Positionen der Peaks nun eine absolute Frequenz zu berechnen, wird eine absolute Frequenz eines Peaks als Referenz 
-benötigt. \\
-großer Peak, Mittelwert aus beiden Linien
-berechnung des spektrums 
-
-\subsubsection*{Vergleich mit den Literaturwerten}
-Tabelle mit Spektrumswerten (Literaturwert, aufsteigend, absteigend (eine Tabelle))
-Gerade sollte Steigung 1 und Achsenabschnitt 0 Ghz haben
+Da die Differenzen der einzelnen Hyperfeinniveaus in der Größenordnung von $10^9$\,Hz liegen und die absoluten Frequenzen bei $101 {14}$\,Hz, 
+wird verzichtet, die absoluten Frequenzen auszurechnen. Der Peak mit der größten Amplitude (Peak 4) wird als Referenz gesetzt. Von ihm aus werden 
+die Differenzen zu den anderen Peaks berechnet. Dazu wird die oben (\autoref{sub:scanrate}) berechnete Scanrate $r$ des Lasers benötigt.
+Die Differenzen der Frequenzen $\Delta \nu_i$ zwischen viertem und $i$-tem Peak berechnen sich nun mit
+\begin{equation}
+    \Delta \nu_i = r \cdot \left( \mu_i - \mu_4 \right), 
+    \qquad s_{\Delta \nu_i} = \Delta \nu_i \sqrt{ \left( \frac{s_r}{r} \right)^2 + \frac{s_{\mu_i}^2 + s_{\mu_4}^2}{ \left( \mu_i - \mu_4 \right)^2 }} \ \, .
+\end{equation}
+Mit dieser Formel für den Fehler von $\Delta \nu_i$ ist der Fehler auf $\Delta \nu_4$ nicht definiert, da eine Division durch Null stattfindet.
+Um doch einen Fehler zu bekommen, wird angenommen, dass de keinen Fehler hat. Man erhält mit Gauß'scher Fehlerfortpflanzung
+\begin{equation}
+    s_{\Delta \nu_4} = r \cdot s_{\mu_4} \ \, .
+\end{equation}
+Um die theoretischen Werte sinnvoll mit den gemessenen Werten zu vergleichen, müssen die theoretischen Differenzen der Frequenz den gleichen 
+Übergang als Referenz benutzen. Dies erreicht man, wenn die Differenz der Frequenz des Referenzübergangs von allen Differenzen abgezogen wird.
+In \autoref{tab:hfs:spectrum} sind die theoretischen und experimentell bestimmten (für steigende und fallende Flanke) Spektren aufgelistet.   
+\input{tab_part2_spectrum}
+Zur Überprüfung, wie gut die theoretischen Daten mit den gemessenen übereinstimmen, können sie gegeneinander aufgetragen werden 
+( \autoref{img:hfs:spectrum:up} für die steigende und \autoref{img:hfs:spectrum:down} für die fallende Flanke). Es sollte sich 
+eine Gerade mit Steigung 1 und Achsenabschnitt 0 ergeben.
 
 \begin{figure}[H]
 \begin{center}
-  \includegraphics[width=\textwidth]{../img/part2/up-spectrum.pdf}
-  \caption{caption.}
-  \label{img:hfs:spectrum:up}
+    \includegraphics[width=\textwidth]{../img/part2/up-spectrum.pdf}
+    \caption{caption.}
+    \label{img:hfs:spectrum:up}
 \end{center}
 \end{figure}
 
 \begin{figure}[H]
 \begin{center}
-  \includegraphics[width=\textwidth]{../img/part2/down-spectrum.pdf}
-  \caption{caption.}
-  \label{img:hfs:spectrum:down}
+    \includegraphics[width=\textwidth]{../img/part2/down-spectrum.pdf}
+    \caption{caption.}
+    \label{img:hfs:spectrum:down}
 \end{center}
 \end{figure}
+Die Achsenabschnitte 
+\begin{equation}
+    a_\text{up} = (-0.01 \pm 0.04)\,\text{GHz} \quad \text{und} \quad a_\text{down} = (0.04 \pm 0.05)\,\text{GHz}
+\end{equation}
+und Steigungen
+\begin{equation}
+    b_\text{up} = (0.973 \pm 0.013) \quad \text{und} \quad b_\text{down} = (0.970 \pm 0.013)
+\end{equation}
+bestätigen die Übereinstimmung mit den theoretischen Werten innerhalb eines maximal 3-\textsigma-Intervalls.
+
+\subsubsection*{Berechnung der Intervallkonstanten $A$}

@@ -9,7 +9,7 @@ from functions import setupROOT, compare2Floats
 from data import DataErrors
 from fitter import Fitter
 from txtfile import TxtFile
-from ROOT import TCanvas, TLegend
+from ROOT import TCanvas, TLegend, TGaxis
 
 DIR = '../data/part2/04.16/'
 ETALON_XMINMAX = {'up-etalon_zoom.tab': (0.78e-3, 8.5e-3), 'down-etalon_zoom.tab': (3e-3, 8.5e-3)}
@@ -262,7 +262,7 @@ def makeHFSGraph(name, xmin, xmax):
     deltaY = 0.05
 
     c = TCanvas('c-%s' % name, '', 1280, 720)
-    g2 = ch2.makeGraph('g2-%s' % name)
+    g2 = ch2.makeGraph('g2-%s' % name, "Zeit t / s", "U_{ph} / V")
     prepareGraph(g2, 2)
     g2.GetXaxis().SetRangeUser(xmin, xmax)
     g2.SetMinimum(ch2.getMinY() - deltaY)
@@ -271,6 +271,8 @@ def makeHFSGraph(name, xmin, xmax):
 
     fitStartParams = getHFSFitStartParams(name)
     fitres = []
+    tablefitres = []
+    tablepeakcount = 0
     if fitStartParams:
         print('got start params, starting to building fit functions')
         peakNum = 0
@@ -308,11 +310,22 @@ def makeHFSGraph(name, xmin, xmax):
             fit.saveData('../fit/part2/%s-%d.txt' % (name, peakNum))
             for i in range(len(peakparams)):
                 fitres.append((fit.params[i * 3 + dpc + 1]['value'], 0.2 * fit.params[i * 3 + dpc + 2]['value']))
+                tablepeakcount += 1
+                tablefitres.append((tablepeakcount, fit.params[i * 3 + dpc + 1]['value'] * 1e3, fit.params[i * 3 + dpc + 1]['error'] * 1e3,
+                                    fit.params[i * 3 + dpc + 2]['value'] * 1e6, fit.params[i * 3 + dpc + 2]['error'] * 1e6))
             peakNum += 1
+        tablename = 'up' if isUp else 'down'
+        with TxtFile('../src/tab_part2_hfspeaks_%s.tex' % tablename, 'w') as f:
+            f.write2DArrayToLatexTable(tablefitres,
+                                       ['Peak $i$', r'$\mu_i$ / ms', r'$s_{\mu_i}$ / ms', r'$\sigma_i$ / \textmu s', r'$s_{\sigma_i}$ / \textmu s'],
+                                       ['%d', '%.5f', '%.5f', '%.1f', '%.1f'],
+                                       r"Erwartungswerte $\mu_i$ und Standardabweichungen $\sigma_i$ der gefitteten Peaks.",
+                                       "tab:hfs:peaks:%s" % tablename)
 
     g2.Draw('P')
     c.Update()
     c.Print('../img/part2/%s_fit.pdf' % name, 'pdf')
+
     return fitres
 
 
@@ -325,28 +338,30 @@ def evalHFSPeakData():
     return fitres
 
 
-def compareSpectrum(prefix, spectrum):
-    litvals = (-3.07, -2.25, mean([-1.48, -1.12]), mean([1.56, 1.92]), 3.76, 4.58)
-    reflit = litvals[3]
-    litvals = list(map(lambda x: x - reflit, litvals))
+def compareSpectrum(prefix, spectrum, litvals):
     xlist = list(zip(*spectrum))[0]
     sxlist = list(zip(*spectrum))[1]
 
     compData = DataErrors.fromLists(xlist, litvals, sxlist, [0] * len(litvals))
 
     c = TCanvas('c_%s_compspectrum' % prefix, '', 1280, 720)
-    g = compData.makeGraph('g_%s_compspectrum' % prefix, 'experimentell bestimmte HFS-Aufspaltung #Delta #nu_{exp} / GHz', 'theoretische HFS-Aufspaltung #Delta #nu_{theo} / GHz')
+    g = compData.makeGraph('g_%s_compspectrum' % prefix, 
+                           'experimentell bestimmte HFS-Aufspaltung #Delta#nu^{exp}_{%s} / GHz' % prefix, 
+                           'theoretische HFS-Aufspaltung #Delta#nu^{theo} / GHz')
     g.Draw('AP')
 
     fit = Fitter('fit_%s_compspectum' % prefix, 'pol1(0)')
-    fit.setParam(0, 'a', 0)
-    fit.setParam(1, 'b', 1)
+    fit.setParam(0, 'a_{%s}' % prefix, 0)
+    fit.setParam(1, 'b_{%s}' % prefix, 1)
     fit.fit(g, compData.getMinX() - 0.5, compData.getMaxX() + 0.5)
 
-    l = TLegend(0.15, 0.6, 0.425, 0.85)
+    if prefix == "up":
+        l = TLegend(0.15, 0.6, 0.45, 0.85)
+    else:
+        l = TLegend(0.15, 0.6, 0.5, 0.85)
     l.SetTextSize(0.03)
     l.AddEntry(g, 'Spektrum', 'p')
-    l.AddEntry(fit.function, 'Fit mit a + b x', 'l')
+    l.AddEntry(fit.function, 'Fit mit #Delta#nu^{theo} = a_{%s} + b_{%s} #Delta#nu^{exp}_{%s}' % (prefix, prefix, prefix), 'l')
     fit.addParamsToLegend(l, [('%.2f', '%.2f'), ('%.3f', '%.3f')], chisquareformat='%.2f', units=['GHz', ''])
     l.Draw()
 
@@ -364,6 +379,12 @@ def main():
     print('eval hfs peak data')
     print('==================')
     hfspeaks = evalHFSPeakData()
+    
+    litvals = (-3.07, -2.25, mean([-1.48, -1.12]), mean([1.56, 1.92]), 3.76, 4.58)
+    reflit = litvals[3]
+    litvals = list(map(lambda x: x - reflit, litvals))
+    spectra = dict()
+    
     for key in freqCalibrations.keys():
         gps, sgps = freqCalibrations[key]
         isUp = key[:2] == "up"
@@ -383,9 +404,25 @@ def main():
             spectrum.append((freq, sfreq))
         if isUp:
             spectrum.reverse()
-        compareSpectrum('up' if isUp else 'down', spectrum)
+        spectra['up' if isUp else 'down'] = spectrum
+        compareSpectrum('up' if isUp else 'down', spectrum, litvals)
+
+    tabledata = []
+    names = ["", "", "", "", "", ""] # Übergänge
+    for i, litval in enumerate(litvals):
+        tabledata.append([litval] + list(spectra['up'][i]) + list(spectra['down'][i]) + [names[i]])
+    with TxtFile('../src/tab_part2_spectrum.tex', 'w') as f:
+        f.write2DArrayToLatexTable(tabledata, 
+                                   [r'$\Delta \nu^\text{theo}$ / GHz', 
+                                    r'$\Delta \nu^\text{exp}_\text{up}$ / GHz', r'$s_{\Delta \nu^\text{exp}_\text{up}}$ / GHz', 
+                                    r'$\Delta \nu^\text{exp}_\text{down}$ / GHz', r'$s_{\Delta \nu^\text{exp}_\text{down}}$ / GHz', 
+                                    "Übergang"], 
+                                   ['%.2f', '%.2f', '%.2f', '%.2f', '%.2f', '%s'], 
+                                   "Theoretisches und experimentell bestimmtes (steigende und fallende Flanke) Hyperfeinstrukturspektrum von Rubidium.", 
+                                   "tab:hfs:spectrum")
 
 
 if __name__ == '__main__':
     setupROOT()
+    TGaxis.SetMaxDigits(3)
     main()
