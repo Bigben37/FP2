@@ -24,7 +24,7 @@ die durch unterschiedliche Abschwächungen mit ND-Filtern im Strahlengang erreic
 
 Die Temperatur des Lasers beträgt bei der Messung 34.0$^\circ$C, der Laserstrom 65.5\,mA
 (sodass auf den beiden kurzwelligen Hyperfeinlinien von \rb{85} gepumpt wird).
-
+Kurz vor der Aufnahme des Transmissionssignals wird die Rubidiumzelle kurz mit dem Föhn geheizt.
 
 
 
@@ -96,7 +96,7 @@ der Fits an die acht Transmissionssignale aufgeführt.
 \input{tab_part5_taus}
 
 \subsubsection*{Bestimmung der Relaxationszeit}
-Um die Relaxationszeit $T_\text{R}$ zu bestimmen, also ihren Anteil aus den gemessenen Orientierungszeiten zu extrahieren,
+Um die Relaxationszeit $T_{\text{R}_\text{D}}$ zu bestimmen, also ihren Anteil aus den gemessenen Orientierungszeiten zu extrahieren,
 wird \autoref{eq:orientierungszeit} benutzt sowie der Umstand,
 dass die charakteristische Pumpzeit $T_\text{P}$ umgekehrt proportional zur Intensität $I$ des Laserlichts ist:
 \begin{equation}
@@ -104,27 +104,27 @@ dass die charakteristische Pumpzeit $T_\text{P}$ umgekehrt proportional zur Inte
 \end{equation}
 Man erhält damit
 \begin{equation}
-  \frac{1}{\tau(I)}=\alpha I + \frac{1}{T_\text{R}} \ \,.
+  \frac{1}{\tau(I)}=\alpha I + \frac{1}{T_{\text{R}_\text{D}}} \ \,.
 \end{equation}
 Dieser Zusammenhang wird benutzt, um eine Kurvenanpassung an die Daten aus \autoref{tab:part3:results}
-durchzuführen und die Relaxationszeit $T_\text{R}$ zu bestimmen.
+durchzuführen und die Relaxationszeit $T_{\text{R}_\text{D}}$ zu bestimmen.
 \autoref{img:deh:relaxtime} zeigt diesen Fit an die inversen Orientierungszeiten.
 
 \begin{figure}[H]
 \begin{center}
   \includegraphics[width=\textwidth]{../img/part5/taufit.pdf}
   \caption{Lineare Kurvenanpassung an die Daten aus \autoref{tab:part3:results} zur Extraktion
-  der Relaxationszeit $T_\text{R}$ aus den Messdaten für die Orientierungszeit $\tau$.}
+  der Relaxationszeit $T_{\text{R}_\text{D}}$ aus den Messdaten für die Orientierungszeit~$\tau$.}
   \label{img:deh:relaxtime}
 \end{center}
 \end{figure}
 
 Das Ergebnis für die Relaxationszeit beträgt
 \begin{equation}
-  T_\text{R} = 3.64 \pm 0.02\,\text{ms}
+  T_{\text{R}_\text{D}} = 3.64 \pm 0.02\,\text{ms}
 \end{equation}
 und stimmt..
-%TODO vgl litval
+%TODO vgl litval Tr dehmelt
 
 
 
