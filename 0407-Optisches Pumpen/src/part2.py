@@ -99,7 +99,7 @@ def makePeakFreqGraph(peaks, name):
                                    ["i", r"$x_i$ / s", r"$0.2 \cdot s_i$ / s", r"$\nu_i$ / GHz", r"$s_{\nu_i}$ / GHz"],
                                    ["%d", "%.3f", "%.3f", "%.2f", "%.2f"],
                                    "Zentren $x_i$ der gefitteten Cauchy-Funktionen mit abgeschätztem Fehler aus den " +
-                                   "Breiteparametern $s_i$ und Frequenzdifferenzen zum ersten Peak.$ ",
+                                   "Breiteparametern $s_i$ und Frequenzdifferenzen zum ersten Peak. ",
                                    "tab:etalon:calib:%s" % direction)
 
     etalonData = DataErrors.fromLists(xlist, ylist, sxlist, sylist)
