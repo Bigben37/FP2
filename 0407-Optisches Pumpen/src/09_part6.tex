@@ -35,12 +35,11 @@ Der Anstieg der Transmission auf das Plateau wird mit einer
 stückweise definierten Exponentialfunktion $U_{\text{E}}(t)$
 beschrieben, die am Punkt $\mu$ einsetzt:
 \begin{equation}
-  U_{\text{E}}(t)= \left\{
-  \begin{array}{lr}
-    0 & : t \leq \mu\\
-    B \cdot (1-e^{-\lambda(t-\mu)}) & : t \geq \mu
-  \end{array}
-\right.
+  U_{\text{E}}(t)=
+  \begin{cases}
+  0	& \text{für } t \leq \mu \\
+  B \cdot \left( 1-e^{-\lambda(t-\mu)} \right)  & \text{für } t \geq \mu
+  \end{cases}
 \end{equation}
 $B$ ist die Amplitude der Exponentialfunktion und $\lambda$ ein Parameter für die Geschwindigkeit des Anstiegs.
 Die Transmissionsmessungen werden mit der Summe aus diesen beiden Anteilen
