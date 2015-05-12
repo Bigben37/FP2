@@ -4,12 +4,15 @@ __author__ = "Benjamin Rottler (benjamin@dierottlers.de)"
 
 import os
 from numpy import sqrt, mean
+from physconsts import h_eVs
 from op import OPData, prepareGraph, avgCloseValues, getRootColor
-from functions import setupROOT, compare2Floats
+from functions import setupROOT, compare2Floats, avgerrors
 from data import DataErrors
 from fitter import Fitter
 from txtfile import TxtFile
 from ROOT import TCanvas, TLegend, TGaxis
+
+DEBUG = True
 
 DIR = '../data/part2/04.16/'
 ETALON_XMINMAX = {'up-etalon_zoom.tab': (0.78e-3, 8.5e-3), 'down-etalon_zoom.tab': (3e-3, 8.5e-3)}
@@ -34,7 +37,7 @@ def makeSingleGraph(file, save=True):
     g2.Draw('PX')
     g2.Draw('P')
     c.Update()
-    if save:
+    if save and not DEBUG:
         c.Print('../img/part2/%s.pdf' % file[:-4], 'pdf')
     return ch1, ch2, c, g1, g2
 
@@ -129,7 +132,8 @@ def makePeakFreqGraph(peaks, name):
     l.Draw()
 
     c.Update()
-    c.Print('../img/part2/%s-etalon_calibration.pdf' % name, 'pdf')
+    if not DEBUG:
+        c.Print('../img/part2/%s-etalon_calibration.pdf' % name, 'pdf')
 
     return (fit.params[1]['value'], fit.params[1]['error'])
 
@@ -168,7 +172,8 @@ def fitSingleEtalonFile(file):
     l.Draw()
 
     c.Update()
-    c.Print('../img/part2/%s_fit.pdf' % name, 'pdf')
+    if not DEBUG:
+        c.Print('../img/part2/%s_fit.pdf' % name, 'pdf')
 
     return peakfits, (laserslope, slaserslope)
 
@@ -240,7 +245,8 @@ def makeHFSGraph(name, xmin, xmax):
     g1.Draw('P')
     g2.Draw('P')
     c.Update()
-    c.Print('../img/part2/%s_fit.pdf' % name, 'pdf')
+    if not DEBUG:
+        c.Print('../img/part2/%s_fit.pdf' % name, 'pdf')
     return fitres
 
 
@@ -324,7 +330,8 @@ def makeHFSGraph(name, xmin, xmax):
 
     g2.Draw('P')
     c.Update()
-    c.Print('../img/part2/%s_fit.pdf' % name, 'pdf')
+    if not DEBUG:
+        c.Print('../img/part2/%s_fit.pdf' % name, 'pdf')
 
     return fitres
 
@@ -345,8 +352,8 @@ def compareSpectrum(prefix, spectrum, litvals):
     compData = DataErrors.fromLists(xlist, litvals, sxlist, [0] * len(litvals))
 
     c = TCanvas('c_%s_compspectrum' % prefix, '', 1280, 720)
-    g = compData.makeGraph('g_%s_compspectrum' % prefix, 
-                           'experimentell bestimmte HFS-Aufspaltung #Delta#nu^{exp}_{%s} / GHz' % prefix, 
+    g = compData.makeGraph('g_%s_compspectrum' % prefix,
+                           'experimentell bestimmte HFS-Aufspaltung #Delta#nu^{exp}_{%s} / GHz' % prefix,
                            'theoretische HFS-Aufspaltung #Delta#nu^{theo} / GHz')
     g.Draw('AP')
 
@@ -366,8 +373,37 @@ def compareSpectrum(prefix, spectrum, litvals):
     l.Draw()
 
     c.Update()
-    c.Print('../img/part2/%s-spectrum.pdf' % prefix, 'pdf')
+    if not DEBUG:
+        c.Print('../img/part2/%s-spectrum.pdf' % prefix, 'pdf')
 
+
+def evalIntervalConst(avgspectrum):
+    def avg2vals(val1, val2):
+        return avgerrors([val1[0], val2[0]], [val1[1], val2[1]])
+
+    def sub2vals(val1, val2):
+        return val1[0] - val2[0], sqrt(val1[1] ** 2 + val2[1] ** 2)
+    
+    s = avgspectrum[:2] + avgspectrum[-2:]
+    sfreq = avg2vals(sub2vals(s[2], s[0]), sub2vals(s[3], s[1]))  # S delta freq
+    pfreq = avg2vals(sub2vals(s[3], s[2]), sub2vals(s[1], s[0]))  # P delta freq
+    freqs = [sfreq, pfreq]
+    Fs = [1, 1]  # F of HFS
+    names = [r"${}^2\text{S}_{1/2}$", r"${}^2\text{P}_{1/2}$"]
+    litvals = ["14.13", "1.692"]
+    As = []
+    for name, litval,  (freq, sfreq), F in zip(*[names, litvals, freqs, Fs]):
+        A = freq * h_eVs / (F + 1) * 1e15  # in µeV and GHz in Hz
+        sA = sfreq * h_eVs / (F + 1) * 1e15
+        As.append([name, litval, A, sA])
+    with TxtFile('../src/tab_part2_A.tex', 'w') as f:
+        f.write2DArrayToLatexTable(As, 
+                                   ["Feinstruktur", r"$A^\text{Lit.}$ / \textmu eV", 
+                                    r"$A^\text{exp}$ / \textmu eV", r"$s_{A^\text{exp}}$ / \textmu eV"], 
+                                   ['%s', '%s', '%.2f', '%.2f'], 
+                                   r"Errechnete HFS-Intervallkonstanten $A$ für die zwei untersten Feinstrukturniveus von \rb{87}.", 
+                                   "tab:hfs:intervalconsts")
+    
 
 def main():
     print('make graphs')
@@ -379,12 +415,12 @@ def main():
     print('eval hfs peak data')
     print('==================')
     hfspeaks = evalHFSPeakData()
-    
+
     litvals = (-3.07, -2.25, mean([-1.48, -1.12]), mean([1.56, 1.92]), 3.76, 4.58)
     reflit = litvals[3]
     litvals = list(map(lambda x: x - reflit, litvals))
     spectra = dict()
-    
+
     for key in freqCalibrations.keys():
         gps, sgps = freqCalibrations[key]
         isUp = key[:2] == "up"
@@ -408,19 +444,36 @@ def main():
         compareSpectrum('up' if isUp else 'down', spectrum, litvals)
 
     tabledata = []
-    names = ["", "", "", "", "", ""] # Übergänge
+    names = [r"\rb{87}, F:2-1", r"\rb{87}, F:2-2", r"\rb{85}, F:3-2, 3-3", r"\rb{85}, F:2-2, 2-3", r"\rb{87}, F:1-1", r"\rb{87}, F:1-2"]  # Übergänge
     for i, litval in enumerate(litvals):
-        tabledata.append([litval] + list(spectra['up'][i]) + list(spectra['down'][i]) + [names[i]])
+        tabledata.append([names[i]] + [litval] + list(spectra['up'][i]) + list(spectra['down'][i]))
     with TxtFile('../src/tab_part2_spectrum.tex', 'w') as f:
-        f.write2DArrayToLatexTable(tabledata, 
-                                   [r'$\Delta \nu^\text{theo}$ / GHz', 
-                                    r'$\Delta \nu^\text{exp}_\text{up}$ / GHz', r'$s_{\Delta \nu^\text{exp}_\text{up}}$ / GHz', 
-                                    r'$\Delta \nu^\text{exp}_\text{down}$ / GHz', r'$s_{\Delta \nu^\text{exp}_\text{down}}$ / GHz', 
-                                    "Übergang"], 
-                                   ['%.2f', '%.2f', '%.2f', '%.2f', '%.2f', '%s'], 
-                                   "Theoretisches und experimentell bestimmtes (steigende und fallende Flanke) Hyperfeinstrukturspektrum von Rubidium.", 
+        f.write2DArrayToLatexTable(tabledata,
+                                   ["Übergang",
+                                    r'$\Delta \nu^\text{theo}$ / GHz',
+                                    r'$\Delta \nu^\text{exp}_\text{up}$ / GHz', r'$s_{\Delta \nu^\text{exp}_\text{up}}$ / GHz',
+                                    r'$\Delta \nu^\text{exp}_\text{down}$ / GHz', r'$s_{\Delta \nu^\text{exp}_\text{down}}$ / GHz'],
+                                   ['%s', '%.2f', '%.2f', '%.2f', '%.2f', '%.2f'],
+                                   "Theoretisches und experimentell bestimmtes (steigende und fallende Flanke) Hyperfeinstrukturspektrum von Rubidium.",
                                    "tab:hfs:spectrum")
 
+    avgdata = []
+    avgspectrum = []
+    for name, lit, f1, sf1, f2, sf2 in tabledata:
+        f, sf = avgerrors([f1, f2], [sf1, sf2])
+        avgdata.append([name, lit, f, sf])
+        avgspectrum.append((f, sf))
+    compareSpectrum('avg', avgspectrum, litvals)
+    with TxtFile('../src/tab_part2_spectrum_avg.tex', 'w') as f:
+        f.write2DArrayToLatexTable(avgdata,
+                                   ["Übergang",
+                                    r'$\Delta \nu^\text{theo}$ / GHz',
+                                    r'$\Delta \nu^\text{exp}_\text{avg}$ / GHz', r'$s_{\Delta \nu^\text{exp}_\text{avg}}$ / GHz'],
+                                   ['%s', '%.2f', '%.3f', '%.3f', ],
+                                   "Theoretisches und aus den experimentellen Daten gemitteltes Hyperfeinstrukturspektrum von Rubidium.",
+                                   "tab:hfs:spectrum:avg")
+
+    evalIntervalConst(avgspectrum)
 
 if __name__ == '__main__':
     setupROOT()
