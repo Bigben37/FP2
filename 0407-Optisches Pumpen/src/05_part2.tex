@@ -6,7 +6,8 @@ Der Konstantanteil des Laserstroms, Modulationsamplitude und -frequenz
 sind wie bei der Messung der Zeitabhängigkeit der Laserfrequenz (\autoref{sect:durchführung}).
 Äußere Magnetfelder bleiben unkompensiert, weil die Zeeman-Aufspaltung der Hyperfeinstruktur im Erdmagnetfeld
 mit der Linienbreite der Laserdiode nicht auflösbar ist.
-Die Messung wird auf der steigenden und der fallenden Flanke der Modulationsspannung durchgeführt.
+Die Messung wird auf der steigenden und der fallenden Flanke der Modulationsspannung durchgeführt und
+während der Messung wird die Zelle mit dem Föhn geheizt.
 
 
 \subsection{Auswertung}
@@ -40,7 +41,7 @@ TODO: Mehr peaks fitten, wenn möglich
 Aus dem freien Spektralbereich des Etalons $\Delta \nu_\text{FSR} = 9924 \pm 30\,\text{MHz}$ lässt sich nun die Differenz der Laserfrequenz bei den verschiedenen 
 Peaks bestimmen. Der erste Peak wird als Referenzpeak festgelegt. Der Frequenzabstand $\nu_i$ zwischen erstem und $i$-ten Peak lässt sich nun 
 folgendermaßen berechnen\footnote{Gedankenspiel zur Fehlerrechnung: Interpretiert man $2 \cdot a$ als $a + a$, so ist der Fehler im ersten Fall $2 \cdot s_a$, im zweiten 
-allerdings $\sqrt{2} \cdot s_a$, wenn man die Autokorrelation von $a$ nicht berücksichtigt. Mit $\cor(a, a) = 1$ 
+allerdings $\sqrt{2} \cdot s_a$, wenn man die Selbstkorrelation von $a$ nicht berücksichtigt. Mit $\cor(a, a) = 1$ 
 erhält man $\sqrt{s_a^2 + s_a^2 + 2 \cdot s_a \cdot s_a \cdot \cor(a, a)} = 2 \cdot s_a$.}: 
 \begin{equation}
     \Delta \nu_i = \Delta \nu_\text{FSR} \cdot i, \qquad s_{\Delta \nu_i} = \sqrt{i} \cdot s_{\Delta \nu_\text{FSR}} 
