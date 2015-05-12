@@ -14,17 +14,18 @@ während der Messung wird die Zelle mit dem Föhn geheizt.
 Da in dieses Teil der Auswertung häufiger Kurvenanpassungen mit einer Gauß-Funktion durchgeführt werden, wird folgende Konvention eingeführt:
 \begin{equation}
     \label{eq:convention:gauss}
-    \gaus(x; A, \mu, \sigma) = A \cdot e^{-\frac{1}{2} \left( \frac{x-\mu}{\sigma} \right)^2}
+    \gaus(x; A, \mu, \sigma) := A \cdot e^{-\frac{1}{2} \left( \frac{x-\mu}{\sigma} \right)^2}
 \end{equation}
 \subsubsection*{Frequenzkalibrierung}
 Das Etalonspektrum und die Spannung der Lasermodulation sind in \autoref{img:etalon:fit} abgebildet. 
-Die Peaks des Etalonspektrums werden mit Gauß-Kurven und einem linearen Untergrund gefittet. 
+Die Peaks des Etalonspektrums werden mit Cauchy-Kurven und einem linearen Untergrund gefittet. 
 \begin{equation}
-    U_\text{ph}(t) = a + b \cdot t + \gaus(t; A, \mu, \sigma)
+    U_\text{ph}(t) = a_\text{ph} + b_\text{ph} \cdot t + \frac{A}{\pi} \frac{s}{s^2 + (t-x)^2}
 \end{equation}
+Dabei ist das Zentrum $x$ und der Breiteparameter $s$.
 Des Weiteren wird die Spannung für die Lasermodulation mit einer Geraden gefittet.
 \begin{equation}
-    U_\text{L} = a + \cdot t
+    U_\text{L}(t) = a_\text{L} + b_\text{L} \cdot t
 \end{equation}
 \begin{figure}[H]
 \begin{center}
@@ -33,20 +34,21 @@ Des Weiteren wird die Spannung für die Lasermodulation mit einer Geraden gefitt
   \label{img:etalon:fit}
 \end{center}
 \end{figure}
-TODO: Farbcode ändern \\
-Gerade von $U_\text{L}$ wird nur betrachtet, um zu kontrollieren, ob die Spannung auch gerade ansteigt. \\
-TODO: Tabelle mit Peakdaten \\
-TODO: Mehr peaks fitten, wenn möglich
-
-Aus dem freien Spektralbereich des Etalons $\Delta \nu_\text{FSR} = 9924 \pm 30\,\text{MHz}$ lässt sich nun die Differenz der Laserfrequenz bei den verschiedenen 
+Der Fit von $U_\text{L}$ kontrolliert, ob die Spannung für die Lasermodulation auch gerade ansteigt. Man erkennt, dass die angepasste Gerade 
+gut der gemessenen Spannung folgt.\\
+Aus dem freien Spektralbereich des Etalons $\Delta \nu_\text{FSR} = 9924 \pm 30\,\text{MHz}$ lässt sich nun die Differenz der Laserfrequenz von den verschiedenen 
 Peaks bestimmen. Der erste Peak wird als Referenzpeak festgelegt. Der Frequenzabstand $\nu_i$ zwischen erstem und $i$-ten Peak lässt sich nun 
 folgendermaßen berechnen\footnote{Gedankenspiel zur Fehlerrechnung: Interpretiert man $2 \cdot a$ als $a + a$, so ist der Fehler im ersten Fall $2 \cdot s_a$, im zweiten 
 allerdings $\sqrt{2} \cdot s_a$, wenn man die Selbstkorrelation von $a$ nicht berücksichtigt. Mit $\cor(a, a) = 1$ 
 erhält man $\sqrt{s_a^2 + s_a^2 + 2 \cdot s_a \cdot s_a \cdot \cor(a, a)} = 2 \cdot s_a$.}: 
 \begin{equation}
-    \Delta \nu_i = \Delta \nu_\text{FSR} \cdot i, \qquad s_{\Delta \nu_i} = \sqrt{i} \cdot s_{\Delta \nu_\text{FSR}} 
+    \Delta \nu_i = i \cdot \Delta \nu_\text{FSR}, \qquad s_{\Delta \nu_i} = i \cdot s_{\Delta \nu_\text{FSR}} 
 \end{equation}
-Die Frequenzabstände werden nun gegen die Maximumspositionen (also die Erwartungswerte der Gauß-Funktionen) der Etalonpeaks aufgetragen ( \autoref{img:etalon:calibration}).
+Die Frequenzabstände $\Delta \nu_i$ werden nun gegen die Zentren $x_i$  der 
+Etalonpeaks aufgetragen (\autoref{img:etalon:calibration}). Da der Fehler der Zentren der Cauchy-Funktionen viel zu gering ist, wird der Fehler 
+auf $\frac{1}{5}$ der Breiteparamter $s_i$ geschätzt. Die so berechneten Werte sind in \autoref{tab:etalon:calib:up} aufgelistet.
+\input{tab_part2_etalonfreqs_up}
+
 \begin{figure}[H]
 \begin{center}
   \includegraphics[width=\textwidth]{../img/part2/up-etalon_zoom-etalon_calibration.pdf}
@@ -64,9 +66,16 @@ lässt sich nun die Scanrate $r$ bestimmen. Man erhält %TODO Bessere Variable f
 \end{equation}
 
 \subsubsection*{Hyperfeinstruktur-Übergänge}
-nur 6 peaks erkennbar, da 2 nicht aufgelößt werden können \\
-fit mit überlagerten Gauß \\
-tabelle mit peak-positionen
+Auf dem aufgenommenen Spektrum (\autoref{img:hfs:fit:up}) der Hyperfeinstruktur von Rubidium sind nur sechs der acht erwarteten %TODO Ref Grundlagen?
+Übergänge zu erkennen. Dies liegt daran, dass je zwei Übergänge so dicht beieinander liegen, dass man sie in diesem Versuchsaufbau nicht mehr 
+einzeln auflösen kann. Da teilweise mehrere Übergänge dicht nebeneinander liegen, überlagern sie sich. Für die gut abtrennbaren Gruppen von 
+mehreren Peaks (Anzahl $N$) der Übergänge werden überlagerte Gauß-Funktionen mit einem linearen Untergrund zur Kurvenanpassung verwendet:
+\begin{equation}
+    U_\text{ph}(t) = a + b \cdot t + \sum_{i=1}^N \gaus(t; A_i, \mu_i, \sigma_i)
+\end{equation}
+
+tabelle mit peak-positionen \\
+
 \begin{figure}[H]
 \begin{center}
   \includegraphics[width=\textwidth]{../img/part2/up-hfs_zoom_fit.pdf}  %TODO Better start params
@@ -76,7 +85,9 @@ tabelle mit peak-positionen
 \end{figure}
 
 \subsubsection*{Berechnung des Spektrums}
-festlegung referenzpeak \\
+Um aus den erhaltenen Positionen der Peaks nun eine absolute Frequenz zu berechnen, wird eine absolute Frequenz eines Peaks als Referenz 
+benötigt. \\
+großer Peak, Mittelwert aus beiden Linien
 berechnung des spektrums 
 
 \subsubsection*{Vergleich mit den Literaturwerten}
