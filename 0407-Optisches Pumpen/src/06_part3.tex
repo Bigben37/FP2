@@ -9,7 +9,7 @@ Der RF-Sender auf der Zelle wird verwendet, um ein hochfrequentes Wechselfeld in
 Die Messung der Frequenz erfolgt mit dem Frequenzzähler im Versuchsaufbau.
 An Spule~2 wird mit dem \emph{instec function~generator} ein Sinussignal angelegt (siehe \autoref{img:dehmeltrf}),
 das ein wechselndes Magnetfeld in Strahlrichtung erzeugt.
-Mit der Photodiode wird die transmittierte Intensität der Strahlung gemessen,
+Mit der Photodiode wird die Intensität der Strahlung gemessen,
 die durch die Rubidiumzelle gelangt.
 Auf \autoref{img:dehmeltrf} ist zu sehen, dass zusätzlich zu den erwarteten vier Doppelresonanz-Peaks pro
 Periode der Magnetfeldmodulation zwei weitere Peaks pro Periode auftreten.
@@ -30,8 +30,6 @@ die Temperatur des Peltierelements 33.9$^\circ$C.
 Außerdem werden an Spule~4 86\,mA Gleichstrom angelegt, um das vertikale Magnetfeld zu kompensieren.
 Die Höhe des Stroms wird durch Maximierung der Signalintensität bestimmt.
 
-%TODO Farben umändern
-
 \begin{figure}[H]
 \begin{center}
   \includegraphics[width=\textwidth]{../img/part3/06.pdf}
@@ -46,7 +44,7 @@ Die Höhe des Stroms wird durch Maximierung der Signalintensität bestimmt.
 \begin{center}
     \includegraphics[width=\textwidth]{../img/part3/07.pdf}
     \caption{Gleiches Setup wie bei \autoref{img:dehmeltrf}, aber ohne RF-Signal.
-    Die Dehmelt-Peaks sind weiterhin vorhanden.}
+    Die leicht asymmetrischen Dehmelt-Peaks sind weiterhin vorhanden.}
     \label{img:dehmelt}
 \end{center}
 \end{figure}
@@ -75,7 +73,7 @@ Die Höhe des Stroms wird durch Maximierung der Signalintensität bestimmt.
 \label{sect:doppelresauswertung}
 \subsubsection*{Berechnung des horizontalen und vertikalen Magnetfeldes und des Kernspins}
 Die durch die Messung erhaltenen Ströme, welche durch Spule 1 ($I_1$ und bei Umpolung $I_1'$) fließen, sind in \autoref{tab:part3:data} 
-aufgelistet. Der Strom $I_4$ von Spule beträgt in allen Fällen
+aufgelistet. Der Strom $I_4$ von Spule 4 beträgt in allen Fällen
 \begin{equation}
     I_4 = (86 \pm 3)\,\text{mA}
 \end{equation}
@@ -83,7 +81,7 @@ Die Fehler auf den Laserstrom $I_L$ und die Frequenz $\nu$ des RF-Senders sind $
 \input{tab_part3_data}
 Zuerst wird der Strom in den Spulen in das resultierende Magnetfeld mit den Faktoren $c_n$ in \autoref{tab:inductorItoB} umgerechnet.
 \begin{equation}
-    B_n = c_n \cdot I, \qquad s_{B} = B_n \cdot \sqrt{ \left( \frac{s_I}{I} \right)^2 + \left( \frac{s_{c_n}}{c_n} \right)^2 }
+    B_n = c_n \cdot I_n, \qquad s_{B} = B_n \cdot \sqrt{ \left( \frac{s_{I_n}}{I_n} \right)^2 + \left( \frac{s_{c_n}}{c_n} \right)^2 }
 \end{equation}
 Nun können das horizontale und vertikale Magnetfeld, $B_\text{hor}$ und $B_\text{ver}$, sowie der Kernspin von Rubidium bestimmt werden.
 \begin{itemize}
@@ -107,9 +105,9 @@ Nun können das horizontale und vertikale Magnetfeld, $B_\text{hor}$ und $B_\tex
     \end{equation}
 \end{itemize}
 \input{tab_part3_results}
-\subsubsection*{Nennung der berechneten Werte und Vergleich mit Literatur- bzw. theoretischen Werten.}
-In \autoref{tab:part3:results} sind die berechneten Werte des horizontale Erdmagnetfeldes für die verschiedenen Laserspannungen $I_L$ und 
-RF-Sender Frequenzen $\nu$ zusammengestellt. 
+\subsubsection*{Berechneten Werte und Vergleich mit Literatur- bzw. theoretischen Werten.}
+In \autoref{tab:part3:results} sind die berechneten Werte des horizontalen Erdmagnetfeldes für die verschiedenen Laserströmen $I_L$ und 
+RF-Sender-Frequenzen $\nu$ zusammengestellt. 
 \begin{itemize}
     \item Das vertikale Erdmagnetfeld ergibt sich zu
     \begin{equation}
@@ -129,13 +127,13 @@ RF-Sender Frequenzen $\nu$ zusammengestellt.
     \begin{equation}
         B_\text{hor}^{\text{Lit.}} = 20.9\,\text{\textmu T}
     \end{equation}
-    Grund dafür ist TODO Grund \\ %TODO Grund Bhor
+    Grund dafür könnten Stromflüsse von elektrischen Geräten im Gebäude sein, die ein zusätzliches Magnetfeld erzeugen.
     \item Auch die beiden Werte des Kernspins für jedes Isotop werden gewichtet gemittelt:
     \begin{equation}
         I(\text{\rb{85}}) = 2.51 \pm 0.02, \qquad I(\text{\rb{87}}) = 1.53 \pm 0.16
     \end{equation}
-    Der errechnete Wert des Kernspins für \rb{85} stimmt innerhalb der Fehlergrenzen mit dem theoretischen Wert überein, für \rb{87} liegen
-    errechneter und theoretischer Wert innerhalb des 2-\textsigma-Intervalls.
+    Der errechnete Wert des Kernspins für \rb{85} stimmt innerhalb der Fehlergrenzen mit dem theoretischen Wert überein, 
+    für \rb{87} im 2-\textsigma-Intervall.
     \begin{equation}
         I(\text{\rb{85}})^\text{theo.} = 2.5, \qquad I(\text{\rb{87}})^\text{theo.} = 1.5
     \end{equation}

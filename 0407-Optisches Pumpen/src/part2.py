@@ -24,7 +24,7 @@ def makeSingleGraph(file, save=True):
     ch2 = OPData.fromPath(DIR + file, 2)
 
     c = TCanvas('c' + file, '', 1280, 720)
-    g1 = ch1.makeGraph('g1' + file[:-4], 't / s', 'U / V')
+    g1 = ch1.makeGraph('g1' + file[:-4], 'Zeit t / s', 'Spannung U / V')
     prepareGraph(g1)
     g1.GetXaxis().SetRangeUser(ch1.getMinX(), ch1.getMaxX())
     g1.SetMinimum(min(ch1.getMinY(), ch2.getMinY()) * 1.1)
@@ -99,16 +99,16 @@ def makePeakFreqGraph(peaks, name):
                            ylist, sylist]))
     with TxtFile('../src/tab_part2_etalonfreqs_%s.tex' % direction, 'w') as f:
         f.write2DArrayToLatexTable(tabledata,
-                                   ["i", r"$x_i$ / s", r"$0.2 \cdot s_i$ / s", r"$\nu_i$ / GHz", r"$s_{\nu_i}$ / GHz"],
+                                   ["i", r"$x_i$ / ms", r"$0.2 \cdot s_i$ / ms", r"$\nu_i$ / GHz", r"$s_{\nu_i}$ / GHz"],
                                    ["%d", "%.3f", "%.3f", "%.2f", "%.2f"],
-                                   "Zentren $x_i$ der gefitteten Cauchy-Funktionen mit abgeschätztem Fehler aus den " +
+                                   "Zentren $x_i$ der gefitteten Cauchy-Funktionen mit Fehler aus den " +
                                    "Breiteparametern $s_i$ und Frequenzdifferenzen zum ersten Peak. ",
                                    "tab:etalon:calib:%s" % direction)
 
     etalonData = DataErrors.fromLists(xlist, ylist, sxlist, sylist)
     etalonData.multiplyX(1000)
     c = TCanvas('c_pf_' + name, '', 1280, 720)
-    g = etalonData.makeGraph('g_pf_' + name, 't / ms', '#Delta#nu / GHz')
+    g = etalonData.makeGraph('g_pf_' + name, 'Zeit t / ms', 'Frequenzabstand #Delta#nu / GHz')
     g.SetMinimum(etalonData.getMinY() - 5)
     g.SetMaximum(etalonData.getMaxY() + 5)
     g.Draw('AP')
@@ -128,7 +128,7 @@ def makePeakFreqGraph(peaks, name):
     l.SetTextSize(0.03)
     l.AddEntry(g, 'Etalonpeaks', 'p')
     l.AddEntry(fit.function, 'Fit mit #Delta#nu = a + r * t', 'l')
-    fit.addParamsToLegend(l, [('%.2f', '%.2f'), ('%.2f', '%.2f')], chisquareformat='%.2f', units=('GHz', 'GHz/ms'))
+    fit.addParamsToLegend(l, [('%.1f', '%.1f'), ('%.2f', '%.2f')], chisquareformat='%.2f', units=('GHz', 'GHz/ms'))
     l.Draw()
 
     c.Update()
@@ -160,9 +160,9 @@ def fitSingleEtalonFile(file):
     laserslope, slaserslope, laserfunc = fitLaserVoltage(g1, xmin, xmax, file)
 
     if isUp:
-        l = TLegend(0.65, 0.13, 0.99, 0.47)
+        l = TLegend(0.625, 0.15, 0.99, 0.47)
     else:
-        l = TLegend(0.125, 0.13, 0.475, 0.45)
+        l = TLegend(0.125, 0.13, 0.5, 0.45)
     l.SetTextSize(0.03)
     l.AddEntry(g1, 'Spannung der Lasermodulation', 'l')
     l.AddEntry(g2, 'Etalonspektrum', 'l')
@@ -196,7 +196,7 @@ def makeHFSGraph(name, xmin, xmax):
 
     c = TCanvas('c-%s' % name, '', 1280, 720)
 
-    g1 = ch1.makeGraph('g1-%s' % name, 't / ms', 'U / V')
+    g1 = ch1.makeGraph('g1-%s' % name, 'Zeit t / ms', 'Spannung U / V')
     prepareGraph(g1)
     g1.SetMinimum(min(ch2.getY()) * 1.2)
     g1.SetMaximum(max(ch2.getY()) * 1.2)
@@ -325,7 +325,7 @@ def makeHFSGraph(name, xmin, xmax):
             f.write2DArrayToLatexTable(tablefitres,
                                        ['Peak $i$', r'$\mu_i$ / ms', r'$s_{\mu_i}$ / ms', r'$\sigma_i$ / \textmu s', r'$s_{\sigma_i}$ / \textmu s'],
                                        ['%d', '%.5f', '%.5f', '%.1f', '%.1f'],
-                                       r"Erwartungswerte $\mu_i$ und Standardabweichungen $\sigma_i$ der gefitteten Peaks.",
+                                       r"Erwartungswerte $\mu_i$ und Standardabweichungen $\sigma_i$ der gefitteten Peaks des HFS-Spektrums.",
                                        "tab:hfs:peaks:%s" % tablename)
 
     g2.Draw('P')
@@ -437,6 +437,8 @@ def main():
                 sfreq = abs(freq) * sqrt((sgps / gps) ** 2 + (sqrt(srefpeak ** 2 + speak ** 2) / (refpeak - peak)) ** 2)
             else:
                 sfreq = 1000 * gps * speak
+            if compare2Floats(freq, 0):
+                freq = abs(freq)
             spectrum.append((freq, sfreq))
         if isUp:
             spectrum.reverse()
@@ -454,7 +456,7 @@ def main():
                                     r'$\Delta \nu^\text{exp}_\text{up}$ / GHz', r'$s_{\Delta \nu^\text{exp}_\text{up}}$ / GHz',
                                     r'$\Delta \nu^\text{exp}_\text{down}$ / GHz', r'$s_{\Delta \nu^\text{exp}_\text{down}}$ / GHz'],
                                    ['%s', '%.2f', '%.2f', '%.2f', '%.2f', '%.2f'],
-                                   "Theoretisches und experimentell bestimmtes (steigende und fallende Flanke) Hyperfeinstrukturspektrum von Rubidium.",
+                                   "Theoretisches und (steigende und fallende Flanke) experimentell bestimmtes Hyperfeinstrukturspektrum von Rubidium.",
                                    "tab:hfs:spectrum")
 
     avgdata = []
@@ -469,8 +471,8 @@ def main():
                                    ["Übergang",
                                     r'$\Delta \nu^\text{theo}$ / GHz',
                                     r'$\Delta \nu^\text{exp}_\text{avg}$ / GHz', r'$s_{\Delta \nu^\text{exp}_\text{avg}}$ / GHz'],
-                                   ['%s', '%.2f', '%.3f', '%.3f', ],
-                                   "Theoretisches und aus den experimentellen Daten gemitteltes Hyperfeinstrukturspektrum von Rubidium.",
+                                   ['%s', '%.2f', '%.2f', '%.2f', ],
+                                   r"Theoretisches und aus den experimentellen Daten (\autoref{tab:hfs:spectrum}) gemitteltes Hyperfeinstrukturspektrum von Rubidium.",
                                    "tab:hfs:spectrum:avg")
 
     evalIntervalConst(avgspectrum)

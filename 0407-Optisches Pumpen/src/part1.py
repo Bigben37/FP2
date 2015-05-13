@@ -22,7 +22,7 @@ def evalDiode():
         su = 5 + 0.01 * u
         sU = sqrt(su ** 2 + sU0 ** 2)
         data.addPoint(I, U, 0.1, sU)
-    xmin, xmax = 53, 74.5
+    xmin, xmax = 53, 71.5
 
     c = TCanvas('c_diode', '', 1280, 720)
     g = data.makeGraph('g_diode', "Laserstrom I_{L} / mA", "Photodiodenspannung U_{ph} / mV")

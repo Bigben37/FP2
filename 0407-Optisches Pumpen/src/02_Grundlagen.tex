@@ -1,37 +1,17 @@
 \section{Physikalische Grundlagen}
 
-3-4 Seiten, nur was für Auswertung relevant
-
-
 \subsection{Hyperfeinstruktur und Zeeman-Effekt}
-1 Termschema
+1 Satz Feinstruktur LS Kopplung. 1 Satz Kernspin I \\
+Kopplung zu HFS, F (formel, bereich) \\
+Energieaufspaltung -> A \\
+In äußerem Magnetfeld mF(formel, bereich) \\
+1 Termschema \\
+1 theoretische Werte für HFS-Aufspaltung
 
 \subsection{Optisches Pumpen}
-
-
-\subsection{Die Laserdiode}
-Zum optischen Pumpen wird im Versuch eine Laserdiode verwendet,
-weil Laserdioden linear polarisiertes Licht in einem schmalen Wellenlängenbereich liefern.
-Durch den Laserstrom und die Lasertemperatur kann die Wellenlänge des Lasers gezielt
-beeinflusst werden, so dass selektiv einzelne Hyperfein-Übergänge angeregt werden können.
-Für den Betrieb des Lasers ist ein Minimalstrom notwendig (die \emph{Laserschwelle}).
-Wird dieser Strom überschritten, ändern sich Ausgangsleistung und Laserfrequenz
-in erster Näherung linear mit dem Laserstrom.
-Es treten allerdings bei der Durchstimmung immer wieder Modensprünge auf,
-wenn sich die Zahl der stehenden Wellen im Resonator ändert.
-Bei den Messungen muss daher darauf geachtet werden, dass keine Modensprünge auftreten,
-um eine lineare Durchstimmung des Lasers zu erzielen.
-Die Linearität des Lasers kann mit einem Fabry-Pérot-Interferometer überprüft werden.
-
-
-\subsection{Das Fabry-Pérot-Interferometer}
-Ein Fabry-Pérot-Interferometer (Etalon) besteht aus zwei halbtransparenten, reflektierenden Flächen
-im Strahlengang.
-Eine Lichtwelle kann transmittiert werden, wenn sie zwischen den Spiegeln konstruktiv mit sich selbst interferiert.
-Über die Bedingung für konstruktive Interferenz kann man den \emph{freien Spektralbereich} berechnen,
-der den Abstand zwischen zwei Transmissionsmaxima beschreibt.
-Bei dem im Versuch verwendeten Etalon beträgt er $\Delta \nu_\text{FSR} = 9924 \pm 30\,\text{MHz}$.
-
+Erlaubte Übergänge \\
+Dopplerfrei Pumpen \\
+Kleine Abbildung 
 
 \subsection{Spinpräzession des Rubidiumensembles im äußeren Magnetfeld}
 Der Mechanismus der Spinpräzession wird in einem Versuchsteil ausgenutzt,
@@ -39,22 +19,21 @@ um die Stärke eines Magnetfelds sehr genau zu bestimmen.
 Spinpräzession tritt auf, wenn ein Ensemble von Atomen im Magnetfeld optisch gepumpt,
 das Ensemble also polarisiert wird, und anschließend eine Komponente
 des Magnetfelds schnell abgeschaltet wird (im Experiment die Komponente in Strahlrichtung).
-Die Spins der Atome führen dann eine Präzessionsbewegung um das verbleibende Magnetfeld $B$ aus,
-im Experiment ist das die Vertikalkomponente.
+Die Spins der Atome führen dann eine Präzessionsbewegung um das verbleibende Magnetfeld $\vec{B}$ aus,
+im Experiment ist das die Vertikalkomponente.  %TODO wenn zeit: Kegel der präzediert
 Die Präzessionsfrequenz $f$ beträgt \cite{staatsex}
 \begin{equation}
-\label{eq:gr:spinpräz}
-  f=\frac{g_\text{F} \cdot \mu_\text{B}}{h} \cdot B=: \alpha \cdot B
+    \label{eq:gr:spinpräz}
+    f=\frac{g_\text{F} \cdot \mu_\text{B}}{h} \cdot B=: \alpha \cdot B
 \end{equation}
 Hier sind $\mu_\text{B}$ das Bohrsche Magneton, $h$ das Plancksche Wirkungsquantum und
 $g_\text{F}$ der Landé-Faktor des Isotops.
-Man erhält mit $g_\text{F}$(\rb{85})=1/3 und $g_\text{F}$(\rb{87})=1/2 \cite{staatsex} für 
+Man erhält mit $g_\text{F}$(\rb{85})=1/3 und $g_\text{F}$(\rb{87})=1/2 \cite{staatsex} für
 die Proportionalitätskonstante $\alpha$ die Werte
 \begin{equation}
-  \alpha_{85}=4.665\,\text{kHz } \text{\textmu T}^{-1} \qquad \text{und} \qquad	\alpha_{87}=6.998\,\text{kHz } \text{\textmu T}^{-1} \ \, .
+    \label{eq:gr:alpha}
+    \alpha_{85}=4.665\,\text{kHz } \text{\textmu T}^{-1} \qquad \text{und} \qquad	\alpha_{87}=6.998\,\text{kHz } \text{\textmu T}^{-1} \ \, .
 \end{equation}
-
-
 
 \subsection{Orientierungsprozesse im Rubidiumensemble}
 In diesem Abschnitt wird ein kurzer Überblick über die mathematische Beschreibung der Orientierungsprozesse
@@ -66,7 +45,7 @@ Betrachtet man ein Ensemble von Rubidiumatomen, das im Magnetfeld durch zirkular
 wird die Zunahme der Differenz der Besetzungszahlen~$\left(\frac{\difd n}{\difd t}\right)_{\text{Pump}}$
 durch die folgende Differenzialgleichung beschrieben:
 \begin{equation}
-  \left(\frac{\difd n}{\difd t}\right)_{\text{Pump}}=\frac{N-n}{T_\text{P}}
+    \left(\frac{\difd n}{\difd t}\right)_{\text{Pump}}=\frac{N-n}{T_\text{P}}
 \end{equation}
 $N$ ist die Anzahl der Atome im Ensemble, $n$ die Differenz der Besetzungszahlen in dem Zweiniveausystem
 und $T_\text{P}$ die charakteristische Zeit für den Pumpvorgang, die \emph{Pumpzeit}.
@@ -76,24 +55,50 @@ Durch Wechselwirkung der Atome mit der Wand der Messzelle, durch Stöße mit dem
 oder durch Spinaustausch zwischen den Rubidiumatomen.
 Der Relaxationsvorgang wird durch folgende Differenzialgleichung beschrieben:
 \begin{equation}
-  \left(\frac{\difd n}{\difd t}\right)_{\text{Relax}}=-\frac{n}{T_\text{R}}
+    \left(\frac{\difd n}{\difd t}\right)_{\text{Relax}}=-\frac{n}{T_\text{R}}
 \end{equation}
-$T_\text{R}$ ist die \emph{Relaxationszeit}.
+$T_\text{R}$ ist die \emph{Relaxationszeit}. Der theoretische Wert \cite{staatsex} der Relaxationszeit für die bei der Messung 
+verwendete Rubidiumzelle beträgt ohne Berücksichtigung des Spinaustausches
+\begin{equation}
+    \label{eq:tr:theo}
+    T_\text{R}^\text{theo} = 6.5\,\text{ms} \ \, .
+\end{equation}
 
 Die Summe von Polarisation und Relaxation beschreibt den Orientierungsprozess im Rubidiumgas mit
 der Orientierungszeit $\tau$:
 \begin{equation}
-\label{eq:orientierungszeit}
-  \left(\frac{\difd n}{\difd t}\right)_{\text{Orient}}
-  =\left(\frac{\difd n}{\difd t}\right)_{\text{Pump}} + \left(\frac{\difd n}{\difd t}\right)_{\text{Relax}}
-  =\frac{N}{T_\text{P}}-n \left( \frac{1}{T_\text{P}} + \frac{1}{T_\text{R}}\right)
-  =:\frac{N}{T_\text{P}}- \frac{n}{\tau}
+    \label{eq:orientierungszeit}
+    \left(\frac{\difd n}{\difd t}\right)_{\text{Orient}}
+    =\left(\frac{\difd n}{\difd t}\right)_{\text{Pump}} + \left(\frac{\difd n}{\difd t}\right)_{\text{Relax}}
+    =\frac{N}{T_\text{P}}-n \left( \frac{1}{T_\text{P}} + \frac{1}{T_\text{R}}\right)
+    =:\frac{N}{T_\text{P}}- \frac{n}{\tau}
 \end{equation}
 
 Die Lösung dieser Differenzialgleichung für $n(t)$ ist eine exponentielle Änderung mit der Zeitkonstante $\tau$:
 \begin{equation}
-\label{eq:expabhorient}
-   n(t) \sim e^{-\frac{t}{\tau}}
+    \label{eq:expabhorient}
+    n(t) \sim e^{-\frac{t}{\tau}}
 \end{equation}
 
 
+\subsection{Die Laserdiode}
+Zum optischen Pumpen wird im Versuch eine Laserdiode verwendet,
+weil Laserdioden linear polarisiertes Licht in einem schmalen Wellenlängenbereich liefern.
+Durch den Laserstrom und die Lasertemperatur kann die Wellenlänge des Lasers gezielt
+beeinflusst werden, so dass selektiv einzelne Hyperfein-Übergänge angeregt werden können.
+Für den Betrieb des Lasers ist ein Minimalstrom notwendig (die \emph{Laserschwelle}).
+Wird dieser Strom überschritten, ändern sich Ausgangsleistung und Laserfrequenz
+in erster Näherung linear mit dem Laserstrom.
+Es treten allerdings bei der Durchstimmung immer wieder Modensprünge auf,
+wenn sich die Zahl der stehenden Wellen im Resonator ändert. Dies äußert sich sowohl in Stufen in der $P$-$I$-Kennlinie 
+als auch in unterschiedlich großen Abständen im Spektrum eines Etalons (Funktionsweise siehe \autoref{sub:etalon}).
+Bei den Messungen muss darauf geachtet werden, dass keine Modensprünge auftreten,
+um eine lineare Durchstimmung des Lasers zu erzielen.
+
+\subsection{Das Fabry-Pérot-Interferometer}
+\label{sub:etalon}
+Ein Fabry-Pérot-Interferometer (Etalon) besteht aus zwei halbtransparenten, reflektierenden Flächen
+im Strahlengang.
+Eine Lichtwelle kann transmittiert werden, wenn sie zwischen den Spiegeln konstruktiv mit sich selbst interferiert.
+Über die Bedingung für konstruktive Interferenz kann man den \emph{freien Spektralbereich} berechnen,
+der den Abstand zwischen zwei Transmissionsmaxima beschreibt.

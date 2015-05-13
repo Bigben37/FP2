@@ -2,7 +2,7 @@
 \subsection{Durchführung}
 \label{sect:durchführung}
 \subsubsection*{P-I-Kennlinie der Laserdiode}
-Für die erste Messung werden nur die beiden Linsen im Strahlengang justiert, alle anderen Elemente sind entfernt. 
+Für die erste Messung werden nur die beiden Linsen im Strahlengang justiert, alle anderen Elemente sind entfernt.
 Das Peltierelement wird auf 33.9$^\circ$C eingestellt und die Spannung an der
 Photodiode bei verschiedenen Laserdiodenströmen aufgezeichnet.
 
@@ -26,38 +26,27 @@ Die Frequenz des Modulationssignals beträgt 0.1\,kHz, seine Amplitude 0.7\,V.
 \subsection{Auswertung}
 \subsubsection*{P-I-Kennlinie der Laserdiode}
 \begin{figure}[H]
-\begin{center}
-  \includegraphics[width=\textwidth]{../img/part1/diodenkennlinie.pdf}
-  \caption{$PI$-Kennlinie der Laserdiode: Abhängigkeit der Spannung  % TODO P-I-Kennlinie ?
-  an der Photodiode vom Laserstrom. Man erkennt den linearen Arbeitsbereich (gefitteter Teil),
-  in dem ein (nahezu) modensprungfreier Betrieb möglich ist.}
-  \label{img:Kennlinie}
-\end{center}
-\end{figure} 
-\autoref{img:Kennlinie} zeigt die $PI$-Kennlinie der Photodiode.
+    \begin{center}
+        \includegraphics[width=\textwidth]{../img/part1/diodenkennlinie.pdf}
+        \caption{$P$-$I$-Kennlinie der Laserdiode: Abhängigkeit der Spannung
+        an der Photodiode vom Laserstrom. Man erkennt den linearen Arbeitsbereich (gefitteter Teil),
+        in dem ein modensprungfreier Betrieb möglich ist.}
+        \label{img:Kennlinie}
+    \end{center}
+\end{figure}
+\autoref{img:Kennlinie} zeigt die $P$-$I$-Kennlinie der Photodiode.
 Als Fehler auf die Photodiodenspannung wurde ein Fehler von
 \begin{equation}
-  s_{U_{\text{ph}}}= 5\,\text{mV} + 0.01 \cdot U_{\text{ph}}
+    s_{U_{\text{ph}}}= 5\,\text{mV} + 0.01 \cdot U_{\text{ph}}
 \end{equation}
 angenommen.
 Der Fehler auf den Strom $s_{I_{\text{L}}}$ beträgt ein Digit vom Lasernetzgerät:
 \begin{equation}
-  s_{I_{\text{L}}} = 0.1\,\text{mA} \ \, .
+    s_{I_{\text{L}}} = 0.1\,\text{mA} \ \, .
 \end{equation}
 Alle Messwerte wurden um den Spannungsoffset bei $I_{\text{L}}$=0\,mA verschoben.
-Ein linearer Fit des modensprungfreien Laserbereichs zwischen 55\,mA und 74\,mA
+Ein linearer Fit des modensprungfreien Laserbereichs zwischen 55\,mA und 71\,mA
 liefert eine Laserschwelle $I_{\text{th}}$ von
 \begin{equation}
-  I_{\text{th}}=(52.1\pm0.7)\,\text{mA} \ \, .
+    I_{\text{th}}=(52.01 \pm 0.13)\,\text{mA} \ \, .
 \end{equation}
-%TOTO fehler, modensprungfreien Bereich und Laserschwelle richtig machen
-
-\subsubsection*{Temperaturabhängigkeit der Laserfrequenz}
-Abb T-Abhängigkeit
-
-\subsubsection*{Zeitabhängigkeit der Laserfrequenz} 
-
-Abb I-Abhängigkeit nur für steigende,
-fallende Flanke nur Wert.
-
-mit Rampenfit: GHz/mA (Stromabhängigkeit)

@@ -23,7 +23,7 @@ def makeTwoScalesGraph(file):
 
     print('frame')
     frame = pad.DrawFrame(0, min(ch1.getY())*1.1, 0.051, max(ch1.getY())*1.1)
-    frame.SetXTitle('t / s')
+    frame.SetXTitle('Zeit t / s')
     frame.GetXaxis().CenterTitle()
     frame.SetYTitle('Spannung Spule 2: U_{2} / V')
     frame.GetYaxis().CenterTitle()
@@ -147,12 +147,13 @@ def evalNuclearSpin():
                                    [r"$I_\text{L}$ / mA", r"$\nu$ / kHz", r"$B_\text{hor}$ / \textmu T", r"$s_{B_\text{hor}}$ / \textmu T", 
                                     "$I$", "$s_I$"], 
                                    ['%.1f', '%.2f', '%.1f', '%.1f', '%.2f', '%.2f'], 
-                                   r"Berechnete horizontale Komponenten des Erdmagnetfeldes und Kernspin von Rubidium für das Doppelresonanzexperiment bei verschiedenen Lasterströmen $I_\text{L}$ und RF-Sender Frequenzen $\nu$.", 
+                                   r"Berechnete horizontale Komponenten des Erdmagnetfeldes und Kernspin von Rubidium für das " + 
+                                   r"Doppelresonanzexperiment bei verschiedenen Lasterströmen $I_\text{L}$ und RF-Sender-Frequenzen $\nu$.", 
                                    "tab:part3:results")
 
 
 def main():
-    makeGraphs()
+    #makeGraphs()
     evalNuclearSpin()
 
 

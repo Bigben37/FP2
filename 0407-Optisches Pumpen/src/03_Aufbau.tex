@@ -4,20 +4,21 @@ verwendet wird.
 Auf einer optischen Bank befindet sich eine \emph{Laserdiode} (mit der Wellenlänge
 795\,nm zur Anregung der D$_1$-Linie von Rubidium).
 Die Temperatur der Diode kann mit einem \emph{Peltierelement} eingestellt werden,
-die Stromversorgung erfolgt durch ein speziellen Netzteil.
+die Stromversorgung erfolgt durch ein spezielles Netzteil.
 Der Laserstrahl wird von einer \emph{Linse} kollimiert und durchläuft verschiedene
 optische Bauteile, die (nicht alle gleichzeitig) in den einzelnen Versuchsteilen
 verwendet werden:
-
-Eine drehbare Scheibe (\emph{Chopper}), in der sich Löcher befinden, kann von
-einem Elektromotor auf gewünschte Rotationsgeschwindigkeit eingestellt werden und unterbricht periodisch
-den Laserstrahl.
-Um die Fre\-quenz\-eich\-ung der Lasers durchzuführen, kann ein \emph{Etalon}
-(mit 9924\,$\pm$\,30\,MHz freiem Spektralbereich) in den Strahlengang gebracht werden.
-Ein \emph{\textlambda/4-Plättchen} erzeugt aus dem linear polarisierten Laserlicht zirkular polarisiertes Licht.
-Ein \emph{Linearpolarisator} kann als Analysator verwendet werden, um den Polarisationszustand
-des Strahls zu überprüfen. Verschiedene \emph{Neutraldichtefilter} können zur Verringerung der Laserlichtintensität
-benutzt werden.
+\begin{itemize}
+    \item Eine drehbare Scheibe (\emph{Chopper}), in der sich Löcher befinden, kann von
+    einem Elektromotor auf gewünschte Rotationsgeschwindigkeit eingestellt werden und unterbricht periodisch
+    den Laserstrahl.
+    \item Um die Fre\-quenz\-eich\-ung der Lasers durchzuführen, kann ein \emph{Etalon}
+    (mit $\Delta \nu_\text{FSR} = 9924 \pm 30$\,MHz freiem Spektralbereich) in den Strahlengang gebracht werden.
+    \item Ein \emph{\textlambda/4-Plättchen} erzeugt aus dem linear polarisierten Laserlicht zirkular polarisiertes Licht.
+    \item Ein \emph{Linearpolarisator} kann als Analysator verwendet werden, um den Polarisationszustand
+    des Strahls zu überprüfen.
+    \item Verschiedene \emph{Neutraldichtefilter} können zur Verringerung der Laserlichtintensität benutzt werden.
+\end{itemize}
 
 Anschließend fällt das Laserlicht durch eine mit Rubidium gefüllte Glaskugel.
 Um den Dampfdruck des Rubidiums zu erhöhen, kann diese Zelle mit einem Föhn geheizt werden.
@@ -29,17 +30,17 @@ Ein senkrecht zum Strahl verlaufendes horizontales Magnetfeld bleibt unkompensie
 Alle Spulen werden von Frequenzgeneratoren und Konstantstromquellen versorgt.
 Um die Stärke des Magnetfeldes bei einem bestimmten Strom zu berechnen, können die Werte in \autoref{tab:inductorItoB} benutzt werden.
 \begin{table}[H]
-\caption{Faktoren $c_n$ für die Umrechnung von durchlaufendem Strom in Stärke des erzeugten Magnetfeldes der verschiedenen Spulen, 
-		 entnommen aus \cite{manual}.}
-\begin{center}
-\begin{tabular}{|c|c|c|}
-    \hline
-    Spule $n$	& $c_n$ / $\frac{\text{T}}{\text{A}}$	& $s_{c_n}$ / $\frac{\text{T}}{\text{A}}$	\\ \hline
-    1			& $7.99 \cdot 10^{-4}$					& $0.01 \cdot 10^{-4}$						\\ \hline
-    4			& $4.76 \cdot 10^{-4}$					& $0.01 \cdot 10^{-4}$						\\ \hline
-\end{tabular}
-\end{center}
-\label{tab:inductorItoB}
+    \caption{Faktoren $c_n$ für die Umrechnung von durchlaufendem Strom in Stärke des erzeugten Magnetfeldes der verschiedenen Spulen,
+    entnommen aus \cite{manual}.}
+    \begin{center}
+        \begin{tabular}{|c|c|c|}
+            \hline
+            Spule $n$	& $c_n$ / $\frac{\text{T}}{\text{A}}$	& $s_{c_n}$ / $\frac{\text{T}}{\text{A}}$	\\ \hline
+         	1			& $7.99 \cdot 10^{-4}$					& $0.01 \cdot 10^{-4}$						\\ \hline
+			4			& $4.76 \cdot 10^{-4}$					& $0.01 \cdot 10^{-4}$						\\ \hline
+        \end{tabular}
+    \end{center}
+    \label{tab:inductorItoB}
 \end{table}
 
 An der Zelle befindet sich ein \emph{RF-Sender}, mit dem ein Signal im Radiofrequenzbereich eingestrahlt werden kann.
@@ -53,14 +54,14 @@ Auch die Signale der Frequenzgeneratoren können mit dem Oszilloskop betrachtet 
 %\thispagestyle{plain}
 
 \begin{figure}[H]
-        %\centering
-        \def\svgwidth{1.4\textwidth}
-        \input{../img/aufbau.pdf_tex}
-        \caption{Aufbau des Experiments: Strahlengang auf der optischen Bank
-        und optische und elektronische Bauteile.
-        Nicht alle gezeigten Komponenten werden in den einzelnen
-        Versuchsteilen verwendet.}
-        \label{img:aufbau}
+    %\centering
+    \def\svgwidth{1.4\textwidth}
+    \input{../img/aufbau.pdf_tex}
+    \caption{Aufbau des Experiments: Strahlengang auf der optischen Bank
+    und optische und elektronische Bauteile.
+    Nicht alle gezeigten Komponenten werden in den einzelnen
+    Versuchsteilen verwendet.}
+    \label{img:aufbau}
 \end{figure}
 
 \end{landscape}
