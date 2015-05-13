@@ -130,7 +130,7 @@ def evalAngleDependency():
         data.addPoint(phi, f, 0.5, sf)
 
     c = TCanvas('c_phi', '', 1280, 720)
-    g = data.makeGraph('g_phi', 'Winkel #varphi', 'Praezessionsfrequenz f / kHz')
+    g = data.makeGraph('g_phi', 'Rotation des Strahlengangs #varphi#circ', 'Praezessionsfrequenz f / kHz')
     g.GetXaxis().SetRangeUser(-15, 15)
     g.SetMinimum(0)
     g.Draw('APX')
@@ -147,8 +147,8 @@ def evalAngleDependency():
     l = TLegend(0.7, 0.15, 0.95, 0.5)
     l.SetTextSize(0.03)
     l.AddEntry(g, 'Praezessionsfrequenz', 'p')
-    l.AddEntry(fit.function, 'Fit mit f = #beta |sin(#varphi)|', 'l')
-    fit.addParamsToLegend(l, (('%.2f', '%.2f'), ('%.2f', '%.2f')), chisquareformat='%.2f', units=['kHz/#muT', '#circ'])
+    l.AddEntry(fit.function, 'Fit mit f = #beta |sin(#varphi + #varphi_{0})|', 'l')
+    fit.addParamsToLegend(l, (('%.1f', '%.1f'), ('%.2f', '%.2f')), chisquareformat='%.2f', units=['kHz/#muT', '#circ'])
     l.Draw()
 
     c.Update()
@@ -156,10 +156,10 @@ def evalAngleDependency():
 
 
 def main():
-    makeGraphs()
-    spinprecs = ['Rb85', 'Rb85_gedreht', 'Rb87']  # TODO gedreht größerer Bereich
-    for spinprec in spinprecs:
-        evalSpinPrecission(spinprec)
+    #makeGraphs()
+    #spinprecs = ['Rb85', 'Rb85_gedreht', 'Rb87']  # TODO gedreht größerer Bereich
+    #for spinprec in spinprecs:
+    #    evalSpinPrecission(spinprec)
     evalAngleDependency()
 
 if __name__ == '__main__':
