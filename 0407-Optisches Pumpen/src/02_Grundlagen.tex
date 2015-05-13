@@ -3,28 +3,36 @@
 3-4 Seiten, nur was für Auswertung relevant
 
 1 Termschema
-
-Diodenlaser, Modensprünge. Nix mit pn..
-
 Zeeman, Hyperfein
+opt. Pumpen
 
-Etalon
 
-Spinpräzessionsfrequent, zwei $\alpha$s
+\subsection{Die Laserdiode}
+Modensprünge. Nix mit pn..
+Frequenzbeeinflussung durch Strom und Temperatur
+
+
+\subsection{Das Fabry-Pérot-Interferometer}
 
 \subsection{Spinpräzession des Rubidiumensembles im äußeren Magnetfeld}
 Der Mechanismus der Spinpräzession wird in einem Versuchsteil ausgenutzt,
 um die Stärke eines Magnetfelds sehr genau zu bestimmen.
 Spinpräzession tritt auf, wenn ein Ensemble von Atomen im Magnetfeld optisch gepumpt,
 das Ensemble also polarisiert wird, und anschließend eine Komponente
-des Magnetfelds abgeschaltet wird (im Experiment die Komponente in Strahlrichtung).
-Die Spins der Atome führen dann eine Präzessionsbewegung um das verbleibende Magnetfeld aus,
+des Magnetfelds schnell abgeschaltet wird (im Experiment die Komponente in Strahlrichtung).
+Die Spins der Atome führen dann eine Präzessionsbewegung um das verbleibende Magnetfeld $B$ aus,
 im Experiment ist das die Vertikalkomponente.
-Die Präzessionsfrequenz beträgt (\cite{staatsex})
+Die Präzessionsfrequenz $f$ beträgt \cite{staatsex}
 \begin{equation}
-  f=\frac{g_\text{F} \cdot \mu_\text{B}}{h} \cdot B=: \beta \cdot B
+  f=\frac{g_\text{F} \cdot \mu_\text{B}}{h} \cdot B=: \alpha \cdot B
 \end{equation}
-
+Hier sind $\mu_\text{B}$ das Bohrsche Magneton, $h$ das Plancksche Wirkungsquantum und
+$g_\text{F}$ der Landé-Faktor des Isotops.
+Man erhält mit $g_\text{F}$(\rb{85})=1/3 und $g_\text{F}$(\rb{87})=1/2 \cite{staatsex} für 
+die Proportionalitätskonstante $\alpha$ die Werte
+\begin{equation}
+  \alpha_{85}=4.665\,\text{kHz } \text{\textmu T}^{-1} \qquad \text{und} \qquad	\alpha_{87}=6.998\,\text{kHz } \text{\textmu T}^{-1} \ \, .
+\end{equation}
 
 
 
@@ -35,7 +43,7 @@ Auswertung der Messungen zur Relaxationszeit notwendig sind.
 Die ausführliche Herleitung der Formeln wird in \cite{staatsex} gezeigt.
 
 Betrachtet man ein Ensemble von Rubidiumatomen, das im Magnetfeld durch zirkular polarisiertes Licht gepumpt wird,
-wird die zeitliche Änderung der Differenz der Besetzungszahlen~$\left(\frac{\difd n}{\difd t}\right)_{\text{Pump}}$
+wird die Zunahme der Differenz der Besetzungszahlen~$\left(\frac{\difd n}{\difd t}\right)_{\text{Pump}}$
 durch die folgende Differenzialgleichung beschrieben:
 \begin{equation}
   \left(\frac{\difd n}{\difd t}\right)_{\text{Pump}}=\frac{N-n}{T_\text{P}}
@@ -43,6 +51,9 @@ durch die folgende Differenzialgleichung beschrieben:
 $N$ ist die Anzahl der Atome im Ensemble, $n$ die Differenz der Besetzungszahlen in dem Zweiniveausystem
 und $T_\text{P}$ die charakteristische Zeit für den Pumpvorgang, die \emph{Pumpzeit}.
 
+Relaxation, also Verlust der Polarisation, ist durch verschiedene Mechanismen möglich:
+Durch Wechselwirkung der Atome mit der Wand der Messzelle, durch Stöße mit dem Puffergas
+oder durch Spinaustausch zwischen den Rubidiumatomen.
 Der Relaxationsvorgang wird durch folgende Differenzialgleichung beschrieben:
 \begin{equation}
   \left(\frac{\difd n}{\difd t}\right)_{\text{Relax}}=-\frac{n}{T_\text{R}}
