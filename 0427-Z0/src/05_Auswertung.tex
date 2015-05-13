@@ -1,6 +1,41 @@
 \section{Messergebnisse und Auswertung}
 \subsection{Bestimmung der Schnitte}
-\subsection{Berechnung Effizienzmatrix + Derivate}
+Reinheiten
+\subsection{Berechnung der Effizienzmatrix}
+Werden die oben bestimmten Schnitte auf die Monte-Carlo-Daten angewendet, kann man die Effizienz $\bm{E}$ der Schnitte berechnen. 
+Die Effizienzmatrix gibt an, welcher Anteil der verschiedenen Ereignisse nach einem Schnitt noch vorhanden sind. Sie ist definiert als 
+\begin{equation}
+    \left( \bm{E} \right)_{i,j} = \frac{n_{i, j}^\text{cut}}{n_i} \ \, .
+\end{equation} 
+$i \in $ e$^+$e$^-$, \textmu$^+$\textmu$^-$, \texttau$^+$\texttau$^-$, q$^+$q$^-$ \\  %TODO format
+Dabei bezeichnet $n_{i, j}^\text{cut}$ die Anzahl der Ereignisse von Typ $i$ nach Schnitt von Typ $j$ und $n_i$ die gesamte Anzahl von Ereignissen 
+der Monte-Carlo-Simulation von Typ $i$. 
+Die Beziehung zwischen den Anzahlen von gemessenen Ereignissen nach Schnitt $\vec{M}$\footnote{"measurement"} und den echten Anzahlen 
+$\vec{T}$\footnote{"truth"} lautet durch die Definition der Effizienzmatrix $\bm{E}$:
+\begin{equation}
+    \label{eq:effmat:mtrel}
+    \vec{M} = \bm{E} \vec{T}
+\end{equation}
+Die Effizienzmatrix unsere Schnitte ist in \autoref{tab:effmat:val} dargestellt.
+\input{tab_effmat_val}
+Nun gilt es den Fehler der einzelnen Einträge der Effizienzmatrix zu bestimmen. Hierzu wird die Definition der Effizienz $\epsilon$ leicht geändert:
+\begin{equation}
+    \epsilon = \frac{p}{p+f}	
+\end{equation}
+Die Anzahl der Ereignisse, die nach Schnitt noch da sind, wird mit $p$\footnote{"`pass"'} bezeichnet. Aus der totalen Anzahl $n$ der Ereignisse lässt 
+sich die Anzahl derjenigen Ereignisse $f$\footnote{"`fail"'} berechnen, die beim Schnitt wegfallen. Da $p$ und $f$ als poissonverteilt angenommen 
+werden können (bei hinreichenden Größen von $p$ und $f$), gilt für den Fehler der Effizienz mit Gauß'scher Fehlerfortpflanzung.
+\begin{equation}
+    s_\epsilon = \sqrt{\frac{f \cdot p}{ \left( f + p \right)^3}}
+\end{equation}
+Mit der Definition von $\epsilon$ und $n$ kann man den Fehler zu der in der Literatur üblichen Form umformen:
+\begin{equation}
+    s_\epsilon = \sqrt{\frac{\epsilon (1-\epsilon)}{n}}
+\end{equation}
+Somit können nun die Fehler von den Einträge der Effizienzmatrix bestimmt werden (\autoref{tab:effmat:err}).
+\input{tab_effmat_err}
+\subsubsection{Berechnung der inversen Effizienzmatrix}
+
 \subsection{s-t-Kanal Trennung}
 \subsection{Auswertung der Wirkungsquerschnitte}
 Fits

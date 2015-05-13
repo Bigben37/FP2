@@ -1,11 +1,11 @@
 from numpy import sqrt
 from numpy.linalg import inv  # inverse matrix
 from functions import setupROOT
-from z0 import Z0Data
+from z0 import Z0Data, LATEXE, LATEXM, LATEXQ, LATEXT
 from ROOT import gStyle, TCanvas, TLegend  # @UnresolvedImport
 from txtfile import TxtFile
 
-DEBUG = False  # TODO set False
+DEBUG = True  # TODO set False
 
 CUTS = [("ee", lambda e: e["Ncharged"] <= 5 and e["E_ecal"] >= 75 and -0.9 <= e["cos_thet"] <= 0.9),
         ("mm", lambda e: e["Ncharged"] == 2 and e["E_ecal"] <= 50 and e["Pcharged"] >= 75),
@@ -100,6 +100,7 @@ def makeCuts(datas):
         efficencies.append(effs)
         sefficencies.append(seffs)
         purities.append(purity)
+    # output for further calculations
     with TxtFile('../calc/efficencies.txt', 'w') as f:
         f.write2DArrayToFile(efficencies, ['%.8f'] * 4)
     with TxtFile('../calc/efficencies_error.txt', 'w') as f:
@@ -108,6 +109,15 @@ def makeCuts(datas):
         f.write2DArrayToFile(inv(efficencies), ['%.8f'] * 4)
     with TxtFile('../calc/purities.txt', 'w') as f:
         f.write2DArrayToFile(list(zip(*[purities])), ['%.6f'])
+    # output for protocol
+    thead = ["Schnitt/MC-Daten", LATEXE, LATEXM, LATEXT, LATEXQ]
+    firstrow = [LATEXE, LATEXM, LATEXT, LATEXQ]
+    with TxtFile('../src/tab_effmat_val.tex', 'w') as f:
+        f.write2DArrayToLatexTable(list(zip(*([firstrow] + list(zip(*efficencies))))), thead, 
+                                   ['%s'] + ['%.6f']*4, 'Effizienzmatrix.', 'tab:effmat:val')
+    with TxtFile('../src/tab_effmat_err.tex', 'w') as f:
+        f.write2DArrayToLatexTable(list(zip(*([firstrow] + list(zip(*sefficencies))))), thead, 
+                                   ['%s'] + ['%.6f']*4, 'Fehler der Effizienzmatrix.', 'tab:effmat:err')
 
 if __name__ == '__main__':
     setupROOT()

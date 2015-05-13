@@ -2,6 +2,10 @@ import time
 from ROOT import TFile, TH1F  # @UnresolvedImport
 
 LEP_ENERGIES = [88.48021, 89.47158, 90.22720, 91.23223, 91.97109, 92.97091, 93.71841]
+LATEXE = r"e$^+$e$^-$"
+LATEXM = r"\textmu$^+$\textmu$^-$"
+LATEXT = r"\texttau$^+$\texttau$^-$"
+LATEXQ = r"q$^+$q$^-$"
 
 class Z0Data():
 
