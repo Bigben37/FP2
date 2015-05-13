@@ -47,16 +47,15 @@ Zur Bestimmung der Präzessionsperiodendauer $T$ wurden die Zeitkoordinaten $t_1
 von zwei möglichst weit voneinander entfernten Maxima per Hand abgelesen und durch
 die Zahl $n$ der dazwischenliegenden Perioden geteilt:
 \begin{equation}
-  T=\frac{t_2-t_1}{n}=f^{-1}
+  T=\frac{t_2-t_1}{n}=f^{-1}, \qquad s_f = n \frac{\sqrt{s_{t_2}^2 + s_{t_1}^2}}{ \left( t_2 -t_1 \right)^2 }
 \end{equation}
 Die Präzessionsfrequenz ist $f$ bezeichnet.
-Der Fehler auf die abgelesenen Zeiten wurde abgeschätzt auf $s_{t_\text{i}}=XXX$\,ms,
+Der relative Fehler auf die abgelesenen Zeiten wurde abgeschätzt auf $\frac{s_{t_i}}{t_i}=0.01$,
 $n$ ist nicht fehlerbehaftet.
-%TODO Fehler Periodendauer
 
 Aus dem Strom durch Spule~4 wurde mit \autoref{tab:inductorItoB} das erzeugte vertikale Magnetfeld
-$B_\text{S,v}$ berechnet. Der Fehler auf den Strom beträgt $s_{I_4}=XXX$\,mA.
-%TODO Fehler I4
+$B_\text{S,v}$ berechnet. Der Fehler auf den Strom beträgt $s_{I_4}=1$\,mA.
+
 Die Abhängigkeit der Präzessionsfrequenz $f$ vom zusätzlichen Vertikalfeld $B_\text{S,v}$ ist auf
 \autoref{img:spp:SPPRb85} gezeigt.
 Ein erster Fit erfolgt mit
@@ -71,7 +70,7 @@ $B_\text{E,v} \text{\,-\,} B_\text{S,v}$ in der Messreihe nicht umdreht.
 
 \begin{figure}[H]
 \begin{center}
-  \includegraphics[width=\textwidth]{../img/part4/SPP_Rb85.pdf}
+  \includegraphics[width=\textwidth]{../img/part4/Rb85.pdf}
   \caption{Spinpräzessionsfrequenz $f$ von \rb{85} in Abhängigkeit
   vom zusätzlichen vertikalen Magnetfeld $B_\text{S,v}$, das dem Erdmagnetfeld überlagert ist.
   Der Fit erfolgt mit einem einfachen Modell sowie unter Berücksichtigung des
@@ -93,7 +92,7 @@ In \autoref{tab:spp:fitres} sind die Ergebnisse der aller vier Fits aufgeführt.
 
 \begin{figure}[H]
 \begin{center}
-  \includegraphics[width=\textwidth]{../img/part4/SPP_Rb87.pdf}
+  \includegraphics[width=\textwidth]{../img/part4/Rb87.pdf}
   \caption{Spinpräzessionsfrequenz $f$ von \rb{87} in Abhängigkeit
   vom zusätzlichen vertikalen Magnetfeld $B_\text{S,v}$.}
   \label{img:spp:SPPRb87}
@@ -154,7 +153,7 @@ Die obige Verwendung des erweiterten Modells lieferte also hier eine korrekte Vo
 
 \begin{figure}[H]
 \begin{center}
-  \includegraphics[width=\textwidth]{../img/part4/SPP_Rb85_gedreht.pdf}
+  \includegraphics[width=\textwidth]{../img/part4/Rb85_gedreht.pdf}
   \caption{Spinpräzessionsfrequenz $f$ von \rb{85} in Abhängigkeit
   vom zusätzlichen vertikalen Magnetfeld $B_\text{S,v}$
   nach Drehung des Messaufbaus um 10$^\circ$ gegen den Uhrzeigersinn.}
@@ -173,7 +172,7 @@ Eine weitere Untersuchung der Horizontalkomponente erfolgte mit einer Untersuchu
 der Präzessionsfrequenz.
 Für sie gilt
 \begin{equation}
-  f(\varphi) = \alpha \cdot B_\text{E,h,p} \cdot |\sin(\varphi)| \ \, ,
+  f(\varphi) = \alpha \cdot B_\text{E,h,p} \cdot |\sin(\varphi)| \ \, ,  %TODO Parameter für Winkeloffset, sollte verschwinden
 \end{equation}
 mit der Horizontalkomponente $B_\text{E,h,p}$ des Erdmagnetfelds in Strahlrichtung.
 \autoref{img:spp:Winkelabhängigkeit} zeigt die Messergebnisse und den Fit mit obiger Gleichung.
@@ -182,7 +181,7 @@ so dass für den Sinus auch die Kleinwinkelnäherung verwendet werden könnte.
 
 \begin{figure}[H]
 \begin{center}
-  \includegraphics[width=0.6\textwidth]{../img/part4/Winkelabhaengigkeit.pdf}
+  \includegraphics[width=\textwidth]{../img/part4/winkel.pdf}
   \caption{Abhängigkeit der Spinpräzessionsfrequenz $f$ von der Ausrichtung des Messaufbaus im Erdmagnetfeld.}
   \label{img:spp:Winkelabhängigkeit}
 \end{center}

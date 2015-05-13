@@ -126,7 +126,10 @@ inductorIToBVals = {1: (7.99e-4, 0.01e-4), 2: (8.14e-4, 0.01e-4), 4: (4.76e-4, 0
 def inductorIToB(number, current, error):
     IToB, sIToB = inductorIToBVals[number]
     B = IToB * current
-    sB = B * sqrt((sIToB / IToB) ** 2 + (error / current) ** 2)
+    if not current == 0:
+        sB = B * sqrt((sIToB / IToB) ** 2 + (error / current) ** 2)
+    else:
+        sB = 0
     return B, sB
 
 def avgCloseValues(list, epsilon):
