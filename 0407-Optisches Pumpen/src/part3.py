@@ -153,7 +153,7 @@ def evalNuclearSpin():
 
 
 def main():
-    #makeGraphs()
+    makeGraphs()
     evalNuclearSpin()
 
 
