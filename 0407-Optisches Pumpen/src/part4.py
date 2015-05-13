@@ -15,8 +15,20 @@ def makeGraph(name):
     c = TCanvas('c_%s' % name, '', 1280, 720)
     g1 = ch1.makeGraph('g1_%s' % name, 'Zeit t/s', 'Spannung U/V')
     g2 = ch2.makeGraph('g1_%s' % name, 'Zeit t/s', 'Spannung U/V')
-    prepareGraph(g1, 1)
-    prepareGraph(g2, 2)
+    if int(name[:2]) < 4:
+        prepareGraph(g1, 2)
+        prepareGraph(g2, 1)
+    else:
+        prepareGraph(g1, 1)
+        prepareGraph(g2, 2)
+    
+    g1.GetXaxis().SetRangeUser(0, ch1.getMaxX())
+    ymin = min(ch1.getMinY(), ch2.getMinY())
+    ymax = max(ch1.getMaxY(), ch2.getMaxY())
+    deltaY = abs(ymax - ymin) * 0.05
+    g1.SetMinimum(ymin - deltaY)
+    g1.SetMaximum(ymax + deltaY)
+    
     g1.Draw('APX')
     g1.Draw('P')
     g2.Draw('PX')
@@ -117,12 +129,13 @@ def evalAngleDependency():
     c.Print('../img/part4/winkel.pdf', 'pdf')
 
 def main():
-    #makeGraphs()
+    makeGraphs()
     """
     spinprecs = ['Rb85', 'Rb85_gedreht', 'Rb87']
     for spinprec in spinprecs:
-        evalSpinPrecission(spinprec)"""
+        evalSpinPrecission(spinprec)
     evalAngleDependency()
+    """
 
 if __name__ == '__main__':
     setupROOT()
