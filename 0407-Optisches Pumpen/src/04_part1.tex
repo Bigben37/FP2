@@ -1,35 +1,14 @@
-\section{Charakterisierung des Messaufbaus}
-\subsection{Durchführung}
+\section{P-I-Kennlinie der Laserdiode}
 \label{sect:durchführung}
-\subsubsection*{P-I-Kennlinie der Laserdiode}
-Für die erste Messung werden nur die beiden Linsen im Strahlengang justiert, alle anderen Elemente sind entfernt.
+Für die Vermessung der Laserdiode werden nur die beiden Linsen im Strahlengang justiert,
+alle anderen Elemente sind entfernt.
 Das Peltierelement wird auf 33.9$^\circ$C eingestellt und die Spannung an der
 Photodiode bei verschiedenen Laserdiodenströmen aufgezeichnet.
-
-\subsubsection*{Temperaturabhängigkeit der Laserfrequenz}
-Zur Bestimmung der Temperaturabhängigkeit der
-Laserfrequenz wird das Etalon in den Strahlengang eingesetzt und der Diodenstrom mit einem Dreiecksignal moduliert
-(Signalgenerator ist das im Aufbau vorhandene Netzgerät).
-Der Konstantanteil des Stroms beträgt 63.6\,mA.
-Modulationssignal und Photodiodensignal werden mit dem Oszilloskop gemessen und die Wanderung eines Etalonpeaks
-im Temperaturbereich von 32.6$^\circ$C bis 33.7$^\circ$C beobachtet.
-
-\subsubsection*{Zeitabhängigkeit der Laserfrequenz}
-Der Aufbau zur Bestimmung der Stromabhängigkeit ist
-wie bei der Messung der Temperaturabhängigkeit.
-Der Konstantanteil des Laserstroms beträgt bei der Messung 64.7\,mA,
-die Temperatur der Laserdiode 34.0$^\circ$C.
-Die Modulation des Laserstroms findet mit dem \emph{instec function~generator GFG-8210} statt,
-da dieser eine bessere Signalqualität als das Netzgerät des Versuchsaufbaus liefert.
-Die Frequenz des Modulationssignals beträgt 0.1\,kHz, seine Amplitude 0.7\,V.
-
-\subsection{Auswertung}
-\subsubsection*{P-I-Kennlinie der Laserdiode}
 \begin{figure}[H]
     \begin{center}
         \includegraphics[width=\textwidth]{../img/part1/diodenkennlinie.pdf}
         \caption{$P$-$I$-Kennlinie der Laserdiode: Abhängigkeit der Spannung
-        an der Photodiode vom Laserstrom. Man erkennt den linearen Arbeitsbereich (gefitteter Teil),
+        an der Photodiode vom Laserstrom $I_\text{L}$. Man erkennt den linearen Arbeitsbereich (gefitteter Teil),
         in dem ein modensprungfreier Betrieb möglich ist.}
         \label{img:Kennlinie}
     \end{center}
@@ -50,3 +29,17 @@ liefert eine Laserschwelle $I_{\text{th}}$ von
 \begin{equation}
     I_{\text{th}}=(52.01 \pm 0.13)\,\text{mA} \ \, .
 \end{equation}
+Interessant ist der Vergleich der $P$-$I$-Kennlinie mit dem Etalon-Transmissionsspektrum auf \autoref{img:etalon:fit}:
+Aus der Amplitude der Modulationsspannung der Laserdiode und dem eingestellten Gleichanteil des Laserstroms
+lässt sich der Laserstrom an den einzelnen Peaks bestimmen.
+Dies wird hier kurz qualitativ gezeigt, ohne auf die Fehler einzugehen.
+
+Der erste schwache Etalonpeak tritt bei einer Modulationsspannung von -0.26\,V auf, der Modensprung
+bei einer Spannung von 0.22\,V.
+Mit dem Konvertierungsfaktor des Lasernetzgeräts von 40\,mA/V und dem Gleichanteil des Laserstroms von 64.7\,mA
+erhält man für den Laserstrom beim ersten Peak 54\,mA und beim Modensprung 74\,mA.
+Dies entspricht fast exakt dem in der $P$-$I$-Kennlinie identifizierten Bereich
+zwischen Laserschwelle und erstem Modensprung.
+
+
+
