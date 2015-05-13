@@ -27,6 +27,8 @@ def makeTwoScalesGraph(file):
     frame.GetXaxis().CenterTitle()
     frame.SetYTitle('Spannung Spule 2: U_{2} / V')
     frame.GetYaxis().CenterTitle()
+    frame.GetYaxis().SetLabelColor(4)
+    frame.GetYaxis().SetTitleColor(4)
 
     print('g1')
     g1 = ch1.makeGraph('g1-%s' % file)
@@ -44,8 +46,7 @@ def makeTwoScalesGraph(file):
 
     print('g2')
     g2 = ch2.makeGraph('g2-%s' % file)
-    prepareGraph(g2)
-    g2.SetMarkerColor(2)
+    prepareGraph(g2, 2)
     g2ymin = min(ch2.getY())
     xmin = pad.GetUxmin()
     xmax = pad.GetUxmax()
@@ -61,10 +62,7 @@ def makeTwoScalesGraph(file):
 
     print('axis')
     axis = TGaxis(xmax, ymin, xmax, ymax, ymin, ymax, 510, "+L")
-    axis.SetLineColor(1)
-    axis.SetLabelColor(2)
-    axis.SetTitle('Spannung Photodiode: U_{P} / V')
-    axis.SetTitleColor(2)
+    axis.SetTitle('Spannung Photodiode: U_{ph} / V')
     axis.CenterTitle()
     axis.SetTitleOffset(1.2)
     axis.Draw()
@@ -78,7 +76,7 @@ def makeGraphs():
     gStyle.SetPadTickY(0)
     files = os.listdir(os.path.join(os.getcwd(), '../data/part3/'))
     files.sort()
-    files = files[5:]
+    files = files[0:]
     for file in files:
         if file.endswith('.tab'):
             makeTwoScalesGraph(file)
@@ -154,7 +152,7 @@ def evalNuclearSpin():
 
 
 def main():
-    #makeGraphs()
+    makeGraphs()
     evalNuclearSpin()
 
 
