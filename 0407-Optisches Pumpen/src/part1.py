@@ -21,7 +21,7 @@ def evalDiode():
         U = u - U0
         su = 5 + 0.01 * u
         sU = sqrt(su ** 2 + sU0 ** 2)
-        data.addPoint(I, U, 1, sU)
+        data.addPoint(I, U, 0.1, sU)
     xmin, xmax = 53, 74.5
 
     c = TCanvas('c_diode', '', 1280, 720)
@@ -50,10 +50,10 @@ def evalDiode():
 
     l = TLegend(0.15, 0.55, 0.4, 0.85)
     l.SetTextSize(0.03)
-    l.AddEntry(g, 'Diodenkennlinie', 'p')
+    l.AddEntry(g, 'Laserdiodenkennlinie', 'p')
     l.AddEntry(g2, 'Ausschnitt zum Fitten', 'p')
     l.AddEntry(fit.function, 'Fit mit U_{ph} = a (I_{ L} - I_{ th} )', 'l')
-    fit.addParamsToLegend(l, (('%.2f', '%.2f'), ('%.2f', '%.2f')), chisquareformat='%.2f', units=['mV/mA', 'mA'])
+    fit.addParamsToLegend(l, (('%.1f', '%.1f'), ('%.2f', '%.2f')), chisquareformat='%.2f', units=['mV/mA', 'mA'])
     l.Draw()
 
     g.Draw('P')
