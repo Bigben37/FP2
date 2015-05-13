@@ -130,7 +130,7 @@ def evalAngleDependency():
         data.addPoint(phi, f, 0.5, sf)
 
     c = TCanvas('c_phi', '', 1280, 720)
-    g = data.makeGraph('g_phi', 'Rotation des Strahlengangs #varphi#circ', 'Praezessionsfrequenz f / kHz')
+    g = data.makeGraph('g_phi', 'Rotation des Strahlengangs #varphi / #circ', 'Praezessionsfrequenz f / kHz')
     g.GetXaxis().SetRangeUser(-15, 15)
     g.SetMinimum(0)
     g.Draw('APX')
@@ -156,10 +156,10 @@ def evalAngleDependency():
 
 
 def main():
-    #makeGraphs()
-    #spinprecs = ['Rb85', 'Rb85_gedreht', 'Rb87']  # TODO gedreht größerer Bereich
-    #for spinprec in spinprecs:
-    #    evalSpinPrecission(spinprec)
+    makeGraphs()
+    spinprecs = ['Rb85', 'Rb85_gedreht', 'Rb87']  # TODO gedreht größerer Bereich
+    for spinprec in spinprecs:
+        evalSpinPrecission(spinprec)
     evalAngleDependency()
 
 if __name__ == '__main__':
