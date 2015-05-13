@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[      8905,        229]
-NotebookOptionsPosition[      8442,        208]
-NotebookOutlinePosition[      8781,        223]
-CellTagsIndexPosition[      8738,        220]
+NotebookDataLength[      9152,        234]
+NotebookOptionsPosition[      8690,        213]
+NotebookOutlinePosition[      9028,        228]
+CellTagsIndexPosition[      8985,        225]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -68,7 +68,7 @@ Cell[BoxData[{
       RowBox[{"{", 
        RowBox[{"x", ",", "40", ",", "100"}], "}"}], ",", 
       RowBox[{"Frame", "\[Rule]", "True"}], ",", 
-      RowBox[{"ImageSize", "\[Rule]", "1000"}], ",", 
+      RowBox[{"ImageSize", "\[Rule]", "500"}], ",", 
       RowBox[{"PlotRange", "\[Rule]", 
        RowBox[{"{", 
         RowBox[{
@@ -96,7 +96,8 @@ Cell[BoxData[{
    3.640486661840534*^9}, {3.640486871031112*^9, 3.640486936752337*^9}, 
    3.640488258946466*^9, {3.640488317334152*^9, 3.640488317528047*^9}, {
    3.64048836653805*^9, 3.640488366618501*^9}, {3.640488403091944*^9, 
-   3.640488405237336*^9}, {3.640488492917414*^9, 3.640488493153461*^9}}],
+   3.640488405237336*^9}, {3.640488492917414*^9, 3.640488493153461*^9}, {
+   3.640489632220242*^9, 3.640489700676749*^9}}],
 
 Cell[BoxData[
  StyleBox[
@@ -125,7 +126,9 @@ Cell[BoxData[
    3.640486973901068*^9}, 3.64048701403878*^9, 3.640487060926588*^9, {
    3.640488001759389*^9, 3.640488032698231*^9}, {3.640488231439898*^9, 
    3.640488275050202*^9}, 3.64048831811184*^9, {3.640488367165469*^9, 
-   3.640488373043218*^9}, 3.640488407989257*^9, 3.640488493626442*^9}],
+   3.640488373043218*^9}, 3.640488407989257*^9, 3.640488493626442*^9, {
+   3.640489637670157*^9, 3.640489649915873*^9}, {3.640489694359591*^9, 
+   3.640489702737616*^9}}],
 
 Cell[BoxData[
  GraphicsBox[{{{}, {}, 
@@ -170,7 +173,7 @@ cq82FGa5T+E57vFxi3tiPErvH7GfXOFeuh/Ph+oFGUVGbA==
   GridLines->{{}, {0}},
   GridLinesStyle->Directive[
     GrayLevel[0.5, 0.4]],
-  ImageSize->1000,
+  ImageSize->500,
   Method->{"DefaultBoundaryStyle" -> Automatic, "ScalingFunctions" -> None},
   PlotRange->{{0, 90}, {-100, 1500}},
   PlotRangeClipping->True,
@@ -183,7 +186,9 @@ cq82FGa5T+E57vFxi3tiPErvH7GfXOFeuh/Ph+oFGUVGbA==
    3.640486973901068*^9}, 3.64048701403878*^9, 3.640487060926588*^9, {
    3.640488001759389*^9, 3.640488032698231*^9}, {3.640488231439898*^9, 
    3.640488275050202*^9}, 3.64048831811184*^9, {3.640488367165469*^9, 
-   3.640488373043218*^9}, 3.640488407989257*^9, 3.640488493774037*^9}]
+   3.640488373043218*^9}, 3.640488407989257*^9, 3.640488493626442*^9, {
+   3.640489637670157*^9, 3.640489649915873*^9}, {3.640489694359591*^9, 
+   3.640489702879466*^9}}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -207,7 +212,7 @@ Pumpen/img/part1/Kennlinie.pdf\"\>"], "Output",
 }, Open  ]]
 },
 WindowSize->{977, 653},
-WindowMargins->{{Automatic, 119}, {Automatic, 21}},
+WindowMargins->{{Automatic, 117}, {Automatic, 0}},
 FrontEndVersion->"10.0 for Linux x86 (32-bit) (September 9, 2014)",
 StyleDefinitions->"Default.nb"
 ]
@@ -223,13 +228,13 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[580, 22, 2706, 76, 209, "Input"],
-Cell[3289, 100, 1409, 27, 65, "Output"],
-Cell[4701, 129, 2913, 56, 642, "Output"]
+Cell[580, 22, 2755, 77, 209, "Input"],
+Cell[3338, 101, 1509, 29, 65, "Output"],
+Cell[4850, 132, 3012, 58, 333, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[7651, 190, 418, 8, 32, "Input"],
-Cell[8072, 200, 354, 5, 32, "Output"]
+Cell[7899, 195, 418, 8, 32, "Input"],
+Cell[8320, 205, 354, 5, 32, "Output"]
 }, Open  ]]
 }
 ]
