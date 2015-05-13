@@ -15,7 +15,7 @@ from txtfile import TxtFile
 # ========================================================================
 from ROOT import TCanvas, TLegend, TGaxis
 
-DEBUG = False
+DEBUG = True
 
 DIR = '../data/part2/04.16/'
 ETALON_XMINMAX = {'up-etalon_zoom.tab': (0.78e-3, 8.5e-3), 'down-etalon_zoom.tab': (3e-3, 8.5e-3)}
@@ -343,25 +343,28 @@ def evalIntervalConst(avgspectrum):
 
     def sub2vals(val1, val2):
         return val1[0] - val2[0], sqrt(val1[1] ** 2 + val2[1] ** 2)
-
+    s = avgspectrum
+    sfreq85 = sub2vals(s[3], s[2])  # 85 S delta freq
     s = avgspectrum[:2] + avgspectrum[-2:]
-    sfreq = avg2vals(sub2vals(s[2], s[0]), sub2vals(s[3], s[1]))  # S delta freq
-    pfreq = avg2vals(sub2vals(s[3], s[2]), sub2vals(s[1], s[0]))  # P delta freq
-    freqs = [sfreq, pfreq]
-    Fs = [1, 1]  # F of HFS
-    names = [r"${}^2\text{S}_{1/2}$", r"${}^2\text{P}_{1/2}$"]
-    litvals = ["14.13", "1.692"]
+    sfreq87 = avg2vals(sub2vals(s[2], s[0]), sub2vals(s[3], s[1]))  # 87 S delta freq
+    pfreq87 = avg2vals(sub2vals(s[3], s[2]), sub2vals(s[1], s[0]))  # 87 P delta freq
+    
+    freqs = [sfreq85, sfreq87, pfreq87]
+    Fs = [2, 1, 1]  # F of HFS
+    names = [r"\rb{85}: ${}^2\text{S}_{1/2}$", r"\rb{87}: ${}^2\text{S}_{1/2}$", r"\rb{87}: ${}^2\text{P}_{1/2}$"]
+    litvals = ["4.185", "14.13", "1.692"]
     As = []
-    for name, litval, (freq, sfreq), F in zip(*[names, litvals, freqs, Fs]):
+    for name, litval, (freq, sfreq87), F in zip(*[names, litvals, freqs, Fs]):
         A = freq * h_eVs / (F + 1) * 1e15  # in µeV and GHz in Hz
-        sA = sfreq * h_eVs / (F + 1) * 1e15
+        sA = sfreq87 * h_eVs / (F + 1) * 1e15
         As.append([name, litval, A, sA])
     with TxtFile('../src/tab_part2_A.tex', 'w') as f:
         f.write2DArrayToLatexTable(As,
-                                   ["Feinstruktur", r"$A^\text{Lit.}$ / \textmu eV",
+                                   ["Isotop / Feinstruktur", r"$A^\text{Lit.}$ / \textmu eV",
                                     r"$A^\text{exp}$ / \textmu eV", r"$s_{A^\text{exp}}$ / \textmu eV"],
                                    ['%s', '%s', '%.2f', '%.2f'],
-                                   r"Errechnete HFS-Intervallkonstanten $A$ für die zwei untersten Feinstrukturniveus von \rb{87}.",
+                                   r"Errechnete HFS-Intervallkonstanten $A$ für das ${}^2\text{S}_{1/2}$ Niveau von \rb{85} " + 
+                                   r"und für das ${}^2\text{S}_{1/2}$- und ${}^2\text{P}_{1/2}$ Niveau von \rb{87}.",
                                    "tab:hfs:intervalconsts")
 
 
@@ -406,7 +409,8 @@ def main():
         compareSpectrum('up' if isUp else 'down', spectrum, litvals)
 
     tabledata = []
-    names = [r"\rb{87}, F:2-1", r"\rb{87}, F:2-2", r"\rb{85}, F:3-2, 3-3", r"\rb{85}, F:2-2, 2-3", r"\rb{87}, F:1-1", r"\rb{87}, F:1-2"]  # Übergänge
+    names = [r"\rb{87}, F:2$\to$1", r"\rb{87}, F:2$\to$2", r"\rb{85}, F:3$\to$2, 3$\to$3", r"\rb{85}, F:2$\to$2, 2$\to$3", 
+             r"\rb{87}, F:1$\to$1", r"\rb{87}, F:1$\to$2"]  # Übergänge
     for i, litval in enumerate(litvals):
         tabledata.append([names[i]] + [litval] + list(spectra['up'][i]) + list(spectra['down'][i]))
     with TxtFile('../src/tab_part2_spectrum.tex', 'w') as f:
