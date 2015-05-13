@@ -2,14 +2,16 @@
 
 3-4 Seiten, nur was für Auswertung relevant
 
+
+\subsection{Hyperfeinstruktur und Zeeman-Effekt}
 1 Termschema
-Zeeman, Hyperfein
-opt. Pumpen
+
+\subsection{Optisches Pumpen}
 
 
 \subsection{Die Laserdiode}
 Zum optischen Pumpen wird im Versuch eine Laserdiode verwendet,
-weil sie linear polarisiertes Licht in einem schmalen Wellenlängenbereich liefert.
+weil Laserdioden linear polarisiertes Licht in einem schmalen Wellenlängenbereich liefern.
 Durch den Laserstrom und die Lasertemperatur kann die Wellenlänge des Lasers gezielt
 beeinflusst werden, so dass selektiv einzelne Hyperfein-Übergänge angeregt werden können.
 Für den Betrieb des Lasers ist ein Minimalstrom notwendig (die \emph{Laserschwelle}).
@@ -17,17 +19,19 @@ Wird dieser Strom überschritten, ändern sich Ausgangsleistung und Laserfrequen
 in erster Näherung linear mit dem Laserstrom.
 Es treten allerdings bei der Durchstimmung immer wieder Modensprünge auf,
 wenn sich die Zahl der stehenden Wellen im Resonator ändert.
-Bei den Messungen ist darauf zu achten, dass keine Modensprünge auftreten.
-
-
-
-
-
-Modensprünge. Nix mit pn..
-Frequenzbeeinflussung durch Strom und Temperatur
+Bei den Messungen muss daher darauf geachtet werden, dass keine Modensprünge auftreten,
+um eine lineare Durchstimmung des Lasers zu erzielen.
+Die Linearität des Lasers kann mit einem Fabry-Pérot-Interferometer überprüft werden.
 
 
 \subsection{Das Fabry-Pérot-Interferometer}
+Ein Fabry-Pérot-Interferometer (Etalon) besteht aus zwei halbtransparenten, reflektierenden Flächen
+im Strahlengang.
+Eine Lichtwelle kann transmittiert werden, wenn sie zwischen den Spiegeln konstruktiv mit sich selbst interferiert.
+Über die Bedingung für konstruktive Interferenz kann man den \emph{freien Spektralbereich} berechnen,
+der den Abstand zwischen zwei Transmissionsmaxima beschreibt.
+Bei dem im Versuch verwendeten Etalon beträgt er $\Delta \nu_\text{FSR} = 9924 \pm 30\,\text{MHz}$.
+
 
 \subsection{Spinpräzession des Rubidiumensembles im äußeren Magnetfeld}
 Der Mechanismus der Spinpräzession wird in einem Versuchsteil ausgenutzt,
@@ -39,6 +43,7 @@ Die Spins der Atome führen dann eine Präzessionsbewegung um das verbleibende M
 im Experiment ist das die Vertikalkomponente.
 Die Präzessionsfrequenz $f$ beträgt \cite{staatsex}
 \begin{equation}
+\label{eq:gr:spinpräz}
   f=\frac{g_\text{F} \cdot \mu_\text{B}}{h} \cdot B=: \alpha \cdot B
 \end{equation}
 Hier sind $\mu_\text{B}$ das Bohrsche Magneton, $h$ das Plancksche Wirkungsquantum und
