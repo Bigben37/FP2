@@ -15,7 +15,7 @@ from txtfile import TxtFile
 # ========================================================================
 from ROOT import TCanvas, TLegend, TGaxis
 
-DEBUG = True
+DEBUG = False
 
 DIR = '../data/part2/04.16/'
 ETALON_XMINMAX = {'up-etalon_zoom.tab': (0.78e-3, 8.5e-3), 'down-etalon_zoom.tab': (3e-3, 8.5e-3)}
