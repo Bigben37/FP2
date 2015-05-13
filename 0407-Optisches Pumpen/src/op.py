@@ -1,7 +1,7 @@
 import os
 # ========================================================================
-from data import DataErrors
 # make sure to add ../../lib to your project path or copy files from there
+from data import DataErrors
 # ========================================================================
 from numpy import sqrt, mean
 
@@ -15,7 +15,6 @@ class OPData(DataErrors):
     CH1ECOLOR = 64
     CH2COLOR = 1
     CH2ECOLOR = 15
-
 
     def __init__(self):
         super().__init__()
@@ -115,9 +114,9 @@ def prepareGraph(g, channel=1):
     if channel == 1:
         g.SetMarkerColor(OPData.CH1COLOR)
         g.SetLineColor(OPData.CH1ECOLOR)  # color error bars
-    elif channel == 2:  
+    elif channel == 2:
         g.SetMarkerColor(OPData.CH2COLOR)
-        g.SetLineColor(OPData.CH2ECOLOR)  # color error bars   
+        g.SetLineColor(OPData.CH2ECOLOR)  # color error bars
 
 
 inductorIToBVals = {1: (7.99e-4, 0.01e-4), 2: (8.14e-4, 0.01e-4), 4: (4.76e-4, 0.01e-4)}
@@ -131,6 +130,7 @@ def inductorIToB(number, current, error):
     else:
         sB = 0
     return B, sB
+
 
 def avgCloseValues(list, epsilon):
     i = 0
@@ -146,6 +146,7 @@ def avgCloseValues(list, epsilon):
         avgList.append(mean(currxs))
         i = j
     return avgList
+
 
 def getRootColor(i):
     colors = [3, 6, 7, 8, 28]

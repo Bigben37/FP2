@@ -2,14 +2,15 @@
 
 __author__ = "Benjamin Rottler (benjamin@dierottlers.de)"
 
-import os
 from numpy import sqrt
+# ========================================================================
+# make sure to add ../../lib to your project path or copy files from there
 from fitter import Fitter
 from op import OPData
 from functions import setupROOT, loadCSVToList
 from data import DataErrors
+# ========================================================================
 from ROOT import TCanvas, TLegend, TLine
-#from evalEtalon import evalEtalonData
 
 
 def evalDiode():
@@ -65,9 +66,6 @@ def evalDiode():
 
 def main():
     evalDiode()
-    # for file in os.listdir(os.path.join(os.getcwd(), '../data/part1/')):
-    #    if file.endswith('.tab'):
-    #        evalEtalonData(1, file)
 
 if __name__ == '__main__':
     setupROOT()

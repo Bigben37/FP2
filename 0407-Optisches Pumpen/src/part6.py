@@ -1,8 +1,11 @@
 from numpy import exp, sqrt
+# ========================================================================
+# make sure to add ../../lib to your project path or copy files from there
 from functions import setupROOT, loadCSVToList
 from op import OPData, prepareGraph, getRootColor
 from fitter import Fitter
 from data import DataErrors
+# ========================================================================
 from ROOT import TCanvas, TLegend, TF1
 
 DIR = '../data/part6/'
@@ -85,17 +88,17 @@ def makeSigmaFit(darkTimes, sigmas):
     dt, sdt = list(zip(*darkTimes))
     s, ss = list(zip(*sigmas))
     data = DataErrors.fromLists(dt, s, sdt, ss)
-    
+
     c = TCanvas('c_sigma', '', 1280, 720)
     g = data.makeGraph('g_sigma', 'Dunkelzeit t_{D} / ms', 'Verschmierung #sigma / #mus')
     g.Draw('APX')
-    
+
     fit = Fitter('fit_sigma', 'pol1(0)')
     fit.setParam(0, 'a', 0)
     fit.setParam(1, 'b', 1)
     fit.fit(g, 0, 25)
     fit.saveData('../fit/sigma.txt')
-    
+
     l = TLegend(0.6, 0.15, 0.85, 0.5)
     l.SetTextSize(0.03)
     l.AddEntry(g, 'Verschmierung #sigma', 'p')
@@ -103,7 +106,7 @@ def makeSigmaFit(darkTimes, sigmas):
     l.AddEntry(fit.function, 'Fit mit #sigma(t_{D}) = a + b t_{D}', 'l')
     fit.addParamsToLegend(l, (('%.2f', '%.2f'), ('%.2f', '%.2f')), chisquareformat='%.2f', units=['#mus', '10^{-3}'])
     l.Draw()
-    
+
     g.Draw('P')
     c.Print('../img/part6/sigmaFit.pdf', 'pdf')
 
@@ -112,11 +115,11 @@ def makeBFit(darkTimes, Bs):
     dt, sdt = list(zip(*darkTimes))
     b, sb = list(zip(*Bs))
     data = DataErrors.fromLists(dt, b, sdt, sb)
-    
+
     c = TCanvas('c_B', '', 1280, 720)
     g = data.makeGraph('g_B', 'Dunkelzeit t_{D} / ms', 'Fitparameter B / V')
     g.Draw('APX')
-    
+
     fit = Fitter('fit_B', '[0] + [1] * (1 - exp(-x/[2]))')
     fit.function.SetNpx(1000)
     fit.setParam(0, 'a', 0.1)
@@ -124,14 +127,14 @@ def makeBFit(darkTimes, Bs):
     fit.setParam(2, 'T_{R_{F}}', 6)
     fit.fit(g, 0, 25)
     fit.saveData('../fit/B.txt')
-    
+
     l = TLegend(0.55, 0.15, 0.85, 0.6)
     l.SetTextSize(0.03)
     l.AddEntry(g, 'Fitparameter B', 'p')
     l.AddEntry(fit.function, 'Fit mit B(t_{D}) = a + b (1 - e^{-x/T_{R_{F}}})', 'l')
     fit.addParamsToLegend(l, (('%.3f', '%.3f'), ('%.3f', '%.3f'), ('%.1f', '%.1f')), chisquareformat='%.2f', units=['V', 'V', 'ms'])
     l.Draw()
-    
+
     g.Draw('P')
     c.Print('../img/part6/BFit.pdf', 'pdf')
 
@@ -158,11 +161,6 @@ def makeFranzenFits():
 
 
 def main():
-    """
-    1-13 daten 
-    fit params from FitdataRoot.txt
-
-    """
     makeFranzenFits()
 
 if __name__ == '__main__':

@@ -1,9 +1,12 @@
 import os
 from numpy import sqrt
+# ========================================================================
+# make sure to add ../../lib to your project path or copy files from there
 from functions import setupROOT, loadCSVToList
 from op import OPData, prepareGraph, inductorIToB
 from data import DataErrors
 from fitter import Fitter
+# ========================================================================
 from ROOT import TCanvas, TLegend
 
 DIR = '../data/part4/'

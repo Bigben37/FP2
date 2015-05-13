@@ -4,15 +4,18 @@ __author__ = "Benjamin Rottler (benjamin@dierottlers.de)"
 
 import os
 from numpy import sqrt, mean
+# ========================================================================
+# make sure to add ../../lib to your project path or copy files from there
 from physconsts import h_eVs
 from op import OPData, prepareGraph, avgCloseValues, getRootColor
 from functions import setupROOT, compare2Floats, avgerrors
 from data import DataErrors
 from fitter import Fitter
 from txtfile import TxtFile
+# ========================================================================
 from ROOT import TCanvas, TLegend, TGaxis
 
-DEBUG = True
+DEBUG = False
 
 DIR = '../data/part2/04.16/'
 ETALON_XMINMAX = {'up-etalon_zoom.tab': (0.78e-3, 8.5e-3), 'down-etalon_zoom.tab': (3e-3, 8.5e-3)}
