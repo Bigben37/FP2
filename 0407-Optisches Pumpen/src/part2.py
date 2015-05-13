@@ -115,7 +115,7 @@ def makePeakFreqGraph(peaks, name):
 
     fit = Fitter('fit_pf_' + name, 'pol1(0)')
     fit.setParam(0, 'a')
-    fit.setParam(1, 'b')
+    fit.setParam(1, 'r')
     xmin, xmax = etalonData.getMinX(), etalonData.getMaxX()
     deltax = (xmax - xmin) / 10
     fit.fit(g, xmin - deltax, xmax + deltax)
@@ -127,7 +127,7 @@ def makePeakFreqGraph(peaks, name):
         l = TLegend(0.15, 0.6, 0.425, 0.85)
     l.SetTextSize(0.03)
     l.AddEntry(g, 'Etalonpeaks', 'p')
-    l.AddEntry(fit.function, 'Fit mit #Delta#nu = a + b * t', 'l')
+    l.AddEntry(fit.function, 'Fit mit #Delta#nu = a + r * t', 'l')
     fit.addParamsToLegend(l, [('%.2f', '%.2f'), ('%.2f', '%.2f')], chisquareformat='%.2f', units=('GHz', 'GHz/ms'))
     l.Draw()
 

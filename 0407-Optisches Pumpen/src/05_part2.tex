@@ -9,10 +9,10 @@ mit der Linienbreite der Laserdiode nicht auflösbar ist.
 Die Messung wird auf der steigenden und der fallenden Flanke der Modulationsspannung durchgeführt und
 während der Messung wird die Zelle mit dem Föhn geheizt.
 
-
 \subsection{Auswertung}
-TODO: Fallende/Steigende Flanke, Auswertung beispielshaft für steigende flanke, fallende genau so. Spektrum für beide
-\subsubsection*{Frequenzkalibrierung}  %TODO change to Berechnung der Scanrate des Lasers ?
+Die Auswertung wird beispielhaft für die Messungen der steigenden Flanke beschrieben. Die Auswertung der fallenden Flanke erfolgt analog. 
+Die Vorstellung der Ergebnisse und Diskussion erfolgt für beide Flanken.
+\subsubsection*{Bestimmung der Scanrate des Lasers}
 \label{sub:scanrate}
 Das Etalonspektrum und die Spannung der Lasermodulation sind in \autoref{img:etalon:fit} dargestellt.
 Die Peaks des Etalonspektrums werden mit Cauchy-Kurven und einem linearen Untergrund gefittet.
@@ -20,21 +20,21 @@ Die Peaks des Etalonspektrums werden mit Cauchy-Kurven und einem linearen Unterg
     U_\text{ph}(t) = a_\text{ph} + b_\text{ph} \cdot t + \frac{A}{\pi} \frac{s}{s^2 + (t-x)^2}
 \end{equation}
 Dabei ist das Zentrum $x$ und der Breiteparameter $s$.
-Des Weiteren wird die Spannung für die Lasermodulation mit einer Geraden gefittet.
+Des Weiteren wird die Spannung für die Lasermodulation $U_\text{L}$ mit einer Geraden gefittet.
 \begin{equation}
     U_\text{L}(t) = a_\text{L} + b_\text{L} \cdot t
 \end{equation}
 \begin{figure}[H]
 \begin{center}
     \includegraphics[width=\textwidth]{../img/part2/up-etalon_zoom_fit.pdf}
-    \caption{caption.}
+    \caption{Etalonspektrum mit Kurvenanpassungen der Peaks und Spannung für die Lasermodulation mit linearer Regression für die Messung an der steigenden Flanke.}
     \label{img:etalon:fit}
 \end{center}
 \end{figure}
-Der Fit von $U_\text{L}$ kontrolliert, ob die Spannung für die Lasermodulation auch gerade ansteigt. Man erkennt, dass die angepasste Gerade
-gut der gemessenen Spannung folgt.\\
+Der Fit von $U_\text{L}$ kontrolliert, ob die Spannung für die Lasermodulation auch gerade ansteigt. Man erkennt, dass die angepasste Gerade 
+im relevanten Zeitintervall gut der gemessenen Spannung folgt.\\
 Aus dem freien Spektralbereich des Etalons $\Delta \nu_\text{FSR} = 9924 \pm 30\,\text{MHz}$ lässt sich nun die Differenz der Laserfrequenz von den verschiedenen
-Peaks bestimmen. Der erste Peak wird als Referenzpeak festgelegt. Der Frequenzabstand $\nu_i$ zwischen erstem und $i$-ten Peak lässt sich nun
+Peaks bestimmen. Der erste Peak wird als Referenzpeak festgelegt. Der Frequenzabstand $\nu_i$ zwischen erstem und $i$-tem Peak lässt sich nun
 folgendermaßen berechnen\footnote{Gedankenspiel zur Fehlerrechnung: Interpretiert man $2 \cdot a$ als $a + a$, so ist der Fehler im ersten Fall $2 \cdot s_a$, im zweiten
 allerdings $\sqrt{2} \cdot s_a$, wenn man die Selbstkorrelation von $a$ nicht berücksichtigt. Mit $\cor(a, a) = 1$
 erhält man $\sqrt{s_a^2 + s_a^2 + 2 \cdot s_a \cdot s_a \cdot \cor(a, a)} = 2 \cdot s_a$.}:
@@ -48,17 +48,17 @@ auf $\frac{1}{5}$ der Breiteparameter $s_i$ geschätzt. Die so berechneten Werte
 \begin{figure}[H]
 \begin{center}
     \includegraphics[width=\textwidth]{../img/part2/up-etalon_zoom-etalon_calibration.pdf}
-    \caption{caption.}
+    \caption{Frequenzdifferenz der Etalonpeaks aufgetragen gegen ihre Positionen. Bestimmung der Laserscanrate durch linearen Fit.}
     \label{img:etalon:calibration}
 \end{center}
 \end{figure}
 Aus dem Fit mit einer Geraden
 \begin{equation}
-    \Delta \nu(t) = a + r \cdot t  %TODO Parameter in Plot ändern
+    \Delta \nu(t) = a + r \cdot t 
 \end{equation}
 lässt sich nun die Scanrate $r$ bestimmen, mit welcher die Frequenz des Lasers pro Zeit geändert wird. Man erhält
 \begin{equation}
-    r = (9.40 \pm 0.02)\,\frac{\text{GHz}}{ms}\ \, .
+    r = (9.47 \pm 0.08)\,\frac{\text{GHz}}{ms}\ \, .
 \end{equation}
 
 \subsubsection*{Hyperfeinstruktur-Übergänge}
@@ -77,7 +77,7 @@ $N$ gibt an, wie viele Peaks sich überlagern.
 \begin{figure}[H]
 \begin{center}
     \includegraphics[width=\textwidth]{../img/part2/up-hfs_zoom_fit.pdf}  %TODO Better start params
-    \caption{caption.}
+    \caption{Hyperfeinstrukturspektrum von Rubidium mit Fits der sich teilweise überlagernden Peaks.}
     \label{img:hfs:fit:up}
 \end{center}
 \end{figure}
@@ -110,7 +110,7 @@ eine Gerade mit Steigung 1 und Achsenabschnitt 0 ergeben.
 \begin{figure}[H]
 \begin{center}
     \includegraphics[width=\textwidth]{../img/part2/up-spectrum.pdf}
-    \caption{caption.}
+    \caption{Vergleich des auf der steigenden Flanke gemessenen Hyperfeinstrukturspektrums mit den theoretischen Werten.}
     \label{img:hfs:spectrum:up}
 \end{center}
 \end{figure}
@@ -118,7 +118,7 @@ eine Gerade mit Steigung 1 und Achsenabschnitt 0 ergeben.
 \begin{figure}[H]
 \begin{center}
     \includegraphics[width=\textwidth]{../img/part2/down-spectrum.pdf}
-    \caption{caption.}
+    \caption{Vergleich des auf der fallenden Flanke gemessenen Hyperfeinstrukturspektrums mit den theoretischen Werten.}
     \label{img:hfs:spectrum:down}
 \end{center}
 \end{figure}
@@ -136,10 +136,17 @@ bestätigen die Übereinstimmung mit den theoretischen Werten innerhalb eines ma
 Für die Berechnung der Intervallkonstanten $A$ wird für jeden Übergang das gewichtete Mittel der Frequenzendifferenz von steigender und fallender 
 Flanke gebildet (\autoref{tab:hfs:spectrum:avg}).
 \input{tab_part2_spectrum_avg}
-Für die Berechnung der Intervallkonstanten wird die 
-Beschreibung Berechnung $\Delta \nu_F$ (2 Möglichkeiten, Differenz zu bilden, gewichtetes Mittel) \\
-Berechnung A für S und P
+Um die Intervallkonstante $A$ zu berechnen, wird die Differenz $\Delta \nu_F$ zweier benachbarter Hyperfeinstrukturniveaus von der 
+gleichen Feinstrukturaufspaltung benötigt. $F$ ist hierbei die Quantenzahl der Hyperfeinstruktur des unteren Niveaus. 
+Diese Differenz lässt sich aus der Differenz zweier geschickt gewählter Übergangsfrequenzen bilden. \\
+Ein Beispiel für den ${}^2\text{S}_{1/2}$-Zustand von \rb{87}: Man kann aus den Übergängen (vergleiche \autoref{img:termschema}) 
+1-1 und 2-1 oder 1-2 und 2-2 $\Delta \nu_{F=1}$ bestimmen. \\
+Da es immer zwei Möglichkeiten gibt, die Frequenzdifferenz zu bestimmen, wird das gewichtete Mittel aus beiden Differenzen berechnet. Nun kann mit 
+\autoref{eq:A:theo} die Intervallkonstante $A$ berechnet werden. 
 \begin{equation}
     A = \Delta \nu \cdot \frac{h}{F + 1}, \qquad s_A = s_{\Delta \nu} \cdot \frac{h}{F + 1}
 \end{equation}
+Für \rb{85} können wir die Intervallkonstante $A$ nicht berechnen, da jeweils zwei der vier Linien nicht einzelnd aufgelöst werden konnten. Die 
+berechneten Werte von \rb{87} sind zusammen mit den Literaturwerten (aus \cite{manual}) in \autoref{tab:hfs:intervalconsts} aufgelistet. 
+TODO Übereinstimmung %TODO Übereinstimmung
 \input{tab_part2_A}
