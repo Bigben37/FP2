@@ -25,7 +25,27 @@ Die Frequenz des Modulationssignals beträgt 0.1\,kHz, seine Amplitude 0.7\,V.
 
 \subsection{Auswertung}
 \subsubsection*{P-I-Kennlinie der Laserdiode}
-Abb Diodenkennlinie
+\begin{figure}[H]
+\begin{center}
+  \includegraphics[width=\textwidth]{../img/part1/Kennlinie.pdf}
+  \caption{$PI$-Kennlinie der Laserdiode: Abhängigkeit der Spannung
+  an der Photodiode vom Laserstrom.}
+  \label{img:Kennlinie}
+\end{center}
+\end{figure} 
+\autoref{img:Kennlinie} zeigt die $PI$-Kennlinie der Photodiode.
+Als Fehler auf die Photodiodenspannung wurde ein Fehler von
+\begin{equation}
+  s_{U_{\text{ph}}}= 5\,\text{mV} + 0.01 \cdot U_{\text{ph}}
+\end{equation}
+angenommen.
+Alle Messwerte wurden um den Spannungsoffset bei $I_{\text{L}}$=0\,mA verschoben.
+Ein linearer Fit des modensprungfreien Laserbereichs zwischen 55\,mA und 74\,mA
+liefert eine Laserschwelle $I_{\text{th}}$ von
+\begin{equation}
+  I_{\text{th}}=(52.06\pm0.17)\,\text{mA} \ \, .
+\end{equation}
+%TOTO fehler, modensprungfreien Bereich und Laserschwelle richtig machen
 
 \subsubsection*{Temperaturabhängigkeit der Laserfrequenz}
 Abb T-Abhängigkeit

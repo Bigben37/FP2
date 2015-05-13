@@ -1,0 +1,238 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      8905,        229]
+NotebookOptionsPosition[      8442,        208]
+NotebookOutlinePosition[      8781,        223]
+CellTagsIndexPosition[      8738,        220]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"data", "=", 
+   RowBox[{"Import", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"NotebookDirectory", "[", "]"}], "<>", 
+      "\"\<Kennlinie.txt\>\""}], ",", "\"\<Table\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"data", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"#", "[", 
+        RowBox[{"[", "1", "]"}], "]"}], ",", 
+       RowBox[{
+        RowBox[{"#", "[", 
+         RowBox[{"[", "2", "]"}], "]"}], "+", "109"}]}], "}"}], "&"}], "/@", 
+    "data"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"fitdata", "=", 
+   RowBox[{"Drop", "[", 
+    RowBox[{
+     RowBox[{"Drop", "[", 
+      RowBox[{"data", ",", "9"}], "]"}], ",", 
+     RowBox[{"-", "12"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"nlm", "=", 
+   RowBox[{"NonlinearModelFit", "[", 
+    RowBox[{"fitdata", ",", 
+     RowBox[{"a", " ", 
+      RowBox[{"(", 
+       RowBox[{"x", " ", "-", " ", "b"}], ")"}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{"a", ",", "b"}], "}"}], ",", "x"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"nlm", "[", "\"\<ParameterTable\>\"", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"plot", "=", 
+  RowBox[{"Show", "[", 
+   RowBox[{
+    RowBox[{"Plot", "[", 
+     RowBox[{
+      RowBox[{"Normal", "[", "nlm", "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"x", ",", "40", ",", "100"}], "}"}], ",", 
+      RowBox[{"Frame", "\[Rule]", "True"}], ",", 
+      RowBox[{"ImageSize", "\[Rule]", "1000"}], ",", 
+      RowBox[{"PlotRange", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"0", ",", "90"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "100"}], ",", "1500"}], "}"}]}], "}"}]}], ",", 
+      RowBox[{"GridLines", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", "}"}], ",", 
+         RowBox[{"{", "0", "}"}]}], "}"}]}], ",", 
+      RowBox[{"FrameLabel", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+        "\"\<Laserstrom I-text{L} / mA\>\"", ",", 
+         "\"\<Photodiodenspannung U-text{ph} / mV\>\""}], "}"}]}]}], "]"}], 
+    ",", 
+    RowBox[{"ListPlot", "[", 
+     RowBox[{"{", 
+      RowBox[{"data", ",", "fitdata"}], "}"}], "]"}]}], "]"}]}]}], "Input",
+ CellChangeTimes->{{3.640485622813085*^9, 3.640485646969214*^9}, {
+   3.640486416729878*^9, 3.640486426288859*^9}, {3.640486647517488*^9, 
+   3.640486661840534*^9}, {3.640486871031112*^9, 3.640486936752337*^9}, 
+   3.640488258946466*^9, {3.640488317334152*^9, 3.640488317528047*^9}, {
+   3.64048836653805*^9, 3.640488366618501*^9}, {3.640488403091944*^9, 
+   3.640488405237336*^9}, {3.640488492917414*^9, 3.640488493153461*^9}}],
+
+Cell[BoxData[
+ StyleBox[
+  TagBox[GridBox[{
+     {"\<\"\"\>", "\<\"Estimate\"\>", "\<\"Standard Error\"\>", "\<\"t\
+\[Hyphen]Statistic\"\>", "\<\"P\[Hyphen]Value\"\>"},
+     {"a", "60.4802536231884`", "0.7154397511877864`", "84.535774707483`", 
+      "1.6417610042975216`*^-21"},
+     {"b", "52.06530008896184`", "0.1736610819072253`", "299.809833712637`", 
+      "9.422069932334718`*^-30"}
+    },
+    AutoDelete->False,
+    GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Automatic}}},
+    GridBoxDividers->{
+     "ColumnsIndexed" -> {2 -> GrayLevel[0.7]}, 
+      "RowsIndexed" -> {2 -> GrayLevel[0.7]}},
+    GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+    GridBoxSpacings->{
+     "ColumnsIndexed" -> {2 -> 1}, "RowsIndexed" -> {2 -> 0.75}}],
+   "Grid"], "DialogStyle",
+  StripOnInput->False]], "Output",
+ CellChangeTimes->{{3.640486429309178*^9, 3.640486464955981*^9}, {
+   3.640486656703823*^9, 3.640486672301887*^9}, {3.640486702414761*^9, 
+   3.640486718308884*^9}, {3.640486772449971*^9, 3.640486815353496*^9}, {
+   3.640486916032873*^9, 3.640486929143601*^9}, {3.640486967102533*^9, 
+   3.640486973901068*^9}, 3.64048701403878*^9, 3.640487060926588*^9, {
+   3.640488001759389*^9, 3.640488032698231*^9}, {3.640488231439898*^9, 
+   3.640488275050202*^9}, 3.64048831811184*^9, {3.640488367165469*^9, 
+   3.640488373043218*^9}, 3.640488407989257*^9, 3.640488493626442*^9}],
+
+Cell[BoxData[
+ GraphicsBox[{{{}, {}, 
+    {RGBColor[0.368417, 0.506779, 0.709798], AbsoluteThickness[1.6], Opacity[
+     1.], LineBox[CompressedData["
+1:eJwBkQFu/iFib1JlAgAAABgAAAACAAAA4z0aFrg0SUAAAAAAAABZwE26z4u0
+fUlAGTn0kONgUMBfFrZTsiBKQCsav7Tq/yZAPFEkmtu4SkB9501RXdlUQLS+
+U5MGTktAYJEZHhw8Y0BpBren3+9LQNkZqehCy2xA6SyiOuSGTEAfy2aeVNty
+QKYtweiWKk1AvH4Hc+Swd0D+YKFJS8tNQB0AtAPTb3xAIXMJKSthTkC6fZWs
+cG6AQIFfpSO5A09AGzaYLObUgkCsKsmccptPQHgrAI9rEoVACmiQGO0fUECJ
+W69G33+HQAzUHLyhcFBAgXJkXALiiUBzL+0e7LtQQG/GflQ1G4xA+HdXj40N
+UUAQVeChVoSOQOOvBb/EWVFAWJDT6ENikEAcgRTIfKRRQJrpuS+0fJFAcz+9
+3ov1UUA14EOhG6+SQC/tqbQwQVJATHUABAvNk0AKiDCYLJNSQMCnYJHxApVA
+M7wXVanjUkCmzcPNLzOWQMHfQtG7LlNACJJZ+/VOl0BEQQVheTdTQAAAAAAA
+cJdA/cal9w==
+      "]]}}, {{}, {{}, 
+     {RGBColor[0.368417, 0.506779, 0.709798], PointSize[
+      0.016666666666666666`], AbsoluteThickness[1.6], PointBox[CompressedData["
+1:eJxtjjsKwlAQRYOVhUXKFBYRQrDXWp4g4g+NUXsRBDvTCDZCEFER0fgJpHAJ
+LiJLyJJU5qRQfPA4HO5cZgqTuTvNaJpmv/+H/5+lhFlY/vEK1IV+FTdgDZrk
+ddyGTVgSqhbuMN8WjmfCuEO+gF3mVhBPfPKeMFiT497me4+xZT+e7JjHnQP7
+cf1Ivy80T/TxYkAfb1zo4/srfVf4xBUe3einfqePmyH9gfBBrnAT93HjTB9f
+cq82FGa5T+E57vFxi3tiPErvH7GfXOFeuh/Ph+oFGUVGbA==
+       "]]}, 
+     {RGBColor[0.880722, 0.611041, 0.142051], PointSize[
+      0.016666666666666666`], AbsoluteThickness[1.6], 
+      PointBox[{{55., 195.}, {57.5, 336.}, {60., 472.}, {61., 538.}, {62., 
+       594.}, {63., 654.}, {64., 707.}, {65., 762.}, {66., 842.}, {67., 
+       898.}, {68., 964.}, {69., 1034.}, {70., 1106.}, {71., 1186.}, {72., 
+       1195.}, {73., 1254.}, {74., 1318.}}]}, {}}, {}}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{0, 0},
+  DisplayFunction->Identity,
+  Frame->{{True, True}, {True, True}},
+  FrameLabel->{{
+     FormBox["\"Photodiodenspannung U-text{ph} / mV\"", TraditionalForm], 
+     None}, {
+     FormBox["\"Laserstrom I-text{L} / mA\"", TraditionalForm], None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{{}, {0}},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  ImageSize->1000,
+  Method->{"DefaultBoundaryStyle" -> Automatic, "ScalingFunctions" -> None},
+  PlotRange->{{0, 90}, {-100, 1500}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{0, 0}, {0, 0}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{{3.640486429309178*^9, 3.640486464955981*^9}, {
+   3.640486656703823*^9, 3.640486672301887*^9}, {3.640486702414761*^9, 
+   3.640486718308884*^9}, {3.640486772449971*^9, 3.640486815353496*^9}, {
+   3.640486916032873*^9, 3.640486929143601*^9}, {3.640486967102533*^9, 
+   3.640486973901068*^9}, 3.64048701403878*^9, 3.640487060926588*^9, {
+   3.640488001759389*^9, 3.640488032698231*^9}, {3.640488231439898*^9, 
+   3.640488275050202*^9}, 3.64048831811184*^9, {3.640488367165469*^9, 
+   3.640488373043218*^9}, 3.640488407989257*^9, 3.640488493774037*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Export", "[", 
+  RowBox[{
+  "\"\</home/moritz/FP2/0407-Optisches Pumpen/img/part1/Kennlinie.pdf\>\"", 
+   ",", "plot"}], "]"}]], "Input",
+ CellChangeTimes->{{3.640487025243045*^9, 3.640487028232433*^9}, {
+  3.640487063447363*^9, 3.640487129738626*^9}, {3.640487176434763*^9, 
+  3.64048718678377*^9}, {3.640487221185052*^9, 3.640487221320918*^9}, {
+  3.640487267225479*^9, 3.64048726846196*^9}}],
+
+Cell[BoxData["\<\"/home/moritz/FP2/0407-Optisches \
+Pumpen/img/part1/Kennlinie.pdf\"\>"], "Output",
+ CellChangeTimes->{{3.640487122664705*^9, 3.64048713064354*^9}, {
+   3.640487179722168*^9, 3.640487188127885*^9}, 3.640487222705008*^9, 
+   3.640487269554677*^9, 3.640488036006649*^9, 3.640488320751359*^9, 
+   3.640488375210701*^9, 3.640488414251855*^9}]
+}, Open  ]]
+},
+WindowSize->{977, 653},
+WindowMargins->{{Automatic, 119}, {Automatic, 21}},
+FrontEndVersion->"10.0 for Linux x86 (32-bit) (September 9, 2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 2706, 76, 209, "Input"],
+Cell[3289, 100, 1409, 27, 65, "Output"],
+Cell[4701, 129, 2913, 56, 642, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7651, 190, 418, 8, 32, "Input"],
+Cell[8072, 200, 354, 5, 32, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
