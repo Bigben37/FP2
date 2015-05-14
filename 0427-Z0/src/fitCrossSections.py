@@ -141,12 +141,13 @@ def evalPartGamma(gammas):
         f.write2DArrayToFile(gammas, ['%f'] * 2)
     table = []
     desc = [LATEXE, LATEXM, LATEXT, LATEXQ]
+    litvals = [r"$83.91 \pm 0.12$", r"$83.99\pm0.18$", r"$84.04\pm0.22$", r"$1744.4\pm2.0$"]
     for i, (gamma, sgamma) in enumerate(gammas):
-        table.append([desc[i], gamma, sgamma])
+        table.append([desc[i], gamma*1e3, sgamma*1e3, litvals[i]])
     with TxtFile('../src/tab_gamma_part.tex', 'w') as f:
-        f.write2DArrayToLatexTable(table, ["Zerfallskanal $i$", r"$\Gamma_i$ / GeV", r"$s_{\Gamma_i}$ / GeV"], 
-                                   ['%s', '%.4f', '%.4f'], 
-                                   r"Durch Fits bestimmte partielle Zerfallsbreiten des \Z-Bosons.", 
+        f.write2DArrayToLatexTable(table, ["Zerfallskanal $i$", r"$\Gamma_i$ / MeV", r"$s_{\Gamma_i}$ / MeV", r"$\Gamma_i^{\text{Lit.}}$ / MeV"], 
+                                   ['%s', '%.1f', '%.1f', '%s'], 
+                                   r"Durch Fits bestimmte partielle Zerfallsbreiten des \Z-Bosons und Literaturwerte \cite{pdg}.", 
                                    "tab:gamma:part")
     
 def main():
