@@ -77,7 +77,7 @@ lässt sich nun die Scanrate $r$ bestimmen, mit welcher die Frequenz des Lasers 
 
 \subsubsection*{Hyperfeinstruktur-Übergänge}
 Auf dem aufgenommenen Spektrum (\autoref{img:hfs:fit:up}) der Hyperfeinstruktur von Rubidium sind nur sechs der acht erwarteten
-Übergänge zu erkennen (vgl. \autoref{img:hfsspectrum}). Dies liegt daran, dass je zwei Übergänge so dicht beieinander liegen,  %TODO Ref Grundlagen
+Übergänge zu erkennen (vgl. \autoref{img:hfsspectrum}). Dies liegt daran, dass je zwei Übergänge so dicht beieinander liegen,
 dass man sie in diesem Versuchsaufbau nicht mehr
 einzeln auflösen kann. Für die gut abtrennbaren Gruppen von
 mehreren Peaks der Übergänge werden überlagerte Gauß-Funktionen mit einem linearen Untergrund zur Kurvenanpassung verwendet:
@@ -115,7 +115,9 @@ Um doch einen Fehler zu bekommen, wird hier angenommen, dass $\mu_4$ (des Refere
 \end{equation}
 Um die theoretischen Werte sinnvoll mit den gemessenen Werten zu vergleichen, müssen die theoretischen Differenzen der Frequenz den gleichen 
 Übergang als Referenz benutzen. Dies erreicht man, wenn die Differenz der Frequenz des Referenzübergangs von allen Differenzen abgezogen wird.
-In \autoref{tab:hfs:spectrum} sind die theoretischen (\autoref{img:hfsspectrum}) und (für steigende und fallende Flanke) experimentell bestimmten Spektren aufgelistet.   
+In \autoref{tab:hfs:spectrum} sind die theoretischen (\autoref{img:hfsspectrum}) und (für steigende und fallende Flanke) 
+experimentell bestimmten Spektren aufgelistet.\footnote{Das theoretische Spektrum verläuft umgekehrt zum Spektrum auf der steigenden Flanke, 
+da bei steigendem Laserstrom die Frequenz des Lasers sinkt. Dieser Effekt wurde bei der Auswertung berücksichtigt.}   
 \input{tab_part2_spectrum}
 Zur Überprüfung, wie gut die theoretischen Daten mit den Gemessenen übereinstimmen, werden sie gegeneinander aufgetragen 
 (\autoref{img:hfs:spectrum:up} für die steigende und \autoref{img:hfs:spectrum:down} für die fallende Flanke). Es sollte sich 
@@ -159,9 +161,12 @@ Diese Differenz lässt sich aus der Differenz zweier geschickt gewählter Überg
 Ein Beispiel für den ${}^2\text{S}_{1/2}$-Zustand von \rb{87}: Man kann aus den Übergängen (vergleiche \autoref{img:termschema}) 
 F:1$\to$1 und F:2$\to$1 oder F:1$\to$2 und F:2$\to$2 die Differenz $\Delta \nu_{F=1}$ bestimmen. \\
 Da es immer zwei Möglichkeiten gibt, die Frequenzdifferenz zu bestimmen, wird das gewichtete Mittel $\overline{\Delta \nu_F}$ aus beiden Differenzen berechnet. Nun kann mit 
-\autoref{eq:A:theo} die Intervallkonstante $A$ berechnet werden:
+\autoref{eq:ehfs:diff} die Intervallkonstante $A$ berechnet werden:
 \begin{equation}
-    A = \overline{\Delta \nu_F} \cdot \frac{h}{F + 1}, \qquad s_A = s_{\overline{\Delta \nu_F}} \cdot \frac{h}{F + 1}
+    \begin{split}
+        & \Delta E = \overline{\Delta \nu_F} h = A (F+1) \\
+    	& \Rightarrow A = \overline{\Delta \nu_F} \cdot \frac{h}{F + 1}, \qquad s_A = s_{\overline{\Delta \nu_F}} \cdot \frac{h}{F + 1}
+    \end{split}
 \end{equation}
 Für \rb{85} kann die Intervallkonstante $A$ für das ${}^2\text{P}_{1/2}$ Niveau nicht bestimmt werden, da die zwei Linien, welche zur 
 Bildung der Differenz benötigt werden, nicht einzeln aufgelöst werden konnten. Aus dem selben Grund können beim ${}^2\text{S}_{1/2}$ Niveau nicht 

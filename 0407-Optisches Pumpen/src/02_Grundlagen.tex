@@ -1,14 +1,49 @@
 \section{Physikalische Grundlagen}
 
 \subsection{Hyperfeinstruktur und Zeeman-Effekt}
-1 Satz Feinstruktur LS Kopplung. 1 Satz Kernspin I \\
-Kopplung zu HFS, F (formel, bereich) \\
-Energieaufspaltung -> A \\
-In äußerem Magnetfeld mF(formel, bereich) \\
-1 Termschema \\
-1 theoretische Werte für HFS-Aufspaltung
+Dieser Abschnitt orientiert sich an \cite{staatsex}. \\
+Die \emph{Hyperfeinstrukturaufspaltung} entsteht durch die Wechselwirkung von \emph{Kernspin} $\vec{I}$ und 
+\emph{elektronischem Gesamtdrehimpuls} $\vec{J}$. Für den \emph{Gesamtdrehimpuls} $\vec{F}$ des Atoms gilt:
+\begin{equation}
+    \vec{F} = \vec{I} + \vec{J}, \qquad \abs{I - J} \leq F \leq I + J
+\end{equation}
+Der Kernspin beschreibt den Drehimpuls des Kerns, mit ihm ist ein magnetisches Moment 
+$\vec{\mu}_I = \frac{g_I \mu_K}{\hbar} \vec{I}$ ($g_I$ ist der \emph{Kern-g-Faktor} und
+$\mu_K$ das \emph{Kernmagneton}) verbunden. \\
+Die Energieaufspaltung $\Delta E_\text{HFS}$ der Hyperfeinstruktur entsteht durch die Wechselwirkung des magnetischen Moments 
+des Kerns $\vec{\mu}_I$ und dem Magnetfeld $\vec{B}_J$ der Elektronenhülle:
+\begin{equation}
+    \Delta E_\text{HFS} = - \vec{\mu}_I \cdot \vec{B}_J
+\end{equation}
+Durch geometrische Betrachtungen der Zusammenhänge zwischen $\vec{F}$, $\vec{J}$ und $\vec{I}$ lässt sie sich zu 
+\begin{equation}
+    \Delta E_\text{HFS} = \frac{A}{2} \left[ F(F+1) - I(I+1) - J(J+1) \right]
+\end{equation}
+bestimmen. Dabei ist $A$ die \emph{Intervallkonstante} der Hyperfeinstrukturaufspaltung. Es gilt für zwei benachbarte Energieniveaus:
+\begin{equation}
+    \label{eq:ehfs:diff}
+    \Delta E_{\Delta F = 1} (F) = \Delta E_\text{HFS}(F+1) - \Delta E_\text{HFS}(F) = A(F+1)
+\end{equation}
+Das Hyperfeinstrukturspektrum der D$_1$-Linie von Rubidium (\rb{85} und \rb{87}) ist in \autoref{img:hfsspectrum} gezeigt.
+\begin{figure}[H]
+\begin{center}
+  \includegraphics[width=0.7\textwidth]{../img/HFSspect_theo.png}
+  \caption{Spektrallinien der Hyperfeinstruktur des ${}^2\text{S}_{1/2}$\,-\,${}^2\text{P}_{1/2}$\,-\,Übergangs
+  von \rb{85} und \rb{87} (aus \cite{manual}).}
+  \label{img:hfsspectrum}
+\end{center}
+\end{figure} 
 
-
+Des Weiteren ist jedes Hyperfeinstrukturniveau $(2F+1)$-fach entartet. Die zugehörige Magnetquantenzahl lautet $m_F$ mit $-F \leq m_F \leq F$. 
+Wird ein äußeres Magnetfeld $\vec{B}_0$ ($g_J \mu_B B_0 \ll A$) angelegt, so hebt sich die Entartung auf und es entsteht eine weitere 
+Aufspaltung, die \emph{Zeeman}-Aufspaltung der Hyperfeinstruktur.
+Für die Energiedifferenz benachbarter Niveaus gilt 
+\begin{equation}
+    \label{eq:nuclearspin}
+    \Delta E_\text{HFS}^\text{Zeeman}(\Delta m_F = 1) = \frac{g_J}{2 \left( I + \frac{1}{2} \right) } \mu_B B_0 \ \, .
+\end{equation}
+Dabei ist $g_J$ der \emph{Landé-Faktor.}\\
+Die Hyperfein- und Zeeman-Aufspaltungen von \rb{85} und \rb{87} sind in \autoref{img:termschema} dargestellt.
 
 \begin{figure}[H]
     \centering
@@ -18,15 +53,6 @@ In äußerem Magnetfeld mF(formel, bereich) \\
     Feinstruktur, Hyperfeinstruktur und Zeeman-Aufspaltung der D$_1$-Linie im äußeren Magnetfeld.}
     \label{img:termschema}
 \end{figure}
-
-\begin{figure}[H]
-\begin{center}
-  \includegraphics[width=0.7\textwidth]{../img/HFSspect_theo.png}
-  \caption{Spektrallinien der Hyperfeinstruktur des ${}^2\text{S}_{1/2}$\,-\,${}^2\text{P}_{1/2}$\,-\,Übergangs
-  von \rb{85} und \rb{87} (aus \cite{manual}).}
-  \label{img:hfsspectrum}
-\end{center}
-\end{figure} 
 
 \subsection{Optisches Pumpen}
 Die erlaubten Übergänge zwischen elektronischen Energieniveaus bei Absorption von Photonen
@@ -67,7 +93,7 @@ Spinpräzession tritt auf, wenn ein Ensemble von Atomen im Magnetfeld optisch ge
 das Ensemble also polarisiert wird, und anschließend eine Komponente
 des Magnetfelds schnell abgeschaltet wird (im Experiment die Komponente in Strahlrichtung).
 Die Spins der Atome führen dann eine Präzessionsbewegung um das verbleibende Magnetfeld $\vec{B}$ aus,
-im Experiment ist das die Vertikalkomponente.  %TODO wenn zeit: Kegel der präzediert
+im Experiment ist das die Vertikalkomponente.
 Die Präzessionsfrequenz $f$ beträgt \cite{staatsex}
 \begin{equation}
     \label{eq:gr:spinpräz}
