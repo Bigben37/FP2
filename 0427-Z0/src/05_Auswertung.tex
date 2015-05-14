@@ -5,7 +5,90 @@ echte Daten \\
 Energien der echten Daten
 \input{tab_lums}
 \input{tab_beamcorr}
-\subsection{Bestimmung der Schnitte}
+\subsection{Bestimmung der Schnittkriterien}
+
+\begin{table}[H]
+    \caption{Schnittkriterien, die mit den Monte-Carlo-Simulationen der Detektoren gefunden und
+    auf die Messdaten angewendet wurden, um die sichtbaren Zerfallskanäle des \Z-Bosons zu trennen.}
+    \begin{center}
+        \begin{tabular}{|c||c|c|c|c|c|}
+            \hline
+        	& NCHARGED	& PCHARGED				& E\_ECAL				& E\_HCAL	& COS\_THET						\\ \hline\hline
+   \Zee		& $\leq$5	& $-$					& $\geq$75				& $-$		& $\geq$-0.9 und $\leq$0.9		\\ \hline
+   \Zmm		& $=$2		& $\geq$75				& $\leq$50				& $-$		& $-$							\\ \hline
+   \Ztt		& $\leq$6	& $\geq$5 und $\leq$50	& $\geq$4 und $\leq$70	& $-$		& $-$							\\ \hline
+   \Zqq		& $\geq$10	& $-$					& $-$					& $-$		& $-$							\\ \hline
+
+        \end{tabular}
+    \end{center}
+    \label{tab:schnitte}
+\end{table}
+
+\autoref{tab:schnitte} zeigt die Schnitte,
+die auf die Messdaten angewendet wurden,
+um die vier sichtbaren Zerfallskanäle des \Z-Bosons zu trennen.
+An den Monte-Carlo-Simulationen der Detektoren wird erläutert, warum die Schnitte so gewählt wurden.
+
+\subsubsection*{Schnitte auf NCHARGED}
+Die Spuranzahl ist ein charakteristischer Parameter für alle vier Zerfallskanäle.
+Daher wurde bei allen Kanälen ein Schnitt auf diesen Parameter durchgeführt.
+\begin{description}
+\item[\Zee:] Meistens werden zwei Spuren detektiert, es sind aber auch mehr oder weniger Spuren
+möglich. Wir schneiden auf kleiner gleich 5, um hadronische Ereignisse abzuschneiden.
+\item[\Zmm:] Der größte Teil dieser Ereignisse liefert genau 2 Spuren,
+daher verlangen wir hier genau zwei Ereignisse, um fast alle \qq- und viele \ee- und \tt-Ereignisse abzuschneiden.
+\item[\Ztt:] Gegen \qq\ wird mit kleiner gleich 6 geschnitten.
+\item[\Zqq:] asd
+\end{description}
+
+\begin{figure}[H]
+\begin{center}
+  \includegraphics[width=\textwidth]{../img/dist_Ncharged.pdf}
+  \caption{caption.}
+  \label{img:dist_Ncharged}
+\end{center}
+\end{figure} 
+
+\subsubsection*{Schnitte auf PCHARGED}
+
+\begin{figure}[H]
+\begin{center}
+  \includegraphics[width=\textwidth]{../img/dist_Pcharged.pdf}
+  \caption{caption.}
+  \label{img:dist_Pcharged}
+\end{center}
+\end{figure} 
+
+\subsubsection*{Schnitte auf E\_ECAL}
+
+\begin{figure}[H]
+\begin{center}
+  \includegraphics[width=\textwidth]{../img/dist_E_ecal.pdf}
+  \caption{caption.}
+  \label{img:dist_E_ecal}
+\end{center}
+\end{figure} 
+
+\subsubsection*{Schnitte auf E\_HCAL}
+
+\begin{figure}[H]
+\begin{center}
+  \includegraphics[width=\textwidth]{../img/dist_E_hcal.pdf}
+  \caption{caption.}
+  \label{img:dist_E_hcal}
+\end{center}
+\end{figure} 
+
+\subsubsection*{Schnitte auf COS\_THET}
+
+\begin{figure}[H]
+\begin{center}
+  \includegraphics[width=\textwidth]{../img/dist_cos_thet.pdf}
+  \caption{caption.}
+  \label{img:dist_cos_thet}
+\end{center}
+\end{figure} 
+
 Reinheiten
 \subsection{Berechnung der Effizienzmatrix}
 Werden die oben bestimmten Schnitte auf die Monte-Carlo-Daten angewendet, kann man die Effizienz $\bm{E}$ der Schnitte berechnen. 
