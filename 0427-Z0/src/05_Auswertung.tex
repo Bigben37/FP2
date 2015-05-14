@@ -9,7 +9,7 @@ Energien der echten Daten
 
 \begin{table}[H]
     \caption{Schnittkriterien, die mit den Monte-Carlo-Simulationen der Detektoren gefunden und
-    auf die Messdaten angewendet wurden, um die sichtbaren Zerfallskanäle des \Z-Bosons zu trennen.}
+    auf die Messdaten angewendet wurden, um die sichtbaren Zerfallskanäle des \Z-Bosons voneinander zu trennen.}
     \begin{center}
         \begin{tabular}{|c||c|c|c|c|c|}
             \hline
@@ -34,61 +34,86 @@ Die Spuranzahl ist ein charakteristischer Parameter für alle vier Zerfallskanä
 Daher wurde bei allen Kanälen ein Schnitt auf diesen Parameter durchgeführt.
 \begin{description}
 \item[\Zee:] Meistens werden zwei Spuren detektiert, es sind aber auch mehr oder weniger Spuren
-möglich. Wir schneiden auf kleiner gleich 5, um hadronische Ereignisse abzuschneiden.
-\item[\Zmm:] Der größte Teil dieser Ereignisse liefert genau 2 Spuren,
-daher verlangen wir hier genau zwei Ereignisse, um fast alle \qq- und viele \ee- und \tt-Ereignisse abzuschneiden.
-\item[\Ztt:] Gegen \qq\ wird mit kleiner gleich 6 geschnitten.
-\item[\Zqq:] asd
+möglich. Wir schneiden auf \emph{kleiner gleich 5}, um hadronische Ereignisse abzuschneiden.
+\item[\Zmm:] Der größte Teil dieser Ereignisse liefert zwei Spuren,
+daher verlangen wir hier \emph{genau 2} Ereignisse, um \qq- und viele \ee- und \tt-Ereignisse abzuschneiden.
+\item[\Ztt:] Gegen \qq\ wird mit \emph{kleiner gleich 6} geschnitten.
+\item[\Zqq:] Gegen die drei leptonischen Zerfälle wird hier mit \emph{größer gleich 10} geschnitten.
 \end{description}
 
 \begin{figure}[H]
 \begin{center}
   \includegraphics[width=\textwidth]{../img/dist_Ncharged.pdf}
-  \caption{caption.}
+  \caption{Monte-Carlo-Simulationen der vier Zerfallskanäle für die Anzahl der detektierten Spuren.}
   \label{img:dist_Ncharged}
 \end{center}
 \end{figure} 
 
 \subsubsection*{Schnitte auf PCHARGED}
+\begin{description}
+\item[\Zmm:] Die Energie der Myonen ist im Spurdetektor gut messbar;
+wir schneiden gegen \qq, \tt\ und einige \ee\ mit \emph{größer 75}.
+\item[\Ztt:] Die Verteilung der Tauonen ist recht breit, trotzdem kann man mit \emph{größer~5}
+gegen die Nulleinträge der \ee\ und \mm\ und mit \emph{kleiner 50} gegen \mm\ und einige \qq\ schneiden.
+\end{description}
+
 
 \begin{figure}[H]
 \begin{center}
   \includegraphics[width=\textwidth]{../img/dist_Pcharged.pdf}
-  \caption{caption.}
+ \caption{Monte-Carlo-Simulationen für die im Spurdetektor gemessene Energie.}
   \label{img:dist_Pcharged}
 \end{center}
 \end{figure} 
 
 \subsubsection*{Schnitte auf E\_ECAL}
+\begin{description}
+\item[\Zee:] Im el. Kalorimeter können \ee-Ereignisse deutlich
+gegen die anderen Zerfälle abgegrenzt werden.
+Der Schnitt findet bei \emph{größer 75} statt.
+\item[\Zmm:] Die Energie im el. Kalorimeter ist der einzige Parameter, mit dem \mm\ effektiv
+von \ee\ getrennt werden können.
+Der Schnitt findet bei \emph{kleiner 50} statt.
+\item[\Ztt:] Gegen \mm\ wird mit \emph{größer 4} geschnitten, gegen Elektronen mit \emph{kleiner~70}.
+\end{description}
 
 \begin{figure}[H]
 \begin{center}
   \includegraphics[width=\textwidth]{../img/dist_E_ecal.pdf}
-  \caption{caption.}
+ \caption{Monte-Carlo-Simulationen für die im elektromagnetischen Kalorimeter
+ gemessene Energie.}
   \label{img:dist_E_ecal}
 \end{center}
 \end{figure} 
 
 \subsubsection*{Schnitte auf E\_HCAL}
+Im hadronischen Kalorimeter sind die vier Energiespektren nicht deutlich voneinander abgrenzbar,
+daher werden hier keine Schnitte durchgeführt.
 
 \begin{figure}[H]
 \begin{center}
   \includegraphics[width=\textwidth]{../img/dist_E_hcal.pdf}
-  \caption{caption.}
+ \caption{Monte-Carlo-Simulationen für die im hadronischen Kalorimeter
+ gemessene Energie.}
   \label{img:dist_E_hcal}
 \end{center}
 \end{figure} 
 
 \subsubsection*{Schnitte auf COS\_THET}
+\begin{description}
+\item[\Zee:] Um die \ee-Ereignisse abzuschneiden, die durch Bhabha-Streuung entstehen,
+verlangen wir hier \emph{größer -0.9} und \emph{kleiner 0.9}.
+\end{description}
 
 \begin{figure}[H]
 \begin{center}
   \includegraphics[width=\textwidth]{../img/dist_cos_thet.pdf}
-  \caption{caption.}
+ \caption{Monte-Carlo-Simulationen für die Polarwinkelverteilungen der positiven Leptonen.}
   \label{img:dist_cos_thet}
 \end{center}
 \end{figure} 
 
+%TODO Reinheiten
 Reinheiten
 \subsection{Berechnung der Effizienzmatrix}
 Werden die oben bestimmten Schnitte auf die Monte-Carlo-Daten angewendet, kann man die Effizienz $\bm{E}$ der Schnitte berechnen. 
