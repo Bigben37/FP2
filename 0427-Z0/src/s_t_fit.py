@@ -42,7 +42,8 @@ def stFit(data, energie, xmin, xmax, binsize):
     l.Draw()
 
     c.Update()
-    c.Print('../img/s_t_fit_%.2f.pdf' % energie, 'pdf')
+    s = '%.2f' % energie
+    c.Print('../img/s_t_fit_%s.pdf' % s.replace('.', '-'), 'pdf')
 
     return ((fit.params[0]["value"], fit.params[0]["error"]), (fit.params[1]["value"], fit.params[1]["error"]))
 
