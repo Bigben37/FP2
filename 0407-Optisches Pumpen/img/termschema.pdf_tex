@@ -50,11 +50,11 @@
   \makeatother%
   \begin{picture}(1,1.30021084)%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{termschema.pdf}}%
-    \put(0.35209292,0.36101792){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.28774656\unitlength}\centering ${}^2\text{S}_{1/2}$\end{minipage}}}%
+    \put(0.35209292,0.29195875){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.28774656\unitlength}\centering ${}^2\text{S}_{1/2}$\end{minipage}}}%
     \put(0.35209292,1.09764913){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.28774656\unitlength}\centering ${}^2\text{P}_{1/2}$\end{minipage}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=2]{termschema.pdf}}%
-    \put(0.57406883,0.76550737){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.23513006\unitlength}\raggedright \Large{\rb{87}}\end{minipage}}}%
-    \put(0.32085185,0.76550737){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.22444232\unitlength}\raggedright \Large{\rb{85}}\end{minipage}}}%
+    \put(0.73520691,0.71946792){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.23513006\unitlength}\raggedright \Large{\rb{87}}\end{minipage}}}%
+    \put(0.15971378,0.71946792){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.22444232\unitlength}\raggedright \Large{\rb{85}}\end{minipage}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=3]{termschema.pdf}}%
     \put(0.68084269,1.19604149){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.06278428\unitlength}\centering F=2\end{minipage}}}%
     \put(0.68084269,0.94627747){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.06278428\unitlength}\centering F=1\end{minipage}}}%
@@ -110,5 +110,7 @@
     \put(0.37865786,1.19030484){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.21741961\unitlength}\centering Feinstruktur\end{minipage}}}%
     \put(0.59496149,1.24729912){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.21741961\unitlength}\centering Hyperfeinstruktur\end{minipage}}}%
     \put(0.7013605,1.30566642){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.28601724\unitlength}\raggedleft Zeeman-Aufspaltung\end{minipage}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{termschema.pdf}}%
+    \put(0.5118191,0.82790183){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.19300351\unitlength}\raggedright D$_1$-Linie\end{minipage}}}%
   \end{picture}%
 \endgroup%
