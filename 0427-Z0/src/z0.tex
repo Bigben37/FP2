@@ -56,6 +56,11 @@
 \usepackage{pdfpages} % include pdf files
 
 % NEW COMMANDS
+\newcommand{\xx}[1]{#1$^+$#1$^-$}
+\newcommand{\ee}{\xx{e}}
+\newcommand{\mm}{\xx{\textmu}}
+\renewcommand{\tt}{\xx{\texttau}}
+\newcommand{\qq}{q$\bar{\text{q}}$}
 
 % DOCUMENT SETTINGS
 
@@ -80,7 +85,7 @@ Alle Berechnungen in diesem Protokoll wurden unter Python 3.4 mit Hilfe folgende
 oder mit oder Mathematica 10.0 durchgeführt.
 Die Graphiken wurden mit Inkscape (\url{http://www.inkscape.org}) gezeichnet.\\[\baselineskip]
 Alle Python-Skripte, \LaTeX-Skripte und SVG-Graphiken können online unter \\
-\url{https://github.com/Bigben37/FP2/tree/master/} abgerufen werden. %TODO GitHub URL
+\url{https://github.com/Bigben37/FP2/tree/master/0427-Z0} abgerufen werden.
 \thispagestyle{empty}
 
 \newpage
@@ -97,16 +102,8 @@ Alle Python-Skripte, \LaTeX-Skripte und SVG-Graphiken können online unter \\
 \input{04_Durchfuerung}
 \input{05_Auswertung}
 
-
 \newpage
 \bibliographystyle{plain}
 \bibliography{refs}
-
-%TODO add when finished
-%\appendix
-%\section{Anhang}
-%\subsection{Messprotokoll}
-%\includepdf[pages={-}]{../data/protokoll.pdf}
-
 
 \end{document}
