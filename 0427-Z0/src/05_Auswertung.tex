@@ -318,14 +318,67 @@ sind im 1-\textsigma- und im 2-\textsigma-Intervall.
 
 \subsubsection{Partielle Zerfallsbreiten}
 \label{subsub:partWidth}
+Die Ergebnisse für die partiellen Zerfallsbreiten des \Z-Bosons befinden sich in \autoref{tab:gamma:part}.
+
+Der Literaturwert für den elektronischen Zerfall liegt etwas mehr als 3 Standardabweichungen vom Ergebnis entfernt.
+Die Ursache dafür könnte eine ungenaue s-t-Kanal-Trennung sein:
+Wenn der Beitrag des t-Kanals bei der Trennung unterschätzt wird,
+also nicht alle Teilchen der Bhabha-Streuung aus den Messdaten entfernt werden,
+erhält man einen größeren Wirkungsquerschnitt des Prozesses und damit eine zu hohe Partialbreite.
+
+Die myonische Partialbreite stimmt innerhalb ihrer Standardabweichung mit dem Literaturwert überein.
+
+Das Ergebnis für die Tauonen schließt den Literaturwert innerhalb des 3-\textsigma-Intervalls ein.
+Der Grund für die große Abweichung könnte die komplexe Signatur der \texttau-Ereignisse sein,
+die die Wahl der Schnittparameter und die Identifikation der Ereignisse in den Messergebnissen schwierig macht.
+
+Das Ergebnis für die hadronische Partialbreite liegt fast drei Standardabweichungen über dem Literaturwert.
+Grund dafür ist der zu niedrige Wert der myonischen Partialbreite, der beim Fit verwendet wurde.
+
+Aus den oben genannten Gründen kann die Leptonenuniversalität nur innerhalb des 4-\textsigma-Intervalls
+bestätigt werden.
+
 \input{tab_gamma_part}
-Leptonenuniversalität
+
 \subsubsection{Anzahl leichter Neutrinogenerationen}
-\subsection{Vorwärts-Rückwärts Asymmetrie}
+Die unsichtbare Zerfallsbreite $\Gamma_\text{inv.}$ ist die
+Differenz von gemittelter Gesamtbreite und den Partialbreiten:
+\begin{equation}
+  \Gamma_\text{inv.}=\overline{\Gamma_\text{Z}}-\Gamma_\text{q}-\Gamma_\text{e}-\Gamma_\text{\textmu}-\Gamma_\text{\texttau}
+  =(480 \pm 20)\,\text{GeV}
+\end{equation}
+Mit der theoretischen Zerfallsbreite (aus \cite{manualmuc}) für den Zerfall in Neutrino und Antineutrino
+\begin{equation}
+  \Gamma_\nu=166\,\text{MeV}
+\end{equation}
+erhält man für die Anzahl leichter Neutrinogenerationen
+(unter der Annahme, dass die gesamte unsichtbare Zerfallsbreite durch Neutrinos verursacht wird)
+\begin{equation}
+  n=\frac{\Gamma_\text{inv.}}{\Gamma_\nu}=2.89 \pm 0.12 \ \, .
+\end{equation}
+Dieses Ergebnis passt in das Standardmodell mit seinen drei Neutrinogenerationen.
+
+\subsection{Vorwärts-Rückwärts-Asymmetrie}
+Um die Vorwärts-Rückwärts-Asymmetrie der myonischen Endzustände zu bestimmen,
+erfolgt ein Fit an die Messdaten, die mit den Parametern für Myonen geschnitten wurden.
+Die Fitfunktion lautet dabei
+\begin{equation}
+  N(\cos(\Theta))=\text{F}_1 \left (1+\cos^2(\Theta) \right) + 2 \text{F}_2\cos(\Theta)
+\end{equation}
+Da der erste Teil der Fitfunktion symmetrisch zur y-Achse ist,
+ist die Information über die Asymmetrie im Fitparameter F$_2$ enthalten.
+Der Fit liefert ein Ergebnis von
+\begin{equation}
+  \text{F}_2=-0.9 \pm 0.9 \ \, .
+\end{equation}
+Die Daten enthalten also keine signifikante Asymmetrie.
+Für eine Aussage wären hier mehr Messpunkte notwendig,
+um den Fehler auf die Fitparameter zu reduzieren und die feine Asymmetrie abzubilden.
+
 \begin{figure}[H]
 \begin{center}
   \includegraphics[width=\textwidth]{../img/FBA_91-23223.pdf}
-  \caption{caption.}
+  \caption{Polarwinkelverteilung der Myonen und Fit zur Bestimmung der Vorwärts-Rückwärts-Asymmetrie.}
   \label{img:FBA}
 \end{center}
 \end{figure}
