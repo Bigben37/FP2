@@ -1,6 +1,6 @@
 \section{Physikalische Grundlagen}
 \subsection{Standardmodell}
-\subsubsection{Teilchen}
+\subsubsection*{Teilchen}
 
 \begin{figure}[H]
         \centering
@@ -10,7 +10,7 @@
         \label{img:standardmodel}
 \end{figure}
 
-\subsubsection{Kräfte}
+\subsubsection*{Kräfte}
 \paragraph{Gravitation}
 \paragraph{Starke Wechselwirkung}
 \paragraph{Elektroschwache Wechselwirkung}
@@ -23,9 +23,21 @@ der \emph{Luminosität} $L$, ein Maß für die Anzahl der Kollisionen pro Fläch
 \begin{equation}
     \sigma = \frac{N}{\int L \, \difd t}
 \end{equation}
-\subsubsection{Wirkungsquerschnitt }
+Dabei ist $\int L \, \difd t$ die (über die Zeit) integrierte Luminosität. \\
+Wird der Wirkungsquerschnitt eines Zerfallskanals gegen die Schwerpunktsenergie $\sqrt{s}$ der kollidierenden Teilchen aufgetragen, so ist  
+bei manchen Energien eine deutliche Erhöhung des Wirkungsquerschnitts zu erkennen. Dieser Effekt wird Resonanz genannt und deutet auf ein Teilchen 
+hin, welches die Energie besitzt, bei der die Erhöhung des Wirkungsquerschnitts stattfindet. 
+So gibt es zum Beispiel bei ungefähr 91\,GeV einen Resonanzpeak, der dem \Z-Boson zugeordnet wird. \\
+Der Verlauf der  \Z-Resonanzkurve eines fermionischen Zerfallskanals kann mit einer relativistischen Breit-Wigner Kurve (analog zur Resonanz des 
+klassischen harmonischen Oszillators) beschrieben werden \cite{manual}:
+\begin{equation}
+    \label{eq:sigma:fermion}
+    \sigma_f(s) = \frac{12 \pi}{M_\text{Z}^2} \cdot \frac{s \Gamma_\text{e} \Gamma_f}{ \left( s - M_\text{Z} \right)^2 + \left( s^2 \Gamma_\text{Z}^2 / M_\text{Z}^2 \right) }
+\end{equation}
+$M_\text{Z}$ ist die Masse des \Z-Bosons, $\Gamma_\text{e}$ die elektronische Zerfallsbreite und $\Gamma_f$ die Zerfallsbreite des Fermions. Auf 
+die Zerfallsbreiten wird genauer in \autoref{sub:theo:gamma} eingegangen.
 \subsection{\texorpdfstring{\elp-\elm}{e+/e-}-Wechselwirkung}
-\subsubsection{Zerfallskanäle}
+\subsubsection*{Zerfallskanäle}
 Im LEP (siehe \autoref{sec:setup}) werden Kollisionen von Elektronen und Positronen untersucht.
 Vernichten sich \elp und \elm\ (s-Kanal\footnote{Die Bezeichnungen s-Kanal (Annihilation) und t-Kanal (Streuung) gehen auf die 
 \emph{Mandelstammvariablen} zurück.}), so kann entweder ein Photon oder ein \Z-Boson entstehen, welche beide nach kurzer Zeit wieder 
@@ -41,7 +53,8 @@ kann nicht erzeugt werden, da die Masse des top-Quarks größer ist als die von 
         \caption{Zerfallskanäle des \Z-Bosons.}
         \label{img:Z0:decay}
 \end{figure}
-\subsubsection{Bhabha-Streuung}
+\subsubsection*{Bhabha-Streuung}
+\label{subsub:theo:stchannel}
 Neben der Annihilation von \ee gibt es auch die \ee-Streuung
 (der t-Kanal der \emph{Bha\-bha-Streu\-ung}, \autoref{img:bhabha}).
 Die Bhabha-Streuung wird durch die Reaktion \ee$\to$\ee\ beschrieben.
@@ -61,7 +74,30 @@ der Wirkungsquerschnitte von s- und t-Kanal eine unterschiedliche Winkelabhängi
         \caption{Der t-Kanal der Bhabha-Streuung.}
         \label{img:bhabha}
 \end{figure}
-\subsubsection{Strahlungskorrekturen}
+\subsubsection*{Strahlungskorrekturen}
 \subsection{Vorwärts-Rückwärts Asymmetrie}
 \subsection{Zerfallsbreiten}
-\subsection{Theoretische Berechnung der Zerfallsbreiten}
+\label{sub:theo:gamma}
+Die Zerfallsbreite $\Gamma$ ist durch die Energie-Zeit-Unschärfe motiviert und hängt folgendermaßen mit der Lebensdauer $\tau$ zusammen:
+\begin{equation}
+    \Gamma = \frac{\hbar}{\tau}
+\end{equation}
+Betrachtet man die Zerfallsbreite eines Zerfallskanals, so spricht man von der \emph{partielle} Zerfallsbreite. Die \emph{totale} Zerfallsbreite 
+setzt sich aus der Summe aller partiellen Zerfallsbreiten zusammen. \\
+Für die (totale) Zerfallsbreite des \Z-Bosons gilt \cite{manual}:
+\begin{equation}
+    \Gamma_\text{Z} = \Gamma_\text{e} + \Gamma_\text{\textmu} + \Gamma_\text{\texttau} + \Gamma_\text{q} + n \cdot \Gamma_\nu + \Gamma_\text{unbek.}
+\end{equation}
+Die partiellen Zerfallsbreiten der verschiedenen Quark-Zerfallskanäle wurden zu $\Gamma_\text{q}$ zusammengefasst. Die Zerfallsbreite der 
+nicht im Standardmodell vorhergesagten Zerfallskanäle wurde mit $\Gamma_\text{unbek.}$ bezeichnet. Allerdings wurden bis heute keine solchen 
+Prozesse beobachtet, weshalb $\Gamma_\text{unbek.}$ Null gesetzt werden kann.\\
+$\Gamma_\nu$ ist die Zerfallsbreite einer leichten Neutrino-Generation. Sind alle Zerfallsbreiten bekannt, so kann die Anzahl $n$ der leichten 
+Neutrino-Generationen vorhergesagt werden.
+
+\subsection{Theoretische Berechnung der Zerfallsbreiten und Wirkungsquerschnitte}
+\subsubsection*{Zerfallsbreiten}
+\subsubsection{Wirkungsquerschnitte}
+Der Wirkungsquerschnitt am \Z-Resonanzmaximum ($s = M_\text{Z}$) lässt sich nach \autoref{eq:sigma:fermion} folgendermaßen berechnen:
+\begin{equation}
+    \sigma_f^\text{peak} = \frac{12 \pi}{M_\text{Z}^2} \frac{\Gamma_\text{e} \Gamma_f}{\Gamma_\text{Z}^2}
+\end{equation}
