@@ -1,7 +1,11 @@
-from functions import setupROOT, loadCSVToList
+from functions import setupROOT, loadCSVToList, avgerrors
 from data import DataErrors
 from ROOT import gStyle, TCanvas, TLegend  # @UnresolvedImport
 from fitter import Fitter
+from txtfile import TxtFile
+from z0 import LATEXE, LATEXM, LATEXT, LATEXQ
+
+DEBUG = True
 
 def loadCrossSection(ctype):
     datalist = loadCSVToList('../calc/crosssections_%s.txt' % ctype)
@@ -73,7 +77,7 @@ def makeCSGraph(ctype, startGammaEE=None):
         fit.setParam(2, '#Gamma_{Z}', 2.5)
         fit.setParamLimits(2, 0, 1000)
     else:
-        fit.setParam(1, '#Gamma_{e}', startGammaEE, True)
+        fit.setParam(1, '#Gamma_{m}', startGammaEE, True)
         fit.setParam(2, '#Gamma_{%s}' % ctype[0], 1.5)
         fit.setParam(3, '#Gamma_{Z}', 2.5)
         fit.setParamLimits(2, 0, 1000)
@@ -92,16 +96,68 @@ def makeCSGraph(ctype, startGammaEE=None):
     l.Draw()
 
     c.Update()
-    c.Print('../img/crosssections_%s.pdf' % ctype, 'pdf')
+    if not DEBUG:
+        c.Print('../img/crosssections_%s.pdf' % ctype, 'pdf')
+        
+    if not startGammaEE:
+        result = [(fit.params[0]['value'], fit.params[0]['error']), 
+                  (fit.params[1]['value'], fit.params[1]['error']), 
+                  (fit.params[2]['value'], fit.params[2]['error'])]
+    else:
+        result = [(fit.params[0]['value'], fit.params[0]['error']), 
+                  (fit.params[2]['value'], fit.params[2]['error']), 
+                  (fit.params[3]['value'], fit.params[3]['error'])]
     
-    return fit.params[1]['value']
+    return result
+
+def evalMasses(masses):
+    masses.append(avgerrors(list(zip(*masses))[0], list(zip(*masses))[1]))
+    with TxtFile('../calc/mass.txt', 'w') as f:
+        f.write2DArrayToFile(masses, ['%f'] * 2)
+    table = []
+    desc = [LATEXE, LATEXM, LATEXT, LATEXQ, "gew. Mittel"]
+    for i, (mass, smass) in enumerate(masses):
+        table.append([desc[i], mass, smass])
+    with TxtFile('../src/tab_mass.tex', 'w') as f:
+        f.write2DArrayToLatexTable(table, ["Zerfallskanal", r"$M_\text{Z}$ / GeV", r"$s_{M_\text{Z}}$ / GeV"], 
+                                   ['%s', '%.3f', '%.3f'], 
+                                   r"Durch Fits bestimmte Masse des \Z-Bosons und gewichtetes Mittel.", "tab:mass")
+        
+def evalTotalGamma(gammas):
+    gammas.append(avgerrors(list(zip(*gammas))[0], list(zip(*gammas))[1]))
+    with TxtFile('../calc/gamma_total.txt', 'w') as f:
+        f.write2DArrayToFile(gammas, ['%f'] * 2)
+    table = []
+    desc = [LATEXE, LATEXM, LATEXT, LATEXQ, "gew. Mittel"]
+    for i, (gamma, sgamma) in enumerate(gammas):
+        table.append([desc[i], gamma, sgamma])
+    with TxtFile('../src/tab_gamma_total.tex', 'w') as f:
+        f.write2DArrayToLatexTable(table, ["Zerfallskanal", r"$\Gamma_\text{Z}$ / GeV", r"$s_{\Gamma_\text{Z}}$ / GeV"], 
+                                   ['%s', '%.3f', '%.3f'], 
+                                   r"Durch Fits bestimmte totale Zerfallsbreite des \Z-Bosons und gewichtetes Mittel.", "tab:gamma:total")
+        
+def evalPartGamma(gammas):
+    with TxtFile('../calc/gamma_part.txt', 'w') as f:
+        f.write2DArrayToFile(gammas, ['%f'] * 2)
+    table = []
+    desc = [LATEXE, LATEXM, LATEXT, LATEXQ]
+    for i, (gamma, sgamma) in enumerate(gammas):
+        table.append([desc[i], gamma, sgamma])
+    with TxtFile('../src/tab_gamma_part.tex', 'w') as f:
+        f.write2DArrayToLatexTable(table, ["Zerfallskanal $i$", r"$\Gamma_i$ / GeV", r"$s_{\Gamma_i}$ / GeV"], 
+                                   ['%s', '%.4f', '%.4f'], 
+                                   r"Durch Fits bestimmte partielle Zerfallsbreiten des \Z-Bosons.", 
+                                   "tab:gamma:part")
     
 def main():
-    startGammaEE = 0.084
-    makeCSGraph('ee')
-    makeCSGraph('mm')
-    makeCSGraph('tt')
-    makeCSGraph('qq', startGammaEE)
+    me, ge, gze = makeCSGraph('ee')
+    mm, gm, gzm = makeCSGraph('mm')
+    mt, gt, gzt = makeCSGraph('tt')
+    mh, gh, gzh = makeCSGraph('qq', gm[0])
+    
+    evalMasses([me, mm, mt, mh])
+    evalTotalGamma([gze, gzm, gzt, gzh])
+    evalPartGamma([ge, gm, gt, gh])
 
 if __name__ == '__main__':
     setupROOT()
