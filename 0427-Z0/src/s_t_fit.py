@@ -6,6 +6,7 @@ from fitter import Fitter
 from ROOT import gStyle, TCanvas, TLegend, TF1  # @UnresolvedImport
 from txtfile import TxtFile
 
+DEBUG = True  # TODO set False
 
 def stFit(data, energie, xmin, xmax, binsize):
     datacut = data.cut(CUTS[0][1])  # ee-cut
@@ -38,13 +39,14 @@ def stFit(data, energie, xmin, xmax, binsize):
     l.AddEntry(hist, "Echte Daten (#sqrt{s} = %.2f GeV) mit ee-cut" % energie, 'l')
     l.AddEntry(fit.function, 'Fit mit N(#Theta) = s (1 + cos^{2}#Theta) + t (1 - cos#Theta)^{-2}', 'l')
     fit.addParamsToLegend(l, [('%.2f', '%.2f'), ('%.2f', '%.2f')], chisquareformat='%.2f')
-    l.AddEntry(sfunc, 's (1 + x^{2})', 'l')
-    l.AddEntry(tfunc, 't (1 - x)^{-2}', 'l')
+    l.AddEntry(sfunc, 's (1 + cos^{2}#Theta)', 'l')
+    l.AddEntry(tfunc, 't (1 - cos#Theta)^{-2}', 'l')
     l.Draw()
 
     c.Update()
     s = '%.2f' % energie
-    c.Print('../img/s_t_fit_%s.pdf' % s.replace('.', '-'), 'pdf')
+    if not DEBUG:
+        c.Print('../img/s_t_fit_%s.pdf' % s.replace('.', '-'), 'pdf')
 
     return ((fit.params[0]["value"], fit.params[0]["error"]), (fit.params[1]["value"], fit.params[1]["error"]))
 
@@ -57,6 +59,7 @@ def main():
     integrals = []
     eds = list(energiedatas.items())  # energy datas sorted after energy
     eds.sort(key=lambda x: x[0])
+    table = []
     for energie, data in eds:
         (s, ss), (t, st) = stFit(data, energie, xmin, xmax, binsizes[energie])
         # s intergral:
@@ -68,8 +71,14 @@ def main():
         r = Is / (Is + It)  # s-ratio
         sr = r * sqrt((sIs / Is) ** 2 + (sIs ** 2 + sIt ** 2) / ((Is + It) ** 2))
         integrals.append((energie, Is, sIs, It, sIt, r, sr))
+        table.append([energie, r, sr])
     with TxtFile('../calc/s-t-integrals.txt', 'w') as f:
         f.write2DArrayToFile(integrals, ['%.5f'] + ['%.3f'] * 6)
+    with TxtFile('../src/tab_st_ratios.tex', 'w') as f:
+        f.write2DArrayToLatexTable(table, [r"$\sqrt{s}$ / GeV", r"$c_{\text{st}}$", r"$s_{c_{\text{st}}}$"], 
+                                   ["%.2f", "%.2f", "%.2f"], 
+                                   r"Korrekturfaktoren $c_{\text{st}}$ der s-t-Kanal Trennung für verschiedene Schwerpunktsenergien.", 
+                                   "tab:st:corrs")
 
 if __name__ == '__main__':
     setupROOT()

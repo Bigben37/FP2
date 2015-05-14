@@ -2,9 +2,9 @@
 \subsection{Erhaltene Daten}.
 MC Daten \\
 echte Daten \\
-Energien der echten Daten \\
-Luminositäten \\
-Strahlungskorrekturen 
+Energien der echten Daten
+\input{tab_lums}
+\input{tab_beamcorr}
 \subsection{Bestimmung der Schnitte}
 Reinheiten
 \subsection{Berechnung der Effizienzmatrix}
@@ -52,18 +52,19 @@ Die Inverse von \autoref{tab:effmat:val} ist in \autoref{tab:inveffmat:val} abge
 Den Fehler auf die Inverse einer Matrix ist nicht so einfach auszurechnen. Es wird ein numerisches Simulationsverfahren, 
 das \emph{toy-experiment}, verwendet: \\
 Hierzu werden $N$\footnote{Für die Auswertung wurde $N=100000$ gesetzt.} Effizienzmatrizen $\bm{E}^k$ ($k=1 \ldots N$) erzeugt, 
-deren Einträge leicht modifiziert werden. Für jeden Eintrag $\bm{E}_{ij}$ wird eine Zufallszahl $R_{ij}^k$ 
+deren Einträge leicht modifiziert werden. Für jeden Eintrag $(\bm{E})_{ij}$ wird eine Zufallszahl $R_{ij}^k$ 
 gewählt, die wie eine Gauß'sche Normalverteilung $\mathcal{N}(\mu, \sigma)$ mit Erwartungswert $\mu = 0$ und 
-Standardabweichung $\sigma = 1$ verteilt ist ($R \sim \mathcal{N}(0, 1)$). Der neue Eintrag $\bm{E}_{ij}^k$ wird nun folgendermaßen berechnet:
+Standardabweichung $\sigma = 1$ verteilt ist ($R \sim \mathcal{N}(0, 1)$). Der neue Eintrag $(\bm{E}^k)_{ij}$ wird nun folgendermaßen berechnet:
 \begin{equation}
-    \bm{E}_{ij}^k = \bm{E}_{ij} + R_{ij}^k \cdot s_{\bm{E}_{ij}}
+    (\bm{E}^k)_{ij} = (\bm{E})_{ij} + R_{ij}^k \cdot s_{(\bm{E})_{ij}}
 \end{equation}
-Die neuen Einträge sind also um die wahren Werte herum gaußverteilt. Nun wird die Inverse $({(\bm{E}^k})^{-1})_{ij}$ jeder Effizienzmatrizen $\bm{E}^k_{ij}$ erzeugt und 
+Die neuen Einträge sind also um die wahren Werte herum gaußverteilt. Nun wird die Inverse ${(\bm{E}^k})^{-1}$ jeder 
+Effizienzmatrix $\bm{E}^k$ erzeugt und 
 anschließend die Standardabweichung der einzelnen Einträge berechnet:
 \begin{equation}
-    s_{\bm{E}^{-1}_{ij}} = \sqrt{\frac{1}{N-1} \sum_{i=1}^{N} \left((({\bm{E}^k)}^{-1})_{ij} - (\bm{E}^{-1})_{ij} \right)^2 }
+    s_{(\bm{E}^{-1})_{ij}} = \sqrt{\frac{1}{N-1} \sum_{i=1}^{N} \left((({\bm{E}^k)}^{-1})_{ij} - (\bm{E}^{-1})_{ij} \right)^2 }
 \end{equation}
-Die Standardabweichungen $s_{\bm{E}^{-1}_{ij}}$ werden als Fehler auf die inverse Effizienzmatrix $\bm{E}^{-1}$ verwendet 
+Die Standardabweichungen $s_{(\bm{E}^{-1})_{ij}}$ werden als Fehler auf die inverse Effizienzmatrix $\bm{E}^{-1}$ verwendet 
 (\autoref{tab:inveffmat:err}).
 \input{tab_effmat_inv_err}
 \subsection{s-t-Kanal Trennung}
@@ -108,6 +109,38 @@ Nun kann der s-t-Korrekturterm $c_{\text{st}}$ bestimmt werden:
     \frac{s_{N_s^\text{tot}}^2 + s_{N_t^\text{tot}}^2}{ \left( N_s^\text{tot} + N_t^\text{tot} \right)^2 } }
 \end{equation}
 Wird $c_{\text{st}}$ mit einer gemessenen Anzahl von \ee -Ereignissen multipliziert, erhält man den die Anzahl der s-Kanal Ereignisse.
+Die Korrekturwerte für die verschiedenen Schwerpunktsenergieen sind in \autoref{tab:st:corrs} aufgelistet.
+\input{tab_st_ratios}
+
+\subsection{Berechnung der Wirkungsquerschnitte}
+Nun können die Wirkungsquerschnitte der verschiedenen Prozesse ausgerechnet werden. Hierzu werden die echten Daten nach den verschiedenen 
+Schwerpunktsenergieen aufgeteilt und die verschiedenen Schnitte angewendet. Die Anzahl der Ereignisse, die nach den verschiedenen Schnitten 
+noch übrig sind, werden im $\vec{M}$-Vektor gespeichert. Durch linksseitige Multiplikation mit der inversen Effizienzmatrix $\bm{E}^{-1}$ 
+wird der $\vec{T}$-Vektor berechnet.
+\begin{equation}
+    T_i = \left( \bm{E}^{-1} \vec{M} \right)_i = \sum_j (\bm{E}^{-1})_{ij} \cdot M_j
+\end{equation}
+Da die Einträge $M_i$ des $\vec{M}$-Vektors Ergebnisse eines Zähl-Experiment sind, sind sie poissonverteilt:
+\begin{equation}
+    s_{M_i} = \sqrt{M_i}
+\end{equation}
+Es folgt für den Fehler auf $T_i$:
+\begin{equation}
+    s_{T_i} = \sqrt{\sum_j \left( (\bm{E}^{-1})_{ij} \cdot M_j \right)^2 \cdot 
+    \left( \left( \frac{s_{(\bm{E}^{-1})_{ij}}}{(\bm{E}^{-1})_{ij}} \right)^2 + \left( \frac{\sqrt{M_j}}{M_j} \right)^2 \right) }
+\end{equation}
+Für Anzahl der \ee -Ereignisse muss noch die s-t-Korrektur durchgeführt werden:
+\begin{equation}
+    T_\text{\ee}' = c_\text{st} \cdot T_\text{\ee}, \qquad 
+    s_{T_\text{\ee}'} = T_\text{\ee} \cdot \sqrt{ \left( \frac{s_{T_\text{\ee}}}{T_\text{\ee}} \right)^2 + \left( \frac{s_{c_\text{st}}}{c_\text{st}} \right)^2 }
+\end{equation}
+Die Wirkungsquerschnitte lassen sich nun mit 
+\begin{equation}
+    \sigma_i = \frac{T_i}{L} + c_{\text{beami}, i}, \qquad 
+    s_{\sigma_i} = \frac{T_i}{L} \cdot \sqrt{ \left( \frac{s_{T_i}}{T_i} \right)^2 + \left( \frac{s_L^\text{stat}}{L} \right) }
+\end{equation}
+ausrechnen. Dabei ist $L$ die über die Messzeit integrierte Luminosität aus \autoref{tab:lums} 
+und $c_{\text{beam}, i}$ die Strahlungskorrektur aus \autoref{tab:beamcorrs}.
 
 \subsection{Auswertung der Wirkungsquerschnitte}
 \begin{figure}[H]

@@ -75,7 +75,7 @@ def calcCrossSection(ctype, NData, lums, corrs):
     for energy, N, sN in NData:
         sigma = N / lums[energy][0] + corrs[energy][corrtype]   # sigma = N / L + corr
         ssimga = N / lums[energy][0] * sqrt((sN / N)**2 + (lums[energy][1] / lums[energy][0])**2)
-        sigmas.append((energy, sigma, ssimga))  # TODO error for sigma
+        sigmas.append((energy, sigma, ssimga))
     return sigmas
 
 
@@ -104,7 +104,6 @@ def main():
 
         # print("TrueVector:")
         trueVector = list(dot(inveffmatrix, MeasVector))
-        # sTrueVector = [sqrt(sum((sinveffmatrix[i][j] * trueVector[j])**2 for j in range(4))) for i in range(4)]
         sTrueVector = [sqrt(sum((inveffmatrix[i][j]*MeasVector[j])**2 * ((sinveffmatrix[i][j] / inveffmatrix[i][j])**2 + (sqrt(MeasVector[j]) / MeasVector[j])**2) for j in range(4))) for i in range(4)]
         old = trueVector[0]
         trueVector[0] = old * stRatios[energie][0]
