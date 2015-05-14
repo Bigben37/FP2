@@ -49,7 +49,7 @@ def makeCSGraphUnderground(ctype, startGammaEE=None):
     if not startGammaEE:
         fit.addParamsToLegend(l, [('%.3f', '%.3f'), ('%.3f', '%.3f'), ('%.3f', '%.3f'), ('%.3f', '%.3f'), ('%.3f', '%.3f')], chisquareformat='%f', units=['nb', 'nb/GeV', 'GeV / c^{2}', 'GeV', 'GeV'])
     else:
-        fit.addParamsToLegend(l, [('%.3f', '%.3f'), ('%.3f', '%.3f'), ('%.3f', '%.3f'), '%.3f', ('%.3f', '%.3f'), ('%.3f', '%.3f')], chisquareformat='%f', units=['nb', 'nb/GeV', 'GeV/c^{2}', 'GeV', 'GeV', 'GeV'])
+        fit.addParamsToLegend(l, [('%.3f', '%.3f'), ('%.3f', '%.3f'), ('%.3f', '%.3f'), '%.4f', ('%.3f', '%.3f'), ('%.3f', '%.3f')], chisquareformat='%f', units=['nb', 'nb/GeV', 'GeV/c^{2}', 'GeV', 'GeV', 'GeV'])
     l.Draw()
 
     c.Update()
@@ -92,7 +92,7 @@ def makeCSGraph(ctype, startGammaEE=None):
     if not startGammaEE:
         fit.addParamsToLegend(l, [('%.3f', '%.3f'), ('%.4f', '%.4f'), ('%.3f', '%.3f')], chisquareformat='%f', units=['GeV / c^{2}', 'GeV', 'GeV'])
     else:
-        fit.addParamsToLegend(l, [('%.3f', '%.3f'), '%.3f', ('%.3f', '%.3f'), ('%.3f', '%.3f')], chisquareformat='%f', units=['GeV/c^{2}', 'GeV', 'GeV', 'GeV'])
+        fit.addParamsToLegend(l, [('%.3f', '%.3f'), '%.4f', ('%.3f', '%.3f'), ('%.3f', '%.3f')], chisquareformat='%f', units=['GeV/c^{2}', 'GeV', 'GeV', 'GeV'])
     l.Draw()
 
     c.Update()
