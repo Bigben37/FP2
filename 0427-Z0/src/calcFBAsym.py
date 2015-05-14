@@ -37,7 +37,8 @@ def makeFBAFit(energy, data, binsize):
         res = None
     
     c.Update()
-    c.Print("../img/FBA_%.5f.pdf" % energy, 'pdf')
+    s = '%.5f' % energy
+    c.Print("../img/FBA_%.5f.pdf" % s.replace('.', '-'), 'pdf')
     return res
     
 def main():
