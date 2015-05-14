@@ -5,7 +5,7 @@ from fitter import Fitter
 from txtfile import TxtFile
 from z0 import LATEXE, LATEXM, LATEXT, LATEXQ
 
-DEBUG = True
+DEBUG = False
 
 def loadCrossSection(ctype):
     datalist = loadCSVToList('../calc/crosssections_%s.txt' % ctype)
@@ -68,7 +68,7 @@ def makeCSGraph(ctype, startGammaEE=None):
         fitfuncstring = "#frac{12#pi}{M_{Z}^{2}} #frac{s #Gamma_{%s}^{2}}{(s-M_{Z}^{2})^{2} + s^{2} #Gamma_{Z}^{2} / M_{Z}^{2}}" % ctype[0]
     else:
         fit = Fitter('fit_%s' % ctype, '(12*pi / [0]^2) * (x^2 * [1] * [2]) / ((x^2-[0]^2)^2 + x^4 * [3]^2 / [0]^2) * 0.3894*10^6')
-        fitfuncstring = "#frac{12#pi}{M_{Z}^{2}} #frac{s #Gamma_{e} #Gamma_{%s}}{(s-M_{Z}^{2})^{2} + s^{2} #Gamma_{Z}^{2} / M_{Z}^{2}}" % ctype[0]
+        fitfuncstring = "#frac{12#pi}{M_{Z}^{2}} #frac{s #Gamma_{m} #Gamma_{%s}}{(s-M_{Z}^{2})^{2} + s^{2} #Gamma_{Z}^{2} / M_{Z}^{2}}" % ctype[0]
     fit.setParam(0, 'M_{Z}', 91.2)
     fit.setParamLimits(0, 0, 1000)
     if not startGammaEE:
