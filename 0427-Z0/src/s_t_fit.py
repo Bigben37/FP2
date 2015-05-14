@@ -33,10 +33,10 @@ def stFit(data, energie, xmin, xmax, binsize):
     tfunc.SetLineColor(4)
     tfunc.Draw('same')
 
-    l = TLegend(0.15, 0.6, 0.45, 0.85)
+    l = TLegend(0.15, 0.5, 0.55, 0.85)
     l.SetTextSize(0.03)
-    l.AddEntry(hist, "daten_1 (mit ee-cut)", 'l')
-    l.AddEntry(fit.function, 'Fit mit N = s (1 + cos^{2}#Theta) + t (1 - cos #Theta)^{-2}', 'l')
+    l.AddEntry(hist, "Echte Daten (#sqrt{s} = %.2f GeV) mit ee-cut" % energie, 'l')
+    l.AddEntry(fit.function, 'Fit mit N(#Theta) = s (1 + cos^{2}#Theta) + t (1 - cos#Theta)^{-2}', 'l')
     fit.addParamsToLegend(l, [('%.2f', '%.2f'), ('%.2f', '%.2f')], chisquareformat='%.2f')
     l.AddEntry(sfunc, 's (1 + x^{2})', 'l')
     l.AddEntry(tfunc, 't (1 - x)^{-2}', 'l')

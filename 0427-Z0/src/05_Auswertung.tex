@@ -54,7 +54,7 @@ das \emph{toy-experiment}, verwendet: \\
 Hierzu werden $N$\footnote{Für die Auswertung wurde $N=100000$ gesetzt.} Effizienzmatrizen $\bm{E}^k$ ($k=1 \ldots N$) erzeugt, 
 deren Einträge leicht modifiziert werden. Für jeden Eintrag $\bm{E}_{ij}$ wird eine Zufallszahl $R_{ij}^k$ 
 gewählt, die wie eine Gauß'sche Normalverteilung $\mathcal{N}(\mu, \sigma)$ mit Erwartungswert $\mu = 0$ und 
-Standardabweichung $\sigma = 1$ verteilt ist ($R \sim \mathcal{N}(0, s_x)$). Der neue Eintrag $\bm{E}_{ij}^k$ wird nun folgendermaßen berechnet:
+Standardabweichung $\sigma = 1$ verteilt ist ($R \sim \mathcal{N}(0, 1)$). Der neue Eintrag $\bm{E}_{ij}^k$ wird nun folgendermaßen berechnet:
 \begin{equation}
     \bm{E}_{ij}^k = \bm{E}_{ij} + R_{ij}^k \cdot s_{\bm{E}_{ij}}
 \end{equation}
@@ -71,22 +71,43 @@ Wie in \autoref{sub:theo:stchannel} beschrieben, besitzt die Bhabha-Streuung (\e
 und einen t-Kanal (Streuung). Da nur im s-Kanal ein reelles \Z -Boson entsteht, verfälschen die Ereignisse im t-Kanal die Anzahl 
 der \ee -Ereignisse. \\
 Um den s-Kanal vom t-Kanal zu trennen, werden die echten Daten nach den verschiedenen Schwerpunktsenergieen $\sqrt{s}$ aufgeteilt und 
-mit dem \ee -Schnitt geschnitten. Es wird die Winkelabhängigkeit der Daten überprüft, da Anzahl der \ee -Ereignisse 
-je nach Kanal eine unterschiedliche (vgl. \autoref{eq:stchannel:sigmas}) $\cos \Theta$ vorhanden ist. An den so erhaltenen Histogrammen wird 
+der \ee -Schnitt angewendet. Es wird die Winkelabhängigkeit der Daten überprüft, da die Anzahl der \ee -Ereignisse 
+je nach Kanal eine unterschiedliche (vgl. \autoref{eq:stchannel:sigmas}) Abhängigkeit von $\cos \Theta$ besitzt. An den so erhaltenen Histogrammen wird 
 eine Kurvenanpassung mit 
 \begin{equation}
-    N(\cos \Theta) = s \cdot \left( 1 + \cos^2 \Theta \right) + t \cdot \left( 1 - \cos \Theta \right)^{-2}
+    \begin{split}
+    	& N(\cos \Theta) = s \cdot N_s(\cos \Theta ) + t \cdot N_t(\cos \Theta) \\
+    	& N_s(\cos \Theta) := \left( 1 + \cos^2 \Theta \right) \\
+    	& N_t (\cos \Theta) := \left( 1 - \cos \Theta \right)^{-2}
+    \end{split}
 \end{equation}
-
-xmin, xmax
+im Bereich von $-0.9 \leq \cos \Theta \leq 0.9$\footnote{Dies entspricht dem \ee -Schnitt.} durchgeführt. In \autoref{img:st:9123} sieht man 
+das Histogramm und den Fit der Daten mit einer Energie von \sE{91.23}. Die Graphen der anderen Schwerpunktsenergieen befinden sich in 
+\autoref{sub:app:st}.
 
 \begin{figure}[H]
 \begin{center}
   \includegraphics[width=\textwidth]{../img/s_t_fit_91-23.pdf}
-  \caption{s-t-fit bei \sE{91.23}.}
-  \label{img:label}
+  \caption{Winkelabhängigkeit der Ereignisse bei \sE{91.23} und Fit zur Bestimmung des s- und t-Anteils.}
+  \label{img:st:9123}
 \end{center}
 \end{figure}
+Um die Anzahl $N_s^\text{tot}$ und $N_t^\text{tot}$ der s-Kanal bzw. t-Kanal Ereignisse zu erhalten, muss man 
+$s \cdot N_s(\cos \Theta)$ und $t \cdot N_t(\cos \Theta)$ einzeln integrieren. Dabei werden für die Parameter $s$ und $t$ die 
+gefitteten Werte benutzt. Die Fehlerfortpflanzung ist trivial, da die Integrale nicht von $s$ bzw. $t$ abhängen.
+\begin{equation}
+    \begin{split}
+        & N_s^\text{tot} = s \cdot \int_{-0.9}^{0.9} \left( 1 + \cos^2 \Theta \right) \difd (\cos \Theta) \\
+        & N_t^\text{tot} = t \cdot \int_{-0.9}^{0.9} \left( 1 - \cos \Theta \right)^{-2} \difd (\cos \Theta)
+    \end{split}
+\end{equation}
+Nun kann der s-t-Korrekturterm $c_{\text{st}}$ bestimmt werden:
+\begin{equation}
+    c_{\text{st}} = \frac{N_s^\text{tot}}{N_s^\text{tot} + N_t^\text{tot}}, \qquad 
+    s_{c_{\text{st}}} = c_{\text{st}} \cdot \sqrt{ \left( \frac{s_{N_s^\text{tot}}}{N_s^\text{tot}} \right)^2 + 
+    \frac{s_{N_s^\text{tot}}^2 + s_{N_t^\text{tot}}^2}{ \left( N_s^\text{tot} + N_t^\text{tot} \right)^2 } }
+\end{equation}
+Wird $c_{\text{st}}$ mit einer gemessenen Anzahl von \ee -Ereignissen multipliziert, erhält man den die Anzahl der s-Kanal Ereignisse.
 
 \subsection{Auswertung der Wirkungsquerschnitte}
 \begin{figure}[H]

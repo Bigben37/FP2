@@ -55,6 +55,16 @@
 
 \usepackage{pdfpages} % include pdf files
 
+\usepackage[nottoc,numbib]{tocbibind} % bibliography in TOC 
+
+% call Abschnitt and Unterabschnitt Kapitel with \autoref-command
+\addto\extrasngerman{
+ \renewcommand{\sectionautorefname}{Kapitel}
+ \renewcommand{\subsectionautorefname}{Kapitel}
+ \renewcommand{\subsubsectionautorefname}{Kapitel}
+}
+
+
 % NEW COMMANDS
 \newcommand{\xx}[1]{#1$^+$#1$^-$}
 \newcommand{\ee}{\xx{e}}
@@ -62,7 +72,8 @@
 \renewcommand{\tt}{\xx{\texttau}}
 \newcommand{\qq}{q$\bar{\text{q}}$}
 \newcommand{\Z}{Z$^0$}
-\newcommand{\sE}[2]{$\sqrt{s}=#1$\,#2}
+\newcommand{\sE}[1]{$\sqrt{s}=#1$\,GeV}
+\newcommand{\difd}{\mathrm{d}}
 
 % DOCUMENT SETTINGS
 
@@ -107,5 +118,8 @@ Alle Python-Skripte, \LaTeX-Skripte und SVG-Graphiken können online unter \\
 \newpage
 \bibliographystyle{plain}
 \bibliography{refs}
+
+\appendix
+\input{appendix_graphs}
 
 \end{document}
