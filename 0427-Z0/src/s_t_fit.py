@@ -12,7 +12,7 @@ def stFit(data, energie, xmin, xmax, binsize):
 
     c = TCanvas('c', '', 1280, 720)
     hist = datacut.makeHistogramm('hist_%f' % energie, 'cos_thet', binsize, -1, 1)
-    setHistTitle(hist, "cos #Theta", "Anzahl der Ereignisse")
+    setHistTitle(hist, "cos #Theta", "Anzahl der Ereignisse N")
     hist.Draw()
 
     fit = Fitter('f', '[0] * (1 + x^2) + [1] * (1-x)^(-2)')
@@ -36,7 +36,7 @@ def stFit(data, energie, xmin, xmax, binsize):
     l = TLegend(0.15, 0.6, 0.45, 0.85)
     l.SetTextSize(0.03)
     l.AddEntry(hist, "daten_1 (mit ee-cut)", 'l')
-    l.AddEntry(fit.function, 'Fit mit N = s (1 + x^{2}) + t (1 - x)^{-2}', 'l')
+    l.AddEntry(fit.function, 'Fit mit N = s (1 + cos^{2}#Theta) + t (1 - cos #Theta)^{-2}', 'l')
     fit.addParamsToLegend(l, [('%.2f', '%.2f'), ('%.2f', '%.2f')], chisquareformat='%.2f')
     l.AddEntry(sfunc, 's (1 + x^{2})', 'l')
     l.AddEntry(tfunc, 't (1 - x)^{-2}', 'l')

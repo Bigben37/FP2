@@ -68,7 +68,17 @@ Die Standardabweichungen $s_{\bm{E}^{-1}_{ij}}$ werden als Fehler auf die invers
 \input{tab_effmat_inv_err}
 \subsection{s-t-Kanal Trennung}
 Wie in \autoref{sub:theo:stchannel} beschrieben, besitzt die Bhabha-Streuung (\ee $\to$ \ee) einen s-Kanal (Annihilation) 
-und einen t-Kanal (Streuung). Da nur im s-Kanal ein reelles 
+und einen t-Kanal (Streuung). Da nur im s-Kanal ein reelles \Z -Boson entsteht, verfälschen die Ereignisse im t-Kanal die Anzahl 
+der \ee -Ereignisse. \\
+Um den s-Kanal vom t-Kanal zu trennen, werden die echten Daten nach den verschiedenen Schwerpunktsenergieen $\sqrt{s}$ aufgeteilt und 
+mit dem \ee -Schnitt geschnitten. Es wird die Winkelabhängigkeit der Daten überprüft, da Anzahl der \ee -Ereignisse 
+je nach Kanal eine unterschiedliche (vgl. \autoref{eq:stchannel:sigmas}) $\cos \Theta$ vorhanden ist. An den so erhaltenen Histogrammen wird 
+eine Kurvenanpassung mit 
+\begin{equation}
+    N(\cos \Theta) = s \cdot \left( 1 + \cos^2 \Theta \right) + t \cdot \left( 1 - \cos \Theta \right)^{-2}
+\end{equation}
+
+xmin, xmax
 
 \begin{figure}[H]
 \begin{center}
