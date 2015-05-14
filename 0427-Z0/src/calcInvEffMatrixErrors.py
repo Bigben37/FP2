@@ -4,6 +4,7 @@ from numpy.linalg import inv
 import time
 from functions import loadCSVToList
 from txtfile import TxtFile
+from z0 import LATEXE, LATEXM, LATEXQ, LATEXT
 
 def generateErrorMatrix(effmatrix, seffmatrix):
     m = []
@@ -42,5 +43,16 @@ def main():
     with TxtFile('../calc/invEfficencies_error.txt', 'w') as f:
         f.write2DArrayToFile(sigmas, ['%.7f'] * 4)
     
+def makeTable():
+    sigmas = loadCSVToList('../calc/invEfficencies_error.txt')
+    thead = [r"Schnitt$\backslash$MC-Daten", LATEXE, LATEXM, LATEXT, LATEXQ]
+    firstrow = [LATEXE, LATEXM, LATEXT, LATEXQ]
+    with TxtFile('../src/tab_effmat_inv_err.tex', 'w') as f:
+        f.write2DArrayToLatexTable(list(zip(*([firstrow] + list(zip(*sigmas))))), thead, 
+                                   ['%s'] + ['%.7f']*4, 
+                                   'Fehler der inversen Effizienzmatrix, berechnet mit einem toy-experiment.', 
+                                   'tab:inveffmat:err')
+    
 if __name__ == '__main__':
-    main()
+    #main()
+    makeTable()

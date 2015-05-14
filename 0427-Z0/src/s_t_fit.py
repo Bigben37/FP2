@@ -1,6 +1,6 @@
 from numpy import sqrt
 from cuts import CUTS
-from z0 import Z0Data
+from z0 import Z0Data, setHistTitle
 from functions import setupROOT
 from fitter import Fitter
 from ROOT import gStyle, TCanvas, TLegend, TF1  # @UnresolvedImport
@@ -12,9 +12,10 @@ def stFit(data, energie, xmin, xmax, binsize):
 
     c = TCanvas('c', '', 1280, 720)
     hist = datacut.makeHistogramm('hist_%f' % energie, 'cos_thet', binsize, -1, 1)
+    setHistTitle(hist, "cos #Theta", "Anzahl der Ereignisse")
     hist.Draw()
 
-    fit = Fitter('f', '[0] * (1 + x^2) + [1] * (1 - x)^(-2)')
+    fit = Fitter('f', '[0] * (1 + x^2) + [1] * (1-x)^(-2)')
     fit.setParam(0, 's', 100)
     fit.setParam(1, 't', 10)
     fit.fit(hist, xmin, xmax)

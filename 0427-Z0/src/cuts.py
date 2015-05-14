@@ -110,7 +110,7 @@ def makeCuts(datas):
     with TxtFile('../calc/purities.txt', 'w') as f:
         f.write2DArrayToFile(list(zip(*[purities])), ['%.6f'])
     # output for protocol
-    thead = ["Schnitt/MC-Daten", LATEXE, LATEXM, LATEXT, LATEXQ]
+    thead = [r"Schnitt$\backslash$MC-Daten", LATEXE, LATEXM, LATEXT, LATEXQ]
     firstrow = [LATEXE, LATEXM, LATEXT, LATEXQ]
     with TxtFile('../src/tab_effmat_val.tex', 'w') as f:
         f.write2DArrayToLatexTable(list(zip(*([firstrow] + list(zip(*efficencies))))), thead, 
@@ -118,6 +118,9 @@ def makeCuts(datas):
     with TxtFile('../src/tab_effmat_err.tex', 'w') as f:
         f.write2DArrayToLatexTable(list(zip(*([firstrow] + list(zip(*sefficencies))))), thead, 
                                    ['%s'] + ['%.6f']*4, 'Fehler der Effizienzmatrix.', 'tab:effmat:err')
+    with TxtFile('../src/tab_effmat_inv_val.tex', 'w') as f:
+        f.write2DArrayToLatexTable(list(zip(*([firstrow] + list(zip(*inv(efficencies)))))), thead, 
+                                   ['%s'] + ['%.6f']*4, 'Inverse Effizienzmatrix.', 'tab:inveffmat:val')
 
 if __name__ == '__main__':
     setupROOT()
