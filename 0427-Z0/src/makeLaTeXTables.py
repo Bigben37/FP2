@@ -10,7 +10,7 @@ def main():
                                     r"$s_L^\text{sys}$ / (1/nb)", r"$s_L^\text{tot}$ / (1/nb)"], 
                                    ["%.2f"] + ["%.0f"]*4, 
                                    "Zeitlich integrierte Luminosität mit statistischem, systematischem und totalem " + 
-                                   "Fehler für verschiedene Schwerpunktsenergieen.", 
+                                   "Fehler für verschiedene Schwerpunktsenergien.", 
                                    "tab:lums")
     
     # beam correction
@@ -19,7 +19,7 @@ def main():
         f.write2DArrayToLatexTable(corr, 
                                    [r"$\sqrt{s}$ / GeV", r"$c_\text{beam, \qq}$ / nb", r"$c_\text{beam, \leplep}$ / nb"], 
                                    ["%.2f", "%.1f", "%.2f"], 
-                                   r"Strahlungskorrekturen für hadronische und leptonische Zerfälle bei verschiedenen Schwerpunktsenergieen.", 
+                                   r"Strahlungskorrekturen für hadronische und leptonische Zerfälle bei verschiedenen Schwerpunktsenergien.", 
                                    "tab:beamcorrs")
 
 if __name__ == '__main__':
