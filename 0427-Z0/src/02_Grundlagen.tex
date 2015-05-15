@@ -20,20 +20,20 @@ Je vier der Teilchen werden zu einer Generation zusammengefasst.
 \end{figure}
 
 \subsubsection*{Elektroschwache Wechselwirkung}
-Die elektromagnetische und die schwache Wechselwirkung wurden 1967 von Glashow, Salam und Weinberg zu der elektroschwachen Theorie vereinheitlicht, 
+Die elektromagnetische und die schwache Wechselwirkung wurden 1967 von Glashow, Salam und Weinberg zu der elektroschwachen Theorie vereinheitlicht,
 da sich die Kopplungskonstanten der elektromagnetischen und schwachen Wechselwirkung bei hohen Energien im Wert ähneln.
-In der elektroschwachen 
-Theorie gibt es vier Eichbosonen, die keine Masse haben\footnote{Die Masse erhalten drei der vier Eichbosonen durch den \emph{Higgs-Kibble-Mechanismus}.}:  
-$\text{W}^\pm$ und $\text{W}^0$ aus der schwachen Wechselwirkung und $\text{B}^0$ 
-aus der elektromagnetischen Wechselwirkung. Man würde intuitiv das $\text{B}^0$ mit dem Photon gleichsetzten, jedoch koppelt das $\text{B}^0$ 
+In der elektroschwachen
+Theorie gibt es vier Eichbosonen, die keine Masse haben\footnote{Die Masse erhalten drei der vier Eichbosonen durch den \emph{Higgs-Kibble-Mechanismus}.}:
+$\text{W}^\pm$ und $\text{W}^0$ aus der schwachen Wechselwirkung und $\text{B}^0$
+aus der elektromagnetischen Wechselwirkung. Man würde intuitiv das $\text{B}^0$ mit dem Photon gleichsetzten, jedoch koppelt das $\text{B}^0$
 auch an Neutrinos, das Photon aber nicht. \\
-Das Photonfeld wird als Überlagerung von $\text{W}^0$ und $\text{B}^0$ definiert 
+Das Photonfeld wird als Überlagerung von $\text{W}^0$ und $\text{B}^0$ definiert
 mit dem \emph{Weinbergwinkel} $\theta_\text{W}$ als Mischungswinkel der beiden Felder. Das zum Photonfeld orthogonale Feld ist das Feld des \Z.
-Der Weinbergwinkel lässt sich mit 
+Der Weinbergwinkel lässt sich mit
 \begin{equation}
     \cos \theta_\text{W} = \frac{M_\text{W}}{M_\text{Z}} \qquad \text{oder} \qquad \sin^2 \theta_\text{W} = \frac{\alpha_\text{em}}{\alpha_\text{W}}
 \end{equation}
-bestimmen \cite{manual}. Dabei sind $M_\text{Z}$ und $M_\text{W}$ die Massen des \Z- bzw. W-Bosons, $\alpha_\text{em}$ die Kopplungskonstante 
+bestimmen \cite{manual}. Dabei sind $M_\text{Z}$ und $M_\text{W}$ die Massen des \Z- bzw. W-Bosons, $\alpha_\text{em}$ die Kopplungskonstante
 der elektromagnetischen Wechselwirkung und $\alpha_\text{W}$ die Kopplungskonstante der schwachen Wechselwirkung.
 \subsection{Wirkungsquerschnitt}
 Klassisch gesehen beschreibt der Wirkungsquerschnitt $\sigma$ bei einer Kollision von zwei Objekten die Fläche, an der sie sich treffen.
@@ -114,11 +114,11 @@ weil die Energie der Reaktionspartner dann
 näher an der Resonanz liegt.
 
 \begin{figure}[H]
-        \centering
-        \def\svgwidth{0.75\textwidth}
-       \input{../img/radkorr.pdf_tex}
-        \caption{Feynman-Diagramme für die Strahlungskorrektur durch Anfangs- und Endbremsstrahlung.}
-        \label{img:radkorr}
+    \centering
+    \def\svgwidth{0.75\textwidth}
+    \input{../img/radkorr.pdf_tex}
+    \caption{Feynman-Diagramme für die Strahlungskorrektur durch Anfangs- und Endbremsstrahlung.}
+    \label{img:radkorr}
 \end{figure}
 
 %TODO virtuelle und QCD Strahlungskorrekturen
@@ -171,29 +171,81 @@ Neutrino-Generationen vorhergesagt werden.
 
 \subsection{Theoretische Berechnung der Zerfallsbreiten und Wirkungsquerschnitte}
 \subsubsection*{Zerfallsbreiten}
-Alle Formeln und Konstanten stammen, wenn nicht anders angegeben, aus \cite{manualmuc}.
+Alle Formeln und Konstanten stammen, wenn nicht anders angegeben, aus \cite{manualmuc}. \\
+Die partielle Breite der \Z-Resonanz berechnet sich für einen fermionischen Zerfallskanal mit:
 \begin{equation}
+    \label{eq:theo:calc:gamma}
     \Gamma_f = \frac{N_c^f \cdot \sqrt{2}}{12 \pi} \cdot G_F \cdot M_Z^3 \cdot \left( \left( g_\text{V}^f \right)^2 + \left( g_\text{A}^f \right)^2 \right)
 \end{equation}
+Dabei sind schwachen Kopplungen (Vektor und Axialvektor) durch
 \begin{equation}
     g_\text{V}^f = I_3^f - 2 Q_f \sin^2 \theta_W, \qquad g_A^f = I_3^f
 \end{equation}
+gegeben. Einsetzen in \autoref{eq:theo:calc:gamma} liefert:
 \begin{equation}
     \Gamma_f = \frac{N_c^f \cdot \sqrt{2}}{12 \pi} \cdot G_F \cdot M_Z^3 \cdot \left( \left( I_3^f - 2 Q_f \sin^2 \theta_W \right)^2 + \left( I_3^f \right)^2 \right)
 \end{equation}
-Konstanten:
+Die zur Berechnung benötigten Konstanten sind:
 \begin{itemize}
     \item Farbfaktor
     \begin{equation}
-        N_f =
+        N_c^f =
         \begin{cases}
             1 & \text{für Leptonen } (f = \text{e}, \text{\textmu}, \text{\texttau}, \nu) \\
-            3 (1 + \delta_\text{QCD}) & \text{für Quarks } (f = \text{u, d, c, s, b})
+            3 (1 + \delta_\text{QCD}) & \text{für Quarks } (f = \text{u,\,d,\,c,\,s,\,b})
         \end{cases}
     \end{equation}
-    mit dem QCD-Korrekturterm $\delta_\text{QCD} = 1.05 \frac{\alpha_\text{S}(M_\text{Z})}{\pi}$ und der starken Kopplungskonstante 
-    \item Fermikonstante $G_F = $
+    mit dem QCD-Korrekturterm $\delta_\text{QCD} = 1.05 \frac{\alpha_\text{S}(M_\text{Z})}{\pi}$ und der starken Kopplungskonstante
+    $\alpha_\text{S}(M_\text{Z}) = 0.12$ bei einer Energie von 92.1\,GeV.
+    \item Fermikonstante $G_F = 1.1663 \cdot 10^{-5}\,\text{GeV}^{-2}$ \cite{manual}
+    \item Masse des \Z-Bosons $M_\text{Z}=91.187$\,GeV
+    \item $z$-Komponente des schwachen Isospins
+    \begin{equation}
+        I_3^f =
+        \begin{cases}
+            \frac{1}{2}  & \text{für } f = \nu, \text{u,\,c} \\
+            -\frac{1}{2} & \text{für } f = \text{\elm,\,\textmu$^-$,\,\texttau$^-$,\,d,\,s,\,b}
+        \end{cases}
+    \end{equation}
+    \item Ladung
+    \begin{equation}
+        Q_f =
+        \begin{cases}
+            0			& \text{für } f = \nu \\
+         -1			& \text{für } f = \text{\elm,\,\textmu$^-$,\,\texttau$^-$} \\
+      \frac{2}{3}	& \text{für } f = \text{u,\,c} \\
+     -\frac{1}{3}& \text{für } f = \text{d,\,s,\,b}
+        \end{cases}
+    \end{equation}
+    \item Weinbergwinkel $\theta_\text{W}$
+    \begin{equation}
+        \sin^2 \theta_\text{W} = \frac{1}{2} - \sqrt{\frac{1}{4} - \frac{\pi \cdot \alpha \left( M_\text{Z}^2 \right) }{\sqrt{2} \cdot G_\text{F} \cdot M_\text{Z}^2}}
+    \end{equation}
+    Dabei ist $\alpha \left( M_\text{Z}^2 \right) = \frac{1}{128.87}$ die elektromagnetische Kopplungskonstante bei 91.2\,GeV. Der Weinbergwinkel
+    berechent sich zu
+    \begin{equation}
+        \sin^2 \theta_\text{W} = 0.231241
+    \end{equation}
 \end{itemize}
+Die berechneten partiellen Breiten der \Z-Resonanz sind in \autoref{tab:theo:calc:gammas} aufgelistet.
+\begin{table}[H]
+\caption{Berechnete partielle Breiten $\Gamma_f$ der \Z-Resonanz.}
+\begin{center}
+\begin{tabular}{|c|c|c|}
+    \hline
+    $f$ 					& $\Gamma_f$ / MeV 	& $\Gamma_f^\text{Lit.}$ / MeV \\ \hline
+    e, \textmu, \texttau	& 83.3873			& \\ \hline
+    e + \textmu + \texttau	& 250.162			& \\ \hline
+    $\nu$					& 165.841			& \\ \hline
+    3$\nu$					& 497.523			& \\ \hline
+    u, c					& 296.763			& \\ \hline
+    d, s, b					& 382.524			& \\ \hline
+    u + c + d  + s + b		& 1741.1			& \\ \hline
+\end{tabular}
+\end{center}
+\label{tab:theo:calc:gammas}
+\end{table}
+
 \subsubsection{Wirkungsquerschnitte}
 Der Wirkungsquerschnitt am \Z-Resonanzmaximum ($s = M_\text{Z}$) lässt sich nach \autoref{eq:sigma:fermion} folgendermaßen berechnen:
 \begin{equation}
