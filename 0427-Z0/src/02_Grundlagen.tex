@@ -35,9 +35,10 @@ Der Weinbergwinkel lässt sich mit
 \end{equation}
 bestimmen \cite{manual}. Dabei sind $M_\text{Z}$ und $M_\text{W}$ die Massen des \Z- bzw. W-Bosons, $\alpha_\text{em}$ die Kopplungskonstante
 der elektromagnetischen Wechselwirkung und $\alpha_\text{W}$ die Kopplungskonstante der schwachen Wechselwirkung.
-\subsection{Wirkungsquerschnitt}
-Klassisch gesehen beschreibt der Wirkungsquerschnitt $\sigma$ bei einer Kollision von zwei Objekten die Fläche, an der sie sich treffen.
-In der Teilchenphysik gibt der Wirkungsquerschnitt eine Wahrscheinlichkeit, ob ein gewisser Prozess bei der Kollision von Teilchen auftritt, an.
+
+\subsection{Der Wirkungsquerschnitt}
+In der Teilchenphysik gibt der Wirkungsquerschnitt $\sigma$ die Wahrscheinlichkeit an, mit der ein gewisser Prozess bei der Kollision von 
+Teilchen auftritt.
 Die Einheit des Wirkungsquerschnitts ist \emph{barn} ($1\,\text{b} = 10^{-24}\,\text{cm}^2$). \\
 Jedoch wird im Experiment nicht direkt der Wirkungsquerschnitt gemessen, sondern die Anzahl eines gewissen Ereignisses (Zerfallskanal). Mit Hilfe
 der \emph{Luminosität} $L$, ein Maß für die Anzahl der Kollisionen pro Fläche und Zeit, kann der Wirkungsquerschnitt bestimmt werden:
@@ -46,26 +47,27 @@ der \emph{Luminosität} $L$, ein Maß für die Anzahl der Kollisionen pro Fläch
 \end{equation}
 Dabei ist $\int L \, \difd t$ die (über die Zeit) integrierte Luminosität. \\
 Wird der Wirkungsquerschnitt eines Zerfallskanals gegen die Schwerpunktsenergie $\sqrt{s}$ der kollidierenden Teilchen aufgetragen, so ist
-bei manchen Energien eine deutliche Erhöhung des Wirkungsquerschnitts zu erkennen. Dieser Effekt wird Resonanz genannt und deutet auf ein Teilchen
-hin, welches die Energie besitzt, bei der die Erhöhung des Wirkungsquerschnitts stattfindet.
+bei manchen Energien eine deutliche Erhöhung des Wirkungsquerschnitts zu erkennen. Dieser Effekt wird Resonanz genannt und wird durch das Teilchen
+verursacht, welches die Energie besitzt, bei der die Erhöhung des Wirkungsquerschnitts stattfindet.
 So gibt es zum Beispiel bei ungefähr 91\,GeV einen Resonanzpeak, der dem \Z-Boson zugeordnet wird. \\
 Der Verlauf der  \Z-Resonanzkurve eines fermionischen Zerfallskanals kann mit einer relativistischen Breit-Wigner Kurve (analog zur Resonanz des
 klassischen harmonischen Oszillators) beschrieben werden \cite{manual}:
 \begin{equation}
     \label{eq:sigma:fermion}
-    \sigma_f(s) = \frac{12 \pi}{M_\text{Z}^2} \cdot \frac{s \Gamma_\text{e} \Gamma_f}{ \left( s - M_\text{Z} \right)^2 + \left( s^2 \Gamma_\text{Z}^2 / M_\text{Z}^2 \right) }
+    \sigma_f(s) = \frac{12 \pi}{M_\text{Z}^2} \cdot \frac{s \Gamma_\text{e} \Gamma_f}{ \left( s - M_\text{Z}^2 \right)^2 + \left( s^2 \Gamma_\text{Z}^2 / M_\text{Z}^2 \right) }
 \end{equation}
 $M_\text{Z}$ ist die Masse des \Z-Bosons, $\Gamma_\text{e}$ die elektronische Zerfallsbreite und $\Gamma_f$ die Zerfallsbreite des Fermions. Auf
 die Zerfallsbreiten wird genauer in \autoref{sub:theo:gamma} eingegangen.
 \subsection{\texorpdfstring{\elp-\elm}{e+/e-}-Wechselwirkung}
 \subsubsection*{Zerfallskanäle}
 Im LEP (siehe \autoref{sec:setup}) werden Kollisionen von Elektronen und Positronen untersucht.
-Vernichten sich \elp und \elm\ (s-Kanal\footnote{Die Bezeichnungen s-Kanal (Annihilation) und t-Kanal (Streuung) gehen auf die
-\emph{Mandelstammvariablen} zurück.}), so kann entweder ein Photon oder ein \Z-Boson entstehen, welche beide nach kurzer Zeit wieder
+Vernichten sich \elp\ und \elm\ (s-Kanal\footnote{Die Bezeichnungen s-Kanal (Annihilation) und t-Kanal (Streuung) gehen auf die
+\emph{Mandelstam-Variablen} zurück.}), so kann entweder ein Photon oder ein \Z-Boson entstehen, welche beide nach kurzer Zeit wieder
 zerfallen. Bei einer Schwerpunktsenergie $\sqrt{s}$ in der Nähe der \Z-Masse ist die Produktion von Photonen jedoch stark unterdrückt,
 weshalb diese Zerfallskanäle nicht relevant für die Bestimmung von Eigenschaften des \Z-Bosons sind. \\
-Das \Z-Boson kann in $\ell^+\ell^-$-, $\nu_\ell\bar{\nu}_\ell$- und $q\bar{q}$-Paare zerfallen (\autoref{img:Z0:decay}).
-Dabei bezeichnet $\ell$ eines der drei Leptonen (e, \textmu, \texttau) und $q$ eines der fünf leichtesten Quarks (u, d, c, s, b). Ein \xx{t}-Paar
+Das \Z-Boson kann in $\ell^+\ell^-$-, $\nu_\ell\bar{\nu}_\ell$- und \qq-Paare zerfallen (\autoref{img:Z0:decay}).
+Dabei bezeichnet $\ell$ eines der drei Leptonen (e, \textmu, \texttau), $\nu_\ell$ ihre Neutrinos und q eines der fünf leichtesten Quarks 
+(u, d, c, s, b). Ein t$\bar{\text{t}}$-Paar
 kann nicht erzeugt werden, da die Masse des top-Quarks größer ist als die von \Z.
 \begin{figure}[H]
     \centering
@@ -76,12 +78,12 @@ kann nicht erzeugt werden, da die Masse des top-Quarks größer ist als die von 
 \end{figure}
 \subsubsection*{Bhabha-Streuung}
 \label{subsub:theo:stchannel}
-Neben der Annihilation von \ee gibt es auch die \ee-Streuung
+Neben der Annihilation von \ee\ gibt es auch die \ee-Streuung
 (der t-Kanal der \emph{Bha\-bha-Streu\-ung}, \autoref{img:bhabha}).
 Die Bhabha-Streuung wird durch die Reaktion \ee$\to$\ee\ beschrieben.
 Da für die experimentelle Bestimmung der \Z-Breite nur der s-Kanal relevant ist, müssen die Ereignisse des t-Kanals gefiltert werden.
-Dies ist durch eine Unterscheidung der Zerfallsprodukte nicht möglich, da sie in beiden Kanälen gleich sind. Allerdings besitzten
-der Wirkungsquerschnitte von s- und t-Kanal eine unterschiedliche Winkelabhängigkeit des Polarwinkels $\Theta$
+Dies ist durch eine Unterscheidung der Zerfallsprodukte nicht möglich, weil sie in beiden Kanälen gleich sind. Allerdings besitzen
+die Wirkungsquerschnitte von s- und t-Kanal eine unterschiedliche Winkelabhängigkeit des Polarwinkels $\Theta$
 (die Strahlachse entspricht der $z$-Achse). Es gilt~\cite{manual}:
 \begin{equation}
     \label{eq:stchannel:sigmas}
@@ -102,7 +104,7 @@ Um die Messergebnisse bei den im Experiment verwendeten hohen Energien korrekt b
 reicht die Bornsche Näherung (Berücksichtigung der Feynman-Diagramme bis zur ersten Ordnung) nicht mehr aus.
 An den Beispielen der Anfangsbremsstrahlung und der Endbremsstrahlung wird hier
 eine reelle Strahlungskorrektur beschrieben.
-Zur Bestimmung der Korrekturfaktoren müssen zusätzlich noch virtuelle Korrekturen (gleicher Endzustand
+Zur Bestimmung der Korrekturfaktoren müssen zusätzlich noch virtuelle Korrekturen (Schleifen mit gleichen Endzuständen 
 wie im Diagramm erster Ordnung) und Gluonabstrahlung berücksichtigt werden.
 
 Wenn die Schwerpunktsenergie von Elektron und Positron im Bereich der \Z-Resonanz liegt,
@@ -121,9 +123,6 @@ näher an der Resonanz liegt.
     \label{img:radkorr}
 \end{figure}
 
-%TODO virtuelle und QCD Strahlungskorrekturen
-TODO virtuelle und QCD Strahlungskorrekturen
-
 \subsection{Vorwärts-Rückwärts-Asymmetrie}
 Unter der Vorwärts-Rückwärts-Asymmetrie versteht man die relative Differenz der Wirkungsquerschnitte in vorderer und hinterer Hemisphäre:
 \begin{equation}
@@ -141,7 +140,7 @@ Der differentielle Wirkungsquerschnitt $\frac{\difd \sigma_f}{\difd \cos \Theta}
     \frac{\difd \sigma_f}{\difd \cos \Theta} = A(s) \left[F_1(s) \left( 1 + \cos^2 \Theta \right) + 2 F_2(s) \cos \Theta \right]
 \end{equation}
 genähert werden \cite{manual}. Dabei sind $A(s)$, $F_1(s)$ und $F_2(s)$ Faktoren,
-deren Abhängigkeit von $s$ für diesen Versuch nicht wichtig sind. \\
+deren Abhängigkeit von der Schwerpunktsenergie $\sqrt{s}$ für diesen Versuch nicht wichtig ist. \\
 Nun lässt sich die Vorwärts-Rückwärts-Asymmetrie durch Lösen der Integrale in \autoref{eq:theo:FBA:deflong} zu
 \begin{equation}
     A_\text{FB}^f = \frac{3}{4} \frac{F_2}{F_1}
@@ -157,7 +156,7 @@ Die Zerfallsbreite $\Gamma$ ist durch die Energie-Zeit-Unschärfe motiviert und 
 \begin{equation}
     \Gamma = \frac{\hbar}{\tau}
 \end{equation}
-Betrachtet man die Zerfallsbreite eines Zerfallskanals, so spricht man von der \emph{partielle} Zerfallsbreite. Die \emph{totale} Zerfallsbreite
+Betrachtet man die Zerfallsbreite eines Zerfallskanals, so spricht man von der \emph{partiellen} Zerfallsbreite. Die \emph{totale} Zerfallsbreite
 setzt sich aus der Summe aller partiellen Zerfallsbreiten zusammen. \\
 Für die (totale) Zerfallsbreite des \Z-Bosons gilt \cite{manual}:
 \begin{equation}
@@ -165,7 +164,7 @@ Für die (totale) Zerfallsbreite des \Z-Bosons gilt \cite{manual}:
 \end{equation}
 Die partiellen Zerfallsbreiten der verschiedenen Quark-Zerfallskanäle wurden zu $\Gamma_\text{q}$ zusammengefasst. Die Zerfallsbreite der
 nicht im Standardmodell vorhergesagten Zerfallskanäle wurde mit $\Gamma_\text{unbek.}$ bezeichnet. Allerdings wurden bis heute keine solchen
-Prozesse beobachtet, weshalb $\Gamma_\text{unbek.}$ Null gesetzt werden kann.\\
+Prozesse beobachtet, weshalb $\Gamma_\text{unbek.}$ gleich Null gesetzt werden kann.\\
 $\Gamma_\nu$ ist die Zerfallsbreite einer leichten Neutrino-Generation. Sind alle Zerfallsbreiten bekannt, so kann die Anzahl $n$ der leichten
 Neutrino-Generationen vorhergesagt werden.
 
@@ -224,7 +223,7 @@ Die zur Berechnung benötigten Konstanten sind:
     Dabei ist $\alpha \left( M_\text{Z}^2 \right) = \frac{1}{128.87}$ die elektromagnetische Kopplungskonstante bei 91.2\,GeV. Der Weinbergwinkel
     berechent sich zu
     \begin{equation}
-        \sin^2 \theta_\text{W} = 0.231241
+        \sin^2 \theta_\text{W} = 0.231241 \ \, .
     \end{equation}
 \end{itemize}
 Die berechneten partiellen Breiten
@@ -256,10 +255,15 @@ Der Literaturwert \cite{pdg} beträgt hier
 \begin{equation}
   \Gamma_\text{Z}^\text{Lit.} =  (2495.2 \pm 2.3)\, \text{MeV}\ \, .
 \end{equation}
-Der Grund für die Abweichung um fast drei Standardabweichungen wurde oben erwähnt.
+Der Grund für die Abweichung um fast drei Standardabweichungen wurde oben erwähnt. \\
+Geht man von einer zusätzlichen Leptonenfamilie aus, so ändert sich die Gesamtbreite um
+\begin{equation}
+    \frac{\Gamma_\text{e} + \Gamma_\nu}{\Gamma_\text{Z}} \approx 10.0\% \ \, .
+\end{equation}
+
 
 \subsubsection{Wirkungsquerschnitte}
-Die partiellen Wirkungsquerschnitte am \Z-Resonanzmaximum ($s = M_\text{Z}$) lässt sich nach \autoref{eq:sigma:fermion} folgendermaßen berechnen:
+Die partiellen Wirkungsquerschnitte am \Z-Resonanzmaximum ($\sqrt{s} = M_\text{Z}$) lassen sich nach \autoref{eq:sigma:fermion} folgendermaßen berechnen:
 \begin{equation}
     \sigma_f^\text{peak} = \frac{12 \pi}{M_\text{Z}^2} \frac{\Gamma_\text{e} \Gamma_f}{\Gamma_\text{Z}^2}
 \end{equation}

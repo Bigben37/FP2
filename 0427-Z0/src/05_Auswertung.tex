@@ -6,7 +6,7 @@ Die Monte-Carlo-Simulationen wurden für die vier sichtbaren Zerfallskanäle bei
 Die Messdaten wurden bei 7 unterschieden Schwerpunktsenergien aufgenommen.
 Die Luminosität des Beschleunigers bei den verschiedenen Energien ist bekannt (\autoref{tab:lums}).
 Auch die Strahlungskorrekturen, die sich aus den Feynman-Graphen höherer Ordnung
-ergeben (\autoref{sect:strahlungskorr}), sind gegeben (\autoref{tab:st:corrs}).
+ergeben (\autoref{sect:strahlungskorr}), sind gegeben (\autoref{tab:beamcorrs}).
 
 \input{tab_lums}
 \input{tab_beamcorr}
@@ -121,7 +121,7 @@ verlangen wir hier \emph{größer -0.9} und \emph{kleiner 0.9}.
 
 Die Reinheiten $\eta_i$ der Schnitte wurden mit folgender Formel bestimmt
 \begin{equation}
-  \eta_i = 1 - \frac{\sum_{j \neq i} N_j \cdot \text{BR}_i}{\sum_{k=1}^4 N_k \cdot \text{BR}_i}
+  \eta_i = 1 - \frac{\sum_{j \neq i} N_j \cdot \text{BR}_j}{\sum_{k=1}^4 N_k \cdot \text{BR}_k}
 \end{equation}
 und sind in \autoref{tab:reinheiten} aufgeführt. Die Anzahlen $N_i$ der Ereignisse der verschiedenen Zerfallskanäle, 
 die nach einem Schnitt noch da sind, müssen mit ihren Verzweigungsverhältnissen\footnote{engl: \emph{branching ratio}} 
@@ -145,22 +145,21 @@ die nach einem Schnitt noch da sind, müssen mit ihren Verzweigungsverhältnisse
 
 \subsection{Berechnung der Effizienzmatrix}
 Werden die oben bestimmten Schnitte auf die Monte-Carlo-Daten angewendet, kann man die Effizienz $\bm{E}$ der Schnitte berechnen.
-Die Effizienzmatrix gibt an, welcher Anteil der verschiedenen Ereignisse nach einem Schnitt noch vorhanden sind. Sie ist definiert als
+Die Effizienzmatrix gibt an, welcher Anteil der verschiedenen Ereignisse nach einem Schnitt noch vorhanden ist. Sie ist definiert als
 \begin{equation}
-    \bm{E}_{ij} = \frac{n_{ij}^\text{cut}}{n_i} \ \, .
+    \bm{E}_{ij} = \frac{n_{ij}^\text{cut}}{n_i}, \qquad \text{$i, j \in \left\{\right.$e$^+$e$^-$, \textmu$^+$\textmu$^-$, \texttau$^+$\texttau$^-$, q$^+$q$^-\left.\right\}$} \ \, .
 \end{equation}
-$i, j \in $ e$^+$e$^-$, \textmu$^+$\textmu$^-$, \texttau$^+$\texttau$^-$, q$^+$q$^-$ \\  %TODO format
 Dabei bezeichnet $n_{ij}^\text{cut}$ die Anzahl der Ereignisse von Typ $i$ nach Schnitt von Typ $j$ und $n_i$ die gesamte Anzahl von Ereignissen
 der Monte-Carlo-Simulation von Typ $i$.
-Die Beziehung zwischen den Anzahlen von gemessenen Ereignissen nach Schnitt $\vec{M}$\footnote{"measurement"} und den echten Anzahlen
+Die Beziehung zwischen den Anzahlen von gemessenen Ereignissen $\vec{M}$\footnote{"measurement"} nach Schnitt und den echten Anzahlen
 $\vec{T}$\footnote{"truth"} lautet durch die Definition der Effizienzmatrix $\bm{E}$:
 \begin{equation}
     \label{eq:effmat:mtrel}
     \vec{M} = \bm{E} \vec{T}
 \end{equation}
-Die Effizienzmatrix unsere Schnitte ist in \autoref{tab:effmat:val} dargestellt.
+Die Effizienzmatrix unserer Schnitte ist in \autoref{tab:effmat:val} dargestellt.
 \input{tab_effmat_val}
-Nun gilt es den Fehler der einzelnen Einträge der Effizienzmatrix zu bestimmen. Hierzu wird die Definition der Effizienz $\epsilon$ leicht geändert:
+Nun gilt es, den Fehler der einzelnen Einträge der Effizienzmatrix zu bestimmen. Hierzu wird die Definition der Effizienz $\epsilon$ leicht geändert:
 \begin{equation}
     \epsilon = \frac{p}{p+f}
 \end{equation}
@@ -178,19 +177,19 @@ Somit können nun die Fehler von den Einträge der Effizienzmatrix bestimmt werd
 \input{tab_effmat_err}
 \subsubsection{Berechnung der inversen Effizienzmatrix}
 Wenn die Schnitte auf die echten Daten angewendet werden, sind nur die gemessenen Anzahlen von Ereignissen bekannt
-(d.h. der $\vec{M}$-Vektor). Um auf die wahre Anzahl von Ereignissen rückzuschließen kann an \autoref{eq:effmat:mtrel}
+(d.h. der $\vec{M}$-Vektor). Um auf die wahre Anzahl von Ereignissen rückzuschließen, kann an \autoref{eq:effmat:mtrel}
 von links die inverse Effizienzmatrix multipliziert werden:
 \begin{equation}
     \vec{T} = \bm{E}^{-1} \vec{M}
 \end{equation}
 Die Inverse von \autoref{tab:effmat:val} ist in \autoref{tab:inveffmat:val} abgebildet.
 \input{tab_effmat_inv_val}
-Den Fehler auf die Inverse einer Matrix ist nicht so einfach auszurechnen. Es wird ein numerisches Simulationsverfahren,
+Der Fehler auf die Inverse einer Matrix ist nicht so einfach auszurechnen. Es wird ein numerisches Simulationsverfahren,
 das \emph{toy-experiment}, verwendet: \\
 Hierzu werden $N$\footnote{Für die Auswertung wurde $N=100000$ gesetzt.} Effizienzmatrizen $\bm{E}^k$ ($k=1 \ldots N$) erzeugt,
 deren Einträge leicht modifiziert werden. Für jeden Eintrag $(\bm{E})_{ij}$ wird eine Zufallszahl $R_{ij}^k$
 gewählt, die wie eine Gauß'sche Normalverteilung $\mathcal{N}(\mu, \sigma)$ mit Erwartungswert $\mu = 0$ und
-Standardabweichung $\sigma = 1$ verteilt ist ($R \sim \mathcal{N}(0, 1)$). Der neue Eintrag $(\bm{E}^k)_{ij}$ wird nun folgendermaßen berechnet:
+Standardabweichung $\sigma = 1$ verteilt ist ($R_{ij}^k \sim \mathcal{N}(0, 1)$). Der neue Eintrag $(\bm{E}^k)_{ij}$ wird nun folgendermaßen berechnet:
 \begin{equation}
     (\bm{E}^k)_{ij} = (\bm{E})_{ij} + R_{ij}^k \cdot s_{(\bm{E})_{ij}}
 \end{equation}
@@ -198,7 +197,7 @@ Die neuen Einträge sind also um die wahren Werte herum gaußverteilt. Nun wird 
 Effizienzmatrix $\bm{E}^k$ erzeugt und
 anschließend die Standardabweichung der einzelnen Einträge berechnet:
 \begin{equation}
-    s_{(\bm{E}^{-1})_{ij}} = \sqrt{\frac{1}{N-1} \sum_{i=1}^{N} \left((({\bm{E}^k)}^{-1})_{ij} - (\bm{E}^{-1})_{ij} \right)^2 }
+    s_{(\bm{E}^{-1})_{ij}} = \sqrt{\frac{1}{N-1} \sum_{k=1}^{N} \left((({\bm{E}^k)}^{-1})_{ij} - (\bm{E}^{-1})_{ij} \right)^2 }
 \end{equation}
 Die Standardabweichungen $s_{(\bm{E}^{-1})_{ij}}$ werden als Fehler auf die inverse Effizienzmatrix $\bm{E}^{-1}$ verwendet
 (\autoref{tab:inveffmat:err}).
@@ -207,10 +206,10 @@ Die Standardabweichungen $s_{(\bm{E}^{-1})_{ij}}$ werden als Fehler auf die inve
 Wie in \autoref{subsub:theo:stchannel} beschrieben, besitzt die Bhabha-Streuung (\ee $\to$ \ee) einen s-Kanal (Annihilation)
 und einen t-Kanal (Streuung). Da nur im s-Kanal ein reelles \Z -Boson entsteht, verfälschen die Ereignisse im t-Kanal die Anzahl
 der \ee -Ereignisse. \\
-Um den s-Kanal vom t-Kanal zu trennen, werden die echten Daten nach den verschiedenen Schwerpunktsenergieen $\sqrt{s}$ aufgeteilt und
+Um den s-Kanal vom t-Kanal zu trennen, werden die echten Daten nach den verschiedenen Schwerpunktsenergien $\sqrt{s}$ aufgeteilt und
 der \ee -Schnitt angewendet. Es wird die Winkelabhängigkeit der Daten überprüft, da die Anzahl der \ee -Ereignisse
-je nach Kanal eine unterschiedliche (vgl. \autoref{eq:stchannel:sigmas}) Abhängigkeit von $\cos \Theta$ besitzt. An den so erhaltenen Histogrammen wird
-eine Kurvenanpassung mit
+je nach Kanal eine unterschiedliche (vgl. \autoref{eq:stchannel:sigmas}) Abhängigkeit von $\cos \Theta$ besitzt. 
+An die so erhaltenen Histogramme wird eine Kurvenanpassung mit
 \begin{equation}
     \begin{split}
         & N(\cos \Theta) = s \cdot N_s(\cos \Theta ) + t \cdot N_t(\cos \Theta) \\
@@ -219,7 +218,7 @@ eine Kurvenanpassung mit
     \end{split}
 \end{equation}
 im Bereich von $-0.9 \leq \cos \Theta \leq 0.9$\footnote{Dies entspricht dem \ee -Schnitt.} durchgeführt. In \autoref{img:st:9123} sieht man
-das Histogramm und den Fit der Daten mit einer Energie von \sE{91.23}. Die Graphen der anderen Schwerpunktsenergieen befinden sich in
+das Histogramm und den Fit der Daten mit einer Energie von \sE{91.23}. Die Graphen der anderen Schwerpunktsenergien befinden sich in
 \autoref{sub:app:st}.
 
 \begin{figure}[H]
@@ -229,7 +228,7 @@ das Histogramm und den Fit der Daten mit einer Energie von \sE{91.23}. Die Graph
         \label{img:st:9123}
     \end{center}
 \end{figure}
-Um die Anzahl $N_s^\text{tot}$ und $N_t^\text{tot}$ der s-Kanal bzw. t-Kanal Ereignisse zu erhalten, muss man
+Um die Anzahl $N_s^\text{tot}$ und $N_t^\text{tot}$ der s-Kanal- bzw. t-Kanal-Ereignisse zu erhalten, muss man
 $s \cdot N_s(\cos \Theta)$ und $t \cdot N_t(\cos \Theta)$ einzeln integrieren. Dabei werden für die Parameter $s$ und $t$ die
 gefitteten Werte benutzt. Die Fehlerfortpflanzung ist trivial, da die Integrale nicht von $s$ bzw. $t$ abhängen.
 \begin{equation}
@@ -244,13 +243,13 @@ Nun kann der s-t-Korrekturterm $c_{\text{st}}$ bestimmt werden:
     s_{c_{\text{st}}} = c_{\text{st}} \cdot \sqrt{ \left( \frac{s_{N_s^\text{tot}}}{N_s^\text{tot}} \right)^2 +
     \frac{s_{N_s^\text{tot}}^2 + s_{N_t^\text{tot}}^2}{ \left( N_s^\text{tot} + N_t^\text{tot} \right)^2 } }
 \end{equation}
-Wird $c_{\text{st}}$ mit einer gemessenen Anzahl von \ee -Ereignissen multipliziert, erhält man den die Anzahl der s-Kanal Ereignisse.
-Die Korrekturwerte für die verschiedenen Schwerpunktsenergieen sind in \autoref{tab:st:corrs} aufgelistet.
+Wird $c_{\text{st}}$ mit einer gemessenen Anzahl von \ee -Ereignissen multipliziert, erhält man die Anzahl der s-Kanal-Ereignisse.
+Die Korrekturwerte für die verschiedenen Schwerpunktsenergien sind in \autoref{tab:st:corrs} aufgelistet.
 \input{tab_st_ratios}
 
 \subsection{Berechnung der Wirkungsquerschnitte}
 Nun können die Wirkungsquerschnitte der verschiedenen Prozesse ausgerechnet werden. Hierzu werden die echten Daten nach den verschiedenen
-Schwerpunktsenergieen aufgeteilt und die verschiedenen Schnitte angewendet. Die Anzahl der Ereignisse, die nach den verschiedenen Schnitten
+Schwerpunktsenergien aufgeteilt und die Schnitte angewendet. Die Anzahl der Ereignisse, die nach den Schnitten
 noch übrig sind, werden im $\vec{M}$-Vektor gespeichert. Durch linksseitige Multiplikation mit der inversen Effizienzmatrix $\bm{E}^{-1}$
 wird der $\vec{T}$-Vektor berechnet.
 \begin{equation}
@@ -282,7 +281,7 @@ und $c_{\text{beam}, i}$ die Strahlungskorrektur aus \autoref{tab:beamcorrs}.
 Die Wirkungsquerschnitte der verschiedenen Zerfallskanäle werden nun gegen die Schwerpunktsenergie $\sqrt{s}$ aufgetragen und mit einer 
 relativistischen Breit-Wigner Funktion (\autoref{eq:sigma:fermion}) gefittet (\autoref{img:crosssection:ee} bis \autoref{img:crosssection:qq}).
 \begin{equation}
-    \sigma_i(s) = \frac{12 \pi}{M_\text{Z}^2} \cdot \frac{s \Gamma_j \Gamma_i}{ \left( s - M_\text{Z}^2 + s^2 \Gamma_\text{Z}^2 / M_\text{Z}^2 \right) }
+    \sigma_i(s) = \frac{12 \pi}{M_\text{Z}^2} \cdot \frac{s \Gamma_j \Gamma_i}{ \left( s - M_\text{Z}^2\right)^2 + s^2 \Gamma_\text{Z}^2 / M_\text{Z}^2 }
 \end{equation}
 Die freien Parameter sind die Masse $M_\text{Z}$ des \Z-Bosons, die totale Breite $\Gamma_\text{Z}$ und 
 die Partialbreiten $\Gamma_i$ und $\Gamma_j$. Eigentlich sollte $\Gamma_j$ immer die elektronische Breite $\Gamma_\text{e}$ sein, jedoch 
