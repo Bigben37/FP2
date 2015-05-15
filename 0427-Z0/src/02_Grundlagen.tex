@@ -227,24 +227,36 @@ Die zur Berechnung benötigten Konstanten sind:
         \sin^2 \theta_\text{W} = 0.231241
     \end{equation}
 \end{itemize}
-Die berechneten partiellen Breiten der \Z-Resonanz sind in \autoref{tab:theo:calc:gammas} aufgelistet.
+Die berechneten partiellen Breiten
+der \Z-Resonanz sind in \autoref{tab:theo:calc:gammas} aufgelistet.
+Abweichungen der theoretischen Werte von den Literaturwerten treten auf,
+weil bei ihrer Berechnung nur die Feynman-Diagramme erster Ordnung berücksichtigt wurden.
 \begin{table}[H]
-\caption{Berechnete partielle Breiten $\Gamma_f$ der \Z-Resonanz.}
+\caption{Berechnete partielle Breiten $\Gamma_f$ und Literaturwerte der \Z-Resonanz.}
 \begin{center}
 \begin{tabular}{|c|c|c|}
     \hline
-    $f$ 					& $\Gamma_f$ / MeV 	& $\Gamma_f^\text{Lit.}$ / MeV \\ \hline
-    e, \textmu, \texttau	& 83.3873			& \\ \hline
-    e + \textmu + \texttau	& 250.162			& \\ \hline
-    $\nu$					& 165.841			& \\ \hline
-    3$\nu$					& 497.523			& \\ \hline
-    u, c					& 296.763			& \\ \hline
-    d, s, b					& 382.524			& \\ \hline
-    u + c + d  + s + b		& 1741.1			& \\ \hline
+    $f$ 					& $\Gamma_f$ / MeV 	& $\Gamma_f^\text{Lit.}$ / MeV	\\ \hline\hline
+    e, \textmu, \texttau	& 83.3873			& 83.984 \pm\ 0.086\ \cite{pdg}	\\ \hline
+    e + \textmu + \texttau	& 250.162			& - 							\\ \hline
+    $\nu$					& 165.841			& 167.6	\cite{manual}			\\ \hline
+    3$\nu$					& 497.523			& 499.0 \pm\ 1.5\ \cite{pdg}		\\ \hline
+    u, c					& 296.763			& 299 \cite{manual}				\\ \hline
+    d, s, b					& 382.524			& 378 \cite{manual}				\\ \hline
+    u + c + d  + s + b		& 1741.1			& 1744.4 \pm\ 2.0\ \cite{pdg}	\\ \hline
 \end{tabular}
 \end{center}
 \label{tab:theo:calc:gammas}
 \end{table}
+Als Gesamtbreite $\Gamma_\text{Z}$ erhält man die Summe aus leptonischen, hadronischen und Neutrino-Zerfällen
+\begin{equation}
+  \Gamma_\text{Z} =  2488.78\, \text{MeV}\ \, .
+\end{equation}
+Der Literaturwert \cite{pdg} beträgt hier
+\begin{equation}
+  \Gamma_\text{Z}^\text{Lit.} =  (2495.2 \pm 2.3)\, \text{MeV}\ \, .
+\end{equation}
+Der Grund für die Abweichung um fast drei Standardabweichungen wurde oben erwähnt.
 
 \subsubsection{Wirkungsquerschnitte}
 Der Wirkungsquerschnitt am \Z-Resonanzmaximum ($s = M_\text{Z}$) lässt sich nach \autoref{eq:sigma:fermion} folgendermaßen berechnen:
