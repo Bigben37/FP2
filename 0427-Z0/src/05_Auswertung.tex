@@ -1,13 +1,22 @@
 \section{Auswertung}
-\subsection{Erhaltene Daten}.
-%TODO Tabellen
-MC Daten \\
-echte Daten \\
-Energien der echten Daten
-%TODO Ben fix energieen in beiden Tabellenscaptions
+\subsection{Erhaltene Daten}
+Für den Versuch stehen sowohl Daten der Detektorsimulationen
+als auch echte Messdaten zur Verfügung.
+Die Monte-Carlo-Simulationen wurden für die vier sichtbaren Zerfallskanäle bei einer einzigen Energie durchgeführt.
+Die Messdaten wurden bei 7 unterschieden Schwerpunktsenergien aufgenommen.
+Die Luminosität des Beschleunigers bei den verschiedenen Energien ist bekannt (\autoref{tab:lums}).
+Auch die Strahlungskorrekturen, die sich aus den Feynman-Graphen höherer Ordnung
+ergeben (\autoref{sect:strahlungskorr}), sind gegeben (\autoref{tab:st:corrs}).
+
 \input{tab_lums}
 \input{tab_beamcorr}
+
+
 \subsection{Bestimmung der Schnittkriterien}
+\autoref{tab:schnitte} zeigt die Schnitte,
+die auf die Messdaten angewendet wurden,
+um die vier sichtbaren Zerfallskanäle des \Z-Bosons zu trennen.
+An den simulierten Daten der Detektoren wird erläutert, warum die Schnitte so gewählt wurden.
 
 \begin{table}[H]
     \caption{Schnittkriterien, die mit den Monte-Carlo-Simulationen der Detektoren gefunden und
@@ -26,10 +35,7 @@ Energien der echten Daten
     \label{tab:schnitte}
 \end{table}
 
-\autoref{tab:schnitte} zeigt die Schnitte,
-die auf die Messdaten angewendet wurden,
-um die vier sichtbaren Zerfallskanäle des \Z-Bosons zu trennen.
-An den Monte-Carlo-Simulationen der Detektoren wird erläutert, warum die Schnitte so gewählt wurden.
+
 
 \subsubsection*{Schnitte auf NCHARGED}
 Die Spuranzahl ist ein charakteristischer Parameter für alle vier Zerfallskanäle.
@@ -115,8 +121,24 @@ verlangen wir hier \emph{größer -0.9} und \emph{kleiner 0.9}.
 \end{center}
 \end{figure} 
 
-%TODO Reinheiten
-Reinheiten
+%TODO Formel Reinheiten
+Formel Reinheiten
+\begin{table}[H]
+    \caption{Berechnete Reinheit der Messdaten nach Anwendung der Schnitte aus \autoref{tab:schnitte}.}
+    \begin{center}
+        \begin{tabular}{|c|c|}
+            \hline
+   Zerfallskanal   	& Reinheit / \%	\\ \hline
+   \Zee				& 99.9922		\\ \hline
+   \Zmm				& 99.9871		\\ \hline
+   \Ztt				& 99.7672		\\ \hline
+   \Zqq				& 99.9936		\\ \hline
+
+        \end{tabular}
+    \end{center}
+    \label{tab:reinheiten}
+\end{table}
+
 \subsection{Berechnung der Effizienzmatrix}
 Werden die oben bestimmten Schnitte auf die Monte-Carlo-Daten angewendet, kann man die Effizienz $\bm{E}$ der Schnitte berechnen.
 Die Effizienzmatrix gibt an, welcher Anteil der verschiedenen Ereignisse nach einem Schnitt noch vorhanden sind. Sie ist definiert als
