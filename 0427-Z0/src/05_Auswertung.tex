@@ -119,20 +119,20 @@ verlangen wir hier \emph{größer -0.9} und \emph{kleiner 0.9}.
 \end{center}
 \end{figure} 
 
-%TODO Formel Reinheiten
-Die Reinheiten der Schnitte wurden mit folgender Formel bestimmt
+Die Reinheiten $\eta_i$ der Schnitte wurden mit folgender Formel bestimmt
 \begin{equation}
-  FORMEL
+  \eta_i = 1 - \frac{\sum_{j \neq i} N_j \cdot \text{BR}_i}{\sum_{k=1}^4 N_k \cdot \text{BR}_i}
 \end{equation}
-und sind in \autoref{tab:reinheiten} aufgeführt.
-
+und sind in \autoref{tab:reinheiten} aufgeführt. Die Anzahlen $N_i$ der Ereignisse der verschiedenen Zerfallskanäle, 
+die nach einem Schnitt noch da sind, müssen mit ihren Verzweigungsverhältnissen\footnote{engl: \emph{branching ratio}} 
+(aus \cite{pdg}) gewichtet werden, da die Anzahl der Daten der Monte-Carlo-Simulationen ungefähr übereinstimmen.
 
 \begin{table}[H]
-    \caption{Berechnete Reinheit der Messdaten nach Anwendung der Schnitte aus \autoref{tab:schnitte}.}
+    \caption{Berechnete Reinheit $\eta$ der Messdaten nach Anwendung der Schnitte aus \autoref{tab:schnitte}.}
     \begin{center}
         \begin{tabular}{|c|c|}
             \hline
-   Zerfallskanal   	& Reinheit / \%	\\ \hline
+   Zerfallskanal   	& $\eta$ / \%	\\ \hline
    \Zee				& 99.9922		\\ \hline
    \Zmm				& 99.9871		\\ \hline
    \Ztt				& 99.7672		\\ \hline
