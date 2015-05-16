@@ -36,7 +36,7 @@
   }%
   \providecommand\rotatebox[2]{#2}%
   \ifx\svgwidth\undefined%
-    \setlength{\unitlength}{1119.01544248bp}%
+    \setlength{\unitlength}{1098.3220831bp}%
     \ifx\svgscale\undefined%
       \relax%
     \else%
@@ -48,16 +48,12 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,0.39705349)%
+  \begin{picture}(1,0.18207362)%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{aufbauHFSSpektrum.pdf}}%
-    \put(0.50790092,0.40128866){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.14196365\unitlength}\centering Rubidiumzelle\end{minipage}}}%
+    \put(0.51747022,0.18638858){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.14463838\unitlength}\centering Rubidiumzelle\end{minipage}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=2]{aufbauHFSSpektrum.pdf}}%
-    \put(0.75425662,0.07013532){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.20993221\unitlength}\centering Oszilloskop\end{minipage}}}%
-    \put(0.31707352,0.09115939){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.22826401\unitlength}\centering Konstantstromquellen\\ Frequenzgeneratoren\end{minipage}}}%
-    \put(0.07549764,0.08944454){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.13889973\unitlength}\centering Netzgerät\\ Laserdiode\end{minipage}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=3]{aufbauHFSSpektrum.pdf}}%
-    \put(-0.00784246,0.36672641){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.14196365\unitlength}\centering Peltierelement\end{minipage}}}%
-    \put(0.06364896,0.33527018){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.14196365\unitlength}\centering Laserdiode\end{minipage}}}%
-    \put(0.83880461,0.34114917){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.18673834\unitlength}\centering Photodiode mit Vorverstärker\end{minipage}}}%
+    \put(-0.00799022,0.15117515){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.14463838\unitlength}\centering Peltierelement\end{minipage}}}%
+    \put(0.06484816,0.11912626){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.14463838\unitlength}\centering Laserdiode\end{minipage}}}%
+    \put(0.85460843,0.1032645){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.19025666\unitlength}\centering Photodiode\end{minipage}}}%
   \end{picture}%
 \endgroup%

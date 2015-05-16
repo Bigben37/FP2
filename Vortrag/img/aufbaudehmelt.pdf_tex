@@ -1,6 +1,6 @@
 %% Creator: Inkscape inkscape 0.91, www.inkscape.org
 %% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
-%% Accompanies image file 'aufbauEtalon.pdf' (pdf, eps, ps)
+%% Accompanies image file 'aufbaudehmelt.pdf' (pdf, eps, ps)
 %%
 %% To include the image in your LaTeX document, write
 %%   \input{<filename>.pdf_tex}
@@ -36,7 +36,7 @@
   }%
   \providecommand\rotatebox[2]{#2}%
   \ifx\svgwidth\undefined%
-    \setlength{\unitlength}{1098.3220687bp}%
+    \setlength{\unitlength}{1090.3220687bp}%
     \ifx\svgscale\undefined%
       \relax%
     \else%
@@ -48,12 +48,17 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,0.14686019)%
-    \put(0,0){\includegraphics[width=\unitlength,page=1]{aufbauEtalon.pdf}}%
-    \put(-0.00799022,0.15117515){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.14463838\unitlength}\centering Peltierelement\end{minipage}}}%
-    \put(0.06484816,0.11912626){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.14463838\unitlength}\centering Laserdiode\end{minipage}}}%
-    \put(0.85460843,0.1032645){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.19025666\unitlength}\centering Photodiode\end{minipage}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=2]{aufbauEtalon.pdf}}%
-    \put(0.29147703,0.13191249){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.14463838\unitlength}\centering Etalon\end{minipage}}}%
+  \begin{picture}(1,0.24436447)%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{aufbaudehmelt.pdf}}%
+    \put(-0.00804884,0.18982735){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.14569963\unitlength}\centering Peltierelement\end{minipage}}}%
+    \put(0.05651924,0.16047823){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.14569963\unitlength}\centering Laserdiode\end{minipage}}}%
+    \put(0.26212403,0.22892575){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.23760562\unitlength}\centering \textlambda/4-Plättchen\end{minipage}}}%
+    \put(0.85354165,0.14890245){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.19165262\unitlength}\centering Photodiode\end{minipage}}}%
+    \put(0.51393012,0.23263644){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.14569963\unitlength}\centering Rubidiumzelle\end{minipage}}}%
+    \put(0.77621375,0.03023949){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.14569963\unitlength}\centering Spule 3\end{minipage}}}%
+    \put(0.65147349,0.24871109){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.14569963\unitlength}\centering Spule 4\end{minipage}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{aufbaudehmelt.pdf}}%
+    \put(0.3874511,0.19583191){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.2346409\unitlength}\centering Neutraldichtefilter\end{minipage}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{aufbaudehmelt.pdf}}%
   \end{picture}%
 \endgroup%

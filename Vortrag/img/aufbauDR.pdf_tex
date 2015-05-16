@@ -36,7 +36,7 @@
   }%
   \providecommand\rotatebox[2]{#2}%
   \ifx\svgwidth\undefined%
-    \setlength{\unitlength}{1119.01504247bp}%
+    \setlength{\unitlength}{1098.3216831bp}%
     \ifx\svgscale\undefined%
       \relax%
     \else%
@@ -48,20 +48,16 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,0.41271611)%
+  \begin{picture}(1,0.24258464)%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{aufbauDR.pdf}}%
-    \put(0.26255163,0.39767326){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.23151311\unitlength}\centering \textlambda/4-Plättchen\end{minipage}}}%
-    \put(0.83880455,0.34114929){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.18673841\unitlength}\centering Photodiode mit Vorverstärker\end{minipage}}}%
-    \put(0.5079011,0.4012888){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.14196371\unitlength}\centering Rubidiumzelle\end{minipage}}}%
-    \put(0.73781038,0.37310362){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.14196371\unitlength}\centering RF-Sender\end{minipage}}}%
-    \put(0.77346824,0.20408157){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.14196371\unitlength}\centering Spulen 1,2\end{minipage}}}%
-    \put(0.6133211,0.41695128){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.14196371\unitlength}\centering Spule 4\end{minipage}}}%
+    \put(0.26749834,0.22725837){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.23587502\unitlength}\centering \textlambda/4-Plättchen\end{minipage}}}%
+    \put(0.85460838,0.14636116){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.19025672\unitlength}\centering Photodiode\end{minipage}}}%
+    \put(0.51747041,0.23094204){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.14463843\unitlength}\centering Rubidiumzelle\end{minipage}}}%
+    \put(0.75753846,0.20950967){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.14463843\unitlength}\centering RF-Sender\end{minipage}}}%
+    \put(0.78804107,0.03001924){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.14463843\unitlength}\centering Spulen 1,2\end{minipage}}}%
+    \put(0.62487662,0.24689961){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.14463843\unitlength}\centering Spule 4\end{minipage}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=2]{aufbauDR.pdf}}%
-    \put(0.75425689,0.07013534){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.20993228\unitlength}\centering Oszilloskop\end{minipage}}}%
-    \put(0.31707363,0.09115942){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.2282641\unitlength}\centering Konstantstromquellen\\ Frequenzgeneratoren\end{minipage}}}%
-    \put(0.07549767,0.08944457){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.13889978\unitlength}\centering Netzgerät\\ Laserdiode\end{minipage}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=3]{aufbauDR.pdf}}%
-    \put(-0.00784246,0.36672681){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.14196371\unitlength}\centering Peltierelement\end{minipage}}}%
-    \put(0.06364898,0.33527057){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.14196371\unitlength}\centering Laserdiode\end{minipage}}}%
+    \put(-0.00799022,0.19572886){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.14463843\unitlength}\centering Peltierelement\end{minipage}}}%
+    \put(0.06484819,0.16367997){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.14463843\unitlength}\centering Laserdiode\end{minipage}}}%
   \end{picture}%
 \endgroup%

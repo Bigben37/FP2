@@ -19,6 +19,20 @@
   <defs
      id="defs4">
     <marker
+       inkscape:stockid="Arrow2Send"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow2Send"
+       style="overflow:visible;"
+       inkscape:isstock="true">
+      <path
+         id="path4405"
+         style="fill-rule:evenodd;stroke-width:0.62500000;stroke-linejoin:round;"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         transform="scale(0.3) rotate(180) translate(-2.3,0)" />
+    </marker>
+    <marker
        inkscape:isstock="true"
        style="overflow:visible"
        id="marker4383"
@@ -75,21 +89,6 @@
          d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
          style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round;stroke:#000000;stroke-opacity:1;fill:#000000;fill-opacity:1"
          id="path5553" />
-    </marker>
-    <marker
-       inkscape:stockid="Arrow2Send"
-       orient="auto"
-       refY="0.0"
-       refX="0.0"
-       id="Arrow2Send"
-       style="overflow:visible;"
-       inkscape:isstock="true"
-       inkscape:collect="always">
-      <path
-         id="path4238"
-         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round;stroke:#000000;stroke-opacity:1;fill:#000000;fill-opacity:1"
-         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
-         transform="scale(0.3) rotate(180) translate(-2.3,0)" />
     </marker>
     <marker
        inkscape:stockid="Arrow2Mend"
@@ -167,22 +166,6 @@
        orient="auto"
        refY="0"
        refX="0"
-       id="Arrow2Send-6"
-       style="overflow:visible"
-       inkscape:isstock="true"
-       inkscape:collect="always">
-      <path
-         inkscape:connector-curvature="0"
-         id="path4238-3"
-         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.625;stroke-linejoin:round;stroke-opacity:1"
-         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
-         transform="matrix(-0.3,0,0,-0.3,0.69,0)" />
-    </marker>
-    <marker
-       inkscape:stockid="Arrow2Send"
-       orient="auto"
-       refY="0"
-       refX="0"
        id="marker6318-7"
        style="overflow:visible"
        inkscape:isstock="true">
@@ -217,8 +200,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.49497475"
-     inkscape:cx="430.98728"
-     inkscape:cy="363.45347"
+     inkscape:cx="948.18538"
+     inkscape:cy="286.68188"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -253,19 +236,6 @@
      inkscape:groupmode="layer"
      id="layer1"
      transform="translate(0,-308.26772)">
-    <path
-       inkscape:connector-curvature="0"
-       id="path4381"
-       d="m 435.00709,923.86402 -125.50929,0"
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1.99999988;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker4383)" />
-    <g
-       id="g4827">
-      <path
-         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1.99999988;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker5551)"
-         d="m 745.65374,932.38774 265.05856,0"
-         id="path5549"
-         inkscape:connector-curvature="0" />
-    </g>
     <circle
        style="opacity:1;fill:#edcfcf;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:1, 1;stroke-dashoffset:0;stroke-opacity:1"
        id="path4183-8"
@@ -338,20 +308,6 @@
        width="42.399899"
        id="rect4191"
        style="opacity:1;fill:#008080;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
-    <rect
-       style="opacity:1;fill:#b3b3b3;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="rect4193"
-       width="230.31477"
-       height="101.01525"
-       x="74.839005"
-       y="861.27002" />
-    <rect
-       y="861.27002"
-       x="412.61566"
-       height="101.01525"
-       width="354.76147"
-       id="rect4195"
-       style="opacity:1;fill:#e6e6e6;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
     <flowRoot
        transform="translate(759.75167,506.3394)"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:Sans;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -384,66 +340,6 @@
        d="m 798.46113,473.49131 94.57804,128.39638"
        id="path5086-5"
        inkscape:connector-curvature="0" />
-    <rect
-       style="opacity:1;fill:#00ff00;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="rect4197"
-       width="347.45764"
-       height="143.87239"
-       x="1014.839"
-       y="861.27002" />
-    <flowRoot
-       transform="matrix(1.5086207,0,0,1.4242641,1136.2011,995.85398)"
-       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:Sans;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       id="flowRoot4842-2-9"
-       xml:space="preserve"><flowRegion
-         id="flowRegion4844-7-4"><rect
-           style="text-align:center;text-anchor:middle"
-           y="-62.007248"
-           x="-62.629459"
-           height="33.441666"
-           width="194.64583"
-           id="rect4846-8-0" /></flowRegion><flowPara
-         style="font-size:25px;text-align:center;text-anchor:middle"
-         id="flowPara4848-6-2">Oszilloskop</flowPara></flowRoot>    <flowRoot
-       transform="translate(492.82816,940.1387)"
-       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:Sans;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       id="flowRoot4842-2-9-9"
-       xml:space="preserve"><flowRegion
-         id="flowRegion4844-7-4-1"><rect
-           style="text-align:center;text-anchor:middle"
-           y="-62.007248"
-           x="-62.629459"
-           height="92.013092"
-           width="319.2887"
-           id="rect4846-8-0-3" /></flowRegion><flowPara
-         style="font-size:25px;text-align:center;text-anchor:middle"
-         id="flowPara4848-6-2-5">Konstantstromquellen</flowPara><flowPara
-         style="font-size:25px;text-align:center;text-anchor:middle"
-         id="flowPara5243">Frequenzgeneratoren</flowPara></flowRoot>    <flowRoot
-       transform="translate(154.91924,942.53738)"
-       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:Sans;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       id="flowRoot4842-2-9-6"
-       xml:space="preserve"><flowRegion
-         id="flowRegion4844-7-4-5"><rect
-           style="text-align:center;text-anchor:middle"
-           y="-62.007248"
-           x="-62.629459"
-           height="69.870239"
-           width="194.28868"
-           id="rect4846-8-0-5" /></flowRegion><flowPara
-         style="font-size:25px;text-align:center;text-anchor:middle"
-         id="flowPara4848-6-2-9">Netzgerät</flowPara><flowPara
-         style="font-size:25px;text-align:center;text-anchor:middle"
-         id="flowPara5241">Laserdiode</flowPara></flowRoot>    <path
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow2Send)"
-       d="m 1294.005,645.66612 0,212.20469"
-       id="path5252"
-       inkscape:connector-curvature="0" />
-    <path
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow2Send-6)"
-       d="m 132.67491,860.77003 0,-194.5424"
-       id="path5252-3"
-       inkscape:connector-curvature="0" />
     <flowRoot
        xml:space="preserve"
        id="flowRoot4816"
@@ -474,7 +370,7 @@
        xml:space="preserve"
        id="flowRoot4918"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:Sans;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       transform="translate(1222.6096,590.46067)"><flowRegion
+       transform="translate(1222.6096,620.46067)"><flowRegion
          id="flowRegion4920"><rect
            id="rect4922"
            width="261.20386"
@@ -483,5 +379,5 @@
            y="-62.007248"
            style="text-align:center;text-anchor:middle" /></flowRegion><flowPara
          id="flowPara4924"
-         style="font-size:25px;text-align:center;text-anchor:middle">Photodiode mit Vorverstärker</flowPara></flowRoot>  </g>
+         style="font-size:25px;text-align:center;text-anchor:middle">Photodiode</flowPara></flowRoot>  </g>
 </svg>
