@@ -1,0 +1,65 @@
+%% Creator: Inkscape inkscape 0.91, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'aufbauLaser.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{1119.01542807bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.36747658)%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{aufbauLaser.pdf}}%
+    \put(-0.00784246,0.36672641){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.14196366\unitlength}\centering Peltierelement\end{minipage}}}%
+    \put(0.06364896,0.33527019){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.14196366\unitlength}\centering Laserdiode\end{minipage}}}%
+    \put(0.13672989,0.35830712){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.14196366\unitlength}\centering Linse 1\end{minipage}}}%
+    \put(0.75478868,0.37171175){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.14196366\unitlength}\centering Linse 2\end{minipage}}}%
+    \put(0.83880461,0.34114918){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.18673834\unitlength}\centering Photodiode mit Vorverstärker\end{minipage}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{aufbauLaser.pdf}}%
+    \put(0.3860952,0.33826112){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.22862433\unitlength}\centering Neutraldichtefilter\end{minipage}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{aufbauLaser.pdf}}%
+    \put(0.75425697,0.07013532){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.20993221\unitlength}\centering Oszilloskop\end{minipage}}}%
+    \put(0.07549799,0.08944454){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.13889973\unitlength}\centering Netzgerät\\ Laserdiode\end{minipage}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{aufbauLaser.pdf}}%
+  \end{picture}%
+\endgroup%

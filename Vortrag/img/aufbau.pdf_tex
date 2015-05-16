@@ -1,0 +1,76 @@
+%% Creator: Inkscape inkscape 0.91, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'aufbau.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{1111.01542807bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.41568778)%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{aufbau.pdf}}%
+    \put(-0.00789893,0.37368744){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.14298588\unitlength}\centering Peltierelement\end{minipage}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{aufbau.pdf}}%
+    \put(0.04682579,0.33768434){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.14298588\unitlength}\centering Laserdiode\end{minipage}}}%
+    \put(0.12907369,0.35656678){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.14298588\unitlength}\centering Linse 1\end{minipage}}}%
+    \put(0.19599196,0.37693321){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.14298588\unitlength}\centering Chopper\end{minipage}}}%
+    \put(0.2809464,0.35032443){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.14298588\unitlength}\centering Etalon\end{minipage}}}%
+    \put(0.2572418,0.40053661){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.23318007\unitlength}\centering \textlambda/4-Plättchen\end{minipage}}}%
+    \put(0.37275616,0.3704423){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.19099247\unitlength}\centering Linearpolarisator\end{minipage}}}%
+    \put(0.7587835,0.33982533){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.14298588\unitlength}\centering Linse 2\end{minipage}}}%
+    \put(0.8376439,0.34360566){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.18808297\unitlength}\centering Photodiode mit Vorverstärker\end{minipage}}}%
+    \put(0.50435785,0.40417819){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.14298588\unitlength}\centering Rubidiumzelle\end{minipage}}}%
+    \put(0.73592254,0.37579007){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.14298588\unitlength}\centering RF-Sender\end{minipage}}}%
+    \put(0.77183715,0.20555101){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.14298588\unitlength}\centering Spulen 1,2,3\end{minipage}}}%
+    \put(0.61053691,0.41995344){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.14298588\unitlength}\centering Spule 4\end{minipage}}}%
+    \put(0.48230697,0.19678523){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.14298588\unitlength}\centering Spule 5\end{minipage}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{aufbau.pdf}}%
+    \put(0.3816747,0.3406968){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.23027057\unitlength}\centering Neutraldichtefilter\end{minipage}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{aufbau.pdf}}%
+    \put(0.75248747,0.07064033){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.21144385\unitlength}\centering Oszilloskop\end{minipage}}}%
+    \put(0.31215637,0.0918158){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.22990766\unitlength}\centering Konstantstromquellen\\ Frequenzgeneratoren\end{minipage}}}%
+    \put(0.068841,0.0900886){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.1398999\unitlength}\centering Netzgerät\\ Laserdiode\end{minipage}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{aufbau.pdf}}%
+  \end{picture}%
+\endgroup%
