@@ -12,27 +12,26 @@
 \useoutertheme{infolines}
 \useinnertheme{default}
 \setbeamercovered{transparent}
-\setbeamertemplate{footline}[frame number]
+\setbeamertemplate{footline}[frame number] % frame number in footline
+\setbeamertemplate{itemize items}[circle]  % itemize circles
+\renewcommand\textbullet{\ensuremath{\bullet}}  % no error for bullets
+\setbeamertemplate{caption}[numbered]      % numbered captions
 \beamertemplatenavigationsymbolsempty
 
 % PACKAGES + MODIFICATIONS
 
-\usepackage[ngerman]{babel} %standard language stuff
+\usepackage[ngerman]{babel} %language and fonts
 \usepackage[utf8]{inputenc}
 \usepackage{lmodern}
 \usepackage{textgreek}
 
 \usepackage{amsmath}  % math
 \usepackage{amssymb}
+\usepackage{mathptmx}
 
 \usepackage{graphicx} %graphics
 \usepackage{float} 
 \graphicspath{{../img/}}
-
-\usepackage{chngcntr} % change behaviour of counters in different environments
-\counterwithin{figure}{section}  % number figures per section
-\numberwithin{equation}{section} % number equations per section
-\numberwithin{table}{section}    % number tables per section
 
 \usepackage{enumerate} % better way to config enumerates
 
@@ -47,16 +46,8 @@
 
 \title{Optisches Pumpen}
 \subtitle{Fortgeschrittenen-Praktikum II}
-
-% - Use the \inst{?} command only if the authors have different
-%   affiliation.
-%\author{F.~Author\inst{1} \and S.~Another\inst{2}}
 \author{Moritz Bitterling \and Benjamin Rottler}
-
-% - Use the \inst command only if there are several affiliations.
-% - Keep it simple, no one is interested in your street address.
 \institute[Universities of]{Universität Freiburg}
-
 \date{18.05.2015}
 
 
