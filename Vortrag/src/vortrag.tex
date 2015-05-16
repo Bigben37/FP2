@@ -8,59 +8,71 @@
 
 \mode<presentation>
 {
-\usetheme{Warsaw}
+\usetheme{Montpellier}
 
 \setbeamercovered{transparent}
 }
 
-\usepackage[english]{babel}
-\usepackage[latin1]{inputenc}
+% PACKAGES + MODIFICATIONS
+
+\usepackage[ngerman]{babel} %standard language stuff
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
 
 % font definitions, try \usepackage{ae} instead of the following
 % three lines if you don't like this look
-\usepackage{mathptmx}
-\usepackage[scaled=.90]{helvet}
-\usepackage{courier}
+%\usepackage{mathptmx}
+%\usepackage[scaled=.90]{helvet}
+%\usepackage{courier}
+
+\usepackage{amsmath}  % math
+\usepackage{amssymb}
+
+\usepackage{graphicx} %graphics
+\usepackage{float} 
+\graphicspath{{../img/}}
+
+\usepackage{chngcntr} % change behaviour of counters in different environments
+\counterwithin{figure}{section}  % number figures per section
+\numberwithin{equation}{section} % number equations per section
+\numberwithin{table}{section}    % number tables per section
+
+\usepackage{enumerate} % better way to config enumerates
 
 
-\usepackage[T1]{fontenc}
+% NEW COMMANDS
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\rb}[1]{$^{#1}$Rb}
+\newcommand{\difd}{\mathrm{d}}
 
+% DOCUMENT SETTINGS
 
 \title{Optisches Pumpen}
-
 \subtitle{Fortgeschrittenen-Praktikum II}
 
 % - Use the \inst{?} command only if the authors have different
 %   affiliation.
 %\author{F.~Author\inst{1} \and S.~Another\inst{2}}
-\author{\inst{1}}
+\author{Moritz Bitterling und Benjamin Rottler}
 
 % - Use the \inst command only if there are several affiliations.
 % - Keep it simple, no one is interested in your street address.
-\institute[Universities of]
-{
-\inst{1}%
-Department of Computer Science\\
-Univ of S
-\and
-\inst{2}%
-Department of Theoretical Philosophy\\
-Univ of E}
+\institute[Universities of]{Universität Freiburg}
 
 \date{18.05.2015}
 
 
 % This is only inserted into the PDF information catalog. Can be left
 % out.
-\subject{Talks}
+\subject{Optisches Pumpen}
 
 % Delete this, if you do not want the table of contents to pop up at
 % the beginning of each subsection:
-\AtBeginSubsection[]
+\AtBeginSection[]
 {
 \begin{frame}<beamer>
-\frametitle{Outline}
-\tableofcontents[currentsection,currentsubsection]
+\frametitle{Inhalt}
+\tableofcontents[currentsection,hideothersubsections]
 \end{frame}
 }
 
@@ -75,70 +87,14 @@ Univ of E}
 \titlepage
 \end{frame}
 
-\begin{frame}
-\frametitle{Outline}
-\tableofcontents
-% You might wish to add the option [pausesections]
-\end{frame}
 
 \input{01-Grundlagen}
-
-\section{Introduction}
-
-\subsection[Short First Subsection Name]{First Subsection Name}
-
-\begin{frame}
-\frametitle{}
-\framesubtitle{Subtitles are optional}
-
-\begin{itemize}
-  \item
-  \item
-\end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{}
-
-% You can create overlays
-\begin{itemize}
-  \item using the \texttt{pause} command:
-  \begin{itemize}
-    \item First item.
-    \pause
-    \item Second item.
-  \end{itemize}
-  \item using overlay specifications:
-  \begin{itemize}
-    \item<3-> First item.
-    \item<4-> Second item.
-  \end{itemize}
-  \item using the general \texttt{uncover} command:
-  \begin{itemize}
-    \uncover<5->{\item First item.}
-    \uncover<6->{\item Second item.}
-  \end{itemize}
-\end{itemize}
-\end{frame}
-
-\section*{Summary}
-
-\begin{frame}
-\frametitle<presentation>{Summary}
-
-\begin{itemize}
-  \item The \alert{first main message} of your talk in one or two lines.
-\end{itemize}
-
-% The following outlook is optional.
-\vskip0pt plus.5fill
-\begin{itemize}
-  \item Outlook
-  \begin{itemize}
-    \item Something you haven't solved.
-    \item Something else you haven't solved.
-  \end{itemize}
-\end{itemize}
-\end{frame}
+\input{02-Laser}
+\input{03-HFS}
+\input{04-Doppelresonanz}
+\input{05-Spinpraezession}
+\input{06-Dehmelt}
+\input{07-Franzen}
+\input{template}
 
 \end{document}
