@@ -48,12 +48,10 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,0.36747658)%
+  \begin{picture}(1,0.36249124)%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{aufbauEtalon.pdf}}%
     \put(-0.00784246,0.36672641){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.14196366\unitlength}\centering Peltierelement\end{minipage}}}%
     \put(0.06364896,0.33527019){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.14196366\unitlength}\centering Laserdiode\end{minipage}}}%
-    \put(0.13672989,0.35830712){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.14196366\unitlength}\centering Linse 1\end{minipage}}}%
-    \put(0.75478868,0.37171175){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.14196366\unitlength}\centering Linse 2\end{minipage}}}%
     \put(0.83880461,0.34114918){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.18673834\unitlength}\centering Photodiode mit Vorverstärker\end{minipage}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=2]{aufbauEtalon.pdf}}%
     \put(0.75425697,0.07013532){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.20993221\unitlength}\centering Oszilloskop\end{minipage}}}%

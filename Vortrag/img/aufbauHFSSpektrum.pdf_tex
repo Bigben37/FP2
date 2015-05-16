@@ -58,8 +58,6 @@
     \put(0,0){\includegraphics[width=\unitlength,page=3]{aufbauHFSSpektrum.pdf}}%
     \put(-0.00784246,0.36672641){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.14196365\unitlength}\centering Peltierelement\end{minipage}}}%
     \put(0.06364896,0.33527018){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.14196365\unitlength}\centering Laserdiode\end{minipage}}}%
-    \put(0.13672989,0.35830711){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.14196365\unitlength}\centering Linse 1\end{minipage}}}%
-    \put(0.75478868,0.37171174){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.14196365\unitlength}\centering Linse 2\end{minipage}}}%
     \put(0.83880461,0.34114917){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.18673834\unitlength}\centering Photodiode mit Vorverstärker\end{minipage}}}%
   \end{picture}%
 \endgroup%
