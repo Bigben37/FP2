@@ -12,6 +12,9 @@
 
 \setbeamercovered{transparent}
 }
+\setbeamertemplate{footline}[frame number]
+\beamertemplatenavigationsymbolsempty
+%\logo{\includegraphics[height=0.8cm]{../../img/}\vspace{220pt}}
 
 % PACKAGES + MODIFICATIONS
 
@@ -47,6 +50,7 @@
 
 % DOCUMENT SETTINGS
 
+
 \title{Optisches Pumpen}
 \subtitle{Fortgeschrittenen-Praktikum II}
 
@@ -71,7 +75,7 @@
 \AtBeginSection[]
 {
 \begin{frame}<beamer>
-\frametitle{Inhalt}
+\frametitle{}
 \tableofcontents[currentsection,hideothersubsections]
 \end{frame}
 }
@@ -87,7 +91,6 @@
 \titlepage
 \end{frame}
 
-
 \input{01-Grundlagen}
 \input{02-Laser}
 \input{03-HFS}
@@ -95,6 +98,6 @@
 \input{05-Spinpraezession}
 \input{06-Dehmelt}
 \input{07-Franzen}
-\input{template}
+%\input{template}
 
 \end{document}
