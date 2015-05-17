@@ -48,16 +48,14 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,0.24436447)%
+  \begin{picture}(1,0.19531226)%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{aufbaufranzen.pdf}}%
-    \put(-0.00804884,0.18982735){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.14569963\unitlength}\centering Peltierelement\end{minipage}}}%
-    \put(0.05945415,0.16047823){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.14569963\unitlength}\centering Laserdiode\end{minipage}}}%
-    \put(0.19971171,0.19606963){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.14569963\unitlength}\centering Chopper\end{minipage}}}%
-    \put(0.26212403,0.23332812){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.23760562\unitlength}\centering \textlambda/4-Plättchen\end{minipage}}}%
-    \put(0.85354165,0.14890245){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.19165262\unitlength}\centering Photodiode\end{minipage}}}%
-    \put(0.51393012,0.23263644){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.14569963\unitlength}\centering Rubidiumzelle\end{minipage}}}%
-    \put(0.78648594,0.03023949){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.14569963\unitlength}\centering Spule 1\end{minipage}}}%
-    \put(0.65147349,0.24871109){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.14569963\unitlength}\centering Spule 4\end{minipage}}}%
+    \put(-0.00804884,0.15615811){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.14569963\unitlength}\centering Peltierelement\end{minipage}}}%
+    \put(0.05945415,0.12680899){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.14569963\unitlength}\centering Laserdiode\end{minipage}}}%
+    \put(0.19971171,0.16240039){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.14569963\unitlength}\centering Chopper\end{minipage}}}%
+    \put(0.26212403,0.19965888){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.23760562\unitlength}\centering \textlambda/4-Plättchen\end{minipage}}}%
+    \put(0.85354165,0.11523322){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.19165262\unitlength}\centering Photodiode\end{minipage}}}%
+    \put(0.51393012,0.1989672){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.14569963\unitlength}\centering Rubidiumzelle\end{minipage}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=2]{aufbaufranzen.pdf}}%
   \end{picture}%
 \endgroup%
