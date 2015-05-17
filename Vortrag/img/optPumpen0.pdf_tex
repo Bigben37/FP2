@@ -1,0 +1,81 @@
+%% Creator: Inkscape inkscape 0.91, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'optPumpen0.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{1622.8934155bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.47349724)%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{optPumpen0.pdf}}%
+    \put(-0.01516774,0.38366648){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.07239556\unitlength}\raggedleft ${}^2\text{P}_{1/2}$\end{minipage}}}%
+    \put(0.06809908,0.41365253){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.05377875\unitlength}\centering F=2\end{minipage}}}%
+    \put(0.06809908,0.34365409){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.05377875\unitlength}\centering F=1\end{minipage}}}%
+    \put(0.00899869,0.22763535){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.02394313\unitlength}\raggedright \ \end{minipage}}}%
+    \put(0.43648864,0.41898981){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{m$_\text{F}=0$}}}%
+    \put(0.5653859,0.42374477){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{+1}}}%
+    \put(0.69360019,0.42867424){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{+2}}}%
+    \put(0.30919498,0.41569708){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{$-$1}}}%
+    \put(0.18107699,0.41076761){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{$-$2}}}%
+    \put(0.5653859,0.34191561){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{+1}}}%
+    \put(0.30919501,0.35358579){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{$-$1}}}%
+    \put(0.43725586,0.34975149){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{m$_\text{F}=0$}}}%
+    \put(-0.01516774,0.11747525){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.07239556\unitlength}\raggedleft ${}^2\text{S}_{1/2}$\end{minipage}}}%
+    \put(0.06809908,0.1474613){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.05377875\unitlength}\centering F=2\end{minipage}}}%
+    \put(0.06809908,0.07746287){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.05377875\unitlength}\centering F=1\end{minipage}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{optPumpen0.pdf}}%
+    \put(0.42663774,0.01342731){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.02394313\unitlength}\raggedright \ \end{minipage}}}%
+    \put(0.41959566,0.47679723){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.02394313\unitlength}\raggedright \ \end{minipage}}}%
+    \put(0.43648864,0.15279859){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{m$_\text{F}=0$}}}%
+    \put(0.5653859,0.15755355){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{+1}}}%
+    \put(0.69360019,0.16248302){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{+2}}}%
+    \put(0.30919498,0.14950586){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{$-$1}}}%
+    \put(0.18107699,0.14457639){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{$-$2}}}%
+    \put(0.5653859,0.07572439){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{+1}}}%
+    \put(0.30919501,0.08739457){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{$-$1}}}%
+    \put(0.43725586,0.08356027){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{m$_\text{F}=0$}}}%
+    \put(0.84831815,0.20044009){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.15168191\unitlength}\raggedleft \ \end{minipage}}}%
+  \end{picture}%
+\endgroup%

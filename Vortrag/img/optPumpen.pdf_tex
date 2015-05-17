@@ -80,5 +80,6 @@
     \put(0.4374339,0.0835943){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{m$_\text{F}=0$}}}%
     \put(0.75393312,0.39816098){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.15174367\unitlength}\centering Anregung mit \textsigma$^+$-Licht\end{minipage}}}%
     \put(0.85260875,0.20052171){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.15174367\unitlength}\centering spontane Emission von \textsigma$^+$-, \textsigma$^-$- oder \textpi-Licht\end{minipage}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{optPumpen.pdf}}%
   \end{picture}%
 \endgroup%
