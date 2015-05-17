@@ -4,7 +4,21 @@
 \subsection{Grundlagen}
 \begin{frame}
 \frametitle{Grundlagen: Spinpräzession}
+
+\begin{itemize}
+  \item Spinpräzession von Atomen im Magnetfeld $B$ mit Frequenz $f$
+\end{itemize}
+
+
+\begin{equation*}
+    f=\frac{g_\text{F} \cdot \mu_\text{B}}{h} \cdot B = \alpha \cdot B
+\end{equation*}
   
+  
+\begin{equation*}
+    \alpha = 4.665\,\text{kHz } \text{\textmu T}^{-1}
+\end{equation*}
+
 \end{frame}
 
 \subsection{Aufbau}
@@ -71,7 +85,22 @@
 \begin{frame}
 \frametitle{Auswertung: Spinpräzession}
 
-Winkelberechnung
+Horizontalkomponente des Erdmagnetfelds war nicht vollständig kompensierbar
+$\to$ Berechnung der Winkelabweichung des Messaufbaus von der Nordrichtung
+\begin{equation*}
+    \varphi = \arctan\left( \frac{B_\text{h,s}}{B_\text{h,p}} \right)
+    = (8.3 \pm 1.0)^\circ
+\end{equation*}
+
+\setbeamerfont{myfont}{size*=80}
+\usebeamerfont{myfont}
+\begin{figure}
+    \centering
+    \def\svgwidth{0.5\textwidth}
+    \input{../img/arctangans.pdf_tex}
+    \caption{Horizontalkomponenten des Erdmagnetfelds senkrecht und parallel zur Strahlrichtung.}
+\end{figure}
+\usebeamerfont{standard}
   
 \end{frame}
 
@@ -97,5 +126,21 @@ Winkelberechnung
     \includegraphics[width=\textwidth]{../img/winkel.pdf}
     \caption{Winkelabhängigkeit der Spinpräzessionsfrequenz.}  
 \end{figure} 
+  
+\end{frame}
+
+\begin{frame}
+\frametitle{Ergebnis: Spinpräzession}
+\begin{itemize}
+    \item Zusammenhang zwischen Magnetfeld und Frequenz
+    \begin{equation*}
+        \alpha^\text{exp} = 4.92 \pm 0.05\,\text{kHz } \text{\textmu T}^{-1}
+    \end{equation*}
+    \item Literaturwert
+    \begin{equation*}
+        \alpha^\text{theo} = 4.665\,\text{kHz } \text{\textmu T}^{-1}
+    \end{equation*}
+    \item Abweichung durch Umrechnung von Spulenstrom in Magnetfeldstärke?
+\end{itemize}
   
 \end{frame}
