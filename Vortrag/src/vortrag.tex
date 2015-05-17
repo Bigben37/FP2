@@ -12,7 +12,6 @@
 \useoutertheme{infolines}
 \useinnertheme{default}
 \setbeamercovered{transparent}
-\setbeamertemplate{footline}[frame number] % frame number in footline
 \setbeamertemplate{itemize items}[circle]  % itemize circles
 \renewcommand\textbullet{\ensuremath{\bullet}}  % no error for bullets
 \setbeamertemplate{caption}[numbered]      % numbered captions
@@ -63,19 +62,22 @@
 
 \AtBeginSection[]
 {
+\setbeamertemplate{footline}{} % swich off footline 
 \begin{frame}<beamer>[noframenumbering]
 \frametitle{}
 \tableofcontents[currentsection,hideothersubsections]
 \end{frame}
+\setbeamertemplate{footline}[frame number] % swich on footline 
 }
+
 
 \begin{document}
 
-\begin{frame}[noframenumbering,plain]
+\begin{frame}[noframenumbering, plain]
 \titlepage
 \end{frame}
 
-\begin{frame}[noframenumbering,plain]
+\begin{frame}[noframenumbering, plain]
 \frametitle{Inhalt}
 \tableofcontents[hideallsubsections]
 \end{frame}
