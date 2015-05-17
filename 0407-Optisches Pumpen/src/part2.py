@@ -41,6 +41,17 @@ def makeSingleGraph(file, save=True):
     g2.Draw('P')
     c.Update()
     if save and not DEBUG:
+        if 'down-etalon' in file[:-4] :
+            l = TLegend(0.15, 0.15, 0.41, 0.25)
+        elif file == 'down-hfs_zoom.tab':
+            l = TLegend(0.15, 0.3, 0.41, 0.4)
+        else:
+            l = TLegend(0.15, 0.75, 0.41, 0.85)
+        l.SetTextSize(0.03)
+        l.AddEntry(g2, 'Photodiodenspannung U_{ph}', 'l')
+        l.AddEntry(g1, 'Lasermodulation', 'l')
+        l.Draw()
+        c.Update()        
         c.Print('../img/part2/%s.pdf' % file[:-4], 'pdf')
     return ch1, ch2, c, g1, g2
 
