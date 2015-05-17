@@ -36,7 +36,7 @@
   }%
   \providecommand\rotatebox[2]{#2}%
   \ifx\svgwidth\undefined%
-    \setlength{\unitlength}{935.39158647bp}%
+    \setlength{\unitlength}{852.58403297bp}%
     \ifx\svgscale\undefined%
       \relax%
     \else%
@@ -48,8 +48,33 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,0.29547602)%
+  \begin{picture}(1,0.45230425)%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{HFSspect_theo.pdf}}%
-    \put(0.68484122,0.16881564){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\rb{85}, F:2$\to$3}}}%
+    \put(0.69014021,0.27495736){\color[rgb]{0,0,0}\rotatebox{90}{\makebox(0,0)[b]{\smash{\rb{85}, F: 2$\to$3}}}}%
+    \put(0.67171644,0.10134327){\color[rgb]{0,0,0}\rotatebox{90}{\makebox(0,0)[rb]{\smash{$+$1.92\,GHz}}}}%
+    \put(0.39007466,0.05031251){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.06233152\unitlength}\raggedright \end{minipage}}}%
+    \put(0.45863488,0.10234622){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.09584309\unitlength}\raggedright D$_1$-Linie 377\,THz \end{minipage}}}%
+    \put(0.5381958,0.01277958){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.15013183\unitlength}\raggedright \ \end{minipage}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{HFSspect_theo.pdf}}%
+    \put(0.65636055,0.27495736){\color[rgb]{0,0,0}\rotatebox{90}{\makebox(0,0)[b]{\smash{\rb{85}, F: 2$\to$3}}}}%
+    \put(0.63793678,0.10134327){\color[rgb]{0,0,0}\rotatebox{90}{\makebox(0,0)[rb]{\smash{$+$1.56\,GHz}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{HFSspect_theo.pdf}}%
+    \put(0.84402533,0.27495736){\color[rgb]{0,0,0}\rotatebox{90}{\makebox(0,0)[b]{\smash{\rb{85}, F: 2$\to$3}}}}%
+    \put(0.82560156,0.10134327){\color[rgb]{0,0,0}\rotatebox{90}{\makebox(0,0)[rb]{\smash{$+$3.67\,GHz}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{HFSspect_theo.pdf}}%
+    \put(0.95099426,0.27495736){\color[rgb]{0,0,0}\rotatebox{90}{\makebox(0,0)[b]{\smash{\rb{85}, F: 2$\to$3}}}}%
+    \put(0.93257049,0.10134327){\color[rgb]{0,0,0}\rotatebox{90}{\makebox(0,0)[rb]{\smash{$+$4.58\,GHz}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{HFSspect_theo.pdf}}%
+    \put(0.4386694,0.27495736){\color[rgb]{0,0,0}\rotatebox{90}{\makebox(0,0)[b]{\smash{\rb{85}, F: 2$\to$3}}}}%
+    \put(0.42024563,0.10134327){\color[rgb]{0,0,0}\rotatebox{90}{\makebox(0,0)[rb]{\smash{$-$1.12\,GHz}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{HFSspect_theo.pdf}}%
+    \put(0.39362985,0.27495736){\color[rgb]{0,0,0}\rotatebox{90}{\makebox(0,0)[b]{\smash{\rb{85}, F: 2$\to$3}}}}%
+    \put(0.37520608,0.10134327){\color[rgb]{0,0,0}\rotatebox{90}{\makebox(0,0)[rb]{\smash{$-$1.48\,GHz}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=7]{HFSspect_theo.pdf}}%
+    \put(0.2622645,0.27495736){\color[rgb]{0,0,0}\rotatebox{90}{\makebox(0,0)[b]{\smash{\rb{85}, F: 2$\to$3}}}}%
+    \put(0.24384073,0.10134327){\color[rgb]{0,0,0}\rotatebox{90}{\makebox(0,0)[rb]{\smash{$-$2.25\,GHz}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=8]{HFSspect_theo.pdf}}%
+    \put(0.14966563,0.27495736){\color[rgb]{0,0,0}\rotatebox{90}{\makebox(0,0)[b]{\smash{\rb{85}, F: 2$\to$3}}}}%
+    \put(0.13124186,0.10134327){\color[rgb]{0,0,0}\rotatebox{90}{\makebox(0,0)[rb]{\smash{$-$3.07\,GHz}}}}%
   \end{picture}%
 \endgroup%
