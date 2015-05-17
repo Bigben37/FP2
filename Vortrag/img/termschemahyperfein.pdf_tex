@@ -36,7 +36,7 @@
   }%
   \providecommand\rotatebox[2]{#2}%
   \ifx\svgwidth\undefined%
-    \setlength{\unitlength}{1957.2578205bp}%
+    \setlength{\unitlength}{1959.28774769bp}%
     \ifx\svgscale\undefined%
       \relax%
     \else%
@@ -48,35 +48,35 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,0.48212802)%
+  \begin{picture}(1,0.48162851)%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{termschemahyperfein.pdf}}%
-    \put(0.39822513,0.10668111){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.20436756\unitlength}\centering ${}^2\text{S}_{1/2}$\end{minipage}}}%
-    \put(0.39822513,0.4034228){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.20436756\unitlength}\centering ${}^2\text{P}_{1/2}$\end{minipage}}}%
+    \put(0.3988486,0.10657058){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.20415582\unitlength}\centering ${}^2\text{S}_{1/2}$\end{minipage}}}%
+    \put(0.3988486,0.40300483){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.20415582\unitlength}\centering ${}^2\text{P}_{1/2}$\end{minipage}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=2]{termschemahyperfein.pdf}}%
-    \put(0.83381998,0.28278754){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.16618002\unitlength}\raggedleft \ \end{minipage}}}%
-    \put(0.00000034,0.28278754){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.19047056\unitlength}\raggedright \ \end{minipage}}}%
+    \put(0.83399215,0.28249456){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.16600785\unitlength}\raggedleft \ \end{minipage}}}%
+    \put(0.00103639,0.28249456){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.19027323\unitlength}\raggedright \ \end{minipage}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=3]{termschemahyperfein.pdf}}%
-    \put(0.63171458,0.44878035){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.04459156\unitlength}\centering F=2\end{minipage}}}%
-    \put(0.63171458,0.31226282){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.04459156\unitlength}\centering F=1\end{minipage}}}%
-    \put(0.3238884,0.44059373){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.04459156\unitlength}\centering F=3\end{minipage}}}%
-    \put(0.3238884,0.35067201){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.04459156\unitlength}\centering F=2\end{minipage}}}%
-    \put(0.3238884,0.19371772){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.04459156\unitlength}\centering F=3\end{minipage}}}%
-    \put(0.3238884,0.05556525){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.04459156\unitlength}\centering F=2\end{minipage}}}%
-    \put(0.63171458,0.22561095){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.04459156\unitlength}\centering F=2\end{minipage}}}%
-    \put(0.63171458,0.02369581){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.04459156\unitlength}\centering F=1\end{minipage}}}%
-    \put(0.8215595,0.42849461){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{}}}%
-    \put(0.42178667,0.44920207){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.15441892\unitlength}\centering Feinstruktur\end{minipage}}}%
-    \put(0.57807677,0.48600276){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.15441892\unitlength}\centering Hyperfeinstruktur\end{minipage}}}%
+    \put(0.63209615,0.44831539){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.04454536\unitlength}\centering F=2\end{minipage}}}%
+    \put(0.63209615,0.3119393){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.04454536\unitlength}\centering F=1\end{minipage}}}%
+    \put(0.32458889,0.44013725){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.04454536\unitlength}\centering F=3\end{minipage}}}%
+    \put(0.32458889,0.35030869){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.04454536\unitlength}\centering F=2\end{minipage}}}%
+    \put(0.32458889,0.19351702){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.04454536\unitlength}\centering F=3\end{minipage}}}%
+    \put(0.32458889,0.05550768){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.04454536\unitlength}\centering F=2\end{minipage}}}%
+    \put(0.63209615,0.22537721){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.04454536\unitlength}\centering F=2\end{minipage}}}%
+    \put(0.63209615,0.02367126){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.04454536\unitlength}\centering F=1\end{minipage}}}%
+    \put(0.82174438,0.42805067){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{}}}%
+    \put(0.42238573,0.44873667){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.15425894\unitlength}\centering Feinstruktur\end{minipage}}}%
+    \put(0.57851391,0.48549924){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.15425894\unitlength}\centering Hyperfeinstruktur\end{minipage}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=4]{termschemahyperfein.pdf}}%
-    \put(0.74577998,0.25728826){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.19855019\unitlength}\raggedleft \normalsize{\rb{87}}\end{minipage}}}%
+    \put(0.74604337,0.2570217){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.19834448\unitlength}\raggedleft \normalsize{\rb{87}}\end{minipage}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=5]{termschemahyperfein.pdf}}%
-    \put(0.79879161,0.35082868){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{2\;\!A$_\text{P}^{87}$}}}%
-    \put(0.88980163,0.10540708){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{}}}%
-    \put(0.80142386,0.09756392){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{2\;\!A$_\text{S}^{87}$}}}%
-    \put(0.19576244,0.0975622){\color[rgb]{0,0,0}\makebox(0,0)[rb]{\smash{3\;\!A$_\text{s}^{85}$}}}%
-    \put(0.19832505,0.36919038){\color[rgb]{0,0,0}\makebox(0,0)[rb]{\smash{3\;\!A$_\text{P}^{85}$}}}%
-    \put(0.05910499,0.25728826){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.19855019\unitlength}\raggedright \normalsize{\rb{85}}\end{minipage}}}%
-    \put(0.51166821,0.28377632){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.13707777\unitlength}\raggedright D$_1$-Linie\end{minipage}}}%
+    \put(0.79900007,0.3504652){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{2\;\!A$_\text{P}^{87}$}}}%
+    \put(0.8899158,0.10529787){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{}}}%
+    \put(0.8016296,0.09746284){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{2\;\!A$_\text{S}^{87}$}}}%
+    \put(0.19659568,0.09746112){\color[rgb]{0,0,0}\makebox(0,0)[rb]{\smash{3\;\!A$_\text{S}^{85}$}}}%
+    \put(0.19915562,0.36880788){\color[rgb]{0,0,0}\makebox(0,0)[rb]{\smash{3\;\!A$_\text{P}^{85}$}}}%
+    \put(0.06007981,0.2570217){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.19834448\unitlength}\raggedright \normalsize{\rb{85}}\end{minipage}}}%
+    \put(0.51217415,0.28348231){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.13693575\unitlength}\raggedright D$_1$-Linie\end{minipage}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=6]{termschemahyperfein.pdf}}%
   \end{picture}%
 \endgroup%
