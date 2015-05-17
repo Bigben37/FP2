@@ -1,7 +1,7 @@
 %%% BEN 7.5' %%%
 
 \section{Hyperfeinstrukturspektrum}
-\subsection{Aufbau}
+\subsection{Scanrate des Lasers}
 
 
 \begin{frame}
@@ -13,36 +13,11 @@
     \centering
     \def\svgwidth{\textwidth}
     \input{../img/aufbauEtalon.pdf_tex}
-    \caption{Aufbau zur Bestimmung der Scanrate des Lasers mit Hilfe des Etalons.}
+    \caption{Aufbau zur Bestimmung der Scanrate des Lasers mit Etalon.}
 \end{figure}
 \end{frame}
 
 
-\begin{frame}
-\frametitle{Aufbau: Hyperfeinstrukturspektrum}
-\setbeamerfont{myfont}{size*=80}
-\usebeamerfont{myfont}
-\begin{figure}
-    \centering
-    \def\svgwidth{\textwidth}
-    \input{../img/aufbauHFSSpektrum.pdf_tex}
-    \caption{Aufbau zur Messung des Hyperfeinstrukturspektrums.}
-\end{figure}
-\usebeamerfont{standard}
-\begin{itemize}
-  \item \textbf{Rubidiumzelle:} Füllung mit \rb{85} und \rb{87} (T$_\text{m}=39^\circ$C)
-  und Puffergas Krypton ($p=1.5$\,mbar)
-\end{itemize}
-\end{frame}
-
-
-\begin{frame}
-\frametitle{Foto von Aufbau}
-hier ein echtes foto
-\end{frame}
-
-
-\subsection{Auswertung}
 \begin{frame}
 \frametitle{Auswertung: Bestimmung der Scanrate des Lasers}
 \begin{figure}
@@ -67,7 +42,7 @@ hier ein echtes foto
   \begin{figure}[H]
       \centering
       \includegraphics[width=\textwidth]{../img/down-etalon_zoom-etalon_calibration.pdf}
-      \caption{Frequenzdifferenz der Etalonpeaks aufgetragen gegen ihre Positionen.}
+      \caption{Frequenzdifferenz der Etalonpeaks und ihre Positionen.}
   \end{figure}
 \end{frame}
 
@@ -78,12 +53,50 @@ Fit mit
 \begin{equation*}
     \Delta \nu(t) = a + r \cdot t
 \end{equation*}
+\pause
 Scanrate $r$ des Lasers
 \begin{equation*}
     r = (9.47 \pm 0.08)\,\frac{\text{GHz}}{\text{ms}}
 \end{equation*}
 \end{frame}
 
+\subsection{Hyperfeinstruktur}
+
+\begin{frame}
+\frametitle{Aufbau: Hyperfeinstrukturspektrum}
+\setbeamerfont{myfont}{size*=80}
+\usebeamerfont{myfont}
+\begin{figure}
+    \centering
+    \def\svgwidth{\textwidth}
+    \input{../img/aufbauHFSSpektrum.pdf_tex}
+    \caption{Aufbau zur Messung des Hyperfeinstrukturspektrums.}
+\end{figure}
+\usebeamerfont{standard}
+\begin{itemize}
+  \item \textbf{Rubidiumzelle:} Füllung mit \rb{85} und \rb{87} (T$_\text{m}=39^\circ$C)
+  und Puffergas Krypton ($p=1.5$\,mbar)
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Aufbau: Strahlengang}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{../img/aufbau_strahlengang.jpg}
+    \caption{Strahlengang.}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{Aufbau: Rubidiumzelle}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{../img/aufbau_rubidiumzelle.jpg}
+    \caption{Rubidiumzelle.}
+\end{figure}
+\end{frame}
 
 \begin{frame}
 \frametitle{Auswertung: Hyperfeinstruktur-Übergänge}
@@ -100,7 +113,7 @@ Scanrate $r$ des Lasers
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{../img/down-hfs_zoom_fit.pdf}  % TODO Legend
-    \caption{Hyperfeinstrukturspektrum von Rubidium mit Fit von überlagerten Gauß-Kurven.}
+    \caption{Fit mit überlagerten Gauß-Kurven.}
 \end{figure}
 \end{frame}
 
@@ -151,6 +164,7 @@ Scanrate $r$ des Lasers
 \end{itemize}
 \end{frame}
 
+\subsection{Intervallkonstante A}
 
 \begin{frame}
 \frametitle{Auswertung: Berechnung der Intervallkonstanten $A$}
