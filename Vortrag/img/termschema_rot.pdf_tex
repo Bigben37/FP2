@@ -1,0 +1,117 @@
+%% Creator: Inkscape inkscape 0.91, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'termschema_rot.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{1955.5078205bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.54831737)%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{termschema_rot.pdf}}%
+    \put(0.39858151,0.12490638){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.20455045\unitlength}\centering ${}^2\text{S}_{1/2}$\end{minipage}}}%
+    \put(0.39858151,0.42191363){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.20455045\unitlength}\centering ${}^2\text{P}_{1/2}$\end{minipage}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{termschema_rot.pdf}}%
+    \put(0.83456617,0.30117041){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.16632874\unitlength}\raggedleft \normalsize{\rb{87}}\end{minipage}}}%
+    \put(0.00000034,0.30117041){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.19064102\unitlength}\raggedright \normalsize{\rb{85}}\end{minipage}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{termschema_rot.pdf}}%
+    \put(0.63227991,0.46731177){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.04463147\unitlength}\centering F=2\end{minipage}}}%
+    \put(0.63227991,0.33067207){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.04463147\unitlength}\centering F=1\end{minipage}}}%
+    \put(0.32417825,0.45911783){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.04463147\unitlength}\centering F=3\end{minipage}}}%
+    \put(0.32417825,0.36911563){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.04463147\unitlength}\centering F=2\end{minipage}}}%
+    \put(0.32417825,0.21202089){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.04463147\unitlength}\centering F=3\end{minipage}}}%
+    \put(0.32417825,0.07374478){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.04463147\unitlength}\centering F=2\end{minipage}}}%
+    \put(0.63227991,0.24394266){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.04463147\unitlength}\centering F=2\end{minipage}}}%
+    \put(0.63227991,0.04184682){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.04463147\unitlength}\centering F=1\end{minipage}}}%
+    \put(0.71712519,0.49877709){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.14340011\unitlength}\raggedleft m$_\text{F}$\end{minipage}}}%
+    \put(0.73221586,0.47870523){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.11651634\unitlength}\raggedleft \tiny{$+$2}\end{minipage}}}%
+    \put(0.73221586,0.4647958){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.11651634\unitlength}\raggedleft \tiny{$+$1}\end{minipage}}}%
+    \put(0.73221586,0.45088637){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.11651634\unitlength}\raggedleft \tiny{0}\end{minipage}}}%
+    \put(0.73221586,0.43697694){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.11651634\unitlength}\raggedleft \tiny{$-$1}\end{minipage}}}%
+    \put(0.73221586,0.42306751){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.11651634\unitlength}\raggedleft \tiny{$-$2}\end{minipage}}}%
+    \put(0.82229472,0.44700788){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{}}}%
+    \put(0.73221586,0.3281561){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.11651634\unitlength}\raggedleft \tiny{$-$1}\end{minipage}}}%
+    \put(0.73221586,0.31424667){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.11651634\unitlength}\raggedleft \tiny{0}\end{minipage}}}%
+    \put(0.73221586,0.30033724){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.11651634\unitlength}\raggedleft \tiny{$+$1}\end{minipage}}}%
+    \put(0.73221586,0.25655929){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.11651634\unitlength}\raggedleft \tiny{$+$2}\end{minipage}}}%
+    \put(0.73221586,0.24264986){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.11651634\unitlength}\raggedleft \tiny{$+$1}\end{minipage}}}%
+    \put(0.73221586,0.22874043){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.11651634\unitlength}\raggedleft \tiny{0}\end{minipage}}}%
+    \put(0.73221586,0.214831){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.11651634\unitlength}\raggedleft \tiny{$-$1}\end{minipage}}}%
+    \put(0.73221586,0.20092157){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.11651634\unitlength}\raggedleft \tiny{$-$2}\end{minipage}}}%
+    \put(0.73221586,0.04014074){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.11651634\unitlength}\raggedleft \tiny{$-$1}\end{minipage}}}%
+    \put(0.73221586,0.02623131){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.11651634\unitlength}\raggedleft \tiny{0}\end{minipage}}}%
+    \put(0.73221586,0.01232188){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.11651634\unitlength}\raggedleft \tiny{$+$1}\end{minipage}}}%
+    \put(0.14680276,0.50073872){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.14340011\unitlength}\raggedright m$_\text{F}$\end{minipage}}}%
+    \put(0.1496204,0.466173){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.11651634\unitlength}\raggedright \tiny{$+$2}\end{minipage}}}%
+    \put(0.1496204,0.45389998){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.11651634\unitlength}\raggedright \tiny{$+$1}\end{minipage}}}%
+    \put(0.1496204,0.44162695){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.11651634\unitlength}\raggedright \tiny{\  \ 0}\end{minipage}}}%
+    \put(0.1496204,0.42935392){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.11651634\unitlength}\raggedright \tiny{$-$1}\end{minipage}}}%
+    \put(0.1496204,0.4170809){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.11651634\unitlength}\raggedright \tiny{$-$2}\end{minipage}}}%
+    \put(0.1496204,0.47844603){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.11651634\unitlength}\raggedright \tiny{$+$3}\end{minipage}}}%
+    \put(0.1496204,0.40480787){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.11651634\unitlength}\raggedright \tiny{$-$3}\end{minipage}}}%
+    \put(0.1496204,0.38108002){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.11651634\unitlength}\raggedright \tiny{$-$2}\end{minipage}}}%
+    \put(0.1496204,0.36798879){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.11651634\unitlength}\raggedright \tiny{$-$1}\end{minipage}}}%
+    \put(0.1496204,0.35489756){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.11651634\unitlength}\raggedright \tiny{\  \ 0}\end{minipage}}}%
+    \put(0.1496204,0.34180633){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.11651634\unitlength}\raggedright \tiny{$+$1}\end{minipage}}}%
+    \put(0.1496204,0.3287151){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.11651634\unitlength}\raggedright \tiny{$+$2}\end{minipage}}}%
+    \put(0.1496204,0.21989428){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.11651634\unitlength}\raggedright \tiny{$+$2}\end{minipage}}}%
+    \put(0.1496204,0.20762125){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.11651634\unitlength}\raggedright \tiny{$+$1}\end{minipage}}}%
+    \put(0.1496204,0.19534822){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.11651634\unitlength}\raggedright \tiny{\  \ 0}\end{minipage}}}%
+    \put(0.1496204,0.1830752){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.11651634\unitlength}\raggedright \tiny{$-$1}\end{minipage}}}%
+    \put(0.1496204,0.17080217){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.11651634\unitlength}\raggedright \tiny{$-$2}\end{minipage}}}%
+    \put(0.1496204,0.2321673){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.11651634\unitlength}\raggedright \tiny{$+$3}\end{minipage}}}%
+    \put(0.1496204,0.15852914){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.11651634\unitlength}\raggedright \tiny{$-$3}\end{minipage}}}%
+    \put(0.1496204,0.08489098){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.11651634\unitlength}\raggedright \tiny{$-$2}\end{minipage}}}%
+    \put(0.1496204,0.07179975){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.11651634\unitlength}\raggedright \tiny{$-$1}\end{minipage}}}%
+    \put(0.1496204,0.05870852){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.11651634\unitlength}\raggedright \tiny{\  \ 0}\end{minipage}}}%
+    \put(0.1496204,0.0456173){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.11651634\unitlength}\raggedright \tiny{$+$1}\end{minipage}}}%
+    \put(0.1496204,0.03252607){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.11651634\unitlength}\raggedright \tiny{$+$2}\end{minipage}}}%
+    \put(0.42216413,0.46773387){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.15455711\unitlength}\centering Feinstruktur\end{minipage}}}%
+    \put(0.5785941,0.5045675){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.15455711\unitlength}\centering Hyperfeinstruktur\end{minipage}}}%
+    \put(0.66450469,0.55219558){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.26464805\unitlength}\centering Zeeman-Aufspaltung\end{minipage}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{termschema_rot.pdf}}%
+    \put(0.51212608,0.29152346){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.13720044\unitlength}\raggedright D$_1$-Linie\end{minipage}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{termschema_rot.pdf}}%
+  \end{picture}%
+\endgroup%
