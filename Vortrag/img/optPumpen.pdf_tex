@@ -1,0 +1,84 @@
+%% Creator: Inkscape inkscape 0.91, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'optPumpen.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{1622.23286863bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.47369004)%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{optPumpen.pdf}}%
+    \put(-0.01517392,0.3838227){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.07242503\unitlength}\raggedleft ${}^2\text{P}_{1/2}$\end{minipage}}}%
+    \put(0.06812681,0.41382096){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.05380065\unitlength}\centering F=2\end{minipage}}}%
+    \put(0.06812681,0.34379402){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.05380065\unitlength}\centering F=1\end{minipage}}}%
+    \put(0.00900236,0.22772804){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.02395287\unitlength}\raggedright \ \end{minipage}}}%
+    \put(0.95236576,0.23182664){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.02395287\unitlength}\raggedright \ \end{minipage}}}%
+    \put(0.43666637,0.41916041){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{m$_\text{F}=0$}}}%
+    \put(0.56561612,0.42391731){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{+1}}}%
+    \put(0.69388261,0.42884879){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{+2}}}%
+    \put(0.30932088,0.41586634){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{$-$1}}}%
+    \put(0.18115072,0.41093487){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{$-$2}}}%
+    \put(0.56561612,0.34205483){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{+1}}}%
+    \put(0.30932091,0.35372976){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{$-$1}}}%
+    \put(0.4374339,0.3498939){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{m$_\text{F}=0$}}}%
+    \put(-0.01517392,0.11752308){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.07242503\unitlength}\raggedleft ${}^2\text{S}_{1/2}$\end{minipage}}}%
+    \put(0.06812681,0.14752134){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.05380065\unitlength}\centering F=2\end{minipage}}}%
+    \put(0.06812681,0.07749441){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.05380065\unitlength}\centering F=1\end{minipage}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{optPumpen.pdf}}%
+    \put(0.42681146,0.01343277){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.02395287\unitlength}\raggedright \ \end{minipage}}}%
+    \put(0.41976651,0.47699138){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.02395287\unitlength}\raggedright \ \end{minipage}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{optPumpen.pdf}}%
+    \put(0.43666637,0.15286081){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{m$_\text{F}=0$}}}%
+    \put(0.56561612,0.1576177){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{+1}}}%
+    \put(0.69388261,0.16254918){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{+2}}}%
+    \put(0.30932088,0.14956673){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{$-$1}}}%
+    \put(0.18115072,0.14463526){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{$-$2}}}%
+    \put(0.56561612,0.07575523){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{+1}}}%
+    \put(0.30932091,0.08743016){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{$-$1}}}%
+    \put(0.4374339,0.0835943){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{m$_\text{F}=0$}}}%
+    \put(0.75393312,0.39816098){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.15174367\unitlength}\centering Anregung mit \textsigma$^+$-Licht\end{minipage}}}%
+    \put(0.85260875,0.20052171){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.15174367\unitlength}\centering spontane Emission von \textsigma$^+$-, \textsigma$^-$- oder \textpi-Licht\end{minipage}}}%
+  \end{picture}%
+\endgroup%
