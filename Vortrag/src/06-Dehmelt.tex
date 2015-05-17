@@ -36,8 +36,8 @@
     \item Orientierungszeit $\tau$
     \begin{equation*}
         \begin{split}
-            & \left(\frac{\difd n}{\difd t}\right)_{\text{Orient}} = \frac{N}{T_\text{P}}- \frac{n}{\tau} \\
-            & \frac{1}{\tau} := \frac{1}{T_\text{P}} + \frac{1}{T_\text{R}}
+            \left(\frac{\difd n}{\difd t}\right)_{\text{Orient}} &= \frac{N}{T_\text{P}}- \frac{n}{\tau} \quad \Rightarrow \quad n(t) \sim e^{-\frac{t}{\tau}} \\
+            \frac{1}{\tau} :&= \frac{1}{T_\text{P}} + \frac{1}{T_\text{R}}
         \end{split}
     \end{equation*}
     \item Pumpzeit $T_\text{P}$ ist umgekehrt proportional zur Intensität $I$
@@ -71,8 +71,15 @@
 \end{frame}
 
 \begin{frame}
-\frametitle{TODO}
-  TODO Evtl Pumpschema für $m_f=2 \to m_f=-2$  %TODO Evtl Pumpschema für mf=2 -> mf=-2
+\frametitle{Optisches Pumpen}
+\setbeamerfont{myfont}{size*=80}
+\usebeamerfont{myfont}
+\begin{figure}
+    \centering
+    \def\svgwidth{\textwidth}
+    \input{../img/optPumpen.pdf_tex}
+    \caption{Zeeman-Pumpen von \rb{85} mit \textsigma$^+$-Licht.}
+\end{figure}
 \end{frame}
 
 \subsection{Auswertung}
@@ -81,9 +88,7 @@
 \begin{figure}
     \begin{center}
         \includegraphics[width=\textwidth]{../img/65-5mA-10.pdf}
-        \caption{Spannung der Photodiode (entspricht der Transmission durch die Rubidiumzelle)
-        nach Umkehr des Magnetfelds.
-        Die Orientierungszeit $\tau$ des Fits wird durch Polarisations- und Relaxationsprozesse bestimmt.}
+        \caption{Transmission nach Umpolung des horizontalen Magnetfeldes.}
     \end{center}
 \end{figure}
 \end{frame}
@@ -108,7 +113,7 @@
 \begin{figure}
     \begin{center}
         \includegraphics[width=\textwidth]{../img/taufit.pdf}
-        \caption{Extraktion der Relaxationszeit $T_{\text{R}_\text{D}}$ aus den Messdaten für die Orientierungszeit~$\tau$.}
+        \caption{Bestimmung der Relaxationszeit $T_{\text{R}_\text{D}}$ mit Achsenabschnitt.}
     \end{center}
 \end{figure}
 \end{frame}
@@ -124,6 +129,6 @@
     \begin{equation*}
         T_{\text{R}_\text{D}}^\text{Lit.} = 6.5\,\text{ms}
     \end{equation*}
-    \item Mögliche Fehlerquelle: Andere Mechanismen
+    \item Mögliche Fehlerquelle: Von vielen Parametern abhängig
 \end{itemize}
 \end{frame}
