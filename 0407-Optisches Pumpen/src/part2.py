@@ -221,12 +221,12 @@ def makeHFSGraph(name, xmin, xmax):
     tablefitres = []
     tablepeakcount = 0
     legendInfo = []
+    isUp = name[:2] == 'up'
     if fitStartParams:
         print('got start params, starting to building fit functions')
         peakNum = 0
         offset = ch2.getY()[0]  # approx offset of underground
         slope = (ch2.getY()[-1] - ch2.getY()[0]) / (xmax - xmin)  # approx slope of underground
-        isUp = name[:2] == 'up'
         for peakparams, xstartend in fitStartParams:
             xstart, xend = xstartend
             peakcount = len(peakparams)
@@ -275,7 +275,10 @@ def makeHFSGraph(name, xmin, xmax):
 
     g2.Draw('P')
 
-    l = TLegend(0.725, 0.15, 0.99, 0.45)
+    if isUp:
+        l = TLegend(0.725, 0.15, 0.99, 0.45)
+    else:
+        l = TLegend(0.725, 0.55, 0.99, 0.85)
     l.SetTextSize(0.03)
     l.AddEntry(g2, 'Photodiodenspannung U_{ph}', 'l')
     for fitfunc, legendpeaks in legendInfo:
@@ -290,7 +293,7 @@ def makeHFSGraph(name, xmin, xmax):
     l.Draw()
 
     c.Update()
-    if True or not DEBUG:
+    if not DEBUG:
         c.Print('../img/part2/%s_fit.pdf' % name, 'pdf')
 
     return fitres

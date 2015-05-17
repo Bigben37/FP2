@@ -15,14 +15,11 @@
     \input{../img/aufbauEtalon.pdf_tex}
     \caption{Aufbau zur Bestimmung der Scanrate des Lasers mit Hilfe des Etalons.}
 \end{figure}
-
-
-
 \end{frame}
+
 
 \begin{frame}
 \frametitle{Aufbau: Hyperfeinstrukturspektrum}
-
 \setbeamerfont{myfont}{size*=80}
 \usebeamerfont{myfont}
 \begin{figure}
@@ -32,25 +29,17 @@
     \caption{Aufbau zur Messung des Hyperfeinstrukturspektrums.}
 \end{figure}
 \usebeamerfont{standard}
-
-
 \begin{itemize}
-  \item \textbf{Rubidiumzelle:} Füllung mit $^{85}$\!Rubidium\,+\,$^{87}$\!Rubidium (T$_\text{m}=39^\circ$C)
+  \item \textbf{Rubidiumzelle:} Füllung mit \rb{85} und \rb{87} (T$_\text{m}=39^\circ$C)
   und Puffergas Krypton ($p=1.5$\,mbar)
-   
 \end{itemize}
-
 \end{frame}
-
 
 
 \begin{frame}
 \frametitle{Foto von Aufbau}
-
 hier ein echtes foto
-
 \end{frame}
-
 
 
 \subsection{Auswertung}
@@ -63,17 +52,6 @@ hier ein echtes foto
 \end{figure}
 \end{frame}
 
-%\begin{frame}
-%\frametitle{Auswertung: Bestimmung der Scanrate des Lasers}
-%\begin{itemize}
-%    \item<1-> Fit der Peaks mit Breit-Wigner-Verteilung und linearem Untergrund
-%    \begin{equation*}
-%        U_\text{ph}(t) = a_\text{ph} + b_\text{ph} \cdot t + \frac{A}{\pi} \frac{s}{s^2 + (t-x)^2}
-%    \end{equation*}
-%    Amplitude $A$, Zentrum $x$ und Breiteparameter $s$
-%    \item<2-> Fit der Spannung für Lasermodulation mit Gerade
-%\end{itemize}
-%\end{frame}
 
 \begin{frame}
 \frametitle{Auswertung: Bestimmung der Scanrate des Lasers}
@@ -93,6 +71,7 @@ hier ein echtes foto
   \end{figure}
 \end{frame}
 
+
 \begin{frame}
 \frametitle{Auswertung: Bestimmung der Scanrate des Lasers}
 Fit mit
@@ -105,6 +84,7 @@ Scanrate $r$ des Lasers
 \end{equation*}
 \end{frame}
 
+
 \begin{frame}
 \frametitle{Auswertung: Hyperfeinstruktur-Übergänge}
 \begin{figure}[H]
@@ -113,6 +93,7 @@ Scanrate $r$ des Lasers
     \caption{Hyperfeinstrukturspektrum von Rubidium.}
 \end{figure}
 \end{frame}
+
 
 \begin{frame}
 \frametitle{Auswertung: Hyperfeinstruktur-Übergänge}
@@ -123,15 +104,21 @@ Scanrate $r$ des Lasers
 \end{figure}
 \end{frame}
 
-\begin{frame}
-\frametitle{Auswertung: Hyperfeinstruktur-Übergänge}
-\begin{equation*}
-    \Delta \nu_i = r \cdot \left( \mu_i - \mu_3 \right)
-\end{equation*}
-\end{frame}
 
 \begin{frame}
-\frametitle{Auswertung: Hyperfeinstruktur-Übergänge}
+\frametitle{Auswertung: Berechnung der Frequenzdifferenz}
+\begin{itemize}[<+->]
+    \item Festlegung eines Referenzpeaks (Peak 3)
+    \item Berechnung mit
+    \begin{equation*}
+        \Delta \nu_i = r \cdot \left( \mu_i - \mu_3 \right)
+    \end{equation*}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Auswertung: Vergleich mit theoretischen Werten}
 \begin{figure}
 \begin{center}
     \includegraphics[width=\textwidth]{../img/down-spectrum.pdf}
@@ -140,8 +127,9 @@ Scanrate $r$ des Lasers
 \end{figure}
 \end{frame}
 
+
 \begin{frame}
-\frametitle{Auswertung: Hyperfeinstruktur-Übergänge}
+\frametitle{Auswertung: Vergleich mit theoretischen Werten}
 \begin{itemize}[<+->]
     \item Fit mit
     \begin{equation*}
@@ -163,10 +151,34 @@ Scanrate $r$ des Lasers
 \end{itemize}
 \end{frame}
 
+
 \begin{frame}
 \frametitle{Auswertung: Berechnung der Intervallkonstanten $A$}
-TODO Bild Termschema ohne Zeeman %TODO Termschema
+\setbeamerfont{myfont}{size*=80}
+\usebeamerfont{myfont}
+\begin{figure}
+    \centering
+    \def\svgwidth{\textwidth}
+    \input{../img/termschemahyperfein.pdf_tex}
+    \caption{Hyperfeinstrukturaufspaltung der D$_1$-Linie von 
+    \rb{85} und \rb{87} mit Übergängen von S$_{1/2}$ nach P$_{1/2}.$}
+\end{figure}
 \end{frame}
+
+
+\begin{frame}
+\frametitle{Auswertung: Berechnung der Intervallkonstanten $A$}
+\setbeamerfont{myfont}{size*=80}
+\usebeamerfont{myfont}
+\begin{figure}
+    \centering
+    \def\svgwidth{\textwidth}
+    \input{../img/termschemahyperfein_linien.pdf_tex}
+    \caption{Hyperfeinstrukturaufspaltung der D$_1$-Linie von 
+    \rb{85} und \rb{87} mit Übergängen von S$_{1/2}$ nach P$_{1/2}.$}
+\end{figure}
+\end{frame}
+
 
 \begin{frame}
 \frametitle{Auswertung: Berechnung der Intervallkonstanten $A$}
@@ -178,10 +190,14 @@ TODO Bild Termschema ohne Zeeman %TODO Termschema
 \end{figure}
 \end{frame}
 
+
 \begin{frame}
 \frametitle{Auswertung: Berechnung der Intervallkonstanten $A$}
 \begin{equation*}
-    \Delta E = \Delta \nu h = A (F + 1)
+    \begin{split}
+        \Delta E &= \Delta \nu \cdot h = A (F + 1) \\
+        \Rightarrow A &= \frac{\Delta \nu \cdot h}{F + 1}
+    \end{split}
 \end{equation*}
 \begin{table}
 \caption{Errechnete HFS-Intervallkonstanten $A$ für das ${}^2\text{S}_{1/2}$ Niveau von \rb{85} und für das ${}^2\text{S}_{1/2}$- und ${}^2\text{P}_{1/2}$ Niveau von \rb{87}.}
